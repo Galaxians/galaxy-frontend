@@ -258,6 +258,8 @@ const Swap = () => {
 
   return (
     <>
+    <div className="h1 text-white">Exchange</div>
+    <div className="fs6 pink-color">Trading beyond the outer rim</div><br/>
       <TokenWarningModal
         isOpen={urlLoadedTokens.length > 0 && !dismissTokenWarning}
         tokens={urlLoadedTokens}
@@ -268,8 +270,10 @@ const Swap = () => {
         transactionType={syrupTransactionType}
         onConfirm={handleConfirmSyrupWarning}
       />
-      <CardNav />
+      
+      
       <AppBody>
+      <CardNav />
         <Wrapper id="swap-page">
           <ConfirmSwapModal
             isOpen={showConfirm}
@@ -283,10 +287,6 @@ const Swap = () => {
             onConfirm={handleSwap}
             swapErrorMessage={swapErrorMessage}
             onDismiss={handleConfirmDismiss}
-          />
-          <PageHeader
-            title={TranslateString(8, 'Exchange')}
-            description={TranslateString(1192, 'Trade tokens in an instant')}
           />
           <CardBody>
             <AutoColumn gap="md">
@@ -466,7 +466,9 @@ const Swap = () => {
             </BottomGrouping>
           </CardBody>
         </Wrapper>
+        
       </AppBody>
+      
       <AdvancedSwapDetailsDropdown trade={trade} />
     </>
   )
