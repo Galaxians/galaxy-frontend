@@ -29,15 +29,15 @@ const Menu = (props) => {
       setLang={setSelectedLanguage}
       cakePriceUsd={cakePriceUsd.toNumber()}
       links={config}
-      profile={{
-        username: profile?.username,
-        image: profile?.nft
-          ? `/images/nfts/${profile.nft?.images.sm}`
-          : undefined,
-        profileLink: "/profile",
-        noProfileLink: "/profile",
-        showPip: !profile?.username,
-      }}
+      // profile={{
+      //   username: profile?.username,
+      //   image: profile?.nft
+      //     ? `/images/nfts/${profile.nft?.images.sm}`
+      //     : undefined,
+      //   profileLink: "/profile",
+      //   noProfileLink: "/profile",
+      //   showPip: !profile?.username,
+      // }}
       {...props}
     />
   );

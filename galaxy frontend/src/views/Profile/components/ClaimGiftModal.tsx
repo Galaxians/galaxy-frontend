@@ -89,7 +89,7 @@ const ClaimGift: React.FC<ClaimGiftProps> = ({ onSuccess, onDismiss }) => {
         <Text as="p">
           {TranslateString(
             999,
-            "To make it up to you, we'll refund you the full 4 CAKE it cost to make your bunny."
+            "To make it up to you, we'll refund you the full 4 GLX it cost to make your bunny."
           )}
         </Text>
         <Text as="p" mb="8px">
@@ -112,7 +112,7 @@ const ClaimGift: React.FC<ClaimGiftProps> = ({ onSuccess, onDismiss }) => {
           onClick={handleClick}
           disabled={!canClaim}
         >
-          {TranslateString(999, "Claim Your CAKE")}
+          {TranslateString(999, "Claim Your GLX")}
         </Button>
       </div>
     </Modal>

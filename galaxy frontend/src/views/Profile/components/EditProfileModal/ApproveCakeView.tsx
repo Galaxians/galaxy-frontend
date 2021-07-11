@@ -61,7 +61,7 @@ const ApproveCakePage: React.FC<ApproveCakePageProps> = ({
             : TranslateString(999, "Cost to reactivate:")}
         </Text>
         <Text>
-          {TranslateString(999, `${getFullDisplayBalance(cost)} CAKE`)}
+          {TranslateString(999, `${getFullDisplayBalance(cost)} GLX`)}
         </Text>
       </Flex>
       <Button

@@ -82,7 +82,7 @@ const ConfirmProfileCreationModal: React.FC<Props> = ({
       <Flex justifyContent="space-between" mb="16px">
         <Text>{TranslateString(999, "Cost")}</Text>
         <Text>
-          {TranslateString(999, `${REGISTER_COST} CAKE`, {
+          {TranslateString(999, `${REGISTER_COST} GLX`, {
             num: REGISTER_COST,
           })}
         </Text>

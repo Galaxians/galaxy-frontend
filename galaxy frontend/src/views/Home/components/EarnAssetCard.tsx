@@ -50,7 +50,7 @@ const EarnAssetCard = () => {
           <Heading color="contrast" size="lg">
             in Pools
           </Heading>
-          <NavLink exact activeClassName="active" to="/syrup" id="pool-cta">
+          <NavLink exact activeClassName="active" to="/pools" id="pool-cta">
             <ArrowForwardIcon mt={30} color="primary" />
           </NavLink>
         </Flex>

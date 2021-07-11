@@ -300,7 +300,7 @@ const UserName: React.FC = () => {
         <Text color="failure" mt="16px">
           {TranslateString(
             1098,
-            `A minimum of ${REGISTER_COST} CAKE is required`,
+            `A minimum of ${REGISTER_COST} GLX is required`,
             { num: REGISTER_COST }
           )}
         </Text>

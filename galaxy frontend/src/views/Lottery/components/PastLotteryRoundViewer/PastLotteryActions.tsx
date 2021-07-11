@@ -61,7 +61,7 @@ const TicketCard: React.FC<{
       </div>
       <div>
         <ExternalLinkWrap href={contractLink}>
-          {TranslateString(356, "View on MaticExplorer")}
+          {TranslateString(356, "View on BSCExplorer")}
         </ExternalLinkWrap>
       </div>
     </Wrapper>

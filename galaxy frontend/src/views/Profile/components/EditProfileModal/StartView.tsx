@@ -53,7 +53,7 @@ const StartPage: React.FC<StartPageProps> = ({
   const cost = profile.isActive ? numberCakeToUpdate : numberCakeToReactivate;
 
   /**
-   * Check if the wallet has the required CAKE allowance to change their profile pic or reactivate
+   * Check if the wallet has the required GLX allowance to change their profile pic or reactivate
    * If they don't, we send them to the approval screen first
    */
   useEffect(() => {
@@ -88,7 +88,7 @@ const StartPage: React.FC<StartPageProps> = ({
               999,
               `${getFullDisplayBalance(
                 numberCakeToUpdate
-              )} CAKE required to change profile pic`
+              )} GLX required to change profile pic`
             )}
         </Text>
       </Flex>

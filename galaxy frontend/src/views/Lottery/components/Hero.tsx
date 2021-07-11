@@ -70,8 +70,8 @@ const Hero = () => {
     <StyledHero>
       <StyledContainer>
         <LeftWrapper>
-          <Title>{TranslateString(708, "The CAKE Lottery")}</Title>
-          <Blurb>{TranslateString(710, "Buy tickets with CAKE")}</Blurb>
+          <Title>{TranslateString(708, "The GLX Lottery")}</Title>
+          <Blurb>{TranslateString(710, "Buy tickets with GLX")}</Blurb>
           <Blurb>
             {TranslateString(
               712,
