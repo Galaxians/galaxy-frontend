@@ -5,7 +5,7 @@ import { SvgProps } from "../types";
 const Icon: React.FC<SvgProps> = (props) => {
   return (
     <Svg viewBox="0 0 512 512" {...props}>
-      <circle cx="256" cy="256" r="256" fill="url(#paint0_linear)" />
+      {/* <circle cx="256" cy="256" r="256" fill="url(#paint0_linear)" />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -35,7 +35,8 @@ const Icon: React.FC<SvgProps> = (props) => {
           <stop stopColor="#54DADE" />
           <stop offset="0.762157" stopColor="#24C7D6" />
         </linearGradient>
-      </defs>
+      </defs> */}
+      <image width="205" height="26" href={"/images/fresh/logomain.png"} />
     </Svg>
   );
 };
