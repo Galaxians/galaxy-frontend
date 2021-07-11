@@ -5,7 +5,7 @@ const farms: FarmConfig[] = [
   {
     pid: 0,
     lpSymbol: "GLX-BUSD LP",
-    tokenOnly: false,
+    isTokenOnly: false,
     lpAddresses: {
       97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776",
       56: "0xA527a61703D82139F8a06Bc30097cC9CAA2df5A6",
@@ -21,7 +21,7 @@ const farms: FarmConfig[] = [
   {
     pid: 1,
     lpSymbol: "BNB-BUSD LP",
-    tokenOnly: false,
+    isTokenOnly: false,
     lpAddresses: {
       97: "0x671477c84Df69f0283F44F813784bBC78289F382",
       56: "0x70D8929d04b60Af4fb9B58713eBcf18765aDE422",
@@ -37,7 +37,7 @@ const farms: FarmConfig[] = [
   {
     pid: 2,
     lpSymbol: "GLX-BNB LP",
-    tokenOnly: false,
+    isTokenOnly: false,
     lpAddresses: {
       97: "0x1361144C20960b9aC3d42191129139536512aAb6",
       56: "0x1b96b92314c44b159149f7e0303511fb2fc4774f",
@@ -53,7 +53,7 @@ const farms: FarmConfig[] = [
   {
     pid: 3,
     lpSymbol: "GLX",
-    tokenOnly: true,
+    isTokenOnly: true,
     lpAddresses: {
       97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776", // glx-busd
       56: "0x1b96b92314c44b159149f7e0303511fb2fc4774f",

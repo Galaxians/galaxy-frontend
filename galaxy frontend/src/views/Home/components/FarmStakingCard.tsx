@@ -65,7 +65,7 @@ const FarmedStakingCard = () => {
         </Heading>
         <CardImage
           src="/images/cake.svg"
-          alt="cake logo"
+          // alt="cake logo"
           width={64}
           height={64}
         />

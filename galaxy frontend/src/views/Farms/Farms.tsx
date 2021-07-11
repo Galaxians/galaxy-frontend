@@ -140,10 +140,10 @@ const Farms: React.FC = () => {
   const [stackedOnly, setStackedOnly] = useState(false);
 
   const activeFarms = farmsLP.filter(
-    (farm) => farm.multiplier !== "0X" && !farm.tokenOnly
+    (farm) => farm.multiplier !== "0X" && !farm.isTokenOnly
   );
   const inactiveFarms = farmsLP.filter(
-    (farm) => farm.multiplier === "0X" && !farm.tokenOnly
+    (farm) => farm.multiplier === "0X" && !farm.isTokenOnly
   );
   // samarth
   const stackedOnlyFarms = activeFarms.filter(
