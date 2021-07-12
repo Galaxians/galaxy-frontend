@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Button, Flex, Input, Text } from '@pancakeswap-libs/uikit'
+import { Button, Flex, Input, Text } from 'glx-uikit'
 import { useUserSlippageTolerance } from 'state/user/hooks'
 import QuestionHelper from '../QuestionHelper'
 
@@ -47,7 +47,7 @@ const predefinedValues = [
 ]
 
 type SlippageToleranceSettingsModalProps = {
-  translateString: (translationId: number, fallback: string) => (string)
+  translateString: (translationId: number, fallback: string) => string
 }
 
 const SlippageToleranceSettings = ({ translateString }: SlippageToleranceSettingsModalProps) => {

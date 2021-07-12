@@ -1,7 +1,7 @@
 import { CurrencyAmount, JSBI, Token, Trade } from '@pancakeswap-libs/sdk'
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { ArrowDown } from 'react-feather'
-import { CardBody, ArrowDownIcon, Button, IconButton, Text } from '@pancakeswap-libs/uikit'
+import { CardBody, ArrowDownIcon, Button, IconButton, Text } from 'glx-uikit'
 import { ThemeContext } from 'styled-components'
 import AddressInputPanel from 'components/AddressInputPanel'
 import Card, { GreyCard } from 'components/Card'
@@ -73,11 +73,11 @@ const Swap = () => {
   // swap state
   const { independentField, typedValue, recipient } = useSwapState()
   const { v2Trade, currencyBalances, parsedAmount, currencies, inputError: swapInputError } = useDerivedSwapInfo()
-  const { wrapType, execute: onWrap, inputError: wrapInputError } = useWrapCallback(
-    currencies[Field.INPUT],
-    currencies[Field.OUTPUT],
-    typedValue
-  )
+  const {
+    wrapType,
+    execute: onWrap,
+    inputError: wrapInputError,
+  } = useWrapCallback(currencies[Field.INPUT], currencies[Field.OUTPUT], typedValue)
   const showWrap: boolean = wrapType !== WrapType.NOT_APPLICABLE
   const trade = showWrap ? undefined : v2Trade
 
@@ -258,8 +258,9 @@ const Swap = () => {
 
   return (
     <>
-    <div className="h1 text-white">Exchange</div>
-    <div className="fs6 pink-color">Trading beyond the outer rim</div><br/>
+      <div className="h1 text-white">Exchange</div>
+      <div className="fs6 pink-color">Trading beyond the outer rim</div>
+      <br />
       <TokenWarningModal
         isOpen={urlLoadedTokens.length > 0 && !dismissTokenWarning}
         tokens={urlLoadedTokens}
@@ -270,10 +271,9 @@ const Swap = () => {
         transactionType={syrupTransactionType}
         onConfirm={handleConfirmSyrupWarning}
       />
-      
-      
+
       <AppBody>
-      <CardNav />
+        <CardNav />
         <Wrapper id="swap-page">
           <ConfirmSwapModal
             isOpen={showConfirm}
@@ -466,9 +466,8 @@ const Swap = () => {
             </BottomGrouping>
           </CardBody>
         </Wrapper>
-        
       </AppBody>
-      
+
       <AdvancedSwapDetailsDropdown trade={trade} />
     </>
   )

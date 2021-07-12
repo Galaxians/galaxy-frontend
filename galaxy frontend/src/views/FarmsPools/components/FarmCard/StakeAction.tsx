@@ -9,7 +9,7 @@ import {
   AddIcon,
   MinusIcon,
   useModal,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import useStake from "hooks/useStake";
 import useUnstake from "hooks/useUnstake";

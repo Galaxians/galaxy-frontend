@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react'
-import { CheckmarkCircleIcon, ErrorIcon, Flex, LinkExternal, Text, Modal, Button } from '@pancakeswap-libs/uikit'
+import { CheckmarkCircleIcon, ErrorIcon, Flex, LinkExternal, Text, Modal, Button } from 'glx-uikit'
 import { useActiveWeb3React } from 'hooks'
 import { getBscScanLink } from 'utils'
 import { isTransactionRecent, useAllTransactions } from 'state/transactions/hooks'
@@ -8,7 +8,7 @@ import Loader from 'components/Loader'
 
 type RecentTransactionsModalProps = {
   onDismiss?: () => void
-  translateString: (translationId: number, fallback: string) => (string)
+  translateString: (translationId: number, fallback: string) => string
 }
 
 // TODO: Fix UI Kit typings

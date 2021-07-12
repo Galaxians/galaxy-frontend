@@ -5,7 +5,7 @@ import {
   InjectedModalProps,
   Button,
   AutoRenewIcon,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import { useWeb3React } from "@web3-react/core";
 import { useToast } from "state/hooks";
 import { useClaimRefundContract } from "hooks/useContract";

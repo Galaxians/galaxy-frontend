@@ -9,7 +9,7 @@ import {
   Flex,
   Heading,
   PrizeIcon,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import { useProfile } from "state/hooks";
 import { Achievement } from "state/types";
 import { addPoints } from "state/profile";

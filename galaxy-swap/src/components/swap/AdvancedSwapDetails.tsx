@@ -1,6 +1,6 @@
 import React from 'react'
 import { Trade, TradeType } from '@pancakeswap-libs/sdk'
-import { Card, CardBody, Text } from '@pancakeswap-libs/uikit'
+import { Card, CardBody, Text } from 'glx-uikit'
 import useI18n from 'hooks/useI18n'
 import { Field } from '../../state/swap/actions'
 import { useUserSlippageTolerance } from '../../state/user/hooks'
@@ -45,7 +45,7 @@ function TradeSummary({ trade, allowedSlippage }: { trade: Trade; allowedSlippag
         </RowBetween>
         <RowBetween>
           <RowFixed>
-            <Text fontSize='14px'>{TranslateString(226, 'Price Impact')}</Text>
+            <Text fontSize="14px">{TranslateString(226, 'Price Impact')}</Text>
             <QuestionHelper
               text={TranslateString(
                 224,

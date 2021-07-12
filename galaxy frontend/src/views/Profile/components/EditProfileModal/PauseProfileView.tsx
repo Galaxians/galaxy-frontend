@@ -6,7 +6,7 @@ import {
   Flex,
   InjectedModalProps,
   Text,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import { useDispatch } from "react-redux";
 import { useProfile, useToast } from "state/hooks";

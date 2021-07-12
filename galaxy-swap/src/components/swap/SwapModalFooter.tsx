@@ -1,6 +1,6 @@
 import { Trade, TradeType } from '@pancakeswap-libs/sdk'
 import React, { useMemo, useState } from 'react'
-import { Text, Button } from '@pancakeswap-libs/uikit'
+import { Text, Button } from 'glx-uikit'
 import { Repeat } from 'react-feather'
 
 import useI18n from 'hooks/useI18n'
@@ -31,10 +31,10 @@ export default function SwapModalFooter({
   disabledConfirm: boolean
 }) {
   const [showInverted, setShowInverted] = useState<boolean>(false)
-  const slippageAdjustedAmounts = useMemo(() => computeSlippageAdjustedAmounts(trade, allowedSlippage), [
-    allowedSlippage,
-    trade,
-  ])
+  const slippageAdjustedAmounts = useMemo(
+    () => computeSlippageAdjustedAmounts(trade, allowedSlippage),
+    [allowedSlippage, trade]
+  )
   const { priceImpactWithoutFee, realizedLPFee } = useMemo(() => computeTradePriceBreakdown(trade), [trade])
   const severity = warningSeverity(priceImpactWithoutFee)
   const TranslateString = useI18n()

@@ -8,7 +8,7 @@ import {
   LinkExternal,
   Flex,
   Image,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import { ifosConfig } from "config/constants";
 import useI18n from "hooks/useI18n";
 import IfoCard from "./components/IfoCard";

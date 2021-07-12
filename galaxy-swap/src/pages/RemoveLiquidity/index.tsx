@@ -4,7 +4,7 @@ import { splitSignature } from '@ethersproject/bytes'
 import { Contract } from '@ethersproject/contracts'
 import { TransactionResponse } from '@ethersproject/providers'
 import { Currency, currencyEquals, ETHER, Percent, WETH } from '@pancakeswap-libs/sdk'
-import { Button, Flex, Text } from '@pancakeswap-libs/uikit'
+import { Button, Flex, Text } from 'glx-uikit'
 import { ArrowDown, Plus } from 'react-feather'
 import { RouteComponentProps } from 'react-router'
 
@@ -61,11 +61,10 @@ export default function RemoveLiquidity({
   const [currencyA, currencyB] = [useCurrency(currencyIdA) ?? undefined, useCurrency(currencyIdB) ?? undefined]
   const { account, chainId, library } = useActiveWeb3React()
   const TranslateString = useI18n()
-  const [tokenA, tokenB] = useMemo(() => [wrappedCurrency(currencyA, chainId), wrappedCurrency(currencyB, chainId)], [
-    currencyA,
-    currencyB,
-    chainId,
-  ])
+  const [tokenA, tokenB] = useMemo(
+    () => [wrappedCurrency(currencyA, chainId), wrappedCurrency(currencyB, chainId)],
+    [currencyA, currencyB, chainId]
+  )
 
   const theme = useContext(ThemeContext)
 

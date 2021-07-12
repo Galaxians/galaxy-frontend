@@ -8,7 +8,7 @@ import {
   Heading,
   Skeleton,
   Text,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import { Link as RouterLink } from "react-router-dom";
 import { useWeb3React } from "@web3-react/core";
 import nftList from "config/constants/nfts";

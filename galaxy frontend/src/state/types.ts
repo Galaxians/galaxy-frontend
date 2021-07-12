@@ -1,4 +1,4 @@
-import { Toast } from "@pancakeswap-libs/uikit";
+import { Toast } from "glx-uikit";
 import BigNumber from "bignumber.js";
 import {
   CampaignType,
