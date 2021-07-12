@@ -11,9 +11,10 @@ import EarnAPYCard from "views/Home/components/EarnAPYCard";
 import EarnAssetCard from "views/Home/components/EarnAssetCard";
 import WinCard from "views/Home/components/WinCard";
 
+// background-image: url("/images/pan-bg-mobile.svg");
 const Hero = styled.div`
   align-items: center;
-  background-image: url("/images/pan-bg-mobile.svg");
+
   background-repeat: no-repeat;
   background-position: top center;
   display: flex;
@@ -25,13 +26,13 @@ const Hero = styled.div`
   text-align: center;
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url("/images/pan-bg2.svg"), url("/images/pan-bg.svg");
     background-position: left center, right center;
     height: 165px;
     padding-top: 0;
   }
 `;
-
+// background-image: url("/images/new/kal-artwork-exchange.png"),
+// url("/images/new/kal-artwork-exchange.png");
 const Cards = styled(BaseLayout)`
   align-items: stretch;
   justify-content: stretch;

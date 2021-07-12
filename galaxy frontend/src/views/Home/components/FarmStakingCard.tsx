@@ -8,9 +8,8 @@ import useFarmsWithBalance from "hooks/useFarmsWithBalance";
 import UnlockButton from "components/UnlockButton";
 import CakeHarvestBalance from "./CakeHarvestBalance";
 import CakeWalletBalance from "./CakeWalletBalance";
-
+// background-image: url("/images/new/Galaxia-token-color-250px.png");
 const StyledFarmStakingCard = styled(Card)`
-  background-image: url("/images/cake-bg.svg");
   background-repeat: no-repeat;
   background-position: top right;
   min-height: 376px;
@@ -64,7 +63,7 @@ const FarmedStakingCard = () => {
           {TranslateString(542, "Farms & Staking")}
         </Heading>
         <CardImage
-          src="/images/cake.svg"
+          src="/images/new/Galaxia-token-color-250px.png"
           // alt="cake logo"
           width={64}
           height={64}

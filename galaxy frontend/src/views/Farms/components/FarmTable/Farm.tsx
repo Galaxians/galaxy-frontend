@@ -51,9 +51,9 @@ const Farm: React.FunctionComponent<FarmProps> = ({ image, label, pid }) => {
   return (
     <Container>
       <IconImage
-        src={`/images/farms/${image}.svg`}
+        src={`/images/farms/${image}.png`}
         alt="icon"
-        width={40}
+        width={80}
         height={40}
         mr="8px"
       />
