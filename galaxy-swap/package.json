@@ -9,7 +9,6 @@
     "@ethersproject/experimental": "^5.0.1",
     "@pancakeswap-libs/pancake-swap-core": "^0.1.0",
     "@pancakeswap-libs/sdk": "1.0.1",
-    "glx-uikit": "^0.14.1",
     "@popperjs/core": "^2.4.4",
     "@reach/dialog": "^0.10.3",
     "@reach/portal": "^0.10.3",

@@ -4,9 +4,11 @@ import { Card } from 'glx-uikit'
 
 export const BodyWrapper = styled(Card)`
   position: relative;
-  min-width: 436px;
+  min-width: 600px;
   width: 100%;
   z-index: 5;
+  background: #0B001E 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 99px #FF1FFF38;
 `
 
 /**

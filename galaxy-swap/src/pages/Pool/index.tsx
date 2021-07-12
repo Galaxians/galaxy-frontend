@@ -57,16 +57,21 @@ export default function Pool() {
 
   return (
     <>
-      <CardNav activeIndex={1} />
-      <AppBody>
-        <PageHeader
+    <div className="h1 text-white">Liquidity</div>
+    <div className="fs6 pink-color">Add liquidity to receive LP tokens</div><br/>
+    {/* <PageHeader
           title={TranslateString(262, 'Liquidity')}
           description={TranslateString(1168, 'Add liquidity to receive LP tokens')}
         >
           <Button id="join-pool-button" as={Link} to="/add/BNB">
             {TranslateString(168, 'Add Liquidity')}
           </Button>
-        </PageHeader>
+        </PageHeader> */}
+      <AppBody>
+      <CardNav activeIndex={1} />
+        
+          
+        
         <AutoColumn gap="lg" justify="center">
           <CardBody>
             <AutoColumn gap="12px" style={{ width: '100%' }}>
