@@ -288,8 +288,10 @@ const Swap = () => {
             swapErrorMessage={swapErrorMessage}
             onDismiss={handleConfirmDismiss}
           />
+          
           <CardBody>
             <AutoColumn gap="md">
+            <div>
               <CurrencyInputPanel
                 label={
                   independentField === Field.OUTPUT && !showWrap && trade
@@ -304,7 +306,8 @@ const Swap = () => {
                 onCurrencySelect={handleInputSelect}
                 otherCurrency={currencies[Field.OUTPUT]}
                 id="swap-currency-input"
-              />
+                
+              /></div>
               <AutoColumn justify="space-between">
                 <AutoRow justify={isExpertMode ? 'space-between' : 'left'} style={{ padding: '0 2rem' }}>
                   <ArrowWrapper clickable>
@@ -317,7 +320,7 @@ const Swap = () => {
                       style={{ borderRadius: '50%', textAlign:'left' }}
                       scale="sm"
                     >
-                      <ArrowDownIcon color="primary" width="29px" />
+                      <ArrowDownIcon color="primary" width="29px"/>
                     </IconButton>
                   </ArrowWrapper>
                   {recipient === null && !showWrap && isExpertMode ? (
@@ -340,6 +343,7 @@ const Swap = () => {
                 onCurrencySelect={handleOutputSelect}
                 otherCurrency={currencies[Field.INPUT]}
                 id="swap-currency-output"
+                
               />
 
               {recipient !== null && !showWrap ? (
