@@ -9,14 +9,14 @@ const Icon: React.FC<SvgProps> = (props) => {
   const secondaryColor = theme.isDark ? "#666171" : "#bdc2c4";
 
   return (
-    <Svg viewBox="0 0 32 32" {...props}>
-  <g id="Profile" transform="translate(-12 -12)">
-    <circle id="Ellipse_96" data-name="Ellipse 96" cx="16" cy="16" r="16" transform="translate(12 12)" fill="#f5f5f5"/>
-    <g id="Symbol_6_1" data-name="Symbol 6 – 1" transform="translate(20 20)">
-      <g id="Union_1" data-name="Union 1" transform="translate(0 -354)">
-        <circle id="Ellipse_3" data-name="Ellipse 3" cx="4" cy="4" r="4" transform="translate(4 354)" fill="#707070"/>
-        <path id="Path_6" data-name="Path 6" d="M8,10c-4.4,0-8,1.8-8,4v2H16V14C16,11.8,12.4,10,8,10Z" transform="translate(0 354)" fill="#707070"/>
-      </g>
+    <Svg viewBox="0 0 46 46" {...props}>
+  <g id="Group_522" data-name="Group 522" transform="translate(-1809 -27)">
+    <circle id="Ellipse_33" data-name="Ellipse 33" cx="23" cy="23" r="23" transform="translate(1809 27)" fill="#fff"/>
+    <g id="Group_141" data-name="Group 141" transform="translate(1537.885 292.924)">
+      <path id="Path_100" data-name="Path 100" d="M294.718-256.077c-1.53,0-14.351.628-14.351,13.71,0,5.68,10.339,13.59,13.46,14.926a2.265,2.265,0,0,0,1.783,0c3.121-1.335,13.458-9.141,13.46-14.926C309.072-255.449,296.248-256.077,294.718-256.077Z" fill="#440c8b" opacity="0.524"/>
+      <ellipse id="Ellipse_35" data-name="Ellipse 35" cx="4.433" cy="5.503" rx="4.433" ry="5.503" transform="translate(281.789 -244.217) rotate(-30)" fill="#fff"/>
+      <ellipse id="Ellipse_36" data-name="Ellipse 36" cx="5.503" cy="4.433" rx="5.503" ry="4.433" transform="translate(294.383 -239.118) rotate(-60)" fill="#fff"/>
+      <path id="Path_101" data-name="Path 101" d="M367.242-68.941a.314.314,0,0,1,.418-.433,8.181,8.181,0,0,0,3.563.977,7.21,7.21,0,0,0,3.376-.958.314.314,0,0,1,.431.416,4.389,4.389,0,0,1-3.807,2.747A4.761,4.761,0,0,1,367.242-68.941Z" transform="translate(-76.415 -164.269)" fill="#fff"/>
     </g>
   </g>
     </Svg>

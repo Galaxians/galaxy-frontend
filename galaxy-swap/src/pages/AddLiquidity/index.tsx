@@ -289,9 +289,12 @@ export default function AddLiquidity({
 
   return (
     <>
-      <CardNav activeIndex={1} />
+      <div className="h1 text-white">Add Liquidity</div>
+    <div className="fs6 pink-color">Add liquidity to receive LP tokens</div><br/>
+
       <AppBody>
-        <AddRemoveTabs adding />
+      <CardNav activeIndex={1} />
+        {/* <AddRemoveTabs adding /> */}
         <Wrapper>
           <TransactionConfirmationModal
             isOpen={showConfirm}
@@ -313,6 +316,7 @@ export default function AddLiquidity({
             pendingText={pendingText}
           />
           <CardBody>
+         
             <AutoColumn gap="20px">
               {noLiquidity && (
                 <ColumnCenter>
@@ -380,7 +384,7 @@ export default function AddLiquidity({
               )}
 
               {!account ? (
-                <ConnectWalletButton width="100%" />
+                <ConnectWalletButton style={{marginTop:'30px'}} width="100%" />
               ) : (
                 <AutoColumn gap="md">
                   {(approvalA === ApprovalState.NOT_APPROVED ||

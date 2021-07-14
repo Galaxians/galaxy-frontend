@@ -59,25 +59,25 @@ export default function Pool() {
     <>
     <div className="h1 text-white">Liquidity</div>
     <div className="fs6 pink-color">Add liquidity to receive LP tokens</div><br/>
-    {/* <PageHeader
-          title={TranslateString(262, 'Liquidity')}
-          description={TranslateString(1168, 'Add liquidity to receive LP tokens')}
-        >
-          <Button id="join-pool-button" as={Link} to="/add/BNB">
-            {TranslateString(168, 'Add Liquidity')}
-          </Button>
-        </PageHeader> */}
+    
       <AppBody>
       <CardNav activeIndex={1} />
-        
+      {/* <PageHeader
+         title={TranslateString(262, '')}
+          description={TranslateString(1168, '')}
+        >
           
-        
-        <AutoColumn gap="lg" justify="center">
+        </PageHeader> */}
+        <Button className="pink-gredient" style={{width:'92%',marginLeft:'4%',borderRadius:'6px'}} id="join-pool-button" as={Link} to="/add/BNB">
+            {TranslateString(168, 'Add Liquidity')}
+          </Button>
+        <AutoColumn justify="center">
           <CardBody>
             <AutoColumn gap="12px" style={{ width: '100%' }}>
               <RowBetween padding="0 8px">
                 <Text color={theme.colors.text}>{TranslateString(107, 'Your Liquidity')}</Text>
                 <Question
+
                   text={TranslateString(
                     1170,
                     'When you add liquidity, you are given pool tokens that represent your share. If you don’t see a pool you joined in this list, try importing a pool below.'
@@ -86,7 +86,7 @@ export default function Pool() {
               </RowBetween>
 
               {!account ? (
-                <LightCard padding="40px">
+                <LightCard style={{width:'100%', borderRadius:'6px'}} padding="40px">
                   <Text color="textDisabled" textAlign="center">
                     {TranslateString(156, 'Connect to a wallet to view your liquidity.')}
                   </Text>

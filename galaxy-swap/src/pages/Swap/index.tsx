@@ -306,7 +306,7 @@ const Swap = () => {
                 id="swap-currency-input"
               />
               <AutoColumn justify="space-between">
-                <AutoRow justify={isExpertMode ? 'space-between' : 'center'} style={{ padding: '0 1rem' }}>
+                <AutoRow justify={isExpertMode ? 'space-between' : 'left'} style={{ padding: '0 2rem' }}>
                   <ArrowWrapper clickable>
                     <IconButton
                       variant="tertiary"
@@ -314,10 +314,10 @@ const Swap = () => {
                         setApprovalSubmitted(false) // reset 2 step UI for approvals
                         onSwitchTokens()
                       }}
-                      style={{ borderRadius: '50%' }}
+                      style={{ borderRadius: '50%', textAlign:'left' }}
                       scale="sm"
                     >
-                      <ArrowDownIcon color="primary" width="24px" />
+                      <ArrowDownIcon color="primary" width="29px" />
                     </IconButton>
                   </ArrowWrapper>
                   {recipient === null && !showWrap && isExpertMode ? (

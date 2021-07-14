@@ -19,7 +19,7 @@ const InputRow = styled.div<{ selected: boolean }>`
   padding: ${({ selected }) => (selected ? '0.75rem 0.5rem 0.75rem 1rem' : '0.75rem 0.75rem 0.75rem 1rem')};
 `
 const CurrencySelect = styled.button<{ selected: boolean }>`
-  align-items: center;
+  align-items: left;
   height: 34px;
   font-size: 16px;
   font-weight: 500;
@@ -142,6 +142,7 @@ export default function CurrencyInputPanel({
             </>
           )}
           <CurrencySelect
+            style={{textAlign:'left'}}
             selected={!!currency}
             className="open-currency-select-button"
             onClick={() => {
