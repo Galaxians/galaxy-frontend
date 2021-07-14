@@ -29,7 +29,7 @@ const StyledNav = styled.nav<{ showMenu: boolean }>`
   width: 100%;
   height: ${MENU_HEIGHT}px;
   // background-color: ${({ theme }) => theme.nav.background};
-  background-color:#0B001E;
+  background-color: #0b001e;
   border-bottom: solid 2px rgba(133, 133, 133, 0.1);
   z-index: 20;
   transform: translate3d(0, 0, 0);
@@ -128,7 +128,7 @@ const Menu: React.FC<NavProps> = ({
           {profile && <Avatar profile={profile} />}
         </Flex>
       </StyledNav>
-      <BodyWrapper>
+      {/* <BodyWrapper>
         <Panel
           isPushed={isPushed}
           isMobile={isMobile}
@@ -146,7 +146,7 @@ const Menu: React.FC<NavProps> = ({
           {children}
         </Inner>
         <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
-      </BodyWrapper>
+      </BodyWrapper> */}
     </Wrapper>
   );
 };
