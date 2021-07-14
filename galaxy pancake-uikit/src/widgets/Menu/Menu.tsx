@@ -128,8 +128,8 @@ const Menu: React.FC<NavProps> = ({
           {profile && <Avatar profile={profile} />}
         </Flex>
       </StyledNav>
-      {/* <BodyWrapper>
-        <Panel
+      {/* <BodyWrapper> */}
+      {/* <Panel
           isPushed={isPushed}
           isMobile={isMobile}
           showMenu={showMenu}
@@ -141,12 +141,12 @@ const Menu: React.FC<NavProps> = ({
           cakePriceUsd={cakePriceUsd}
           pushNav={setIsPushed}
           links={links}
-        />
-        <Inner isPushed={isPushed} showMenu={showMenu}>
-          {children}
-        </Inner>
-        <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
-      </BodyWrapper> */}
+        /> */}
+      <Inner isPushed={isPushed} showMenu={showMenu}>
+        {children}
+      </Inner>
+      <MobileOnlyOverlay show={isPushed} onClick={() => setIsPushed(false)} role="presentation" />
+      {/* </BodyWrapper> */}
     </Wrapper>
   );
 };
