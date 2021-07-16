@@ -23,11 +23,10 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   height: 34px;
   font-size: 16px;
   font-weight: 500;
-  //background-color: transparent;
- // background-color: #271048;
+
   background-color: #FF00FF;
   color: ${({ selected, theme }) => (selected ? theme.colors.text : '#FFFFFF')};
-  border-radius: 12px;
+  border-radius: 4px;
   outline: none;
   cursor: pointer;
   user-select: none;
@@ -112,39 +111,14 @@ export default function CurrencyInputPanel({
   }, [setModalOpen])
   return (
     <InputPanel id={id}>
+
+
+
+
       <Container hideInput={hideInput}>
-        {!hideInput && (
-          <LabelRow>
-            <RowBetween>
-              <Text fontSize="14px">{translatedLabel}</Text>
-              {account && (
-                <Text onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
-                  {!hideBalance && !!currency && selectedCurrencyBalance
-                    ? `Balance: ${selectedCurrencyBalance?.toSignificant(6)}`
-                    : ' -'}
-                </Text>
-              )}
-            </RowBetween>
-          </LabelRow>
-        )}
-        <InputRow style={hideInput ? { padding: '0', borderRadius: '8px' } : {}} selected={disableCurrencySelect}>
-          {!hideInput && (
-            <>
-              <NumericalInput
-                className="token-amount-input"
-                value={value}
-                onUserInput={(val) => {
-                  onUserInput(val)
-                }}
-              />
-              {account && currency && showMaxButton && label !== 'To' && (
-                <Button onClick={onMax} scale="sm" variant="text">
-                  MAX
-                </Button>
-              )}
-            </>
-          )}
-          <CurrencySelect
+    <div className="row">
+      <div className="col-auto" style={{marginLeft:'25px',marginTop:'21px', width:'166px'}} >
+      <CurrencySelect
             style={{textAlign:'left'}}
             selected={!!currency}
             className="open-currency-select-button"
@@ -171,13 +145,54 @@ export default function CurrencyInputPanel({
                         currency.symbol.length - 5,
                         currency.symbol.length
                       )}`
-                    : currency?.symbol) || TranslateString(1196, 'Select a currency')}
+                    : currency?.symbol) || TranslateString(1196, 'Select a Token')}
                 </Text>
               )}
               {!disableCurrencySelect && <ChevronDownIcon />}
             </Aligner>
           </CurrencySelect>
+</div>
+
+<div className="col-auto p-2">
+  <div className="dark-input rounded fs-2" style={{width:'355px'}}>
+
+        {!hideInput && (
+          <LabelRow>
+            <RowBetween>
+              {/* <Text fontSize="14px">{translatedLabel}</Text> */}
+              {account && (
+                <Text onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
+                  {!hideBalance && !!currency && selectedCurrencyBalance
+                    ? `Balance: ${selectedCurrencyBalance?.toSignificant(6)}`
+                    : ' -'}
+                </Text>
+              )}
+            </RowBetween>
+          </LabelRow>
+        )}
+
+        <InputRow style={hideInput ? { padding: '0', borderRadius: '8px' } : {}} selected={disableCurrencySelect}>
+          {!hideInput && (
+            <>
+              <NumericalInput
+                className="token-amount-input"
+                value={value}
+                onUserInput={(val) => {
+                  onUserInput(val)
+                }}
+              />
+              {account && currency && showMaxButton && label !== 'To' && (
+                <Button onClick={onMax} scale="sm" variant="text">
+                  MAX
+                </Button>
+              )}
+            </>
+          )}
+          
         </InputRow>
+        </div>
+      </div>
+    </div>
       </Container>
       {!disableCurrencySelect && onCurrencySelect && (
         <CurrencySearchModal

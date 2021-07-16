@@ -62,15 +62,16 @@ export default function Pool() {
     
       <AppBody>
       <CardNav activeIndex={1} />
+      <div className="setting-icon" />
       {/* <PageHeader
          title={TranslateString(262, '')}
           description={TranslateString(1168, '')}
         >
           
         </PageHeader> */}
-        <Button className="pink-gredient" style={{width:'92%',marginLeft:'4%',borderRadius:'6px'}} id="join-pool-button" as={Link} to="/add/BNB">
+        <Button className="pink-gredient" style={{width:'92%',marginLeft:'4%',borderRadius:'4px'}} id="join-pool-button" as={Link} to="/add/BNB">
             {TranslateString(168, 'Add Liquidity')}
-          </Button>
+        </Button>
         <AutoColumn justify="center">
           <CardBody>
             <AutoColumn gap="12px" style={{ width: '100%' }}>
@@ -86,7 +87,7 @@ export default function Pool() {
               </RowBetween>
 
               {!account ? (
-                <LightCard style={{width:'100%', borderRadius:'6px'}} padding="40px">
+                <LightCard style={{width:'100%', borderRadius:'6px', borderColor:'#696272', background:'#696272'}} padding="40px">
                   <Text color="textDisabled" textAlign="center">
                     {TranslateString(156, 'Connect to a wallet to view your liquidity.')}
                   </Text>

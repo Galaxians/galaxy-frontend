@@ -11,16 +11,18 @@ const StyledNav = styled.div`
 function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
   const TranslateString = useI18n()
   return (
-    <StyledNav style={{marginTop:'20px',marginLeft:'25px',borderRadius: '6px',backgroundColor: '#0B001E'}}>
-      <ButtonMenu activeIndex={activeIndex} scale="sm" variant="subtle">
-        <ButtonMenuItem style={{padding:'25px',background: '#271049', border:'1px solid #FF00FF',borderRadius: '6px'}} id="swap-nav-link" to="/swap" as={Link}>
+    <StyledNav style={{marginLeft:'25px',borderRadius: '4px'}}>
+      <div className='row mt-4'>
+      <div className="col-auto col-md-8" style={{background: '#0B001E'}}>
+      <ButtonMenu activeIndex={activeIndex} scale="sm">
+        <ButtonMenuItem style={{paddingLeft:'35px',paddingRight:'35px',paddingTop:'25px',paddingBottom:'25px',background: '#271049', border:'1px solid #FF00FF',borderRadius: '4px'}} id="swap-nav-link" to="/swap" as={Link}>
           {TranslateString(1142, 'Exchange')}
         </ButtonMenuItem>
-        <ButtonMenuItem style={{padding:'25px',background: '#271049', borderRadius: '6px'}} id="pool-nav-link" to="/pool" as={Link}>
+        <ButtonMenuItem style={{paddingLeft:'35px',paddingRight:'35px',paddingTop:'25px',paddingBottom:'25px',background: '#271049', borderRadius: '4px'}} id="pool-nav-link" to="/pool" as={Link}>
           {TranslateString(262, 'Pool')}
         </ButtonMenuItem>
         <ButtonMenuItem
-          style={{padding:'25px',background: '#271049', borderRadius: '6px'}}
+          style={{paddingLeft:'35px',paddingRight:'35px',paddingTop:'25px',paddingBottom:'25px',background: '#271049', borderRadius: '4px'}}
           id="pool-nav-link"
           as="a"
           href="https://www.binance.org/en/bridge?utm_source=PancakeSwap"
@@ -30,8 +32,16 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
           Bridge
         </ButtonMenuItem>
       </ButtonMenu>
-
+      </div>
+        <div className="col-auto col-md-4 gx-5">
+          <ButtonMenuItem className="setting-icon"/>
+          <ButtonMenuItem className="order-history-icon" style={{marginLeft:'20px'}} />
+        </div>
+      </div>
+      
+      
     </StyledNav>
+    
   )
 }
 

@@ -11,6 +11,20 @@ background-repeat: no-repeat;
 background-position-x: right;
 padding: 0;
 }
+.setting-icon{
+background: url(../img/settings-icon.png);
+background-size: cover;
+background-repeat: no-repeat;
+background-position-x: right;
+margin-left: 20px;
+}
+.order-history-icon{
+  background: url(../img/Order-history-icon.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  padding: 0;
+  }
 
 .top-nav-bg{
 background: #0B001E 0% 0% no-repeat padding-box;
