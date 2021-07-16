@@ -1,6 +1,6 @@
 {
   "name": "glx-uikit",
-  "version": "0.15.4",
+  "version": "0.15.6",
   "description": "Set of UI components for pancake projects",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",

@@ -31,7 +31,7 @@ const StyledModal = styled.div`
 const ModalHeader = styled.div`
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #e9eaeb;
+  border-bottom: 1px solid #3c3742;
   align-items: center;
   padding: 12px 24px;
 `;

@@ -23,14 +23,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   height: 34px;
   font-size: 16px;
   font-weight: 500;
-<<<<<<< Updated upstream
-
-  background-color: #FF00FF;
-=======
-  //background-color: transparent;
-  // background-color: #271048;
   background-color: #ff00ff;
->>>>>>> Stashed changes
   color: ${({ selected, theme }) => (selected ? theme.colors.text : '#FFFFFF')};
   border-radius: 4px;
   outline: none;
@@ -123,7 +116,7 @@ export default function CurrencyInputPanel({
             <CurrencySelect
               style={{ textAlign: 'left' }}
               selected={!!currency}
-              className="open-currency-select-button"
+              // className="open-currency-select-button"
               onClick={() => {
                 if (!disableCurrencySelect) {
                   setModalOpen(true)
