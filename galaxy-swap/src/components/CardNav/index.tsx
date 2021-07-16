@@ -29,8 +29,8 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
         >
           Bridge
         </ButtonMenuItem>
-
       </ButtonMenu>
+
     </StyledNav>
   )
 }

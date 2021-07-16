@@ -18,13 +18,14 @@ export default function Navbar() {
   const history = useHistory()
 
   return (
-    <div className="container">
+    <div className="container-fluid top-nav-bg">
       <nav className="navbar navbar-light navbar-expand-xl">
         <div className="container">
           <a className="navbar-brand" href="/">
             &nbsp;
-            <img alt="" src="assets/img/axia_blue_logo.png" />
-          </a>
+            <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px"}} /></a>
+            <span className="pink-color small mt-2">Powered by GalaxyProtocol</span>
+          
           <button type="submit" data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="/navcol-1">
             <span className="visually-hidden">Toggle navigation</span>
             <span className="navbar-toggler-icon" />
@@ -32,56 +33,19 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navcol-1">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link" href="https://axiadefi.zeeve.net/">
-                  Home
+                <a className="nav-link text-white" href="https://axiadefi.zeeve.net/">
+                Redeem Galaxia
+                </a>
+              </li>
+              
+              <li className="nav-item">
+                <a className="nav-link text-white" href="https://axiadefi.zeeve.net/farms">
+                Meet our Team
                 </a>
               </li>
               <li className="nav-item">
-                <select
-                  style={{
-                    border: 'none',
-                    background: 'none',
-                    marginTop: '3px',
-                    marginRight: '8px',
-                    marginLeft: '8px',
-                  }}
-                  onClick={(e) => {
-                    console.log(e.currentTarget.value)
-                    if (e.currentTarget.value === 'exchange') {
-                      history.push('/Swap')
-                      console.log('hello')
-                      window.location.reload()
-                    }
-                    if (e.currentTarget.value === 'liquidity') {
-                      history.push('/Pool')
-                      console.log('hello')
-                      window.location.reload()
-                    }
-                  }}
-                >
-                  <option>Trade</option>
-                  <option value="exchange">Exchange</option>
-                  <option value="liquidity">Liquidity</option>
-                </select>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="https://axiadefi.zeeve.net/farms">
-                  Farms
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="https://axiadefi.zeeve.net/nests">
-                  Pools
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="https://axiadefi.zeeve.net/lotterys">
-                  Lottery
-                </a>
-              </li>
-              <li className="nav-item mr-15">
-                <a className="nav-link" href="/Analytics">
-                  Analytics
+                <a className="nav-link  text-white" href="https://axiadefi.zeeve.net/nests">
+                Contact Us
                 </a>
               </li>
             </ul>
@@ -106,6 +70,9 @@ export default function Navbar() {
                   Connect
                 </Button>
               )}
+
+              <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', width:'40px'}} />
+
             </div>
           </span>
         </div>

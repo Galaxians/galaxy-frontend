@@ -309,7 +309,7 @@ const Swap = () => {
                 
               /></div>
               <AutoColumn justify="space-between">
-                <AutoRow justify={isExpertMode ? 'space-between' : 'left'} style={{ padding: '0 2rem' }}>
+                <AutoRow justify={isExpertMode ? 'space-between' : 'left'} style={{ padding: '0 2rem', color:'#000000' }}>
                   <ArrowWrapper clickable>
                     <IconButton
                       variant="tertiary"

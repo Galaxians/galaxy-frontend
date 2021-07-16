@@ -3,6 +3,8 @@ import { HashRouter, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
 import Navbar from 'pagecomponent/Navbar'
+// @ts-ignore
+import Leftnav from 'pagecomponent/Leftnav'
 import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
 import { RedirectDuplicateTokenIds, RedirectOldAddLiquidityPathStructure } from './AddLiquidity/redirects'
@@ -38,10 +40,10 @@ const BodyWrapper = styled.div`
   overflow-x: hidden;
   z-index: 1;
   justify-content: center;
-  background-image: url('/images/new/kal-artwork-exchange.png');
-  background-repeat: no-repeat;
-  background-position: bottom 24px center;
-  background-size: 90%;
+  // background-image: url('/images/new/kal-artwork-exchange.png');
+  // background-repeat: no-repeat;
+  // background-position: bottom 24px top;
+  // background-size: 80%;
 
   ${({ theme }) => theme.mediaQueries.xs} {
     background-size: auto;
@@ -49,13 +51,12 @@ const BodyWrapper = styled.div`
 
   ${({ theme }) => theme.mediaQueries.lg} {
     background-image: url('/images/arch-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg'),
-      url('/images/new/kal-artwork-exchange.png');
+    //  url('/images/new/kal-artwork-exchange.png');
     background-repeat: no-repeat;
     background-position: center;
     min-height: 90vh;
   }
 `
-
 const Marginer = styled.div`
   margin-top: 5rem;
 `
@@ -124,6 +125,7 @@ export default function App() {
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
               {/* <Menu> */}
               <Navbar />
+              <Leftnav />
               <BodyWrapper>
                 <Popups />
                 <Web3ReactManager>
