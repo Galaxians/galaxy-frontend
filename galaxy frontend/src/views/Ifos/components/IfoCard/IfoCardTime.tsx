@@ -51,7 +51,7 @@ const IfoCardTime: React.FC<IfoCardTimeProps> = ({
     <Details>
       <Countdown>{`${timeUntil.days}d, ${timeUntil.hours}h, ${timeUntil.minutes}m until ${suffix}`}</Countdown>
       <Link
-        href={`https://explorer-mumbai.maticvigil.com/block/countdown/${block}`}
+        href={`https://testnet.bscscan.com/block/countdown/${block}`}
         target="blank"
         rel="noopener noreferrer"
         ml="8px"

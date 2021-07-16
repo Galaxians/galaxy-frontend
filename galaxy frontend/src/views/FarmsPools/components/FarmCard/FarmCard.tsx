@@ -211,9 +211,15 @@ const FarmCard: React.FC<FarmCardProps> = ({
       <ExpandingWrapper expanded={showExpandableSection}>
         <DetailsSection
           removed={removed}
-          maticExplorerAddress={`https://explorer-mumbai.maticvigil.com/address/${
-            farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
-          }`}
+          maticExplorerAddress={
+            farm.isTokenOnly
+              ? `https://testnet.bscscan.com/token/${
+                  farm.tokenAddresses[process.env.REACT_APP_CHAIN_ID]
+                }`
+              : `https://testnet.bscscan.com/token/${
+                  farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
+                }`
+          }
           totalValueFormated={totalValueFormated}
           lpLabel={lpLabel}
           addLiquidityUrl={addLiquidityUrl}

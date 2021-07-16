@@ -211,7 +211,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
       <ExpandingWrapper expanded={showExpandableSection}>
         <DetailsSection
           removed={removed}
-          maticExplorerAddress={`https://explorer-mumbai.maticvigil.com/address/${
+          maticExplorerAddress={`https://testnet.bscscan.com/address/${
             farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
           }`}
           totalValueFormated={totalValueFormated}

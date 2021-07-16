@@ -101,7 +101,7 @@ const PublicProfile = () => {
                 <Username>{`@${profile.username}`}</Username>
                 <Flex alignItems="center">
                   <AddressLink
-                    href={`https://explorer-mumbai.maticvigil.com/address/${account}`}
+                    href={`https://testnet.bscscan.com/address/${account}`}
                     color="text"
                     external
                   >
