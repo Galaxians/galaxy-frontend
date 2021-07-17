@@ -174,10 +174,17 @@ const FarmCard: React.FC<FarmCardProps> = ({
         farmImage={farmImage}
         tokenSymbol={farm.tokenSymbol}
       />
-      {!removed && (
-        <Flex justifyContent="space-between" alignItems="center">
-          <Text>{TranslateString(736, "APR")}:</Text>
-          <Text bold style={{ display: "flex", alignItems: "center" }}>
+      
+      <CardActionsContainer
+        farm={farm}
+        account={account}
+        addLiquidityUrl={addLiquidityUrl}
+      />
+
+{!removed && (
+        <Flex justifyContent="space-between" alignItems="center" className="mt-4">
+          <Text className="small pink-color">{TranslateString(736, "APR")}:</Text>
+          <Text style={{ display: "flex", alignItems: "center" }} className="small text-white">
             {farm.apy ? (
               <>
                 <ApyButton
@@ -194,15 +201,11 @@ const FarmCard: React.FC<FarmCardProps> = ({
           </Text>
         </Flex>
       )}
-      <Flex justifyContent="space-between">
-        <Text>{TranslateString(318, "Earn")}:</Text>
-        <Text bold>{earnLabel}</Text>
+      <Flex justifyContent="space-between" >
+        <Text className="small pink-color">{TranslateString(318, "Earn")}:</Text>
+        <Text className="small text-white">{earnLabel}</Text>
       </Flex>
-      <CardActionsContainer
-        farm={farm}
-        account={account}
-        addLiquidityUrl={addLiquidityUrl}
-      />
+
       <Divider />
       <ExpandableSectionButton
         onClick={() => setShowExpandableSection(!showExpandableSection)}

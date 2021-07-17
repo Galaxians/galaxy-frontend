@@ -25,7 +25,7 @@ border-radius: 11px;
 opacity: 1;
 }
 .pink-color{
-  color: #FF1FFF;
+  color: #FF1FFF !important;
 }
 .pink-dropdown{
 background: #FF00FF 0% 0% no-repeat padding-box;
