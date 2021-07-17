@@ -67,8 +67,8 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       />
     ) : (
       <Button
-        mt="8px"
-        width="100%"
+        width="70%"
+        className="btn rounded mt-5 mb-4"
         disabled={requestedApproval}
         onClick={handleApprove}
       >
@@ -79,25 +79,24 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
 
   return (
     <Action>
+      <HarvestAction earnings={earnings} pid={pid} />
       <Flex>
         <Text
-          bold
+          className="pink-color"
           textTransform="uppercase"
-          color="secondary"
-          fontSize="12px"
+          fontSize="14px"
           pr="3px"
         >
           {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
           GLX
         </Text>
-        <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
+        <Text className="pink-color mb-3" fontSize="14px">
           {TranslateString(1072, "Earned")}
         </Text>
       </Flex>
-      <HarvestAction earnings={earnings} pid={pid} />
+
       <Flex>
         <Text
-          bold
           textTransform="uppercase"
           color="secondary"
           fontSize="12px"

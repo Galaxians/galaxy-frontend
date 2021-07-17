@@ -54,7 +54,12 @@ const DepositModal: React.FC<DepositModalProps> = ({
         inputTitle={TranslateString(1070, "Stake")}
       />
       <ModalActions>
-        <Button variant="secondary" onClick={onDismiss} width="100%">
+        <Button
+          className="mt-4 mb-2"
+          variant="secondary"
+          onClick={onDismiss}
+          width="100%"
+        >
           {TranslateString(462, "Cancel")}
         </Button>
         <Button

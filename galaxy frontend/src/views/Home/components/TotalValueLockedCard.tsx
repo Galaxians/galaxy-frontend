@@ -28,7 +28,7 @@ const TotalValueLockedCard = () => {
         </Heading>
         {data ? (
           <>
-            <Heading size="xl">e</Heading>
+            <Heading size="xl">{data.toNumber().toFixed(2)}</Heading>
             <Text color="textSubtle">
               {TranslateString(764, "Across all LPs and Syrup Pools")}
             </Text>

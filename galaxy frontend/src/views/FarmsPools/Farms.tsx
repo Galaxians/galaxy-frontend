@@ -50,7 +50,7 @@ const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 10px;
-
+  width: 30%;
   ${Text} {
     margin-left: 8px;
   }
@@ -69,7 +69,7 @@ const FilterContainer = styled.div`
   padding: 8px 0px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: auto;
+    width: 100%;
     padding: 0;
   }
 `;
@@ -87,7 +87,8 @@ const ViewControls = styled.div`
 
   ${({ theme }) => theme.mediaQueries.sm} {
     justify-content: flex-start;
-    width: auto;
+
+    width: 100%;
 
     > div {
       padding: 0;
@@ -103,11 +104,13 @@ const StyledImage = styled(Image)`
 
 const Header = styled.div`
   padding: 32px 0px;
-  background: ${({ theme }) => theme.colors.gradients.bubblegum};
+  //background: ${({ theme }) => theme.colors.gradients.bubblegum};
+  background: transperent;
+  color: #ffffff !important;
 
   padding-left: 16px;
   padding-right: 16px;
-
+  text-align: center;
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-left: 24px;
     padding-right: 24px;
@@ -360,7 +363,11 @@ const Farms: React.FC = () => {
         sortable: column.sortable,
       }));
 
-      return <Table data={rowData} columns={columns} />;
+      return (
+        <div className="pink-gredient p-3">
+          <Table data={rowData} columns={columns} />
+        </div>
+      );
     }
 
     return (
@@ -404,65 +411,73 @@ const Farms: React.FC = () => {
   return (
     <>
       <Header>
-        <Heading as="h1" size="xxl" color="secondary" mb="24px">
-          {TranslateString(999, "Farms")}
+        <Heading
+          as="h1"
+          size="xxl"
+          color="#ffffff"
+          mb="24px"
+          style={{ marginTop: "-160px" }}
+        >
+          {TranslateString(999, "Galaxia Farms")}
         </Heading>
-        <Heading size="lg" color="text">
+        <Heading size="lg" color="#FF1FFF">
           {TranslateString(999, "Stake Liquidity Pool (LP) tokens to earn.")}
         </Heading>
       </Header>
       <Page>
-        <ControlContainer>
-          <ViewControls>
-            <ToggleView
-              viewMode={viewMode}
-              onToggle={(mode: ViewMode) => setViewMode(mode)}
-            />
-            <ToggleWrapper>
-              <Toggle
-                checked={stackedOnly}
-                onChange={() => setStackedOnly(!stackedOnly)}
-                scale="sm"
+        <div className="row mb-3 rounded" style={{ background: "#0B001E" }}>
+          <ControlContainer>
+            <ViewControls>
+              <ToggleView
+                viewMode={viewMode}
+                onToggle={(mode: ViewMode) => setViewMode(mode)}
               />
-              <Text> {TranslateString(1116, "Staked only")}</Text>
-            </ToggleWrapper>
-            <FarmTabButtons />
-          </ViewControls>
-          <FilterContainer>
-            <LabelWrapper>
-              <Text>SORT BY</Text>
-              <Select
-                options={[
-                  {
-                    label: "Hot",
-                    value: "hot",
-                  },
-                  {
-                    label: "APR",
-                    value: "apr",
-                  },
-                  {
-                    label: "Multiplier",
-                    value: "multiplier",
-                  },
-                  {
-                    label: "Earned",
-                    value: "earned",
-                  },
-                  {
-                    label: "Liquidity",
-                    value: "liquidity",
-                  },
-                ]}
-                onChange={handleSortOptionChange}
-              />
-            </LabelWrapper>
-            <LabelWrapper style={{ marginLeft: 16 }}>
-              <Text>SEARCH</Text>
-              <SearchInput onChange={handleChangeQuery} value={query} />
-            </LabelWrapper>
-          </FilterContainer>
-        </ControlContainer>
+              <ToggleWrapper>
+                <Toggle
+                  checked={stackedOnly}
+                  onChange={() => setStackedOnly(!stackedOnly)}
+                  scale="sm"
+                />
+                <Text> {TranslateString(1116, "Staked only")}</Text>
+              </ToggleWrapper>
+              <FarmTabButtons />
+            </ViewControls>
+            <FilterContainer>
+              <LabelWrapper style={{ width: "63%", marginLeft: "5%" }}>
+                <Text>SORT BY</Text>
+                <Select
+                  options={[
+                    {
+                      label: "Hot",
+                      value: "hot",
+                    },
+                    {
+                      label: "APR",
+                      value: "apr",
+                    },
+                    {
+                      label: "Multiplier",
+                      value: "multiplier",
+                    },
+                    {
+                      label: "Earned",
+                      value: "earned",
+                    },
+                    {
+                      label: "Liquidity",
+                      value: "liquidity",
+                    },
+                  ]}
+                  onChange={handleSortOptionChange}
+                />
+              </LabelWrapper>
+              <LabelWrapper style={{ width: "30%" }}>
+                <Text>SEARCH</Text>
+                <SearchInput onChange={handleChangeQuery} value={query} />
+              </LabelWrapper>
+            </FilterContainer>
+          </ControlContainer>
+        </div>
         {renderContent()}
         {/* <StyledImage
           src="/images/3dpan.png"

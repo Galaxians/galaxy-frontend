@@ -3,6 +3,11 @@ import { Router, Redirect, Route, Switch } from "react-router-dom";
 import { ResetCSS } from "glx-uikit";
 import BigNumber from "bignumber.js";
 import useEagerConnect from "hooks/useEagerConnect";
+
+import Navbar from 'pagecomponent/Navbar'
+// @ts-ignore
+import Leftnav from 'pagecomponent/Leftnav'
+
 import {
   useFetchPriceList,
   useFetchProfile,
@@ -55,7 +60,9 @@ const App: React.FC = () => {
     <Router history={history}>
       <ResetCSS />
       <GlobalStyle />
-      <Menu>
+      <Navbar />
+      <Leftnav />
+      {/* <Menu> */}
         <SuspenseWithChunkError fallback={<PageLoader />}>
           <Switch>
             <Route path="/" exact>
@@ -67,39 +74,13 @@ const App: React.FC = () => {
             <Route path="/pools">
               <FarmsPools />
             </Route>
-            {/* <Route path="/lottery">
-              <Lottery />
-            </Route> */}
             <Route path="/ifo">
               <Ifos />
             </Route>
-            {/* <Route path="/collectibles">
-              <Collectibles />
-            </Route> */}
-            {/* <Route exact path="/teams">
-              <Teams />
-            </Route> */}
-            {/* <Route path="/teams/:id">
-              <Team />
-            </Route> */}
-            {/* <Route path="/profile">
-              <Profile />
-            </Route> */}
-            {/* Redirect */}
-            {/* <Route path="/staking">
-              <Redirect to="/pools" />
-            </Route> */}
-            {/* <Route path="/syrup">
-              <Redirect to="/pools" />
-            </Route> */}
-            {/* <Route path="/nft">
-              <Redirect to="/collectibles" />
-            </Route> */}
-            {/* 404 */}
             <Route component={NotFound} />
           </Switch>
         </SuspenseWithChunkError>
-      </Menu>
+      {/* </Menu> */}
       <EasterEgg iterations={2} />
       <ToastListener />
       <GlobalCheckBullHiccupClaimStatus />
