@@ -38,12 +38,14 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
           {/* {isCommunityFarm ? <CommunityTag /> : <CoreTag />}
           <MultiplierTag variant="secondary">{multiplier}</MultiplierTag> */}
         </Flex>
+        <div style={{width:'200px'}}>
         <Image
           src={`/images/farms/${farmImage}.png`}
           alt={tokenSymbol}
-          width={150}
+          width={100}
           height={50}
         />
+          </div>
       </Flex>
     </Wrapper>
   );

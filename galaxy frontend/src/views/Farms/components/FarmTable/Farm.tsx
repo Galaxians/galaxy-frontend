@@ -12,11 +12,11 @@ export interface FarmProps {
 }
 
 const IconImage = styled(Image)`
-  width: 24px;
-  height: 24px;
+  width: 80px;
+  height: 40px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: 40px;
+    width: 80px;
     height: 40px;
   }
 `;

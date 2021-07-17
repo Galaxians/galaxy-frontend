@@ -418,7 +418,7 @@ const Farms: React.FC = () => {
           mb="24px"
           style={{ marginTop: "-160px" }}
         >
-          {TranslateString(999, "Galaxia Farms")}
+          {TranslateString(999, "Galaxia Pools")}
         </Heading>
         <Heading size="lg" color="#FF1FFF">
           {TranslateString(999, "Stake Liquidity Pool (LP) tokens to earn.")}
@@ -442,6 +442,8 @@ const Farms: React.FC = () => {
               </ToggleWrapper>
               <FarmTabButtons />
             </ViewControls>
+            </ControlContainer>
+          <ControlContainer className="mb-3 rounded" style={{background:'#0B001E'}}>
             <FilterContainer>
               <LabelWrapper style={{ width: "63%", marginLeft: "5%" }}>
                 <Text>SORT BY</Text>

@@ -33,18 +33,18 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navcol-1">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link text-white" href="https://axiadefi.zeeve.net/">
+                <a className="nav-link small mosk-bold-700 text-white" href="/">
                 Redeem Galaxia
                 </a>
               </li>
               
               <li className="nav-item">
-                <a className="nav-link text-white" href="https://axiadefi.zeeve.net/farms">
+                <a className="nav-link small mosk-bold-700 text-white" href="/">
                 Meet our Team
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link  text-white" href="https://axiadefi.zeeve.net/nests">
+                <a className="nav-link  small mosk-bold-700 text-white" href="/">
                 Contact Us
                 </a>
               </li>
@@ -71,10 +71,11 @@ export default function Navbar() {
                 </Button>
               )}
 
-              <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', width:'40px'}} />
-
+              
             </div>
           </span>
+          <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', width:'40px'}} />
+
         </div>
       </nav>
     </div>
