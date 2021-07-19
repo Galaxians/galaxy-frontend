@@ -33,18 +33,18 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navcol-1">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link small mosk-bold-700 text-white" href="https://axiadefi.zeeve.net/">
+                <a className="nav-link small mosk-bold-700 text-white" href="glxfarms.netlify.app/">
                 Redeem Galaxia
                 </a>
               </li>
               
               <li className="nav-item">
-                <a className="nav-link small mosk-bold-700 text-white" href="https://axiadefi.zeeve.net/farms">
+                <a className="nav-link small mosk-bold-700 text-white" href="glxfarms.netlify.app/farms">
                 Meet our Team
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link small mosk-bold-700 text-white" href="https://axiadefi.zeeve.net/nests">
+                <a className="nav-link small mosk-bold-700 text-white" href="glxfarms.netlify.app/nests">
                 Contact Us
                 </a>
               </li>
