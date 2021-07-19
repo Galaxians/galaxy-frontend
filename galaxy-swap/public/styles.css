@@ -5,12 +5,13 @@ background-repeat: no-repeat;
 padding: 0;
 }
 .ghost{
-background: url(../img/kal-artwork-exchange.png);
-background-size: cover;
-background-repeat: no-repeat;
-background-position-x: right;
-padding: 0;
-}
+  background: url(../images/new/podium-gswap-5.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: top;
+  padding: 0;
+  }
 
 .top-nav-bg{
 background: #0B001E 0% 0% no-repeat padding-box;
@@ -139,7 +140,7 @@ opacity: 1;
   border-top-left-radius: 15px;
 }
 .xrounded {
-  border-radius: 0.96rem !important;
+  border-radius: 40px !important;
 }
 .footer a {
   color:#ffffff !important;

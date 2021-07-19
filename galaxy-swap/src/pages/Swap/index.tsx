@@ -258,8 +258,20 @@ const Swap = () => {
 
   return (
     <>
-      <div className="h1 text-white">Exchange</div>
-      <div className="fs6 pink-color">Trading beyond the outer rim</div>
+    <div className="row">
+      <div className="d-flex justify-content-left leftnav col-auto">
+           <ul className="list-unstyled">
+
+             <li className="left-exchange-icon">Exchange</li>
+             <li className="left-farms-icon">Galaxia Farms</li>
+             <li className="left-pool-icon">Galaxia Pool</li>
+             <li className="left-redeem-icon">Galaxia Redeem</li>
+
+           </ul>
+      </div>
+      <div className="rightpart col-auto">
+      <div className="h1 text-white text-center">Exchange</div>
+      <div className="fs6 pink-color text-center">Trading beyond the outer rim</div>
       <br />
       <TokenWarningModal
         isOpen={urlLoadedTokens.length > 0 && !dismissTokenWarning}
@@ -317,10 +329,10 @@ const Swap = () => {
                         setApprovalSubmitted(false) // reset 2 step UI for approvals
                         onSwitchTokens()
                       }}
-                      style={{ borderRadius: '50%', textAlign:'left' }}
+                      style={{ borderRadius: '50%', textAlign:'left', backgroundColor:'#271049' }}
                       scale="sm"
                     >
-                      <ArrowDownIcon color="primary" width="29px"/>
+                      <ArrowDownIcon color="primary" width="29px" />
                     </IconButton>
                   </ArrowWrapper>
                   {recipient === null && !showWrap && isExpertMode ? (
@@ -473,6 +485,8 @@ const Swap = () => {
       </AppBody>
 
       <AdvancedSwapDetailsDropdown trade={trade} />
+      </div>
+    </div>
     </>
   )
 }

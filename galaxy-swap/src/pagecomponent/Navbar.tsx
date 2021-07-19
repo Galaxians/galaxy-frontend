@@ -20,10 +20,10 @@ export default function Navbar() {
   return (
     <div className="container-fluid top-nav-bg">
       <nav className="navbar navbar-light navbar-expand-xl">
-        <div className="container">
+        <div className="container-fluid">
           <a className="navbar-brand" href="/">
             &nbsp;
-            <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px"}} /></a>
+            <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px", marginLeft:'30px'}} /></a>
             <span className="pink-color small mt-2">Powered by GalaxyProtocol</span>
           
           <button type="submit" data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="/navcol-1">
@@ -33,28 +33,17 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navcol-1">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link small mosk-bold-700 text-white" href="glxfarms.netlify.app/">
-                Redeem Galaxia
-                </a>
-              </li>
-              
-              <li className="nav-item">
-                <a className="nav-link small mosk-bold-700 text-white" href="glxfarms.netlify.app/farms">
-                Meet our Team
-                </a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link small mosk-bold-700 text-white" href="glxfarms.netlify.app/nests">
-                Contact Us
+                <a className="nav-link small mosk-bold-700 text-white" href="/">
+                Go to GalaxyProtocol
                 </a>
               </li>
             </ul>
           </div>
-          <span className="navbar-text actions xrounded">
+          <span className="navbar-text actions">
             <div>
               {account ? (
                 <Button
-                  variant="tertiary"
+                 className="btn text-white xrounded pink-gredient fw-bold"
                   onClick={() => {
                     onPresentAccountModal()
                   }}
@@ -63,6 +52,8 @@ export default function Navbar() {
                 </Button>
               ) : (
                 <Button
+                className="btn text-white xrounded pink-gredient"
+                style={{marginLeft:'70px',height: '46px', width:'150px'}}
                   onClick={() => {
                     onPresentConnectModal()
                   }}

@@ -1,15 +1,16 @@
-.backgroun-gredient{
+/* .backgroun-gredient{
 background: url(../img/galaxyswap-background-3.jpg);
 background-size: cover;
 background-repeat: no-repeat;
 padding: 0;
-}
+} */
 .ghost{
-background: url(../img/kal-artwork-exchange.png);
-background-size: cover;
-background-repeat: no-repeat;
-background-position-x: right;
-padding: 0;
+  background: url(../img/podium-gswap-5.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: top;
+  padding: 0;
 }
 .setting-icon{
 background: url(../img/settings-icon.png);
@@ -64,47 +65,55 @@ opacity: 1;
   padding: 7px;
   margin-right: 25px;
   }
-.left-exchange-icon{
-background: url(../img/hamburger-menu-image.png);
-background-size: cover;
-background-repeat: no-repeat;
-background-position-y: top;
-height: 45px;
-width: 200px;
-padding-top: 10px;
-padding-left: 50px;
-color: #f1f1f1;
-margin-top: 40px;
-margin-left: 70px;
-font-weight: 400;
-}
-.left-farms-icon{
-  background: url(../img/hamburger-menu-image.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 10% 24%;
-  height: 45px;
-  width: 200px;
-  padding-top: 10px;
-  padding-left: 50px;
-  color: #f1f1f1;
-  margin-top: 10px;
-  margin-left: 70px;
-  font-weight: 400;
-  }
-  .left-pool-icon{
-    background: url(../img/hamburger-menu-image.png);
+  .left-exchange-icon{
+    background: url(../img/left-link-bg-1.png);
     background-repeat: no-repeat;
-    background-position-y: end;
-    height: 45px;
-    width: 200px;
-    padding-top: 10px;
-    padding-left: 50px;
+    height: 79px;
+    width: 300px;
+    padding-top: 31px;
+    padding-left: 90px;
     color: #f1f1f1;
-    margin-top: 10px;
-    margin-left: 70px;
+    margin-top: 40px;
     font-weight: 400;
+    font-size: 20px;
     }
+    .left-farms-icon{
+    background: url(../img/left-link-bg-2.png);
+    background-repeat: no-repeat;
+    height: 79px;
+    width: 300px;
+    padding-top: 31px;
+    padding-left: 100px;
+    color: #f1f1f1;
+    margin-left: -10px;
+    margin-top: 1px;
+    font-weight: 400;
+    font-size: 20px;
+      }
+    .left-pool-icon{
+        background: url(../img/left-link-bg-3.png);
+        background-repeat: no-repeat;
+        height: 79px;
+        width: 300px;
+        padding-top: 31px;
+        padding-left: 90px;
+        color: #f1f1f1;
+        margin-top: -3px;
+        font-weight: 400;
+        font-size: 20px;
+      }
+      .left-redeem-icon{
+        background: url(../img/left-link-bg-4.png);
+        background-repeat: no-repeat;
+        height: 79px;
+        width: 300px;
+        padding-top: 31px;
+        padding-left: 90px;
+        color: #f1f1f1;
+        margin-top: -7px;
+        font-weight: 400;
+        font-size: 20px;
+      }
 .top-btn{
   background: #271049 0% 0% no-repeat padding-box;
   padding-left: 25px;
@@ -153,7 +162,7 @@ opacity: 1;
   border-top-left-radius: 15px;
 }
 .xrounded {
-  border-radius: 0.96rem !important;
+  border-radius: 32px !important;
 }
 .footer a {
   color:#ffffff !important;
@@ -348,4 +357,15 @@ min-height: 200px;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 0px; 
+}
+
+.leftnav{
+  z-index: 1;
+    align-content: left;
+    margin-left: -330px;
+}
+
+.rightpart{
+  align-content: left;
+  z-index: 1000;
 }

@@ -62,7 +62,6 @@ export default function Pool() {
     
       <AppBody>
       <CardNav activeIndex={1} />
-      <div className="setting-icon" />
       {/* <PageHeader
          title={TranslateString(262, '')}
           description={TranslateString(1168, '')}
