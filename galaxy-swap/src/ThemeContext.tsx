@@ -13,8 +13,9 @@ const ThemeContext = React.createContext<ThemeContextType>({ isDark: true, toggl
 
 const ThemeContextProvider: React.FC = ({ children }) => {
   const [isDark, setIsDark] = useState(() => {
-    const isDarkUserSetting = localStorage.getItem(CACHE_KEY)
-    return isDarkUserSetting ? JSON.parse(isDarkUserSetting) : false
+    // const isDarkUserSetting = localStorage.getItem(CACHE_KEY)
+    // return isDarkUserSetting ? JSON.parse(isDarkUserSetting) : false
+    return true
   })
 
   const toggleTheme = () => {
@@ -26,7 +27,7 @@ const ThemeContextProvider: React.FC = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={{ isDark, toggleTheme }}>
-      <SCThemeProvider theme={isDark ? light : dark}>{children}</SCThemeProvider>
+      <SCThemeProvider theme={isDark ? dark : dark}>{children}</SCThemeProvider>
     </ThemeContext.Provider>
   )
 }
