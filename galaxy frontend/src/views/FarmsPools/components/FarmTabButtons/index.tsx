@@ -17,6 +17,14 @@ const FarmTabButtons = () => {
         <ButtonMenuItem as={Link} to={`${url}/history`}>
           {TranslateString(388, "Finished")}
         </ButtonMenuItem>
+        {/* <ToggleWrapper> 
+                <Toggle
+                  checked={stackedOnly}
+                  onChange={() => setStackedOnly(!stackedOnly)}
+                  scale="sm"
+                />
+                <Text > {TranslateString(1116, "Staked only")}</Text>
+              </ToggleWrapper> */}
       </ButtonMenu>
     </Wrapper>
   );

@@ -425,7 +425,10 @@ const Farms: React.FC = () => {
         </Heading>
       </Header>
       <Page>
-        <div className="row mb-3 rounded" style={{ background: "#0B001E" }}>
+        <div
+          className="row mb-3 rounded"
+          style={{ backgroundColor: "#0B001E" }}
+        >
           <ControlContainer>
             <ViewControls>
               <ToggleView
@@ -434,6 +437,7 @@ const Farms: React.FC = () => {
               />
               <ToggleWrapper>
                 <Toggle
+                  style={{ background: "#ffffff" }}
                   checked={stackedOnly}
                   onChange={() => setStackedOnly(!stackedOnly)}
                   scale="sm"
@@ -442,8 +446,11 @@ const Farms: React.FC = () => {
               </ToggleWrapper>
               <FarmTabButtons />
             </ViewControls>
-            </ControlContainer>
-          <ControlContainer className="mb-3 rounded" style={{background:'#0B001E'}}>
+          </ControlContainer>
+          <ControlContainer
+            className="mb-3 rounded"
+            style={{ backgroundColor: "#0B001E" }}
+          >
             <FilterContainer>
               <LabelWrapper style={{ width: "63%", marginLeft: "5%" }}>
                 <Text>SORT BY</Text>
