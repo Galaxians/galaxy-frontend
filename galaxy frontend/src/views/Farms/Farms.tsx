@@ -37,6 +37,7 @@ const ControlContainer = styled.div`
   position: relative;
   justify-content: space-between;
   flex-direction: column;
+  color:#ffffff;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
@@ -48,7 +49,7 @@ const ControlContainer = styled.div`
 const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 10px;
+  //margin-left: 10px;
   width: 30%;
 
   ${Text} {
@@ -66,7 +67,7 @@ const FilterContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 8px 0px;
+ // padding: 8px 0px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     width: 100%;
@@ -82,7 +83,7 @@ const ViewControls = styled.div`
   width: 100%;
 
   > div {
-    padding: 8px 0px;
+    //padding: 8px 0px;
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
@@ -406,12 +407,12 @@ const Farms: React.FC = () => {
   return (
     <>
       <Header>
-        <Heading as="h1" size="xxl" color="#ffffff" mb="24px" style={{marginTop:'-160px'}}>
+        <Heading as="h1" size="xl" color="#ffffff" mb="10px" style={{marginTop:'30px'}}>
           {TranslateString(999, "Galaxia Farms")}
         </Heading>
-        <Heading size="lg" color="#FF1FFF">
-          {TranslateString(999, "Stake Liquidity Pool (LP) tokens to earn.")}
-        </Heading>
+        <Text color="#FF1FFF">
+          {TranslateString(999, "Stake liquidity Pool (LP) tokens to earn.")}
+        </Text>
       </Header>
       <Page>
       <div className="row mb-3 rounded" style={{background:'#0B001E'}}>

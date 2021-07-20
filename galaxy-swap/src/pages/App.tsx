@@ -5,6 +5,8 @@ import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
 import Navbar from 'pagecomponent/Navbar'
 // @ts-ignore
 import Leftnav from 'pagecomponent/Leftnav'
+// @ts-ignore
+import Footer from 'pagecomponent/Footer'
 import Popups from '../components/Popups'
 import Web3ReactManager from '../components/Web3ReactManager'
 import { RedirectDuplicateTokenIds, RedirectOldAddLiquidityPathStructure } from './AddLiquidity/redirects'
@@ -33,27 +35,20 @@ const BodyWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 32px 16px;
   align-items: center;
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 1;
   justify-content: center;
-  // background-image: url('/images/new/kal-artwork-exchange.png');
-  // background-repeat: no-repeat;
-  // background-position: bottom 24px top;
-  // background-size: 80%;
+  background: transperent;
 
   ${({ theme }) => theme.mediaQueries.xs} {
     background-size: auto;
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/arch-${({ theme }) => (theme.isDark ? 'dark' : 'light')}.svg'),
-    //  url('/images/new/kal-artwork-exchange.png');
-    background-repeat: no-repeat;
-    background-position: center;
+
     min-height: 90vh;
   }
 `
@@ -125,7 +120,11 @@ export default function App() {
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
               {/* <Menu> */}
               <Navbar />
-              {/* <Leftnav /> */}
+              <div className="row">
+                <div className="col-auto">
+              <Leftnav/>
+              </div>
+              <div className="col-auto" style={{marginTop:'100px'}}>
               <BodyWrapper>
                 <Popups />
                 <Web3ReactManager>
@@ -146,10 +145,13 @@ export default function App() {
                 </Web3ReactManager>
                 <Marginer />
               </BodyWrapper>
+              </div>
+              </div>
               {/* </Menu> */}
             </TranslationsContext.Provider>
           </LanguageContext.Provider>
         </AppWrapper>
+        <Footer />
       </HashRouter>
     </Suspense>
   )

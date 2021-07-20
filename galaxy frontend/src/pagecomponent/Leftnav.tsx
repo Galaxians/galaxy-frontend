@@ -20,6 +20,10 @@ export default function Leftnav() {
           {" "}
           <Link to="/pools">Galaxia Pool</Link>
         </li>
+        <li className="left-redeem-icon">
+          {" "}
+          <Link to="/pools">Galaxia Redeem</Link>
+        </li>
       </ul>
     </div>
   );

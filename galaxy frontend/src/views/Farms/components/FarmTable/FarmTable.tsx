@@ -16,7 +16,7 @@ const Container = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.card.background};
   border-radius: 16px;
-  margin: 16px 0px;
+  margin: 0px;
 `;
 
 const TableWrapper = styled.div`
@@ -78,7 +78,7 @@ const FarmTable: React.FC<ITableProps> = (props) => {
       <TableContainer>
         <TableWrapper ref={tableWrapperEl}>
           <StyledTable>
-            <TableBody>
+            <TableBody className="text-white">
               {rows.map((row) => {
                 return <Row {...row.original} key={`table-row-${row.id}`} />;
               })}

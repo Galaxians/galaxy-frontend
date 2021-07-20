@@ -7,6 +7,8 @@ import useEagerConnect from "hooks/useEagerConnect";
 import Navbar from 'pagecomponent/Navbar'
 // @ts-ignore
 import Leftnav from 'pagecomponent/Leftnav'
+// @ts-ignore
+import Footer from 'pagecomponent/Footer'
 
 import {
   useFetchPriceList,
@@ -61,7 +63,11 @@ const App: React.FC = () => {
       <ResetCSS />
       <GlobalStyle />
       <Navbar />
-      <Leftnav />
+      <div className="row">
+                <div className="col-auto">
+              <Leftnav/>
+              </div>
+              <div className="col-auto" style={{marginTop:'20px'}}>
       {/* <Menu> */}
         <SuspenseWithChunkError fallback={<PageLoader />}>
           <Switch>
@@ -80,7 +86,10 @@ const App: React.FC = () => {
             <Route component={NotFound} />
           </Switch>
         </SuspenseWithChunkError>
+        </div>
+        </div>
       {/* </Menu> */}
+      <Footer />
       <EasterEgg iterations={2} />
       <ToastListener />
       <GlobalCheckBullHiccupClaimStatus />

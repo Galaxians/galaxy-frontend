@@ -43,7 +43,8 @@ export default function Navbar() {
             <div>
               {account ? (
                 <Button
-                 className="btn text-white xrounded pink-gredient fw-bold"
+                className="btn text-white xrounded pink-gredient"
+                style={{marginLeft:'70px',height: '46px', width:'150px'}}
                   onClick={() => {
                     onPresentAccountModal()
                   }}

@@ -9,7 +9,7 @@ padding: 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: right;
-  background-position-y: top;
+  background-position-y: 70px;
   padding: 0;
 }
 .setting-icon{
@@ -141,8 +141,7 @@ border-radius: 4px;
 opacity: 1;
 }
 .footer-bg{
-  background: #030007 0% 0% no-repeat padding-box;
-}
+ }
 
 
 
@@ -361,8 +360,9 @@ min-height: 200px;
 
 .leftnav{
   z-index: 1;
-    align-content: left;
-    margin-left: -330px;
+  align-content: left;
+  margin-left: 40px;
+    /* margin-left: -330px; */
 }
 
 .rightpart{

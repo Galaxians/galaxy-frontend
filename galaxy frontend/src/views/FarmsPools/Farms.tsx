@@ -413,10 +413,10 @@ const Farms: React.FC = () => {
       <Header>
         <Heading
           as="h1"
-          size="xxl"
+          size="xl"
           color="#ffffff"
           mb="24px"
-          style={{ marginTop: "-160px" }}
+          style={{ marginTop: "30px" }}
         >
           {TranslateString(999, "Galaxia Pools")}
         </Heading>

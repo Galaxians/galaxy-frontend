@@ -83,10 +83,10 @@ const Home: React.FC = () => {
   return (
     <Page>
       <Hero>
-        <Heading as="h1" size="xl" mb="24px" color="secondary">
+        <Heading as="h1" size="xl" mb="1px" color="#ffffff">
           {TranslateString(576, "Galaxia")}
         </Heading>
-        <Text>
+        <Text className="pink-color">
           {TranslateString(578, "The #1 AMM and yield farm on Bsc BlockChain.")}
         </Text>
       </Hero>

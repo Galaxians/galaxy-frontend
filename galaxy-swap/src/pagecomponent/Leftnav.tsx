@@ -13,7 +13,7 @@ export default function Leftnav() {
 
   return (
 
-        <div className="d-flex justify-content-left leftnav">
+        <div className="justify-content-left leftnav">
            <ul className="list-unstyled">
 
              <li className="left-exchange-icon">Exchange</li>

@@ -258,7 +258,7 @@ const Swap = () => {
 
   return (
     <>
-    <div className="row">
+    {/* <div className="row">
       <div className="d-flex justify-content-left leftnav col-auto">
            <ul className="list-unstyled">
 
@@ -269,7 +269,7 @@ const Swap = () => {
 
            </ul>
       </div>
-      <div className="rightpart col-auto">
+      <div className="rightpart col-auto"> */}
       <div className="h1 text-white text-center">Exchange</div>
       <div className="fs6 pink-color text-center">Trading beyond the outer rim</div>
       <br />
@@ -485,8 +485,8 @@ const Swap = () => {
       </AppBody>
 
       <AdvancedSwapDetailsDropdown trade={trade} />
-      </div>
-    </div>
+      {/* </div>
+    </div> */}
     </>
   )
 }
