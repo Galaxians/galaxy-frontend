@@ -16,7 +16,7 @@ export default function Leftnav() {
         <li className="left-farms-icon">
           <Link to="/farms">Galaxia Farms</Link>{" "}
         </li>
-        <li className="left-farms-icon">
+        <li className="left-pool-icon">
           {" "}
           <Link to="/pools">Galaxia Pool</Link>
         </li>

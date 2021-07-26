@@ -14,7 +14,6 @@ const Menu = (props) => {
   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext);
   const { isDark, toggleTheme } = useTheme();
   const cakePriceUsd = usePriceCakeBusd();
-  // console.log(cakePriceUsd.toNumber());
   const { profile } = useProfile();
 
   return (
@@ -29,15 +28,6 @@ const Menu = (props) => {
       setLang={setSelectedLanguage}
       cakePriceUsd={cakePriceUsd.toNumber()}
       links={config}
-      // profile={{
-      //   username: profile?.username,
-      //   image: profile?.nft
-      //     ? `/images/nfts/${profile.nft?.images.sm}`
-      //     : undefined,
-      //   profileLink: "/profile",
-      //   noProfileLink: "/profile",
-      //   showPip: !profile?.username,
-      // }}
       {...props}
     />
   );
