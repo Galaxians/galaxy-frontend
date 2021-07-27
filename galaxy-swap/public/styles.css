@@ -22,7 +22,7 @@ opacity: 1;
 .center-box{
 background: #0B001E 0% 0% no-repeat padding-box;
 box-shadow: 0px 3px 99px #FF1FFF38;
-border-radius: 11px;
+border-radius: 8px;
 opacity: 1;
 }
 .pink-color{
@@ -122,7 +122,12 @@ opacity: 1;
   background: #030007 0% 0% no-repeat padding-box;
 }
 
-
+a:link{
+  color:#f1f1f1 !important;
+}
+a:hover{
+  color:#f1f1f1 !important;
+}
 
 
 

@@ -41,7 +41,6 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
                   paddingTop: '25px',
                   paddingBottom: '25px',
                   background: '#271049',
-
                   borderRadius: '4px',
                 }}
                 id="swap-nav-link"

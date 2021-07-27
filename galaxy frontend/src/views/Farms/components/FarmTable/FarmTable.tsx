@@ -34,6 +34,8 @@ const StyledTable = styled.table`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  color:#ffffff;
+
 `;
 
 const TableBody = styled.tbody`
