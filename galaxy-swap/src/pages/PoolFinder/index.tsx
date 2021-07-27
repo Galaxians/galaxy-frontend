@@ -70,7 +70,7 @@ export default function PoolFinder() {
   }, [setShowSearch])
 
   const prerequisiteMessage = (
-    <LightCard padding="45px 10px">
+    <LightCard padding="45px 10px" style={{marginTop: '20px'}}>
       <Text style={{ textAlign: 'center' }}>
         {!account
           ? TranslateString(1174, 'Connect to a wallet to find pools')
@@ -89,6 +89,7 @@ export default function PoolFinder() {
         <CardBody>
           <AutoColumn gap="md">
             <Button
+            style={{borderRadius: '4px'}}
               onClick={() => {
                 setShowSearch(true)
                 setActiveField(Fields.TOKEN0)
@@ -100,11 +101,12 @@ export default function PoolFinder() {
               {currency0 ? currency0.symbol : TranslateString(82, 'Select a Token')}
             </Button>
 
-            <ColumnCenter className="mt-2">
+            <ColumnCenter className="mt-2 mb-2">
               <AddIcon color="textSubtle" />
             </ColumnCenter>
 
             <Button
+              style={{borderRadius: '4px'}}
               onClick={() => {
                 setShowSearch(true)
                 setActiveField(Fields.TOKEN1)
