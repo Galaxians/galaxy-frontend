@@ -10,13 +10,14 @@ const Tabs = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  border-radius: 3rem;
+  border-radius: 4px;
   justify-content: space-evenly;
 `
 
 const ActiveText = styled.div`
   font-weight: 500;
   font-size: 20px;
+  border-radius: 4px;
 `
 
 const StyledArrowLeft = styled(ArrowLeft)`
@@ -27,14 +28,14 @@ export function FindPoolTabs() {
   const TranslateString = useI18n()
   return (
     <Tabs>
-      <RowBetween style={{ padding: '1rem' }}>
-        <HistoryLink to="/pool">
+      <RowBetween>
+        {/* <HistoryLink to="/pool">
           <StyledArrowLeft />
         </HistoryLink>
         <ActiveText>Import Pool</ActiveText>
         <QuestionHelper
           text={TranslateString(256, 'Use this tool to find pairs that do not automatically appear in the interface.')}
-        />
+        /> */}
       </RowBetween>
     </Tabs>
   )
@@ -44,7 +45,7 @@ export function AddRemoveTabs({ adding }: { adding: boolean }) {
   const TranslateString = useI18n()
   return (
     <Tabs>
-      <RowBetween style={{ padding: '1rem' }}>
+      <RowBetween>
         <HistoryLink to="/pool">
           <StyledArrowLeft />
         </HistoryLink>

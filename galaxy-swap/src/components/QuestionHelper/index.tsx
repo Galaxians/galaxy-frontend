@@ -12,7 +12,7 @@ const QuestionWrapper = styled.div`
   background: none;
   outline: none;
   cursor: default;
-  border-radius: 36px;
+  border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.invertedContrast};
   color: ${({ theme }) => theme.colors.textSubtle};
 

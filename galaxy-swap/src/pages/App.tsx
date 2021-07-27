@@ -42,7 +42,7 @@ const BodyWrapper = styled.div`
   z-index: 1;
   justify-content: center;
   background: transperent;
-  margin-left: -240px;
+  margin-left: -140px;
 
   ${({ theme }) => theme.mediaQueries.xs} {
     background-size: auto;

@@ -5,8 +5,9 @@ import { ButtonMenu, ButtonMenuItem } from 'glx-uikit'
 import useI18n from 'hooks/useI18n'
 
 const StyledNav = styled.div`
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 `
+
 
 function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
   const TranslateString = useI18n()
@@ -14,13 +15,13 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
   return (
     <StyledNav style={{ marginLeft: '25px', borderRadius: '4px' }}>
       <div className="row mt-4">
-        <div className="col-auto col-md-8" style={{ background: '#0B001E' }}>
+        <div className="col-auto" style={{ background: '#0B001E' }}>
           <ButtonMenu activeIndex={activeIndex} scale="sm">
             {activeIndex === 0 ? (
               <ButtonMenuItem
                 style={{
-                  paddingLeft: '35px',
-                  paddingRight: '35px',
+                  paddingLeft: '25px',
+                  paddingRight: '25px',
                   paddingTop: '25px',
                   paddingBottom: '25px',
                   background: '#271049',
@@ -36,8 +37,8 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
             ) : (
               <ButtonMenuItem
                 style={{
-                  paddingLeft: '35px',
-                  paddingRight: '35px',
+                  paddingLeft: '25px',
+                  paddingRight: '25px',
                   paddingTop: '25px',
                   paddingBottom: '25px',
                   background: '#271049',
@@ -53,8 +54,8 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
             {activeIndex === 1 ? (
               <ButtonMenuItem
                 style={{
-                  paddingLeft: '35px',
-                  paddingRight: '35px',
+                  paddingLeft: '25px',
+                  paddingRight: '25px',
                   paddingTop: '25px',
                   paddingBottom: '25px',
                   background: '#271049',
@@ -70,8 +71,8 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
             ) : (
               <ButtonMenuItem
                 style={{
-                  paddingLeft: '35px',
-                  paddingRight: '35px',
+                  paddingLeft: '25px',
+                  paddingRight: '25px',
                   paddingTop: '25px',
                   paddingBottom: '25px',
                   background: '#271049',
@@ -88,8 +89,8 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
             {activeIndex === 2 ? (
               <ButtonMenuItem
                 style={{
-                  paddingLeft: '35px',
-                  paddingRight: '35px',
+                  paddingLeft: '25px',
+                  paddingRight: '25px',
                   paddingTop: '25px',
                   paddingBottom: '25px',
                   background: '#271049',
@@ -107,8 +108,8 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
             ) : (
               <ButtonMenuItem
                 style={{
-                  paddingLeft: '35px',
-                  paddingRight: '35px',
+                  paddingLeft: '25px',
+                  paddingRight: '25px',
                   paddingTop: '25px',
                   paddingBottom: '25px',
                   background: '#271049',
@@ -125,7 +126,7 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
             )}
           </ButtonMenu>
         </div>
-        <div className="col-auto col-md-4 gx-5">
+        <div className="col-auto">
           <ButtonMenuItem className="setting-icon" />
           <ButtonMenuItem className="order-history-icon" style={{ marginLeft: '20px' }} />
         </div>

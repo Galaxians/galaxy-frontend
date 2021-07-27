@@ -38,8 +38,8 @@ export default function Navbar() {
                 </a>
               </li>
             </ul>
-          </div>
-          <span className="navbar-text actions">
+
+            <span className="navbar-text actions">
             <div>
               {account ? (
                 <Button
@@ -67,6 +67,8 @@ export default function Navbar() {
             </div>
           </span>
           <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', width:'40px'}} />
+          </div>
+          
         </div>
       </nav>
     </div>

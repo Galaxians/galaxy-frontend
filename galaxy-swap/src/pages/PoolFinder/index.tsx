@@ -81,8 +81,10 @@ export default function PoolFinder() {
 
   return (
     <>
-      <CardNav activeIndex={1} />
+      <div className="h1 text-white mt-5">Import Pool</div><br/>
+
       <AppBody>
+      <CardNav activeIndex={1} />
         <FindPoolTabs />
         <CardBody>
           <AutoColumn gap="md">
@@ -98,7 +100,7 @@ export default function PoolFinder() {
               {currency0 ? currency0.symbol : TranslateString(82, 'Select a Token')}
             </Button>
 
-            <ColumnCenter>
+            <ColumnCenter className="mt-2">
               <AddIcon color="textSubtle" />
             </ColumnCenter>
 
@@ -116,7 +118,7 @@ export default function PoolFinder() {
 
             {hasPosition && (
               <ColumnCenter
-                style={{ justifyItems: 'center', backgroundColor: '', padding: '12px 0px', borderRadius: '12px' }}
+                style={{ justifyItems: 'center', backgroundColor: '', padding: '12px 0px', borderRadius: '8px', marginTop:'20px' }}
               >
                 <Text style={{ textAlign: 'center' }}>{TranslateString(210, 'Pool found!')}</Text>
               </ColumnCenter>
