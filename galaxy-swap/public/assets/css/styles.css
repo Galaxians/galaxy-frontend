@@ -385,36 +385,39 @@ padding: 0;
 .rightpart {
   align-content: left;
 }
-a:link{
-  color:#ff1fff !important;
+a:link {
+  color: #ffffff !important;
   text-transform: none;
 }
-a:hover{
-  color:#ffffff !important;
-  text-transform: none;
-}
-a:visited{
-  color:#ff1fff !important;
-  text-transform: none;
-}
-a:active{
-  color:#ffffff !important;
+a:hover {
+  color: #0098a1 !important;
   text-transform: none;
 }
 
-.leftnav a:link{
-  color:#ffffff !important;
+a:visited {
+  color: #ffffff !important;
   text-transform: none;
 }
-a:hover{
-  color:#ff1fff !important;
+a:active {
+  color: #ffffff !important;
   text-transform: none;
 }
-a:visited{
-  color:#ffffff !important;
+
+.leftnav a:link {
+  color: #ffffff !important;
   text-transform: none;
 }
-a:active{
-  color:#ff1fff !important;
+
+.leftnav a:hover {
+  color: #ff1fff !important;
+  text-transform: none;
+}
+
+.leftnav a:visited {
+  color: #ffffff !important;
+  text-transform: none;
+}
+.leftnav a:active {
+  color: #ff1fff !important;
   text-transform: none;
 }

@@ -3,7 +3,7 @@ import { Input } from "glx-uikit";
 import styled from "styled-components";
 
 const StyledInput = styled(Input)`
-  border-radius: 16px;
+  border-radius: 4px;
   margin-left: auto;
 `;
 

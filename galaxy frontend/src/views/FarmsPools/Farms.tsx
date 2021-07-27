@@ -67,6 +67,7 @@ const FilterContainer = styled.div`
   align-items: center;
   width: 100%;
   padding: 8px 0px;
+  border-radius: 8px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     width: 100%;

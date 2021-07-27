@@ -4,11 +4,11 @@ import { ResetCSS } from "glx-uikit";
 import BigNumber from "bignumber.js";
 import useEagerConnect from "hooks/useEagerConnect";
 
-import Navbar from 'pagecomponent/Navbar'
+import Navbar from "pagecomponent/Navbar";
 // @ts-ignore
-import Leftnav from 'pagecomponent/Leftnav'
+import Leftnav from "pagecomponent/Leftnav";
 // @ts-ignore
-import Footer from 'pagecomponent/Footer'
+import Footer from "pagecomponent/Footer";
 
 import {
   useFetchPriceList,
@@ -64,30 +64,30 @@ const App: React.FC = () => {
       <GlobalStyle />
       <Navbar />
       <div className="row">
-                <div className="col-auto">
-              <Leftnav/>
-              </div>
-              <div className="col-auto justify-content-center text-center" style={{marginTop:'20px'}}>
-      {/* <Menu> */}
-        <SuspenseWithChunkError fallback={<PageLoader />}>
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/farms">
-              <Farms />
-            </Route>
-            <Route path="/pools">
-              <FarmsPools />
-            </Route>
-            <Route path="/ifo">
-              <Ifos />
-            </Route>
-            <Route component={NotFound} />
-          </Switch>
-        </SuspenseWithChunkError>
+        <div className="col-auto">
+          <Leftnav />
         </div>
+        <div className="col-auto" style={{ marginTop: "20px" }}>
+          {/* <Menu> */}
+          <SuspenseWithChunkError fallback={<PageLoader />}>
+            <Switch>
+              <Route path="/" exact>
+                <Home />
+              </Route>
+              <Route path="/farms">
+                <Farms />
+              </Route>
+              <Route path="/pools">
+                <FarmsPools />
+              </Route>
+              <Route path="/ifo">
+                <Ifos />
+              </Route>
+              <Route component={NotFound} />
+            </Switch>
+          </SuspenseWithChunkError>
         </div>
+      </div>
       {/* </Menu> */}
       <Footer />
       <EasterEgg iterations={2} />
