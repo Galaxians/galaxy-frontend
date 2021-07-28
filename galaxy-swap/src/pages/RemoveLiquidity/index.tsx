@@ -444,6 +444,8 @@ export default function RemoveLiquidity({
 
   return (
     <>
+      <div className="h1 text-white mt-5"> Remove Liquidity</div>
+
       <AppBody>
         <AddRemoveTabs adding={false} />
         <Wrapper>
