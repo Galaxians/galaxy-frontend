@@ -270,7 +270,7 @@ const Swap = () => {
            </ul>
       </div>
       <div className="rightpart col-auto"> */}
-      <div className="h1 text-white text-center">Exchange</div>
+      <div className="h1 text-white text-center mt-5">Exchange</div>
       <div className="fs6 pink-color text-center">Trading beyond the outer rim</div>
       <br />
       <TokenWarningModal
@@ -324,6 +324,7 @@ const Swap = () => {
                 <AutoRow justify={isExpertMode ? 'space-between' : 'left'} style={{ padding: '0 2rem' }}>
                   <ArrowWrapper clickable>
                     <IconButton
+                      className="mt-2 mb-2"
                       variant="tertiary"
                       onClick={() => {
                         setApprovalSubmitted(false) // reset 2 step UI for approvals

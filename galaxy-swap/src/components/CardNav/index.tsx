@@ -5,7 +5,7 @@ import { ButtonMenu, ButtonMenuItem } from 'glx-uikit'
 import useI18n from 'hooks/useI18n'
 
 const StyledNav = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 `
 
 
@@ -128,7 +128,7 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
         </div>
         <div className="col-auto">
           <ButtonMenuItem className="setting-icon" />
-          <ButtonMenuItem className="order-history-icon" style={{ marginLeft: '20px' }} />
+          <ButtonMenuItem className="order-history-icon" style={{ marginLeft: '4px' }} />
         </div>
       </div>
     </StyledNav>

@@ -289,7 +289,7 @@ export default function AddLiquidity({
 
   return (
     <>
-      <div className="h1 text-white">Add Liquidity</div>
+      <div className="h1 text-white text-center mt-5">Add Liquidity</div>
     <div className="fs6 pink-color">Add liquidity to receive LP tokens</div><br/>
 
       <AppBody>

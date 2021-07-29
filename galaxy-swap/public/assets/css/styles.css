@@ -379,6 +379,9 @@ padding: 0;
 .leftnav {
   align-content: left;
   margin-left: 40px;
+  position: absolute;
+  top:100px;
+  left: -20px;
   /* margin-left: -330px; */
 }
 

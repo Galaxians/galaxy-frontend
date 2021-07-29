@@ -149,7 +149,7 @@ export default function CurrencyInputPanel({
           </div>
 
           <div className="col-auto p-2">
-            <div className="dark-input rounded fs-2" style={{ width: '343px' }}>
+            <div className="dark-input rounded fs-2" style={{ width: '261px' }}>
               {!hideInput && (
                 <LabelRow>
                   <RowBetween>

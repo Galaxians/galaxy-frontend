@@ -57,7 +57,7 @@ export default function Pool() {
 
   return (
     <>
-    <div className="h1 text-white">Liquidity</div>
+    <div className="h1 text-white text-center mt-5">Liquidity</div>
     <div className="fs6 pink-color">Add liquidity to receive LP tokens</div><br/>
     
       <AppBody>
