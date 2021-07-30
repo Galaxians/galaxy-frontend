@@ -43,7 +43,7 @@ const BodyWrapper = styled.div`
   justify-content: center;
   background: transperent;
   margin-left: -20px;
- // margin-left: -160px;
+  // margin-left: -160px;
 
   ${({ theme }) => theme.mediaQueries.xs} {
     background-size: auto;
@@ -121,32 +121,32 @@ export default function App() {
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
               {/* <Menu> */}
               <Navbar />
-              <div className="row">
-                <div className="col-auto">
-                  <Leftnav />
-                </div>
-
-                <BodyWrapper>
-                  <Popups />
-                  <Web3ReactManager>
-                    <Switch>
-                      <Route exact strict path="/swap" component={Swap} />
-                      <Route exact strict path="/find" component={PoolFinder} />
-                      <Route exact strict path="/pool" component={Pool} />
-                      <Route exact path="/add" component={AddLiquidity} />
-                      <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
-
-                      {/* Redirection: These old routes are still used in the code base */}
-                      <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
-                      <Route exact path="/add/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
-                      <Route exact strict path="/remove/:tokens" component={RedirectOldRemoveLiquidityPathStructure} />
-
-                      <Route component={RedirectPathToSwapOnly} />
-                    </Switch>
-                  </Web3ReactManager>
-                  <Marginer />
-                </BodyWrapper>
+              {/* <div className="row"> */}
+              <div className="col-auto">
+                <Leftnav />
               </div>
+
+              <BodyWrapper>
+                <Popups />
+                <Web3ReactManager>
+                  <Switch>
+                    <Route exact strict path="/swap" component={Swap} />
+                    <Route exact strict path="/find" component={PoolFinder} />
+                    <Route exact strict path="/pool" component={Pool} />
+                    <Route exact path="/add" component={AddLiquidity} />
+                    <Route exact strict path="/remove/:currencyIdA/:currencyIdB" component={RemoveLiquidity} />
+
+                    {/* Redirection: These old routes are still used in the code base */}
+                    <Route exact path="/add/:currencyIdA" component={RedirectOldAddLiquidityPathStructure} />
+                    <Route exact path="/add/:currencyIdA/:currencyIdB" component={RedirectDuplicateTokenIds} />
+                    <Route exact strict path="/remove/:tokens" component={RedirectOldRemoveLiquidityPathStructure} />
+
+                    <Route component={RedirectPathToSwapOnly} />
+                  </Switch>
+                </Web3ReactManager>
+                <Marginer />
+              </BodyWrapper>
+              {/* </div> */}
               {/* </Menu> */}
             </TranslationsContext.Provider>
           </LanguageContext.Provider>

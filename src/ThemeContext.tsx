@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { ThemeProvider as SCThemeProvider } from 'styled-components'
-import { light, dark } from 'glx-uikit'
+import { dark } from 'glx-uikit'
 
-const CACHE_KEY = 'IS_DARK'
+const CACHE_KEY = 'IS_DARKK'
 
 export interface ThemeContextType {
   isDark: boolean
