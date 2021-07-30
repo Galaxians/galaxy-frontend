@@ -127,7 +127,7 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
           </ButtonMenu>
         </div>
         <div className="col-auto">
-          <ButtonMenuItem className="setting-icon" />
+          <ButtonMenuItem className="setting-icon" style={{marginLeft: '-14px' }} />
           <ButtonMenuItem className="order-history-icon" style={{ marginLeft: '4px' }} />
         </div>
       </div>

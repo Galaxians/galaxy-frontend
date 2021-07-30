@@ -60,6 +60,7 @@ const DepositModal: React.FC<DepositModalProps> = ({
           {TranslateString(462, "Cancel")}
         </Button>
         <Button
+          className="mt-4 mb-2"
           width="100%"
           disabled={pendingTx || fullBalance === "0" || val === "0"}
           onClick={async () => {

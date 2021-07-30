@@ -24,7 +24,7 @@ export default function Leftnav() {
 
 <nav className="navbar navbar-expand-lg justify-content-left leftnav">
   <div className="container-fluid">
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="ToggleNavigation">
       <span className="navbar-toggler-icon"/>
     </button>
     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -40,7 +40,7 @@ export default function Leftnav() {
         <a href="https://glxfarms.netlify.app/pools">Galaxia Pool</a>
       </li>
       <li className="left-redeem-icon">
-        <a href="/">Galaxia Redeem</a>
+        <a href="https://galaxyprotocol.io/#/buyback">Galaxia Redeem</a>
       </li>
         </ul>
       </div>

@@ -142,6 +142,10 @@ padding: 0;
 }
 .footer-bg {
 }
+.footer-icon{
+  width: 99%;
+  margin-right: -15px;
+}
 
 .x2-border {
   border: 2px solid;

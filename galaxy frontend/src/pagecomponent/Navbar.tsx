@@ -33,7 +33,7 @@ export default function Navbar() {
           <div className="collapse navbar-collapse" id="navcol-1">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link small mosk-bold-700 text-white" href="/">
+                <a className="nav-link small mosk-bold-700 text-white" href="https://galaxyprotocol.io/#/" target='_blank' rel="noreferrer">
                 Go to GalaxyProtocol
                 </a>
               </li>
