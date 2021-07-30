@@ -57,19 +57,23 @@ export default function Pool() {
 
   return (
     <>
-    <div className="h1 text-white text-center mt-5">Liquidity</div>
-    <div className="fs6 pink-color">Add liquidity to receive LP tokens</div><br/>
-    
+      <div className="h1 text-white text-center mt-5">Liquidity</div>
+      <div className="fs6 pink-color">Add liquidity to receive LP tokens</div>
+      <br />
+
       <AppBody>
-      <CardNav activeIndex={1} />
-      {/* <PageHeader
-         title={TranslateString(262, '')}
-          description={TranslateString(1168, '')}
-        >
-          
+        <CardNav activeIndex={1} />
+        {/* <PageHeader title={TranslateString(262, '')} description={TranslateString(1168, '')}>
+
         </PageHeader> */}
-        <Button className="pink-gredient" style={{width:'92%',marginLeft:'4%',borderRadius:'4px'}} id="join-pool-button" as={Link} to="/add/BNB">
-            {TranslateString(168, 'Add Liquidity')}
+        <Button
+          className="pink-gredient"
+          style={{ width: '92%', marginLeft: '4%', borderRadius: '4px' }}
+          id="join-pool-button"
+          as={Link}
+          to="/add/BNB"
+        >
+          {TranslateString(168, 'Add Liquidity')}
         </Button>
         <AutoColumn justify="center">
           <CardBody>
@@ -77,7 +81,6 @@ export default function Pool() {
               <RowBetween padding="0 8px">
                 <Text color={theme.colors.text}>{TranslateString(107, 'Your Liquidity')}</Text>
                 <Question
-
                   text={TranslateString(
                     1170,
                     'When you add liquidity, you are given pool tokens that represent your share. If you don’t see a pool you joined in this list, try importing a pool below.'
@@ -86,7 +89,10 @@ export default function Pool() {
               </RowBetween>
 
               {!account ? (
-                <LightCard style={{width:'100%', borderRadius:'6px', borderColor:'#696272', background:'#696272'}} padding="40px">
+                <LightCard
+                  style={{ width: '100%', borderRadius: '6px', borderColor: '#696272', background: '#696272' }}
+                  padding="40px"
+                >
                   <Text color="textDisabled" textAlign="center">
                     {TranslateString(156, 'Connect to a wallet to view your liquidity.')}
                   </Text>

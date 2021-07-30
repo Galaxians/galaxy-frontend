@@ -1,17 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { ButtonMenu, ButtonMenuItem } from 'glx-uikit'
+import { ButtonMenu, ButtonMenuItem, useModal } from 'glx-uikit'
+
 import useI18n from 'hooks/useI18n'
+import SettingsModal from '../PageHeader/SettingsModal'
+import RecentTransactionsModal from '../PageHeader/RecentTransactionsModal'
 
 const StyledNav = styled.div`
   margin-bottom: 20px;
 `
 
-
 function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
   const TranslateString = useI18n()
-
+  const [onPresentSettings] = useModal(<SettingsModal translateString={TranslateString} />)
+  const [onPresentRecentTransactions] = useModal(<RecentTransactionsModal translateString={TranslateString} />)
   return (
     <StyledNav style={{ marginLeft: '25px', borderRadius: '4px' }}>
       <div className="row mt-4">
@@ -127,8 +130,12 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
           </ButtonMenu>
         </div>
         <div className="col-auto">
-          <ButtonMenuItem className="setting-icon" style={{marginLeft: '-14px' }} />
-          <ButtonMenuItem className="order-history-icon" style={{ marginLeft: '4px' }} />
+          <ButtonMenuItem className="setting-icon" onClick={onPresentSettings} style={{ marginLeft: '-14px' }} />
+          <ButtonMenuItem
+            className="order-history-icon"
+            onClick={onPresentRecentTransactions}
+            style={{ marginLeft: '4px' }}
+          />
         </div>
       </div>
     </StyledNav>
