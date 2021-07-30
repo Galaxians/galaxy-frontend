@@ -29,8 +29,7 @@ jobs:
           echo "REACT_APP_TREAURY_WALLET_AFFRESS=${{ secrets.REACT_APP_TREAURY_WALLET_AFFRESS }}" > .env
           echo "REACT_APP_TREAURY_CONTRACT_ADDRESS=${{ secrets.REACT_APP_TREAURY_CONTRACT_ADDRESS }}" > .env
           echo "SKIP_PREFLIGHT_CHECK=${{ secrets.SKIP_PREFLIGHT_CHECK }}" > .env
-          echo "REACT_APP_CHAIN_NAME=${{ secrets.SKIP_PREFLIGHT_CHECK }}" > .env
-          echo "REACT_APP_CHAIN_NAME=${{ secrets.SKIP_PREFLIGHT_CHECK }}" > .env
+          echo "REACT_APP_CHAIN_NAME=${{ secrets.REACT_APP_CHAIN_NAME }}" > .env
       - name: Build React App
         run: npm install && npm run build
       - name: Copy build folder to EC2
