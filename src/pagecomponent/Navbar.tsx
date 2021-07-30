@@ -19,33 +19,30 @@ export default function Navbar() {
 
   return (
     <div className="container-fluid top-nav-bg">
-      <nav className="navbar navbar-light navbar-expand-xl">
+      <nav className="navbar navbar-dark navbar-expand-xl">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            &nbsp;
-            <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px",marginLeft:'30px'}} /></a>
-            <span className="pink-color small mt-2">Powered by GalaxyProtocol</span>
-          
-          <button type="submit" data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="/navcol-1">
+            <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px", marginLeft:'30px'}} />
+            </a>         
+          <button type="submit" data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="/navcol-1" style={{marginTop:'0px', marginLeft:'px'}}>
             <span className="visually-hidden">Toggle navigation</span>
-            <span className="navbar-toggler-icon" />
+            <span className="navbar-toggler-icon text-white" />
           </button>
           <div className="collapse navbar-collapse" id="navcol-1">
+          <span className="pink-color small mt-2">Powered by GalaxyProtocol</span>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a className="nav-link small mosk-bold-700 text-white" href="/">
+                <a className="nav-link small mosk-bold-700 text-white" href="https://galaxyprotocol.io/#/" target='_blank' rel="noreferrer">
                 Go to GalaxyProtocol
                 </a>
               </li>
             </ul>
-          </div>
-          <span className="navbar-text actions">
+            <span className="navbar-text actions">
             <div>
               {account ? (
                 <Button
                 className="btn text-white xrounded pink-gredient"
                 style={{marginLeft:'70px',height: '46px', width:'150px'}}
-                  variant="tertiary"
                   onClick={() => {
                     onPresentAccountModal()
                   }}
@@ -63,12 +60,10 @@ export default function Navbar() {
                   Connect
                 </Button>
               )}
-
-              
             </div>
           </span>
           <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', width:'40px'}} />
-
+          </div>
         </div>
       </nav>
     </div>

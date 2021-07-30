@@ -1,34 +1,34 @@
-import { MenuEntry } from "glx-uikit";
+import { MenuEntry } from 'glx-uikit'
 
 const config: MenuEntry[] = [
   {
-    label: "Home",
-    icon: "HomeIcon",
-    href: "/",
+    label: 'Home',
+    icon: 'HomeIcon',
+    href: '/',
   },
   {
-    label: "Trade",
-    icon: "TradeIcon",
+    label: 'Trade',
+    icon: 'TradeIcon',
     items: [
       {
-        label: "Exchange",
-        href: "#",
+        label: 'Exchange',
+        href: '/swap',
       },
       {
-        label: "Liquidity",
-        href: "#",
+        label: 'Liquidity',
+        href: '/pool',
       },
     ],
   },
   {
-    label: "Farms",
-    icon: "FarmIcon",
-    href: "/farms",
+    label: 'Farms',
+    icon: 'FarmIcon',
+    href: '/farms',
   },
   {
-    label: "Pools",
-    icon: "PoolIcon",
-    href: "/pools",
+    label: 'Pools',
+    icon: 'PoolIcon',
+    href: '/pools',
   },
   // {
   //   label: "Lottery",
@@ -81,11 +81,11 @@ const config: MenuEntry[] = [
   //     },
   //   ],
   // },
-  {
-    label: "IFO",
-    icon: "IfoIcon",
-    href: "/ifo",
-  },
+  // {
+  //   label: "IFO",
+  //   icon: "IfoIcon",
+  //   href: "/ifo",
+  // },
   // {
   //   label: "More",
   //   icon: "MoreIcon",
@@ -108,6 +108,6 @@ const config: MenuEntry[] = [
   //     },
   //   ],
   // },
-];
+]
 
-export default config;
+export default config
