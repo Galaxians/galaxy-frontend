@@ -66,12 +66,12 @@ const Ifo = () => {
           </List>
           <Flex mb="16px">
             <LinkExternal
-              href="https://exchange.pancakeswap.finance/#/swap"
+              href="https://exchange.galaxyswap.net//#/swap"
               mr="16px"
             >
               {TranslateString(1060, "Buy GLX")}
             </LinkExternal>
-            <LinkExternal href="https://exchange.pancakeswap.finance/#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82">
+            <LinkExternal href="https://exchange.galaxyswap.net//#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82">
               {TranslateString(1062, "Get LP tokens")}
             </LinkExternal>
           </Flex>

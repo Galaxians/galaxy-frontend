@@ -46,7 +46,7 @@ const Farm: React.FC = () => {
       <Hero>
         <div>
           <Heading as="h1" size="xxl" mb="16px">
-            {TranslateString(738, "Syrup Pool")}
+            {TranslateString(738, "Galactic Pool")}
           </Heading>
           <ul>
             <li>{TranslateString(580, "Stake GLX to earn new tokens.")}</li>

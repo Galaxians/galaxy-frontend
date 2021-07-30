@@ -11,7 +11,7 @@ export default function Leftnav() {
     <div className="d-flex justify-content-left leftnav">
       <ul className="list-unstyled">
         <li className="left-exchange-icon">
-          <a href="https://glxswap.netlify.app/">Exchange</a>{" "}
+          <a href="https://exchange.galaxyswap.net/">Exchange</a>{" "}
         </li>
         <li className="left-farms-icon">
           <Link to="/farms">Galaxia Farms</Link>{" "}
