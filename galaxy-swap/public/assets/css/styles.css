@@ -421,10 +421,10 @@ a:active {
   text-transform: none;
 }
 
-.leftnav a:visited {
+/* .leftnav a:visited {
   color: #ffffff !important;
   text-transform: none;
-}
+} */
 .leftnav a:active {
   color: #ff1fff !important;
   text-transform: none;
