@@ -37,7 +37,7 @@ jobs:
         uses: garygrossgarten/github-action-scp@release
         with:
           local: ./build
-          remote: build
+          remote: /var/www/html
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           privateKey: ${{ secrets.SSH_PRIVATE_KEY}}
@@ -48,5 +48,5 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
           instance-ids: ${{ secrets.INSTANCE_ID  }}
-          working-directory: /home/ubuntu
+          working-directory: /var/www/html
           command: sudo service nginx restart
