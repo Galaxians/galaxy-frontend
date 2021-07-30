@@ -4,45 +4,77 @@ import { FarmConfig, QuoteToken } from "./types";
 const farms: FarmConfig[] = [
   {
     pid: 0,
-    lpSymbol: "GLX-BUSD LP",
+    lpSymbol: "GLX-BNB LP",
     isTokenOnly: false,
     lpAddresses: {
       97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776",
-      56: "0xA527a61703D82139F8a06Bc30097cC9CAA2df5A6",
+      56: "0x0f3cF7457D655973420b2A9A2b3681B6b13B0DFf",
     },
     tokenSymbol: "GLX",
     tokenAddresses: {
       97: "0x4F2906C0e6891bb0A7440db0ce6e806cC03bC852",
-      56: "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82",
+      56: "0x8723eEb54d8fdbCE7900a60b4893C2A312439f87",
+    },
+    quoteTokenSymbol: QuoteToken.BNB,
+    quoteTokenAdresses: contracts.wbnb,
+  },
+  {
+    pid: 1,
+    lpSymbol: "GLX-BUSD LP",
+    isTokenOnly: false,
+    lpAddresses: {
+      97: "0x671477c84Df69f0283F44F813784bBC78289F382",
+      56: "0x144fe2e8cF8A6f683366EE6B79DB904F473bd0ad",
+    },
+    tokenSymbol: "BUSD",
+    tokenAddresses: {
+      97: "0xA697EC8f0DFfaF4C4AE800d9960cC75D33Cd5615",
+      56: "0xe9e7cea3dedca5984780bafc599bd69add087d56",
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,
   },
   {
-    pid: 1,
-    lpSymbol: "BNB-BUSD LP",
-    isTokenOnly: false,
-    lpAddresses: {
-      97: "0x671477c84Df69f0283F44F813784bBC78289F382",
-      56: "0x70D8929d04b60Af4fb9B58713eBcf18765aDE422",
-    },
-    tokenSymbol: "BUSD",
-    tokenAddresses: {
-      97: "0xA697EC8f0DFfaF4C4AE800d9960cC75D33Cd5615",
-      56: "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
-    },
-    quoteTokenSymbol: QuoteToken.BNB,
-    quoteTokenAdresses: contracts.wbnb,
-  },
-  {
     pid: 2,
-    lpSymbol: "GLX-BNB LP",
+    lpSymbol: "GLX-BTC LP",
     isTokenOnly: false,
     lpAddresses: {
       97: "0x1361144C20960b9aC3d42191129139536512aAb6",
-      56: "0x1b96b92314c44b159149f7e0303511fb2fc4774f",
+      56: "0x8450F872d8812d96cDa19e10446cC1a4976898dF",
     },
-    tokenSymbol: "GLX",
+    tokenSymbol: "BTC",
+    tokenAddresses: {
+      97: "0x4F2906C0e6891bb0A7440db0ce6e806cC03bC852",
+      56: "0x7130d2A12B9BCbFAe4f2634d864A1Ee1Ce3Ead9c",
+    },
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
+    pid: 3,
+    lpSymbol: "GLX-ETH LP",
+    isTokenOnly: false,
+    lpAddresses: {
+      97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776", // glx-busd
+      56: "0x9CA6FfDcf143a087277E1e60D41511E3F07D30FE",
+    },
+    tokenSymbol: "ETH",
+    tokenAddresses: {
+      97: "0x4F2906C0e6891bb0A7440db0ce6e806cC03bC852",
+      56: "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
+    },
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
+    pid: 4,
+    lpSymbol: "BNB-BUSD LP",
+    isTokenOnly: false,
+    lpAddresses: {
+      97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776", // glx-busd
+      56: "0x2a19226CEb4b186624fa046441D45EB0134808aD",
+    },
+    tokenSymbol: "BUSD",
     tokenAddresses: {
       97: "0x4F2906C0e6891bb0A7440db0ce6e806cC03bC852",
       56: "0xe9e7cea3dedca5984780bafc599bd69add087d56",
@@ -51,17 +83,129 @@ const farms: FarmConfig[] = [
     quoteTokenAdresses: contracts.wbnb,
   },
   {
-    pid: 3,
+    pid: 5,
+    lpSymbol: "BUSD-USDT LP",
+    isTokenOnly: false,
+    lpAddresses: {
+      97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776", // glx-busd
+      56: "0x250F85b7BE84cBAabcB704d9184c66b172098540",
+    },
+    tokenSymbol: "USD",
+    tokenAddresses: {
+      97: "0x4F2906C0e6891bb0A7440db0ce6e806cC03bC852",
+      56: "0x55d398326f99059fF775485246999027B3197955",
+    },
+    quoteTokenSymbol: QuoteToken.BUSD,
+    quoteTokenAdresses: contracts.busd,
+  },
+  {
+    pid: 6,
+    lpSymbol: "GLX-CAKE LP",
+    isTokenOnly: false,
+    lpAddresses: {
+      97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776", // glx-busd
+      56: "0x481C996afe3136521d43245CF0A73D885e09B6C2",
+    },
+    tokenSymbol: "CAKE",
+    tokenAddresses: {
+      97: "0x4F2906C0e6891bb0A7440db0ce6e806cC03bC852",
+      56: "0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82",
+    },
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
+    pid: 7,
+    lpSymbol: "GLX-BAKE LP",
+    isTokenOnly: false,
+    lpAddresses: {
+      97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776", // glx-busd
+      56: "0xF0782A407ccDa251A9246f0B5DC5c4f87f6369d7",
+    },
+    tokenSymbol: "BAKE",
+    tokenAddresses: {
+      97: "0x4F2906C0e6891bb0A7440db0ce6e806cC03bC852",
+      56: "0xE02dF9e3e622DeBdD69fb838bB799E3F168902c5",
+    },
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
+    pid: 8,
+    lpSymbol: "GLX-BANANA LP",
+    isTokenOnly: false,
+    lpAddresses: {
+      97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776", // glx-busd
+      56: "0xfdFfF02033e0E293ED12eBcCd42BBDd81D07d247",
+    },
+    tokenSymbol: "BANANA",
+    tokenAddresses: {
+      97: "0x4F2906C0e6891bb0A7440db0ce6e806cC03bC852",
+      56: "0x603c7f932ED1fc6575303D8Fb018fDCBb0f39a95",
+    },
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
+    pid: 9,
+    lpSymbol: "GLX-EPS LP",
+    isTokenOnly: false,
+    lpAddresses: {
+      97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776", // glx-busd
+      56: "0x4F17A125923fA27186c583BB4b13691168a7CB48",
+    },
+    tokenSymbol: "EPS",
+    tokenAddresses: {
+      97: "0x4F2906C0e6891bb0A7440db0ce6e806cC03bC852",
+      56: "0xA7f552078dcC247C2684336020c03648500C6d9F",
+    },
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
+    pid: 10,
+    lpSymbol: "GLX-NRV LP",
+    isTokenOnly: false,
+    lpAddresses: {
+      97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776", // glx-busd
+      56: "0x31861bc843fEFcc4B20750e5F7D3EBC63FB6c415",
+    },
+    tokenSymbol: "NRV",
+    tokenAddresses: {
+      97: "0x4F2906C0e6891bb0A7440db0ce6e806cC03bC852",
+      56: "0x42F6f551ae042cBe50C739158b4f0CAC0Edb9096",
+    },
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
+    pid: 11,
+    lpSymbol: "GLX-CAPS LP",
+    isTokenOnly: false,
+    lpAddresses: {
+      97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776", // glx-busd
+      56: "0x6bF326298304d90C794fa99F3da0b335231AdE27",
+    },
+    tokenSymbol: "CAPS",
+    tokenAddresses: {
+      97: "0x4F2906C0e6891bb0A7440db0ce6e806cC03bC852",
+      56: "0xFfBa7529AC181c2Ee1844548e6D7061c9A597dF4",
+    },
+    quoteTokenSymbol: QuoteToken.CAKE,
+    quoteTokenAdresses: contracts.cake,
+  },
+  {
+    pid: 12,
     lpSymbol: "GLX",
     isTokenOnly: true,
     lpAddresses: {
       97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776", // glx-busd
-      56: "0x1b96b92314c44b159149f7e0303511fb2fc4774f",
+      56: "0x144fe2e8cF8A6f683366EE6B79DB904F473bd0ad",
     },
     tokenSymbol: "GLX",
     tokenAddresses: {
       97: "0x4F2906C0e6891bb0A7440db0ce6e806cC03bC852",
-      56: "0xe9e7cea3dedca5984780bafc599bd69add087d56",
+      56: "0x8723eEb54d8fdbCE7900a60b4893C2A312439f87",
     },
     quoteTokenSymbol: QuoteToken.BUSD,
     quoteTokenAdresses: contracts.busd,

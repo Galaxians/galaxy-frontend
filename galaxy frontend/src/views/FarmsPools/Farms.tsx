@@ -422,7 +422,7 @@ const Farms: React.FC = () => {
           {TranslateString(999, "Galaxia Pools")}
         </Heading>
         <Heading size="lg" color="#FF1FFF">
-          {TranslateString(999, "Stake Liquidity Pool (LP) tokens to earn.")}
+          {TranslateString(999, "Stake tokens to earn GLX.")}
         </Heading>
       </Header>
       <Page>

@@ -39,7 +39,7 @@ const WithdrawModal: React.FC<WithdrawModalProps> = ({
 
   return (
     <Modal
-      title={TranslateString(1126, "Unstake LP tokens")}
+      title={TranslateString(1126, "Unstake tokens")}
       onDismiss={onDismiss}
     >
       <ModalInput
