@@ -87,9 +87,9 @@ export function tryParseAmount(value?: string, currency?: Currency): CurrencyAmo
 }
 
 const BAD_RECIPIENT_ADDRESSES: string[] = [
-  '0x8334F771d764E4796De78f839Fdf092bB0ad5eE1', // v2 factory
-  '0xc030213027b9Ec3572593F968Ce3d3d5a807533A', // v2 router 01
-  '0xc030213027b9Ec3572593F968Ce3d3d5a807533A', // v2 router 02
+  '0x40383b3F58B699a4817040792995540F3279EFdB', // v2 factory
+  '0x018dd7894DDe11FE47111432c79D2eD23E12E31c', // v2 router 01
+  '0x018dd7894DDe11FE47111432c79D2eD23E12E31c', // v2 router 02
 ]
 
 /**
