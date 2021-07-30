@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
 <div className="footer">
-<div className="footer-bg p-5">
+        <div className="footer-bg p-5">
           <div className="row justify-content-center">
             <img src="./assets/img/galaxy-footer-logo.png" style={{width: '427px'}} alt="" />            
           </div>
@@ -61,7 +61,7 @@ export default function Navbar() {
             </a>  
             </div>
           </div>
-
+          
 
           <div className="row justify-content-center text-secondary mt-4">
             &#169; 2021 GalaxySwap all rights reserved.
