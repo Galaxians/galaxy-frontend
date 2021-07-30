@@ -1,0 +1,52 @@
+name: Deploy to Production
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+      - name: Remove build folder
+        uses: peterkimzz/aws-ssm-send-command@v1.1.1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          instance-ids: ${{ secrets.INSTANCE_ID  }}
+          working-directory: /home/ubuntu
+          command: sudo rm -rf build
+      - name: Configure env file
+        run: |
+          echo "REACT_APP_API_PROFILE=${{ secrets.REACT_APP_API_PROFILE }}" > .env
+          echo "REACT_APP_CHAIN_ID=${{ secrets.REACT_APP_CHAIN_ID }}" >> .env
+          echo "REACT_APP_GTAG=${{ secrets.REACT_APP_GTAG }}" >> .env
+          echo "REACT_APP_NETWORK_URL=${{ secrets.REACT_APP_NETWORK_URL }}" >> .env
+          echo "REACT_APP_ETH_PROVIDER_LINK=${{ secrets.REACT_APP_ETH_PROVIDER_LINK }}" >> .env
+          echo "REACT_APP_TREAURY_WALLET_AFFRESS=${{ secrets.REACT_APP_TREAURY_WALLET_AFFRESS }}" >> .env
+          echo "REACT_APP_TREAURY_CONTRACT_ADDRESS=${{ secrets.REACT_APP_TREAURY_CONTRACT_ADDRESS }}" >> .env
+          echo "SKIP_PREFLIGHT_CHECK=${{ secrets.SKIP_PREFLIGHT_CHECK }}" >> .env
+          echo "REACT_APP_CHAIN_NAME=${{ secrets.REACT_APP_CHAIN_NAME }}" >> .env
+          cat .env
+      - name: Build React App
+        run: npm install && npm run build
+      - name: Copy build folder to EC2
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: ./build
+          remote: /var/www/html
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY}}
+      - name: Restart Nginx
+        uses: peterkimzz/aws-ssm-send-command@v1.1.1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+          instance-ids: ${{ secrets.INSTANCE_ID  }}
+          working-directory: /home/ubuntu
+          command: sudo service nginx restart
