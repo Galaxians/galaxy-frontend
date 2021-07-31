@@ -4,7 +4,7 @@ import { ResetCSS } from "glx-uikit";
 import BigNumber from "bignumber.js";
 import useEagerConnect from "hooks/useEagerConnect";
 
-import Navbar from "pagecomponent/Navbar";
+import Navbarglx from "pagecomponent/Navbarglx";
 // @ts-ignore
 import Leftnav from "pagecomponent/Leftnav";
 // @ts-ignore
@@ -62,12 +62,13 @@ const App: React.FC = () => {
     <Router history={history}>
       <ResetCSS />
       <GlobalStyle />
-      <Navbar />
+      <Navbarglx />
       <div className="row">
-        <div className="col-auto">
+      <div className="col-auto col-md-2">
           <Leftnav />
-        </div>
-        <div className="col-auto" style={{ marginTop: "20px" }}>
+       </div>
+        
+        <div className="col-auto col-md-10">
           {/* <Menu> */}
           <SuspenseWithChunkError fallback={<PageLoader />}>
             <Switch>

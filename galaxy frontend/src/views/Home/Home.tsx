@@ -14,7 +14,6 @@ import WinCard from "views/Home/components/WinCard";
 // background-image: url("/images/pan-bg-mobile.svg");
 const Hero = styled.div`
   align-items: center;
-
   background-repeat: no-repeat;
   background-position: top center;
   display: flex;

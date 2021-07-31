@@ -16,15 +16,15 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
   const [onPresentSettings] = useModal(<SettingsModal translateString={TranslateString} />)
   const [onPresentRecentTransactions] = useModal(<RecentTransactionsModal translateString={TranslateString} />)
   return (
-    <StyledNav style={{ marginLeft: '25px', borderRadius: '4px' }}>
+    <StyledNav style={{ marginLeft: '15px', borderRadius: '4px' }}>
       <div className="row mt-4">
         <div className="col-auto" style={{ background: '#0B001E' }}>
           <ButtonMenu activeIndex={activeIndex} scale="sm">
             {activeIndex === 0 ? (
               <ButtonMenuItem
                 style={{
-                  paddingLeft: '25px',
-                  paddingRight: '25px',
+                  paddingLeft: '0.9rem',
+                  paddingRight: '0.9rem',
                   paddingTop: '25px',
                   paddingBottom: '25px',
                   background: '#271049',
@@ -40,8 +40,8 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
             ) : (
               <ButtonMenuItem
                 style={{
-                  paddingLeft: '25px',
-                  paddingRight: '25px',
+                  paddingLeft: '0.9rem',
+                  paddingRight: '0.9rem',
                   paddingTop: '25px',
                   paddingBottom: '25px',
                   background: '#271049',
@@ -57,8 +57,8 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
             {activeIndex === 1 ? (
               <ButtonMenuItem
                 style={{
-                  paddingLeft: '25px',
-                  paddingRight: '25px',
+                  paddingLeft: '0.9rem',
+                  paddingRight: '0.9rem',
                   paddingTop: '25px',
                   paddingBottom: '25px',
                   background: '#271049',
@@ -74,8 +74,8 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
             ) : (
               <ButtonMenuItem
                 style={{
-                  paddingLeft: '25px',
-                  paddingRight: '25px',
+                  paddingLeft: '0.9rem',
+                  paddingRight: '0.9rem',
                   paddingTop: '25px',
                   paddingBottom: '25px',
                   background: '#271049',
@@ -92,8 +92,8 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
             {activeIndex === 2 ? (
               <ButtonMenuItem
                 style={{
-                  paddingLeft: '25px',
-                  paddingRight: '25px',
+                  paddingLeft: '0.9rem',
+                  paddingRight: '0.9rem',
                   paddingTop: '25px',
                   paddingBottom: '25px',
                   background: '#271049',
@@ -111,8 +111,8 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
             ) : (
               <ButtonMenuItem
                 style={{
-                  paddingLeft: '25px',
-                  paddingRight: '25px',
+                  paddingLeft: '0.9rem',
+                  paddingRight: '0.9rem',
                   paddingTop: '25px',
                   paddingBottom: '25px',
                   background: '#271049',

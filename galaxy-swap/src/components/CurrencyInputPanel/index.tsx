@@ -21,7 +21,7 @@ const InputRow = styled.div<{ selected: boolean }>`
 const CurrencySelect = styled.button<{ selected: boolean }>`
   align-items: center;
   height: 34px;
-  font-size: 16px;
+  font-size: .7rem;
   font-weight: 500;
   background-color: #ff00ff;
   color: ${({ selected, theme }) => (selected ? theme.colors.text : '#FFFFFF')};
@@ -111,8 +111,8 @@ export default function CurrencyInputPanel({
   return (
     <InputPanel id={id}>
       <Container hideInput={hideInput}>
-        <div className="row">
-          <div className="col-auto" style={{ marginLeft: '25px', marginTop: '21px', width: '166px' }}>
+        <div className="row" style={{ marginLeft: '5px'}}>
+          <div className="col-auto" style={{ marginLeft: '15px', marginTop: '21px', width: '150px' }}>
             <CurrencySelect
               style={{ textAlign: 'left' }}
               selected={!!currency}
@@ -140,7 +140,7 @@ export default function CurrencyInputPanel({
                           currency.symbol.length - 5,
                           currency.symbol.length
                         )}`
-                      : currency?.symbol) || TranslateString(1196, 'Select a Token')}
+                      : currency?.symbol) || TranslateString(1196, 'Select Token')}
                   </Text>
                 )}
                 {!disableCurrencySelect && <ChevronDownIcon />}
@@ -149,13 +149,13 @@ export default function CurrencyInputPanel({
           </div>
 
           <div className="col-auto p-2">
-            <div className="dark-input rounded fs-2" style={{ width: '236px' }}>
+            <div className="dark-input rounded fs-2" style={{ width: '100%',minWidth:'180px'}}>
               {!hideInput && (
                 <LabelRow>
                   <RowBetween>
                     {/* <Text fontSize="14px">{translatedLabel}</Text> */}
                     {account && (
-                      <Text onClick={onMax} fontSize="14px" style={{ display: 'inline', cursor: 'pointer' }}>
+                      <Text onClick={onMax} fontSize="0.7rem" style={{ display: 'inline', cursor: 'pointer' }}>
                         {!hideBalance && !!currency && selectedCurrencyBalance
                           ? `Balance: ${selectedCurrencyBalance?.toSignificant(6)}`
                           : ' -'}
@@ -165,7 +165,7 @@ export default function CurrencyInputPanel({
                 </LabelRow>
               )}
 
-              <InputRow style={hideInput ? { padding: '0', borderRadius: '8px' } : {}} selected={disableCurrencySelect}>
+              <InputRow style={hideInput ? { padding: '0', borderRadius: '8px'} : {}} selected={disableCurrencySelect}>
                 {!hideInput && (
                   <>
                     <NumericalInput

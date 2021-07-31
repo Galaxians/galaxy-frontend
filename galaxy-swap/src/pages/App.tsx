@@ -2,7 +2,7 @@ import React, { Suspense, useEffect, useState } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom'
 import styled from 'styled-components'
 import { Credentials, StringTranslations } from '@crowdin/crowdin-api-client'
-import Navbar from 'pagecomponent/Navbar'
+import Navbarglx from 'pagecomponent/Navbarglx'
 // @ts-ignore
 import Leftnav from 'pagecomponent/Leftnav'
 // @ts-ignore
@@ -42,7 +42,6 @@ const BodyWrapper = styled.div`
   z-index: 1;
   justify-content: center;
   background: transperent;
-  margin-left: -20px;
   // margin-left: -160px;
 
   ${({ theme }) => theme.mediaQueries.xs} {
@@ -120,7 +119,7 @@ export default function App() {
           >
             <TranslationsContext.Provider value={{ translations, setTranslations }}>
               {/* <Menu> */}
-              <Navbar />
+              <Navbarglx />
               {/* <div className="row"> */}
               <div className="col-auto">
                 <Leftnav />
