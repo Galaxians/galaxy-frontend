@@ -358,11 +358,14 @@ min-height: 200px;
   right: 0px; 
 }
 
-.leftnav{
-  z-index: 1;
+.leftnav {
   align-content: left;
   margin-left: 40px;
-    /* margin-left: -330px; */
+  position: absolute;
+  z-index: 1000;
+  top:100px;
+  left: -20px;
+  /* margin-left: -330px; */
 }
 
 .rightpart{
