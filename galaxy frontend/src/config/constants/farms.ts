@@ -63,8 +63,8 @@ const farms: FarmConfig[] = [
       97: "0x4F2906C0e6891bb0A7440db0ce6e806cC03bC852",
       56: "0x2170Ed0880ac9A755fd29B2688956BD959F933F8",
     },
-    quoteTokenSymbol: QuoteToken.CAKE,
-    quoteTokenAdresses: contracts.cake,
+    quoteTokenSymbol: QuoteToken.ETH,
+    quoteTokenAdresses: contracts.eth,
   },
   {
     pid: 4,
