@@ -22,7 +22,7 @@ export default function Leftnav() {
         </li>
         <li className="left-redeem-icon">
           {" "}
-          <Link to="https://galaxyprotocol.io/#/buyback">Galaxia Redeem</Link>
+          <a href="https://galaxyprotocol.io/#/buyback">BuyBack</a>{" "}
         </li>
       </ul>
     </div>
