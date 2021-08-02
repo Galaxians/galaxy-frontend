@@ -33,7 +33,7 @@ export default function Leftnav() {
   <Navbar collapseOnSelect expand="lg" variant="dark">
   <Container>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{position:'absolute' ,top:'-84px',left:'-16px'}} />
-  <Navbar.Collapse id="responsive-navbar-nav">
+  <Navbar.Collapse id="responsive-navbar-nav" className="top-nav-bg">
     <Nav className="me-auto">
       {/* <Nav.Link href="#features">
         <div className="left-exchange-icon">

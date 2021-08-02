@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   overflow-y: auto;
 `
 export const Section = styled(AutoColumn)`
-  padding: 24px;
+  // padding: 24px;
 `
 
 export const ConfirmedIcon = styled(ColumnCenter)`

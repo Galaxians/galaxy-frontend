@@ -24,11 +24,15 @@ export default function Navbarglx() {
 <div className="container-fluid top-nav-bg">
 <Navbar expand="lg" variant="dark">
   <Container fluid>
+  <Navbar.Brand href="/">
+        <img src="./assets/img/Icon-galaxyswap-192x192.png" alt="Galaxy Swap" style={{width: "60px", marginLeft:'30px'}} />
+    </Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav"  className="visually-hidden"/>
+    
+    <Navbar.Collapse id="basic-navbar-nav" className="text-white" >
     <Navbar.Brand href="/">
         <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px", marginLeft:'30px'}} />
     </Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav" className="text-white" >
       <Nav className="me-auto">
         <span className="pink-color small mt-2">Powered by GalaxyProtocol</span>
         {/* <Nav.Link href="https://galaxyprotocol.io/#/" target='_blank' rel="noreferrer" className="text-end">
@@ -40,9 +44,10 @@ export default function Navbarglx() {
       <a className="nav-link small mosk-bold-700 text-white" href="https://galaxyprotocol.io/#/" target='_blank' rel="noreferrer" style={{marginRight:'40px'}}>
                  Go to GalaxyProtocol
             </a>
-      <span className="navbar-text actions">
-            <div>
-            
+      
+    </Navbar.Collapse>
+    <span className="navbar-text actions">
+            <div>            
               {account ? (
                 <Button
                 className="btn text-white xrounded pink-gredient"
@@ -68,7 +73,6 @@ export default function Navbarglx() {
           </span>
           <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', width:'40px'}} />
 
-    </Navbar.Collapse>
   </Container>
 </Navbar>
 </div>

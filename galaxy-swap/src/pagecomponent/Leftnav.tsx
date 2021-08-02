@@ -24,10 +24,10 @@ export default function Leftnav() {
     // </div>
 
     <div className="justify-content-left leftnav">
-  <Navbar collapseOnSelect expand="lg" variant="dark" className="top-nav-bg">
+  <Navbar collapseOnSelect expand="lg" variant="dark">
   <Container>
-  <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{position:'absolute' ,top:'-84px',left:'-16px'}} />
-  <Navbar.Collapse id="responsive-navbar-nav">
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{position:'absolute' ,top:'-64px',left:'-16px'}} />
+  <Navbar.Collapse id="responsive-navbar-nav" >
     <Nav className="me-auto">
       <ul className="list-unstyled">
               <li className="left-exchange-icon">

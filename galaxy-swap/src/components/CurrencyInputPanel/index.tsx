@@ -111,7 +111,7 @@ export default function CurrencyInputPanel({
   return (
     <InputPanel id={id}>
       <Container hideInput={hideInput}>
-        <div className="row" style={{ marginLeft: '5px'}}>
+        <div className="row">
           <div className="col-auto" style={{ marginLeft: '15px', marginTop: '21px', width: '150px' }}>
             <CurrencySelect
               style={{ textAlign: 'left' }}
