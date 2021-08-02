@@ -37,7 +37,7 @@ const ControlContainer = styled.div`
   position: relative;
   justify-content: space-between;
   flex-direction: column;
-  color:#ffffff;
+  color: #ffffff;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
@@ -67,7 +67,7 @@ const FilterContainer = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
- // padding: 8px 0px;
+  // padding: 8px 0px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     width: 100%;
@@ -123,7 +123,6 @@ const Farms: React.FC = () => {
   const TranslateString = useI18n();
   const farmsLP = useFarms();
   const cakePrice = usePriceCakeBusd();
-  console.log(cakePrice.toNumber());
   const bnbPrice = usePriceBnbBusd();
   const [query, setQuery] = useState("");
   const [viewMode, setViewMode] = useState(ViewMode.CARD);
@@ -220,22 +219,28 @@ const Farms: React.FC = () => {
               .div(farm.lpTotalInQuoteToken);
           } else if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
             apy = cakeRewardPerYear.div(farm.lpTotalInQuoteToken);
-          } else if (farm.dual) {
-            const cakeApy =
-              farm &&
-              cakePriceVsBNB
-                .times(cakeRewardPerBlock)
-                .times(BLOCKS_PER_YEAR)
-                .div(farm.lpTotalInQuoteToken);
-            const dualApy =
-              farm.tokenPriceVsQuote &&
-              new BigNumber(farm.tokenPriceVsQuote)
-                .times(farm.dual.rewardPerBlock)
-                .times(BLOCKS_PER_YEAR)
-                .div(farm.lpTotalInQuoteToken);
-
-            apy = cakeApy && dualApy && cakeApy.plus(dualApy);
+          } else if (farm.quoteTokenSymbol === QuoteToken.BNB) {
+            apy = cakePrice
+              .div(bnbPrice)
+              .times(cakeRewardPerYear)
+              .div(farm.lpTotalInQuoteToken);
           }
+          // else if (farm.dual) {
+          //   const cakeApy =
+          //     farm &&
+          //     cakePriceVsBNB
+          //       .times(cakeRewardPerBlock)
+          //       .times(BLOCKS_PER_YEAR)
+          //       .div(farm.lpTotalInQuoteToken);
+          //   const dualApy =
+          //     farm.tokenPriceVsQuote &&
+          //     new BigNumber(farm.tokenPriceVsQuote)
+          //       .times(farm.dual.rewardPerBlock)
+          //       .times(BLOCKS_PER_YEAR)
+          //       .div(farm.lpTotalInQuoteToken);
+
+          //   apy = cakeApy && dualApy && cakeApy.plus(dualApy);
+          // }
 
           let liquidity = farm.lpTotalInQuoteToken;
 
@@ -363,7 +368,11 @@ const Farms: React.FC = () => {
         sortable: column.sortable,
       }));
 
-      return <div className="pink-gredient p-3"><Table data={rowData} columns={columns} /></div>;
+      return (
+        <div className="pink-gredient p-3">
+          <Table data={rowData} columns={columns} />
+        </div>
+      );
     }
 
     return (
@@ -407,7 +416,13 @@ const Farms: React.FC = () => {
   return (
     <>
       <Header>
-        <Heading as="h1" size="xl" color="#ffffff" mb="10px" style={{marginTop:'30px'}}>
+        <Heading
+          as="h1"
+          size="xl"
+          color="#ffffff"
+          mb="10px"
+          style={{ marginTop: "30px" }}
+        >
           {TranslateString(999, "Galaxia Farms")}
         </Heading>
         <Text color="#FF1FFF">
@@ -415,68 +430,67 @@ const Farms: React.FC = () => {
         </Text>
       </Header>
       <Page>
-      <div className="row mb-3 rounded" style={{background:'#0B001E'}}>
-        <ControlContainer >
-                
-          <ViewControls>         
-            <ToggleView
-              viewMode={viewMode}
-              onToggle={(mode: ViewMode) => setViewMode(mode)}              
-            />
-            <ToggleWrapper>
-              <Toggle
-                checked={stackedOnly}
-                onChange={() => setStackedOnly(!stackedOnly)}
-                scale="sm"
+        <div className="row mb-3 rounded" style={{ background: "#0B001E" }}>
+          <ControlContainer>
+            <ViewControls>
+              <ToggleView
+                viewMode={viewMode}
+                onToggle={(mode: ViewMode) => setViewMode(mode)}
               />
-              <Text> {TranslateString(1116, "Staked only")}</Text>
-            </ToggleWrapper>      
-            <FarmTabButtons />
-          </ViewControls>
-          
+              <ToggleWrapper>
+                <Toggle
+                  checked={stackedOnly}
+                  onChange={() => setStackedOnly(!stackedOnly)}
+                  scale="sm"
+                />
+                <Text> {TranslateString(1116, "Staked only")}</Text>
+              </ToggleWrapper>
+              <FarmTabButtons />
+            </ViewControls>
           </ControlContainer>
-          <ControlContainer className="mb-3 rounded" style={{background:'#0B001E'}}>
-          <FilterContainer>
-            <LabelWrapper style={{width:'63%', marginLeft:'5%'}}>
-              <Text>SORT BY</Text>
-              <Select
-                options={[
-                  {
-                    label: "Hot",
-                    value: "hot",
-                  },
-                  {
-                    label: "APR",
-                    value: "apr",
-                  },
-                  {
-                    label: "Multiplier",
-                    value: "multiplier",
-                  },
-                  {
-                    label: "Earned",
-                    value: "earned",
-                  },
-                  {
-                    label: "Liquidity",
-                    value: "liquidity",
-                  },
-                ]}
-                onChange={handleSortOptionChange}
-              />
-            </LabelWrapper>
-            <LabelWrapper style={{width:'30%'}}>
-              <Text>SEARCH</Text>
-              <SearchInput onChange={handleChangeQuery} value={query} />
-            </LabelWrapper>
-          </FilterContainer>
-          
-        </ControlContainer>
+          <ControlContainer
+            className="mb-3 rounded"
+            style={{ background: "#0B001E" }}
+          >
+            <FilterContainer>
+              <LabelWrapper style={{ width: "63%", marginLeft: "5%" }}>
+                <Text>SORT BY</Text>
+                <Select
+                  options={[
+                    {
+                      label: "Hot",
+                      value: "hot",
+                    },
+                    {
+                      label: "APR",
+                      value: "apr",
+                    },
+                    {
+                      label: "Multiplier",
+                      value: "multiplier",
+                    },
+                    {
+                      label: "Earned",
+                      value: "earned",
+                    },
+                    {
+                      label: "Liquidity",
+                      value: "liquidity",
+                    },
+                  ]}
+                  onChange={handleSortOptionChange}
+                />
+              </LabelWrapper>
+              <LabelWrapper style={{ width: "30%" }}>
+                <Text>SEARCH</Text>
+                <SearchInput onChange={handleChangeQuery} value={query} />
+              </LabelWrapper>
+            </FilterContainer>
+          </ControlContainer>
         </div>
-        
+
         {renderContent()}
-        
-        
+
         {/* <StyledImage
           src="/images/3dpan.png"
           alt="Galaxia illustration"
