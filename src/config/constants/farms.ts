@@ -55,7 +55,7 @@ const farms: FarmConfig[] = [
     lpSymbol: "GLX-ETH LP",
     isTokenOnly: false,
     lpAddresses: {
-      97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776", // glx-busd
+      97: "0x442b350d69bd8Aa240376342b40eF2bc530cB776", // glx-eth
       56: "0x9CA6FfDcf143a087277E1e60D41511E3F07D30FE",
     },
     tokenSymbol: "ETH",
