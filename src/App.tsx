@@ -64,10 +64,10 @@ const App: React.FC = () => {
       <GlobalStyle />
       <Navbar />
       <div className="row">
-        <div className="col-auto">
+        <div className="col-auto" style={{zIndex: 1}}>
           <Leftnav />
         </div>
-        <div className="col-auto" style={{ marginTop: "20px" }}>
+        <div style={{ position: "absolute",  margin: "0 auto" }}>
           {/* <Menu> */}
           <SuspenseWithChunkError fallback={<PageLoader />}>
             <Switch>
