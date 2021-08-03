@@ -18,6 +18,8 @@ const useAuth = () => {
           if (hasSetup) {
             activate(connector);
           }
+        } else if (error.message.indexOf('No Ethereum provider was found')) {
+          activate(connectorsByName[ConnectorNames.WalletConnect]);
         } else {
           toastError(error.name, error.message);
         }
