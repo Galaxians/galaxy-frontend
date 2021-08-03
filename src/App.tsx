@@ -67,7 +67,7 @@ const App: React.FC = () => {
         <div className="col-auto">
           <Leftnav />
         </div>
-        <div className="col-auto" style={{ marginTop: "20px" }}>
+        <div className="col-auto" style={{ marginTop: "20px", margin: "auto" }}>
           {/* <Menu> */}
           <SuspenseWithChunkError fallback={<PageLoader />}>
             <Switch>
