@@ -50,7 +50,6 @@ const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
   //margin-left: 10px;
-  width: 30%;
 
   ${Text} {
     margin-left: 8px;
@@ -79,7 +78,7 @@ const ViewControls = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   display: flex;
-  align-items: center;
+  // align-items: center;
   width: 100%;
 
   > div {
@@ -87,7 +86,7 @@ const ViewControls = styled.div`
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
 
     > div {
