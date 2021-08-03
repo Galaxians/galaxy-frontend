@@ -63,8 +63,10 @@ const LabelWrapper = styled.div`
 `;
 
 const FilterContainer = styled.div`
+  flex-wrap: wrap;
   display: flex;
   align-items: center;
+  justify-content: space-around;
   width: 100%;
   // padding: 8px 0px;
 
@@ -78,7 +80,6 @@ const ViewControls = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   display: flex;
-  // align-items: center;
   width: 100%;
 
   > div {
@@ -452,7 +453,7 @@ const Farms: React.FC = () => {
             style={{ background: "#0B001E" }}
           >
             <FilterContainer>
-              <LabelWrapper style={{ width: "63%", marginLeft: "5%" }}>
+              <LabelWrapper style={{ marginLeft: "5%" }}>
                 <Text>SORT BY</Text>
                 <Select
                   options={[
@@ -480,7 +481,7 @@ const Farms: React.FC = () => {
                   onChange={handleSortOptionChange}
                 />
               </LabelWrapper>
-              <LabelWrapper style={{ width: "30%" }}>
+              <LabelWrapper>
                 <Text>SEARCH</Text>
                 <SearchInput onChange={handleChangeQuery} value={query} />
               </LabelWrapper>
