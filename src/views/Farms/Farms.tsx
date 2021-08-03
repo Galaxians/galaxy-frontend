@@ -57,6 +57,7 @@ const ToggleWrapper = styled.div`
 `;
 
 const LabelWrapper = styled.div`
+  margin-top : 5px;
   > ${Text} {
     font-size: 12px;
   }
