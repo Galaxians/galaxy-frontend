@@ -95,6 +95,7 @@ interface FarmCardProps {
   ethPrice?: BigNumber;
   provider?: ProviderType;
   account?: string;
+  className?: string;
 }
 
 const FarmCard: React.FC<FarmCardProps> = ({
@@ -104,6 +105,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
   bnbPrice,
   ethPrice,
   account,
+  className,
 }) => {
   const TranslateString = useI18n();
 
@@ -165,15 +167,16 @@ const FarmCard: React.FC<FarmCardProps> = ({
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`;
 
   return (
-    <FCard>
-      {farm.tokenSymbol === "GLX" && <StyledCardAccent />}
-      <CardHeading
-        lpLabel={lpLabel}
-        multiplier={farm.multiplier}
-        isCommunityFarm={isCommunityFarm}
-        farmImage={farmImage}
-        tokenSymbol={farm.tokenSymbol}
-      />
+    <div className={className}>
+      <FCard>
+        {farm.tokenSymbol === "GLX" && <StyledCardAccent />}
+        <CardHeading
+          lpLabel={lpLabel}
+          multiplier={farm.multiplier}
+          isCommunityFarm={isCommunityFarm}
+          farmImage={farmImage}
+          tokenSymbol={farm.tokenSymbol}
+        />
 
       <CardActionsContainer
         farm={farm}
@@ -217,23 +220,25 @@ const FarmCard: React.FC<FarmCardProps> = ({
         <Text className="small text-white">{earnLabel}</Text>
       </Flex>
 
-      <Divider />
-      <ExpandableSectionButton
-        onClick={() => setShowExpandableSection(!showExpandableSection)}
-        expanded={showExpandableSection}
-      />
-      <ExpandingWrapper expanded={showExpandableSection}>
-        <DetailsSection
-          removed={removed}
-          maticExplorerAddress={`https://bscscan.com/address/${
-            farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
-          }`}
-          totalValueFormated={totalValueFormated}
-          lpLabel={lpLabel}
-          addLiquidityUrl={addLiquidityUrl}
+        <Divider />
+        <ExpandableSectionButton
+          onClick={() => setShowExpandableSection(!showExpandableSection)}
+          expanded={showExpandableSection}
         />
-      </ExpandingWrapper>
-    </FCard>
+        <ExpandingWrapper expanded={showExpandableSection}>
+          <DetailsSection
+            removed={removed}
+            maticExplorerAddress={`https://bscscan.com/address/${
+              farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
+            }`}
+            totalValueFormated={totalValueFormated}
+            lpLabel={lpLabel}
+            addLiquidityUrl={addLiquidityUrl}
+          />
+        </ExpandingWrapper>
+      </FCard>
+    </div>
+    
   );
 };
 

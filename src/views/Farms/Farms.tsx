@@ -49,28 +49,27 @@ const ControlContainer = styled.div`
 const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
-  //margin-left: 10px;
-
+  margin-left: 10px;
+  width: 30%;
   ${Text} {
     margin-left: 8px;
   }
 `;
 
 const LabelWrapper = styled.div`
-  margin-top : 5px;
   > ${Text} {
     font-size: 12px;
   }
 `;
 
 const FilterContainer = styled.div`
-  flex-wrap: wrap;
   display: flex;
   align-items: center;
-  justify-content: space-around;
   width: 100%;
-  // padding: 8px 0px;
+  padding: 8px 0px;
+  border-radius: 8px;
 
+  justify-content: space-around;
   ${({ theme }) => theme.mediaQueries.sm} {
     width: 100%;
     padding: 0;
@@ -78,7 +77,7 @@ const FilterContainer = styled.div`
 `;
 
 const ViewControls = styled.div`
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
   justify-content: space-between;
   display: flex;
   width: 100%;
@@ -378,8 +377,8 @@ const Farms: React.FC = () => {
 
     return (
       <div>
-        <FlexLayout>
-          <Route exact path={`${path}`}>
+        <Route exact path={`${path}`}>
+          <div className="row">
             {farmsStaked.map((farm) => (
               <FarmCard
                 key={farm.pid}
@@ -389,10 +388,13 @@ const Farms: React.FC = () => {
                 ethPrice={ethPriceUsd}
                 account={account}
                 removed={false}
+                className="col-md-4 col-sm-6 col-xs-6 col-xs-8 col-xl-3 mb-4"
               />
             ))}
-          </Route>
-          <Route exact path={`${path}/history`}>
+          </div>
+        </Route>
+        <Route exact path={`${path}/history`}>
+          <FlexLayout>
             {farmsStaked.map((farm) => (
               <FarmCard
                 key={farm.pid}
@@ -404,8 +406,8 @@ const Farms: React.FC = () => {
                 removed
               />
             ))}
-          </Route>
-        </FlexLayout>
+          </FlexLayout>
+        </Route>
       </div>
     );
   };
@@ -454,7 +456,7 @@ const Farms: React.FC = () => {
             style={{ background: "#0B001E" }}
           >
             <FilterContainer>
-              <LabelWrapper style={{ marginLeft: "5%" }}>
+              <LabelWrapper className="m-2">
                 <Text>SORT BY</Text>
                 <Select
                   options={[
@@ -482,15 +484,17 @@ const Farms: React.FC = () => {
                   onChange={handleSortOptionChange}
                 />
               </LabelWrapper>
-              <LabelWrapper>
+              <LabelWrapper className="m-2">
                 <Text>SEARCH</Text>
                 <SearchInput onChange={handleChangeQuery} value={query} />
               </LabelWrapper>
             </FilterContainer>
           </ControlContainer>
         </div>
-
-        {renderContent()}
+        <div className="row">
+          {renderContent()}
+        </div>
+        
 
         {/* <StyledImage
           src="/images/3dpan.png"

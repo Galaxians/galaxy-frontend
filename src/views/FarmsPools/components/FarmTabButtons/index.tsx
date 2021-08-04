@@ -41,8 +41,8 @@ const Wrapper = styled.div`
     padding-left: 12px;
     padding-right: 12px;
   }
-
-  ${({ theme }) => theme.mediaQueries.sm} {
+  margin-left: 12px;
+  ${({ theme }) => theme.mediaQueries.xs} {
     margin-left: 16px;
   }
 `;

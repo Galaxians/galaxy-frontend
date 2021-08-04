@@ -1,4 +1,4 @@
-import React, { useEffect, lazy } from "react";
+import React, { useEffect, lazy, useState } from "react";
 import { Router, Redirect, Route, Switch } from "react-router-dom";
 import { ResetCSS } from "glx-uikit";
 import BigNumber from "bignumber.js";
@@ -26,6 +26,7 @@ import EasterEgg from "./components/EasterEgg";
 import Pools from "./views/Pools";
 import GlobalCheckBullHiccupClaimStatus from "./views/Collectibles/components/GlobalCheckBullHiccupClaimStatus";
 import history from "./routerHistory";
+import Sidebar from "./pagecomponent/Sidebar";
 
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page
@@ -68,16 +69,23 @@ const App: React.FC = () => {
   useFetchPriceList();
   useGetDocumentTitlePrice();
 
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+
   return (
     <Router history={history}>
       <ResetCSS />
       <GlobalStyle />
-      <Navbar />
-      <div className="row" style={{width:'100%'}}>
+      <Navbar  toggle={toggle} />
+      <Sidebar  isOpen={isOpen} toggle={toggle} />
+      <div className="row m-0" style={{width:'100%'}}>
         <div className="col-auto">
           <Leftnav />
         </div>
-        <Wrapper className="col-auto">
+        <Wrapper>
           {/* <Menu> */}
           <SuspenseWithChunkError fallback={<PageLoader />}>
             <Switch>
