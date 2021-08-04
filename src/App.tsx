@@ -2,6 +2,7 @@ import React, { useEffect, lazy } from "react";
 import { Router, Redirect, Route, Switch } from "react-router-dom";
 import { ResetCSS } from "glx-uikit";
 import BigNumber from "bignumber.js";
+import styled from "styled-components";
 import useEagerConnect from "hooks/useEagerConnect";
 
 import Navbar from "pagecomponent/Navbar";
@@ -39,6 +40,15 @@ const Teams = lazy(() => import("./views/Teams"));
 const Team = lazy(() => import("./views/Teams/Team"));
 const Profile = lazy(() => import("./views/Profile"));
 
+const Wrapper = styled.div`
+  margin-top: 20px;
+  margin: auto;
+
+  ${({ theme }) => theme.mediaQueries.xl} {
+    max-width: calc(100vw - 400px);
+  }
+`;
+
 // This config is required for number formating
 BigNumber.config({
   EXPONENTIAL_AT: 1000,
@@ -63,11 +73,11 @@ const App: React.FC = () => {
       <ResetCSS />
       <GlobalStyle />
       <Navbar />
-      <div className="row">
+      <div className="row" style={{width:'100%'}}>
         <div className="col-auto">
           <Leftnav />
         </div>
-        <div className="col-auto" style={{ marginTop: "20px", margin: "auto" }}>
+        <Wrapper className="col-auto">
           {/* <Menu> */}
           <SuspenseWithChunkError fallback={<PageLoader />}>
             <Switch>
@@ -86,7 +96,7 @@ const App: React.FC = () => {
               <Route component={NotFound} />
             </Switch>
           </SuspenseWithChunkError>
-        </div>
+        </Wrapper>
       </div>
       {/* </Menu> */}
       <Footer />
