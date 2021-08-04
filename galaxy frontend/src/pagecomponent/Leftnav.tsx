@@ -32,8 +32,8 @@ export default function Leftnav() {
 <div className="justify-content-left leftnav">
   <Navbar collapseOnSelect expand="lg" variant="dark">
   <Container>
-  <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{position:'absolute' ,top:'-84px',left:'-16px'}} />
-  <Navbar.Collapse id="responsive-navbar-nav" className="top-nav-bg">
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" style={{position:'absolute' ,top:'-44px',left:'-16px'}} />
+  <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="me-auto">
       {/* <Nav.Link href="#features">
         <div className="left-exchange-icon">
@@ -56,7 +56,7 @@ export default function Leftnav() {
                 <a href="https://galaxyprotocol.io/#/buyback">Galaxia Redeem</a>
               </li>
             </ul>
-
+            <br />
     </Nav>
   </Navbar.Collapse>
   </Container>

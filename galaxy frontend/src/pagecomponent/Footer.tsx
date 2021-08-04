@@ -27,37 +27,37 @@ export default function Navbar() {
           <div className="row justify-content-center mt-5">
             <div className="col-auto">
               <a href="https://discord.com/invite/dq7m6R7UAz" target='_blank' rel="noreferrer">
-                <img src="./assets/img/icon-1.png" alt=""/>
+                <img src="./assets/img/icon-1.png" alt="" className='footer-icon' />
               </a>
             </div>
             <div className="col-auto">
             <a href="https://t.me/GalaxyProtocolOfficialTG" target='_blank' rel="noreferrer">
-              <img src="./assets/img/telegram.png" alt=""/>
+              <img src="./assets/img/telegram.png" alt="" className='footer-icon' />
             </a>
             </div>
             <div className="col-auto">
             <a href="https://twitter.com/GalaxyProtocol" target='_blank' rel="noreferrer">
-              <img src="./assets/img/twitter.png" alt=""/>
+              <img src="./assets/img/twitter.png" alt="" className='footer-icon' />
             </a>
             </div>
             <div className="col-auto">
             <a href="https://www.facebook.com/GalaxyProtocol/" target='_blank' rel="noreferrer">
-              <img src="./assets/img/facebook.png" alt=""/>
+              <img src="./assets/img/facebook.png" alt="" className='footer-icon' />
             </a>  
             </div>
             <div className="col-auto">
             <a href="https://www.instagram.com/safegalaxytoken/?igshid=jr936k6emyet" target='_blank' rel="noreferrer">
-              <img src="./assets/img/instagram.png" alt=""/>
+              <img src="./assets/img/instagram.png" alt="" className='footer-icon' />
             </a>  
             </div>
             <div className="col-auto">
             <a href="https://www.reddit.com/r/GalaxyProtocolx/" target='_blank' rel="noreferrer">
-              <img src="./assets/img/icon-6.png" alt=""/>
+              <img src="./assets/img/icon-6.png" alt="" className='footer-icon' />
             </a>  
             </div>
             <div className="col-auto">
             <a href="https://www.tiktok.com/@safegalaxytoken" target='_blank' rel="noreferrer">
-              <img src="./assets/img/tiktok.png" alt=""/>
+              <img src="./assets/img/tiktok.png" alt="" className='footer-icon' />
             </a>  
             </div>
           </div>

@@ -142,7 +142,9 @@ opacity: 1;
 }
 .footer-bg{
  }
+ .footer-icon{
 
+}
 
 
 
@@ -371,4 +373,35 @@ min-height: 200px;
 .rightpart{
   align-content: left;
   z-index: 1000;
+}
+
+.logo {
+  display:none;
+}
+
+@media only screen and (max-width:768px) {
+  .logo {
+    display:block;
+  }
+
+  .leftnav {
+    align-content: left;
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+    top:63px;
+    left: -34px;
+    background-color: #0B001E;
+    
+
+  }
+  .ghost {
+    background: url(../img/galaxia-mobile.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: 30px;
+    padding: 0;
+  }
+
 }

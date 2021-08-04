@@ -27,7 +27,7 @@ const ToggleView: React.FunctionComponent<ToogleViewProps> = ({
   };
 
   return (
-    <Container style={{ width: "30%", marginLeft: "5%" }}>
+    <Container style={{ width: "20%", marginLeft: "1%" }}>
       <IconButton
         variant="text"
         scale="sm"

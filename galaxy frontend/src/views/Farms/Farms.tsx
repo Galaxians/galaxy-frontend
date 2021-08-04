@@ -370,7 +370,9 @@ const Farms: React.FC = () => {
 
       return (
         <div className="pink-gredient p-3">
+          <div className="row">
           <Table data={rowData} columns={columns} />
+          </div>
         </div>
       );
     }
@@ -443,11 +445,14 @@ const Farms: React.FC = () => {
                   onChange={() => setStackedOnly(!stackedOnly)}
                   scale="sm"
                 />
-                <Text> {TranslateString(1116, "Staked only")}</Text>
+                <Text style={{fontSize:'11px'}}>Staked only</Text>
               </ToggleWrapper>
-              <FarmTabButtons />
+             
             </ViewControls>
           </ControlContainer>
+
+          <FarmTabButtons />
+
           <ControlContainer
             className="mb-3 rounded"
             style={{ background: "#0B001E" }}

@@ -49,8 +49,8 @@ const ControlContainer = styled.div`
 const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 10px;
-  width: 30%;
+  margin-left: 5px;
+  width: 25%;
   ${Text} {
     margin-left: 8px;
   }
@@ -426,10 +426,9 @@ const Farms: React.FC = () => {
         </Heading>
       </Header>
       <Page>
-        <div
-          className="row mb-3 rounded"
-          style={{ backgroundColor: "#0B001E" }}
-        >
+        
+
+      <div className="row mb-3 rounded" style={{ background: "#0B001E" }}>
           <ControlContainer>
             <ViewControls>
               <ToggleView
@@ -438,7 +437,6 @@ const Farms: React.FC = () => {
               />
               <ToggleWrapper>
                 <Toggle
-                  style={{ background: "#ffffff" }}
                   checked={stackedOnly}
                   onChange={() => setStackedOnly(!stackedOnly)}
                   scale="sm"
@@ -450,7 +448,7 @@ const Farms: React.FC = () => {
           </ControlContainer>
           <ControlContainer
             className="mb-3 rounded"
-            style={{ backgroundColor: "#0B001E" }}
+            style={{ background: "#0B001E" }}
           >
             <FilterContainer>
               <LabelWrapper style={{ width: "63%", marginLeft: "5%" }}>
@@ -488,6 +486,8 @@ const Farms: React.FC = () => {
             </FilterContainer>
           </ControlContainer>
         </div>
+
+
         {renderContent()}
         {/* <StyledImage
           src="/images/3dpan.png"
