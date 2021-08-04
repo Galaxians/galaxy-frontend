@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Flex, Text } from "@pancakeswap-libs/uikit";
+import { Modal, Flex, Text } from "glx-uikit";
 import { useDispatch } from "react-redux";
 import BigNumber from "bignumber.js";
 import useI18n from "hooks/useI18n";
@@ -82,7 +82,7 @@ const ConfirmProfileCreationModal: React.FC<Props> = ({
       <Flex justifyContent="space-between" mb="16px">
         <Text>{TranslateString(999, "Cost")}</Text>
         <Text>
-          {TranslateString(999, `${REGISTER_COST} CAKE`, {
+          {TranslateString(999, `${REGISTER_COST} GLX`, {
             num: REGISTER_COST,
           })}
         </Text>

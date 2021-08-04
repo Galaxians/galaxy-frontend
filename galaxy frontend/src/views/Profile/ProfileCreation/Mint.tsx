@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import BigNumber from "bignumber.js";
-import { Card, CardBody, Heading, Text } from "@pancakeswap-libs/uikit";
+import { Card, CardBody, Heading, Text } from "glx-uikit";
 import { useWeb3React } from "@web3-react/core";
 import useI18n from "hooks/useI18n";
 import useApproveConfirmTransaction from "hooks/useApproveConfirmTransaction";
@@ -98,7 +98,7 @@ const Mint: React.FC = () => {
             )}
           </Text>
           <Text as="p" mb="24px" color="textSubtle">
-            {TranslateString(999, `Cost: ${MINT_COST} CAKE`, {
+            {TranslateString(999, `Cost: ${MINT_COST} GLX`, {
               num: MINT_COST,
             })}
           </Text>
@@ -129,7 +129,7 @@ const Mint: React.FC = () => {
             <Text color="failure" mb="16px">
               {TranslateString(
                 1098,
-                `A minimum of ${MINT_COST} CAKE is required`
+                `A minimum of ${MINT_COST} GLX is required`
               )}
             </Text>
           )}

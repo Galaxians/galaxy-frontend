@@ -1,4 +1,4 @@
-import { MenuEntry } from "@pancakeswap-libs/uikit";
+import { MenuEntry } from "glx-uikit";
 
 const config: MenuEntry[] = [
   {
@@ -81,11 +81,11 @@ const config: MenuEntry[] = [
   //     },
   //   ],
   // },
-  // {
-  //   label: "IFO",
-  //   icon: "IfoIcon",
-  //   href: "/ifo",
-  // },
+  {
+    label: "IFO",
+    icon: "IfoIcon",
+    href: "/ifo",
+  },
   // {
   //   label: "More",
   //   icon: "MoreIcon",

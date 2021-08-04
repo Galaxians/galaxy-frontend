@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { provider as ProviderType } from "web3-core";
 import { getAddress } from "utils/addressHelpers";
 import { getBep20Contract } from "utils/contractHelpers";
-import { Button, Flex, Text } from "@pancakeswap-libs/uikit";
+import { Button, Flex, Text } from "glx-uikit";
 import { Farm } from "state/types";
 import { useFarmFromSymbol, useFarmUser } from "state/hooks";
 import useI18n from "hooks/useI18n";
@@ -67,10 +67,10 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       />
     ) : (
       <Button
-        mt="8px"
-        width="100%"
+        width="70%"
         disabled={requestedApproval}
         onClick={handleApprove}
+        className="btn rounded mt-5 mb-4"
       >
         {TranslateString(758, "Approve Contract")}
       </Button>
@@ -79,25 +79,24 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
 
   return (
     <Action>
+      <HarvestAction earnings={earnings} pid={pid} />
       <Flex>
-        <Text
-          bold
-          textTransform="uppercase"
-          color="secondary"
-          fontSize="12px"
+        <Text className="pink-color"          
+          textTransform="uppercase"          
+          fontSize="14px"
           pr="3px"
         >
           {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-          CAKE
+          GLX
         </Text>
-        <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
+        <Text className="pink-color mb-3" fontSize="14px">
           {TranslateString(1072, "Earned")}
         </Text>
       </Flex>
-      <HarvestAction earnings={earnings} pid={pid} />
+      
       <Flex>
         <Text
-          bold
+          
           textTransform="uppercase"
           color="secondary"
           fontSize="12px"

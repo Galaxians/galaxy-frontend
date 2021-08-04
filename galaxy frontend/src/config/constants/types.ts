@@ -55,7 +55,7 @@ export interface FarmConfig {
   lpSymbol: string;
   lpAddresses: Address;
   tokenSymbol: string;
-  tokenOnly: boolean;
+  isTokenOnly: boolean;
   tokenAddresses: Address;
   quoteTokenSymbol: QuoteToken;
   quoteTokenAdresses: Address;

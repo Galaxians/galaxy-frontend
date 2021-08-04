@@ -10,7 +10,7 @@ import {
   PancakeRoundIcon,
   Flex,
   Skeleton,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import { getBalanceNumber } from "utils/formatBalance";
 import useI18n from "hooks/useI18n";
 import { useTotalRewards } from "hooks/useTickets";

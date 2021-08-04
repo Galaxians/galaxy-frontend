@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import BigNumber from "bignumber.js";
 import { kebabCase } from "lodash";
 import { useWeb3React } from "@web3-react/core";
-import { Toast, toastTypes } from "@pancakeswap-libs/uikit";
+import { Toast, toastTypes } from "glx-uikit";
 import { useSelector, useDispatch } from "react-redux";
 import { QuoteToken, Team } from "config/constants/types";
 import { getWeb3NoAccount } from "utils/web3";
@@ -117,7 +117,7 @@ export const usePoolFromPid = (sousId): Pool => {
 // Prices
 
 export const usePriceBnbBusd = (): BigNumber => {
-  const pid = 1; // BNB-BUSD LP,
+  const pid = 4; // BNB-BUSD LP,
   const farm = useFarmFromPid(pid);
   return farm.tokenPriceVsQuote
     ? new BigNumber(1).div(farm.tokenPriceVsQuote)
@@ -125,9 +125,10 @@ export const usePriceBnbBusd = (): BigNumber => {
 };
 
 export const usePriceCakeBusd = (): BigNumber => {
-  const pid = 2; // GLX-BNB LP
+  const pid = 0; // GLX-BNB LP
   const bnbPriceUSD = usePriceBnbBusd();
   // window.alert(bnbPriceUSD.toNumber());
+  console.log(bnbPriceUSD.toNumber());
   const farm = useFarmFromPid(pid);
   return farm.tokenPriceVsQuote
     ? bnbPriceUSD.times(farm.tokenPriceVsQuote)
@@ -137,13 +138,13 @@ export const usePriceCakeBusd = (): BigNumber => {
 };
 
 export const usePriceEthBusd = (): BigNumber => {
-  // const pid = 1; // ETH-MATIC LP ,ETH-BNB LP
+  const pid = 3; // ETH-MATIC LP ,ETH-BNB LP
   // const bnbPriceUSD = usePriceBnbBusd();
-  // const farm = useFarmFromPid(pid);
-  // return farm.tokenPriceVsQuote
-  //   ? bnbPriceUSD.times(farm.tokenPriceVsQuote)
-  //   : ZERO;
-  return new BigNumber(200);
+  const farm = useFarmFromPid(pid);
+  return farm.tokenPriceVsQuote
+    ? new BigNumber(1).div(farm.tokenPriceVsQuote)
+    : ZERO;
+  // return new BigNumber(200);
 };
 
 // Toasts
@@ -206,12 +207,8 @@ export const useFetchProfile = () => {
 };
 
 export const useProfile = () => {
-  const {
-    isInitialized,
-    isLoading,
-    data,
-    hasRegistered,
-  }: ProfileState = useSelector((state: State) => state.profile);
+  const { isInitialized, isLoading, data, hasRegistered }: ProfileState =
+    useSelector((state: State) => state.profile);
   return {
     profile: data,
     hasProfile: isInitialized && hasRegistered,
@@ -302,6 +299,7 @@ export const useTotalValue = (): BigNumber => {
   const farms = useFarms();
   const bnbPrice = usePriceBnbBusd();
   const cakePrice = usePriceCakeBusd();
+  const ethPrice = usePriceEthBusd();
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i];
@@ -311,6 +309,8 @@ export const useTotalValue = (): BigNumber => {
         val = bnbPrice.times(farm.lpTotalInQuoteToken);
       } else if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
         val = cakePrice.times(farm.lpTotalInQuoteToken);
+      } else if (farm.quoteTokenSymbol === QuoteToken.ETH) {
+        val = ethPrice.times(farm.lpTotalInQuoteToken);
       } else {
         val = farm.lpTotalInQuoteToken;
       }

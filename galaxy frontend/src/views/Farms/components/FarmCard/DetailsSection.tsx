@@ -1,7 +1,7 @@
 import React from "react";
 import useI18n from "hooks/useI18n";
 import styled from "styled-components";
-import { Text, Flex, Link, LinkExternal } from "@pancakeswap-libs/uikit";
+import { Text, Flex, Link, LinkExternal } from "glx-uikit";
 
 export interface ExpandableSectionProps {
   maticExplorerAddress?: string;
@@ -55,7 +55,7 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
       )}
       <Flex justifyContent="flex-start">
         <Link external href={maticExplorerAddress} bold={false}>
-          {TranslateString(356, "View on MaticExplorer")}
+          {TranslateString(356, "View on BSCExplorer")}
         </Link>
       </Flex>
     </Wrapper>

@@ -7,7 +7,7 @@ import {
   Flex,
   ArrowForwardIcon,
   Skeleton,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import { NavLink } from "react-router-dom";
 import useI18n from "hooks/useI18n";
 import BigNumber from "bignumber.js";

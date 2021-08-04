@@ -2,7 +2,7 @@
   {
     "inputs": [
       {
-        "internalType": "contract CryptionNetworkToken",
+        "internalType": "contract GlxToken",
         "name": "_GLX",
         "type": "address"
       },
@@ -274,7 +274,7 @@
     "name": "GLX",
     "outputs": [
       {
-        "internalType": "contract CryptionNetworkToken",
+        "internalType": "contract GlxToken",
         "name": "",
         "type": "address"
       }

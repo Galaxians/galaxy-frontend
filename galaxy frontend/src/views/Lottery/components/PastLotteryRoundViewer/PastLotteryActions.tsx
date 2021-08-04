@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Button, LinkExternal, useModal } from "@pancakeswap-libs/uikit";
+import { Button, LinkExternal, useModal } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import { useWeb3React } from "@web3-react/core";
 import useTickets from "hooks/useTickets";
@@ -61,7 +61,7 @@ const TicketCard: React.FC<{
       </div>
       <div>
         <ExternalLinkWrap href={contractLink}>
-          {TranslateString(356, "View on MaticExplorer")}
+          {TranslateString(356, "View on BSCExplorer")}
         </ExternalLinkWrap>
       </div>
     </Wrapper>

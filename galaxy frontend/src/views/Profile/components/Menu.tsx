@@ -7,7 +7,7 @@ import {
   Text,
   ButtonMenu,
   ButtonMenuItem,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 
 interface MenuProps {
   activeIndex?: number;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import useI18n from "hooks/useI18n";
-import { LinkExternal, Text } from "@pancakeswap-libs/uikit";
+import { LinkExternal, Text } from "glx-uikit";
 import { FarmWithStakedValue } from "views/Farms/components/FarmCard/FarmCard";
 import getLiquidityUrlPathParts from "utils/getLiquidityUrlPathParts";
 import { communityFarms } from "config/constants";
@@ -124,7 +124,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
     tokenAddresses,
   });
   const lpAddress = farm.lpAddresses[process.env.REACT_APP_CHAIN_ID];
-  const bsc = `https://explorer-mumbai.maticvigil.com/address/${lpAddress}`;
+  const bsc = `https://testnet.bscscan.com/address/${lpAddress}`;
   const info = `https://pancakeswap.info/pair/${lpAddress}`;
   const isCommunityFarm = communityFarms.includes(tokenSymbol);
 
@@ -133,7 +133,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
       <InfoContainer>
         <StakeContainer>
           <StyledLinkExternal
-            href={`https://exchange.pancakeswap.finance/#/add/${liquidityUrlPathParts}`}
+            href={`https://exchange.galaxyswap.net//#/add/${liquidityUrlPathParts}`}
           >
             {TranslateString(999, `Get ${lpLabel}`, { name: lpLabel })}
           </StyledLinkExternal>

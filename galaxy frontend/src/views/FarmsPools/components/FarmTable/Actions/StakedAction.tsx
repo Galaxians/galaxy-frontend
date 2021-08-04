@@ -1,12 +1,6 @@
 import React, { useState, useCallback } from "react";
 import styled from "styled-components";
-import {
-  Button,
-  useModal,
-  IconButton,
-  AddIcon,
-  MinusIcon,
-} from "@pancakeswap-libs/uikit";
+import { Button, useModal, IconButton, AddIcon, MinusIcon } from "glx-uikit";
 import UnlockButton from "components/UnlockButton";
 import { useWeb3React } from "@web3-react/core";
 import { useFarmUser } from "state/hooks";
@@ -98,7 +92,7 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({
     return (
       <ActionContainer>
         <ActionTitles>
-          <Subtle>{TranslateString(999, "START FARMING")}</Subtle>
+          <Subtle>{TranslateString(999, "START STAKING")}</Subtle>
         </ActionTitles>
         <ActionContent>
           <UnlockButton width="100%" />

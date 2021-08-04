@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Heading, Text } from "@pancakeswap-libs/uikit";
+import { Heading, Text } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import Container from "components/layout/Container";
 import LotteryProgress from "./LotteryProgress";
@@ -70,8 +70,8 @@ const Hero = () => {
     <StyledHero>
       <StyledContainer>
         <LeftWrapper>
-          <Title>{TranslateString(708, "The CAKE Lottery")}</Title>
-          <Blurb>{TranslateString(710, "Buy tickets with CAKE")}</Blurb>
+          <Title>{TranslateString(708, "The GLX Lottery")}</Title>
+          <Blurb>{TranslateString(710, "Buy tickets with GLX")}</Blurb>
           <Blurb>
             {TranslateString(
               712,

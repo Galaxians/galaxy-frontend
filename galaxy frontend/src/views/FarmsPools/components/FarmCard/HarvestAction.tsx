@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import BigNumber from "bignumber.js";
-import { Button, Flex, Heading } from "@pancakeswap-libs/uikit";
+import { Button, Flex, Heading } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import { useHarvest } from "hooks/useHarvest";
 import { getBalanceNumber } from "utils/formatBalance";
@@ -24,6 +24,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
         {displayBalance}
       </Heading>
       <Button
+        className="btn rounded"
         disabled={rawEarningsBalance === 0 || pendingTx}
         onClick={async () => {
           setPendingTx(true);

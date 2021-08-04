@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { useFarmUser } from "state/hooks";
 import useI18n from "hooks/useI18n";
-import { Text, Image } from "@pancakeswap-libs/uikit";
+import { Text, Image } from "glx-uikit";
 import { getBalanceNumber } from "utils/formatBalance";
 
 export interface FarmProps {
@@ -12,11 +12,11 @@ export interface FarmProps {
 }
 
 const IconImage = styled(Image)`
-  width: 24px;
-  height: 24px;
+  width: 80px;
+  height: 40px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: 40px;
+    width: 80px;
     height: 40px;
   }
 `;
@@ -40,7 +40,7 @@ const Farm: React.FunctionComponent<FarmProps> = ({ image, label, pid }) => {
     if (rawStakedBalance) {
       return (
         <Text color="secondary" fontSize="12px" bold>
-          {TranslateString(999, "FARMING")}
+          {TranslateString(999, "STAKING")}
         </Text>
       );
     }
@@ -51,9 +51,9 @@ const Farm: React.FunctionComponent<FarmProps> = ({ image, label, pid }) => {
   return (
     <Container>
       <IconImage
-        src={`/images/farms/${image}.svg`}
+        src={`/images/farms/${image}.png`}
         alt="icon"
-        width={40}
+        width={150}
         height={40}
         mr="8px"
       />

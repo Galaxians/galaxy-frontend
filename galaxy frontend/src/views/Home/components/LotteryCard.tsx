@@ -1,12 +1,6 @@
 import React, { useState, useCallback } from "react";
 import styled from "styled-components";
-import {
-  Heading,
-  Card,
-  CardBody,
-  Button,
-  useModal,
-} from "@pancakeswap-libs/uikit";
+import { Heading, Card, CardBody, Button, useModal } from "glx-uikit";
 import { getCakeAddress } from "utils/addressHelpers";
 import { getBalanceNumber } from "utils/formatBalance";
 import useI18n from "hooks/useI18n";
@@ -109,7 +103,7 @@ const FarmedStakingCard = () => {
         </Heading>
         <CardImage
           src="/images/ticket.svg"
-          alt="cake logo"
+          // alt="cake logo"
           width={64}
           height={64}
         />

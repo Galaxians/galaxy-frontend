@@ -1,6 +1,6 @@
 import BigNumber from "bignumber.js";
 import React, { useCallback, useMemo, useState } from "react";
-import { Button, Modal, LinkExternal } from "@pancakeswap-libs/uikit";
+import { Button, Modal, LinkExternal } from "glx-uikit";
 import ModalActions from "components/ModalActions";
 import ModalInput from "components/ModalInput";
 import useI18n from "hooks/useI18n";
@@ -40,10 +40,7 @@ const DepositModal: React.FC<DepositModalProps> = ({
   }, [fullBalance, setVal]);
 
   return (
-    <Modal
-      title={TranslateString(1068, "Stake LP tokens")}
-      onDismiss={onDismiss}
-    >
+    <Modal title={TranslateString(1068, "Stake tokens")} onDismiss={onDismiss}>
       <ModalInput
         value={val}
         onSelectMax={handleSelectMax}
@@ -54,10 +51,16 @@ const DepositModal: React.FC<DepositModalProps> = ({
         inputTitle={TranslateString(1070, "Stake")}
       />
       <ModalActions>
-        <Button variant="secondary" onClick={onDismiss} width="100%">
+        <Button
+          className="mt-4 mb-2"
+          variant="secondary"
+          onClick={onDismiss}
+          width="100%"
+        >
           {TranslateString(462, "Cancel")}
         </Button>
         <Button
+          className="mt-4 mb-2"
           width="100%"
           disabled={pendingTx || fullBalance === "0" || val === "0"}
           onClick={async () => {

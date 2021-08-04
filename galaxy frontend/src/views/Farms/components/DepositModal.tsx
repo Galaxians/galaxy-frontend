@@ -1,6 +1,6 @@
 import BigNumber from "bignumber.js";
 import React, { useCallback, useMemo, useState } from "react";
-import { Button, Modal, LinkExternal } from "@pancakeswap-libs/uikit";
+import { Button, Modal, LinkExternal } from "glx-uikit";
 import ModalActions from "components/ModalActions";
 import ModalInput from "components/ModalInput";
 import useI18n from "hooks/useI18n";
@@ -53,11 +53,12 @@ const DepositModal: React.FC<DepositModalProps> = ({
         addLiquidityUrl={addLiquidityUrl}
         inputTitle={TranslateString(1070, "Stake")}
       />
-      <ModalActions>
-        <Button variant="secondary" onClick={onDismiss} width="100%">
+      <ModalActions >
+        <Button variant="secondary" onClick={onDismiss} width="100%" className="mt-4 mb-2">
           {TranslateString(462, "Cancel")}
         </Button>
         <Button
+         className="mt-4 mb-2"
           width="100%"
           disabled={pendingTx || fullBalance === "0" || val === "0"}
           onClick={async () => {

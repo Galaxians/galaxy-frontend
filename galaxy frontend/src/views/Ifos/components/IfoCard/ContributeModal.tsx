@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useWeb3React } from "@web3-react/core";
 import BigNumber from "bignumber.js";
 import { ethers } from "ethers";
-import { Modal, LinkExternal, Box, Text } from "@pancakeswap-libs/uikit";
+import { Modal, LinkExternal, Box, Text } from "glx-uikit";
 import BalanceInput from "components/BalanceInput";
 import useTokenBalance from "hooks/useTokenBalance";
 import { getBalanceNumber } from "utils/formatBalance";
@@ -101,7 +101,7 @@ const ContributeModal: React.FC<Props> = ({
           onConfirm={handleConfirm}
         />
         <LinkExternal
-          href="https://exchange.pancakeswap.finance/#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82"
+          href="https://exchange.galaxyswap.net//#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82"
           style={{ margin: "16px auto 0" }}
         >
           {`Get ${currency}`}

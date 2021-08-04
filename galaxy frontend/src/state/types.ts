@@ -1,4 +1,4 @@
-import { Toast } from "@pancakeswap-libs/uikit";
+import { Toast } from "glx-uikit";
 import BigNumber from "bignumber.js";
 import {
   CampaignType,
@@ -20,7 +20,7 @@ export type TranslatableText =
 
 export interface Farm extends FarmConfig {
   tokenAmount?: BigNumber;
-  quoteTokenAmount?: BigNumber;
+  // quoteTokenAmount?: BigNumber;
   lpTotalInQuoteToken?: BigNumber;
   tokenPriceVsQuote?: BigNumber;
   poolWeight?: BigNumber;

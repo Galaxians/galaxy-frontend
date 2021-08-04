@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useRouteMatch, Link } from "react-router-dom";
-import { ButtonMenu, ButtonMenuItem } from "@pancakeswap-libs/uikit";
+import { ButtonMenu, ButtonMenuItem } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 
 const FarmTabButtons = () => {
@@ -10,13 +10,21 @@ const FarmTabButtons = () => {
 
   return (
     <Wrapper>
-      <ButtonMenu activeIndex={isExact ? 0 : 1} scale="sm" variant="subtle">
+      <ButtonMenu activeIndex={isExact ? 0 : 1} scale="sm" variant="primary">
         <ButtonMenuItem as={Link} to={`${url}`}>
           {TranslateString(1198, "Live")}
         </ButtonMenuItem>
         <ButtonMenuItem as={Link} to={`${url}/history`}>
           {TranslateString(388, "Finished")}
         </ButtonMenuItem>
+        {/* <ToggleWrapper> 
+                <Toggle
+                  checked={stackedOnly}
+                  onChange={() => setStackedOnly(!stackedOnly)}
+                  scale="sm"
+                />
+                <Text > {TranslateString(1116, "Staked only")}</Text>
+              </ToggleWrapper> */}
       </ButtonMenu>
     </Wrapper>
   );

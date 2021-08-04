@@ -1,11 +1,6 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import {
-  useTable,
-  Button,
-  ChevronUpIcon,
-  ColumnType,
-} from "@pancakeswap-libs/uikit";
+import { useTable, Button, ChevronUpIcon, ColumnType } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 
 import Row, { RowProps } from "./Row";
@@ -21,7 +16,7 @@ const Container = styled.div`
   width: 100%;
   background: ${({ theme }) => theme.card.background};
   border-radius: 16px;
-  margin: 16px 0px;
+  margin: 0px;
 `;
 
 const TableWrapper = styled.div`
@@ -39,6 +34,8 @@ const StyledTable = styled.table`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  color:#ffffff;
+
 `;
 
 const TableBody = styled.tbody`
@@ -83,7 +80,7 @@ const FarmTable: React.FC<ITableProps> = (props) => {
       <TableContainer>
         <TableWrapper ref={tableWrapperEl}>
           <StyledTable>
-            <TableBody>
+            <TableBody className="text-white">
               {rows.map((row) => {
                 return <Row {...row.original} key={`table-row-${row.id}`} />;
               })}

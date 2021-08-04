@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { provider as ProviderType } from "web3-core";
 import { getAddress } from "utils/addressHelpers";
 import { getBep20Contract } from "utils/contractHelpers";
-import { Button, Flex, Text } from "@pancakeswap-libs/uikit";
+import { Button, Flex, Text } from "glx-uikit";
 import { Farm } from "state/types";
 import { useFarmFromSymbol, useFarmUser } from "state/hooks";
 import useI18n from "hooks/useI18n";
@@ -35,9 +35,9 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
 }) => {
   const TranslateString = useI18n();
   const [requestedApproval, setRequestedApproval] = useState(false);
-  const { pid, lpAddresses } = useFarmFromSymbol(farm.lpSymbol);
+  const { pid, tokenAddresses } = useFarmFromSymbol(farm.lpSymbol);
   const { allowance, tokenBalance, stakedBalance, earnings } = useFarmUser(pid);
-  const lpAddress = getAddress(lpAddresses);
+  const lpAddress = getAddress(tokenAddresses);
   const lpName = farm.lpSymbol.toUpperCase();
   const isApproved = account && allowance && allowance.isGreaterThan(0);
   const web3 = useWeb3();
@@ -67,8 +67,8 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       />
     ) : (
       <Button
-        mt="8px"
-        width="100%"
+        width="76%"
+        className="btn rounded mt-5 mb-4"
         disabled={requestedApproval}
         onClick={handleApprove}
       >
@@ -79,25 +79,24 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
 
   return (
     <Action>
-      <Flex>
-        <Text
-          bold
-          textTransform="uppercase"
-          color="secondary"
-          fontSize="12px"
-          pr="3px"
-        >
-          {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-          CAKE
-        </Text>
-        <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
-          {TranslateString(1072, "Earned")}
-        </Text>
-      </Flex>
       <HarvestAction earnings={earnings} pid={pid} />
       <Flex>
         <Text
-          bold
+          className="pink-color"
+          textTransform="uppercase"
+          fontSize="14px"
+          pr="3px"
+        >
+          {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
+          GLX
+        </Text>
+        <Text className="pink-color mb-3" fontSize="14px">
+          {TranslateString(1072, "Earned")}
+        </Text>
+      </Flex>
+
+      <Flex>
+        <Text
           textTransform="uppercase"
           color="secondary"
           fontSize="12px"

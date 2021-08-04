@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import styled from "styled-components";
-import { Heading, Card, CardBody, Button } from "@pancakeswap-libs/uikit";
+import { Heading, Card, CardBody, Button } from "glx-uikit";
 import { useWeb3React } from "@web3-react/core";
 import useI18n from "hooks/useI18n";
 import { useAllHarvest } from "hooks/useHarvest";
@@ -8,9 +8,8 @@ import useFarmsWithBalance from "hooks/useFarmsWithBalance";
 import UnlockButton from "components/UnlockButton";
 import CakeHarvestBalance from "./CakeHarvestBalance";
 import CakeWalletBalance from "./CakeWalletBalance";
-
+// background-image: url("/images/new/Galaxia-token-color-250px.png");
 const StyledFarmStakingCard = styled(Card)`
-  background-image: url("/images/cake-bg.svg");
   background-repeat: no-repeat;
   background-position: top right;
   min-height: 376px;
@@ -64,8 +63,8 @@ const FarmedStakingCard = () => {
           {TranslateString(542, "Farms & Staking")}
         </Heading>
         <CardImage
-          src="/images/cake.svg"
-          alt="cake logo"
+          src="/images/new/Galaxia-token-color-250px.png"
+          // alt="cake logo"
           width={64}
           height={64}
         />

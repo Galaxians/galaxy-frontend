@@ -8,7 +8,7 @@ import {
   Heading,
   PrizeIcon,
   Text,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import { Team } from "config/constants/types";
 import useI18n from "hooks/useI18n";
 import ComingSoon from "views/Profile/components/ComingSoon";

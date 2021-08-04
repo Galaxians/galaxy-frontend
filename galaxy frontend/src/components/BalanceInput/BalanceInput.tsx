@@ -7,7 +7,7 @@ import {
   Flex,
   Input as UIKitInput,
   Text,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import useI18n from "hooks/useI18n";
 
 export interface BalanceInputProps extends BoxProps {

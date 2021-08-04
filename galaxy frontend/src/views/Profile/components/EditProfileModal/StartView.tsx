@@ -2,12 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import BigNumber from "bignumber.js";
 import { useWeb3React } from "@web3-react/core";
-import {
-  Button,
-  Flex,
-  Text,
-  InjectedModalProps,
-} from "@pancakeswap-libs/uikit";
+import { Button, Flex, Text, InjectedModalProps } from "glx-uikit";
 import { getFullDisplayBalance } from "utils/formatBalance";
 import { getPancakeProfileAddress } from "utils/addressHelpers";
 import { useCake } from "hooks/useContract";
@@ -53,7 +48,7 @@ const StartPage: React.FC<StartPageProps> = ({
   const cost = profile.isActive ? numberCakeToUpdate : numberCakeToReactivate;
 
   /**
-   * Check if the wallet has the required CAKE allowance to change their profile pic or reactivate
+   * Check if the wallet has the required GLX allowance to change their profile pic or reactivate
    * If they don't, we send them to the approval screen first
    */
   useEffect(() => {
@@ -88,7 +83,7 @@ const StartPage: React.FC<StartPageProps> = ({
               999,
               `${getFullDisplayBalance(
                 numberCakeToUpdate
-              )} CAKE required to change profile pic`
+              )} GLX required to change profile pic`
             )}
         </Text>
       </Flex>

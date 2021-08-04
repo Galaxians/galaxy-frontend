@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { Breadcrumbs, Heading, Text } from "@pancakeswap-libs/uikit";
+import { Breadcrumbs, Heading, Text } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import { ProfileCreationContext } from "./contexts/ProfileCreationProvider";
 
@@ -33,7 +33,7 @@ const Header: React.FC = () => {
         )}
       </Heading>
       <Text color="textSubtle" mb="24px">
-        {TranslateString(999, "Total cost: 1.5 CAKE")}
+        {TranslateString(999, "Total cost: 1.5 GLX")}
       </Text>
       <Breadcrumbs>
         {steps.map(({ translationId, label }, index) => {

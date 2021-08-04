@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, Heading, Text } from "@pancakeswap-libs/uikit";
+import { Card, CardBody, Heading, Text } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import CardContent from "./CardContent";
 
@@ -14,7 +14,7 @@ const NftInWalletCard = () => {
           <Text>
             {TranslateString(
               999,
-              "Trade in your NFT for CAKE, or just keep it for your collection."
+              "Trade in your NFT for GLX, or just keep it for your collection."
             )}
           </Text>
         </CardContent>

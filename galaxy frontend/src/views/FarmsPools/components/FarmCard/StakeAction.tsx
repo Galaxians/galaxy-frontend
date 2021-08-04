@@ -9,7 +9,7 @@ import {
   AddIcon,
   MinusIcon,
   useModal,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import useStake from "hooks/useStake";
 import useUnstake from "hooks/useUnstake";
@@ -64,11 +64,11 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
 
   const renderStakingButtons = () => {
     return rawStakedBalance === 0 ? (
-      <Button onClick={onPresentDeposit}>
+      <Button onClick={onPresentDeposit} className="btn rounded mt-5 mb-4">
         {TranslateString(999, "Stake LP")}
       </Button>
     ) : (
-      <IconButtonWrapper>
+      <IconButtonWrapper className="mt-5 mb-4">
         <IconButton variant="tertiary" onClick={onPresentWithdraw} mr="6px">
           <MinusIcon color="primary" width="14px" />
         </IconButton>

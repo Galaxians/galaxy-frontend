@@ -3,7 +3,7 @@ import { Route, useRouteMatch } from "react-router-dom";
 import BigNumber from "bignumber.js";
 import styled from "styled-components";
 import { useWeb3React } from "@web3-react/core";
-import { Heading } from "@pancakeswap-libs/uikit";
+import { Heading } from "glx-uikit";
 import orderBy from "lodash/orderBy";
 import partition from "lodash/partition";
 import useI18n from "hooks/useI18n";
@@ -46,7 +46,7 @@ const Farm: React.FC = () => {
       <Hero>
         <div>
           <Heading as="h1" size="xxl" mb="16px">
-            {TranslateString(738, "Syrup Pool")}
+            {TranslateString(738, "Galactic Pool")}
           </Heading>
           <ul>
             <li>{TranslateString(580, "Stake GLX to earn new tokens.")}</li>

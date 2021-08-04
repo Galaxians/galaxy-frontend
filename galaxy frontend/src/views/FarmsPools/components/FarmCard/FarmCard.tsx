@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import BigNumber from "bignumber.js";
 import styled, { keyframes } from "styled-components";
-import { Flex, Text, Skeleton } from "@pancakeswap-libs/uikit";
+import { Flex, Text, Skeleton } from "glx-uikit";
 import { communityFarms } from "config/constants";
 import { Farm } from "state/types";
 import { provider as ProviderType } from "web3-core";
@@ -33,22 +33,10 @@ const RainbowLight = keyframes`
 `;
 
 const StyledCardAccent = styled.div`
-  background: linear-gradient(
-    45deg,
-    rgba(255, 0, 0, 1) 0%,
-    rgba(255, 154, 0, 1) 10%,
-    rgba(208, 222, 33, 1) 20%,
-    rgba(79, 220, 74, 1) 30%,
-    rgba(63, 218, 216, 1) 40%,
-    rgba(47, 201, 226, 1) 50%,
-    rgba(28, 127, 238, 1) 60%,
-    rgba(95, 21, 242, 1) 70%,
-    rgba(186, 12, 248, 1) 80%,
-    rgba(251, 7, 217, 1) 90%,
-    rgba(255, 0, 0, 1) 100%
-  );
+  background-color: #0b001e;
+
   background-size: 300% 300%;
-  animation: ${RainbowLight} 2s linear infinite;
+
   border-radius: 32px;
   filter: blur(6px);
   position: absolute;
@@ -58,11 +46,25 @@ const StyledCardAccent = styled.div`
   left: -2px;
   z-index: -1;
 `;
-
+// background: linear-gradient(
+//   45deg,
+//   rgba(255, 0, 0, 1) 0%,
+//   rgba(255, 154, 0, 1) 10%,
+//   rgba(208, 222, 33, 1) 20%,
+//   rgba(79, 220, 74, 1) 30%,
+//   rgba(63, 218, 216, 1) 40%,
+//   rgba(47, 201, 226, 1) 50%,
+//   rgba(28, 127, 238, 1) 60%,
+//   rgba(95, 21, 242, 1) 70%,
+//   rgba(186, 12, 248, 1) 80%,
+//   rgba(251, 7, 217, 1) 90%,
+//   rgba(255, 0, 0, 1) 100%
+// );
+// animation: ${RainbowLight} 2s linear infinite;
 const FCard = styled.div`
   align-self: baseline;
   background: ${(props) => props.theme.card.background};
-  border-radius: 32px;
+  border-radius: 11px;
   box-shadow: 0px 2px 12px -8px rgba(25, 19, 38, 0.1),
     0px 1px 1px rgba(25, 19, 38, 0.05);
   display: flex;
@@ -172,10 +174,25 @@ const FarmCard: React.FC<FarmCardProps> = ({
         farmImage={farmImage}
         tokenSymbol={farm.tokenSymbol}
       />
+
+      <CardActionsContainer
+        farm={farm}
+        account={account}
+        addLiquidityUrl={addLiquidityUrl}
+      />
       {!removed && (
-        <Flex justifyContent="space-between" alignItems="center">
-          <Text>{TranslateString(736, "APR")}:</Text>
-          <Text bold style={{ display: "flex", alignItems: "center" }}>
+        <Flex
+          justifyContent="space-between"
+          alignItems="center"
+          className="mt-4"
+        >
+          <Text className="small pink-color">
+            {TranslateString(736, "APR")}:
+          </Text>
+          <Text
+            style={{ display: "flex", alignItems: "center" }}
+            className="small text-white"
+          >
             {farm.apy ? (
               <>
                 <ApyButton
@@ -193,14 +210,11 @@ const FarmCard: React.FC<FarmCardProps> = ({
         </Flex>
       )}
       <Flex justifyContent="space-between">
-        <Text>{TranslateString(318, "Earn")}:</Text>
-        <Text bold>{earnLabel}</Text>
+        <Text className="small pink-color">
+          {TranslateString(318, "Earn")}:
+        </Text>
+        <Text className="small text-white">{earnLabel}</Text>
       </Flex>
-      <CardActionsContainer
-        farm={farm}
-        account={account}
-        addLiquidityUrl={addLiquidityUrl}
-      />
       <Divider />
       <ExpandableSectionButton
         onClick={() => setShowExpandableSection(!showExpandableSection)}
@@ -209,9 +223,15 @@ const FarmCard: React.FC<FarmCardProps> = ({
       <ExpandingWrapper expanded={showExpandableSection}>
         <DetailsSection
           removed={removed}
-          maticExplorerAddress={`https://explorer-mumbai.maticvigil.com/address/${
-            farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
-          }`}
+          maticExplorerAddress={
+            farm.isTokenOnly
+              ? `https://testnet.bscscan.com/token/${
+                  farm.tokenAddresses[process.env.REACT_APP_CHAIN_ID]
+                }`
+              : `https://testnet.bscscan.com/token/${
+                  farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
+                }`
+          }
           totalValueFormated={totalValueFormated}
           lpLabel={lpLabel}
           addLiquidityUrl={addLiquidityUrl}

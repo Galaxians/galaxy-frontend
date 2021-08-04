@@ -1,12 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  Card,
-  CardBody,
-  Heading,
-  Skeleton,
-  Text,
-} from "@pancakeswap-libs/uikit";
+import { Card, CardBody, Heading, Skeleton, Text } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import { useGetStats } from "hooks/api";
 import { useTotalValue } from "state/hooks";
@@ -34,9 +28,9 @@ const TotalValueLockedCard = () => {
         </Heading>
         {data ? (
           <>
-            <Heading size="xl">{`$${data.toNumber().toFixed(0)}`}</Heading>
+            <Heading size="xl">{data.toNumber().toFixed(2)}</Heading>
             <Text color="textSubtle">
-              {TranslateString(764, "Across all LPs and Syrup Pools")}
+              {TranslateString(764, "Across all LPs and Galactic Pools")}
             </Text>
           </>
         ) : (

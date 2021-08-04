@@ -5,11 +5,17 @@ import multicall from "utils/multicall";
 import farmsConfig from "config/constants/farms";
 import { getAddress, getMasterChefAddress } from "utils/addressHelpers";
 
+const CHAIN_ID = process.env.REACT_APP_CHAIN_ID;
+
 export const fetchFarmUserAllowances = async (account: string) => {
   const masterChefAdress = getMasterChefAddress();
 
   const calls = farmsConfig.map((farm) => {
-    const lpContractAddress = getAddress(farm.lpAddresses);
+    // const lpContractAddress = getAddress(farm.lpAddresses);
+    const lpContractAddress = farm.isTokenOnly
+      ? farm.tokenAddresses[CHAIN_ID]
+      : farm.lpAddresses[CHAIN_ID];
+
     return {
       address: lpContractAddress,
       name: "allowance",
@@ -26,7 +32,9 @@ export const fetchFarmUserAllowances = async (account: string) => {
 
 export const fetchFarmUserTokenBalances = async (account: string) => {
   const calls = farmsConfig.map((farm) => {
-    const lpContractAddress = getAddress(farm.lpAddresses);
+    const lpContractAddress = farm.isTokenOnly
+      ? farm.tokenAddresses[CHAIN_ID]
+      : farm.lpAddresses[CHAIN_ID];
     return {
       address: lpContractAddress,
       name: "balanceOf",

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useWeb3React } from "@web3-react/core";
-import { Button } from "@pancakeswap-libs/uikit";
+import { Button } from "glx-uikit";
 import BigNumber from "bignumber.js";
 import { FarmWithStakedValue } from "views/Farms/components/FarmCard/FarmCard";
 import { getBalanceNumber } from "utils/formatBalance";
@@ -56,7 +56,7 @@ const HarvestAction: React.FunctionComponent<FarmWithStakedValue> = ({
   return (
     <ActionContainer>
       <ActionTitles>
-        <Title>CAKE </Title>
+        <Title>GLX </Title>
         <Subtle>EARNED</Subtle>
       </ActionTitles>
       <ActionContent>

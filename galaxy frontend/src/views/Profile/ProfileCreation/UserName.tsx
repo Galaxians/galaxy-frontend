@@ -15,7 +15,7 @@ import {
   useModal,
   Skeleton,
   Checkbox,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import { parseISO, formatDistance } from "date-fns";
 import { useWeb3React } from "@web3-react/core";
 import { useToast } from "state/hooks";
@@ -300,7 +300,7 @@ const UserName: React.FC = () => {
         <Text color="failure" mt="16px">
           {TranslateString(
             1098,
-            `A minimum of ${REGISTER_COST} CAKE is required`,
+            `A minimum of ${REGISTER_COST} GLX is required`,
             { num: REGISTER_COST }
           )}
         </Text>

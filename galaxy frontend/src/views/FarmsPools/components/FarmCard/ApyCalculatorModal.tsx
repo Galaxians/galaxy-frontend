@@ -1,7 +1,7 @@
 import React from "react";
 import BigNumber from "bignumber.js";
 import styled from "styled-components";
-import { Modal, Text, LinkExternal, Flex } from "@pancakeswap-libs/uikit";
+import { Modal, Text, LinkExternal, Flex } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import {
   calculateCakeEarnedPerThousandDollars,
@@ -97,7 +97,7 @@ const ApyCalculatorModal: React.FC<ApyCalculatorModalProps> = ({
             textTransform="uppercase"
             mb="20px"
           >
-            {TranslateString(864, "CAKE per $1000")}
+            {TranslateString(864, "GLX per $1000")}
           </Text>
         </GridItem>
         {/* 1 day row */}

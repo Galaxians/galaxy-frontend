@@ -13,7 +13,7 @@ import {
   PrizeIcon,
   OpenNewIcon,
   BlockIcon,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import { useProfile } from "state/hooks";
 import Menu from "./components/Menu";
@@ -101,7 +101,7 @@ const PublicProfile = () => {
                 <Username>{`@${profile.username}`}</Username>
                 <Flex alignItems="center">
                   <AddressLink
-                    href={`https://explorer-mumbai.maticvigil.com/address/${account}`}
+                    href={`https://testnet.bscscan.com/address/${account}`}
                     color="text"
                     external
                   >

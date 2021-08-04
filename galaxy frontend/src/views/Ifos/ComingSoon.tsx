@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React from "react";
 import styled from "styled-components";
-import { Button, Text } from "@pancakeswap-libs/uikit";
+import { Button, Text } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import Page from "components/layout/Page";
 import Container from "components/layout/Container";
@@ -65,7 +65,7 @@ const ComingSoon = () => {
               )}
             </Text>
             <Text mb={3}>
-              <LiquidityLink href="https://exchange.pancakeswap.finance/#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82">
+              <LiquidityLink href="https://exchange.galaxyswap.net//#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82">
                 {TranslateString(506, "Get CAKE-BNB LP >")}
               </LiquidityLink>
             </Text>

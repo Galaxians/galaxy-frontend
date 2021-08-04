@@ -9,7 +9,7 @@ import {
   Heading,
   PrizeIcon,
   Text,
-} from "@pancakeswap-libs/uikit";
+} from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import { Team } from "config/constants/types";
 

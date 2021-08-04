@@ -1,10 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  ListViewIcon,
-  CardViewIcon,
-  IconButton,
-} from "@pancakeswap-libs/uikit";
+import { ListViewIcon, CardViewIcon, IconButton } from "glx-uikit";
 import { ViewMode } from "../types";
 
 interface ToogleViewProps {
@@ -31,7 +27,7 @@ const ToggleView: React.FunctionComponent<ToogleViewProps> = ({
   };
 
   return (
-    <Container>
+    <Container style={{ marginLeft: "1%" }}>
       <IconButton
         variant="text"
         scale="sm"
