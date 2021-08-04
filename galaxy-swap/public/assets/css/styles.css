@@ -13,18 +13,22 @@ padding: 0;
   padding: 0;
 }
 .setting-icon {
-  background: url(../img/settings-icon.png);
+  background: url(../img/settings.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: right;
-  margin-left: 20px;
+  width: 32px;
+  height: 32px;
+  margin-left: 10px;
 }
 .order-history-icon {
-  background: url(../img/Order-history-icon.png);
+  background: url(../img/Order-history.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position-x: right;
   padding: 0;
+  width: 32px;
+  height: 32px;
 }
 
 .top-nav-bg {
@@ -428,4 +432,34 @@ a:active {
 .leftnav a:active {
   color: #ff1fff !important;
   text-transform: none;
+}
+
+.logo {
+  display:none;
+}
+
+@media only screen and (max-width:768px) {
+  .logo {
+    display:block;
+  }
+
+  .leftnav {
+    align-content: left;
+    width: 100%;
+    position: absolute;
+    z-index: 1000;
+    top:63px;
+    left: -30px;
+    background-color: #0B001E;
+
+  }
+  .ghost {
+    background: url(../img/galaxia-mobile-bg.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position-x: left;
+    background-position-y: 30px;
+    padding: 0;
+  }
+
 }

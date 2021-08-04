@@ -24,11 +24,13 @@ export default function Navbarglx() {
 <div className="container-fluid top-nav-bg">
 <Navbar expand="lg" variant="dark">
   <Container fluid>
+  
+    <Navbar.Toggle aria-controls="basic-navbar-nav"  className="visually-hidden"/>
+    
+    <Navbar.Collapse id="basic-navbar-nav" className="text-white" >
     <Navbar.Brand href="/">
         <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px", marginLeft:'30px'}} />
     </Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" className="visually-hidden" />
-    <Navbar.Collapse id="basic-navbar-nav" className="text-white" >
       <Nav className="me-auto">
         <span className="pink-color small mt-2">Powered by GalaxyProtocol</span>
         {/* <Nav.Link href="https://galaxyprotocol.io/#/" target='_blank' rel="noreferrer" className="text-end">
@@ -37,17 +39,20 @@ export default function Navbarglx() {
         </div>
         </Nav.Link> */}
       </Nav>
-      <a className="nav-link small mosk-bold-700 text-white" href="https://galaxyprotocol.io/#/" target='_blank' rel="noreferrer" style={{marginRight:'40px'}}>
+      <a className="nav-link small mosk-bold-700 text-white" href="https://galaxyprotocol.io/#/" target='_blank' rel="noreferrer">
                  Go to GalaxyProtocol
             </a>
-      
+    
     </Navbar.Collapse>
-    <span className="navbar-text actions">
+    <Navbar.Brand className="logo" href="/">
+        <img src="./assets/img/Galaxyswap-Emblem-color-500px.png" alt="Galaxy Swap" style={{width: "40px", marginLeft:'30px'}} />
+    </Navbar.Brand>
+    <span className="navbar-text actions" style={{marginLeft:'60px'}}>
             <div>            
               {account ? (
                 <Button
                 className="btn text-white xrounded pink-gredient"
-                style={{height: '46px', width:'150px'}}
+                style={{height: '46px', width:'110px'}}
                   onClick={() => {
                     onPresentAccountModal()
                   }}
@@ -57,7 +62,7 @@ export default function Navbarglx() {
               ) : (
                 <Button
                 className="btn text-white xrounded pink-gredient"
-                style={{height: '46px', width:'150px'}}
+                style={{height: '46px', width:'110px'}}
                   onClick={() => {
                     onPresentConnectModal()
                   }}
@@ -67,7 +72,7 @@ export default function Navbarglx() {
               )}
             </div>
           </span>
-          <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', width:'40px'}} />
+          <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'10px', width:'40px'}} />
 
   </Container>
 </Navbar>

@@ -36,6 +36,7 @@ import { ConfirmAddModalBottom } from './ConfirmAddModalBottom'
 import { PoolPriceBar } from './PoolPriceBar'
 import { ROUTER_ADDRESS } from '../../constants'
 
+
 export default function AddLiquidity({
   match: {
     params: { currencyIdA, currencyIdB },
@@ -289,9 +290,9 @@ export default function AddLiquidity({
 
   return (
     <>
-      <div className="h1 text-white text-center mt-5">Add Liquidity</div>
+    <div className="h1 text-white text-center mt-5">Add Liquidity</div>
     <div className="fs6 pink-color">Add liquidity to receive LP tokens</div><br/>
-
+    <div style={{width:'372px'}}>
       <AppBody>
       <CardNav activeIndex={1} />
         {/* <AddRemoveTabs adding /> */}
@@ -445,6 +446,7 @@ export default function AddLiquidity({
           </CardBody>
         </Wrapper>
       </AppBody>
+      </div>
       {pair && !noLiquidity && pairState !== PairState.INVALID ? (
         <AutoColumn style={{ minWidth: '20rem', marginTop: '1rem' }}>
           <MinimalPositionCard showUnwrapped={oneCurrencyIsWBNB} pair={pair} />

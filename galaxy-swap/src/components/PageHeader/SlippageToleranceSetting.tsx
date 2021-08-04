@@ -17,7 +17,7 @@ const Option = styled.div`
 `
 
 const Options = styled.div`
-  align-items: center;
+  align-items: left;
   display: flex;
   flex-direction: column;
 
@@ -35,7 +35,7 @@ const Options = styled.div`
 `
 
 const Label = styled.div`
-  align-items: center;
+  align-items: left;
   display: flex;
   margin-bottom: 8px;
 `
@@ -96,7 +96,7 @@ const SlippageToleranceSettings = ({ translateString }: SlippageToleranceSetting
         />
       </Label>
       <Options>
-        <Flex mb={['8px', 0]} mr={[0, '8px']}>
+        <Flex mb={['8px', 0]} mr={[0, '8px']} alignItems="left" style={{marginLeft:'-20px'}}>
           {predefinedValues.map(({ label, value: predefinedValue }) => {
             const handleClick = () => setValue(predefinedValue)
 
@@ -109,7 +109,7 @@ const SlippageToleranceSettings = ({ translateString }: SlippageToleranceSetting
             )
           })}
         </Flex>
-        <Flex alignItems="center">
+        <Flex alignItems="left">
           <Option>
             <Input
               type="number"

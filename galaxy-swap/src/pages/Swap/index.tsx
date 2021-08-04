@@ -321,7 +321,7 @@ const Swap = () => {
                 
               />
               <AutoColumn justify="space-between">
-                <AutoRow justify={isExpertMode ? 'space-between' : 'left'} style={{ padding: '0 1rem' }}>
+                <AutoRow justify={isExpertMode ? 'space-between' : 'left'} style={{ padding: '0 2rem' }}>
                   <ArrowWrapper clickable>
                     <IconButton
                       className="mt-2 mb-2"
