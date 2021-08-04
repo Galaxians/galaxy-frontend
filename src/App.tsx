@@ -73,7 +73,7 @@ const App: React.FC = () => {
       <ResetCSS />
       <GlobalStyle />
       <Navbar />
-      <div className="row">
+      <div className="row" style={{width:'100%'}}>
         <div className="col-auto">
           <Leftnav />
         </div>
