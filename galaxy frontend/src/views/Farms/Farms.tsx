@@ -33,7 +33,7 @@ import Select, { OptionProps } from "./components/Select/Select";
 const ControlContainer = styled.div`
   display: flex;
   width: 100%;
-  align-items: center;
+  align-items: left;
   position: relative;
   justify-content: space-between;
   flex-direction: column;
@@ -48,7 +48,7 @@ const ControlContainer = styled.div`
 
 const ToggleWrapper = styled.div`
   display: flex;
-  align-items: center;
+  align-items: left;
   //margin-left: 10px;
   width: 30%;
 
@@ -105,7 +105,7 @@ const StyledImage = styled(Image)`
 const Header = styled.div`
   padding: 32px 0px;
   //background: ${({ theme }) => theme.colors.gradients.bubblegum};
-  background: transperent;
+ // background: transperent;
   color: #ffffff !important;
   padding-left: 16px;
   padding-right: 16px;
@@ -370,9 +370,7 @@ const Farms: React.FC = () => {
 
       return (
         <div className="pink-gredient p-3">
-          <div className="row">
-          <Table data={rowData} columns={columns} />
-          </div>
+           <Table data={rowData} columns={columns} />
         </div>
       );
     }
@@ -432,21 +430,25 @@ const Farms: React.FC = () => {
         </Text>
       </Header>
       <Page>
-        <div className="row mb-3 rounded" style={{ background: "#0B001E" }}>
+        <div className="row mb-3 rounded" style={{marginLeft:'1%', background: "#0B001E", width:'98%' }}>
           <ControlContainer>
             <ViewControls>
-              <ToggleView
+              
+                <ToggleView                
                 viewMode={viewMode}
                 onToggle={(mode: ViewMode) => setViewMode(mode)}
               />
-              <ToggleWrapper>
+              
+              
+              <ToggleWrapper className="text-end" style={{marginLeft:'41%'}}>
                 <Toggle
                   checked={stackedOnly}
                   onChange={() => setStackedOnly(!stackedOnly)}
                   scale="sm"
                 />
-                <Text style={{fontSize:'11px'}}>Staked only</Text>
+                <Text style={{fontSize:'11px', whiteSpace:'nowrap'}}>Staked-Only</Text>
               </ToggleWrapper>
+                                       
              
             </ViewControls>
           </ControlContainer>
@@ -458,7 +460,7 @@ const Farms: React.FC = () => {
             style={{ background: "#0B001E" }}
           >
             <FilterContainer>
-              <LabelWrapper style={{ width: "63%", marginLeft: "5%" }}>
+              <LabelWrapper style={{ width: "50%", marginLeft: "1%" }}>
                 <Text>SORT BY</Text>
                 <Select
                   options={[
@@ -486,7 +488,7 @@ const Farms: React.FC = () => {
                   onChange={handleSortOptionChange}
                 />
               </LabelWrapper>
-              <LabelWrapper style={{ width: "30%" }}>
+              <LabelWrapper style={{ width: "48%" }}>
                 <Text>SEARCH</Text>
                 <SearchInput onChange={handleChangeQuery} value={query} />
               </LabelWrapper>

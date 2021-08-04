@@ -40,12 +40,20 @@ const StyledTable = styled.table`
 
 const TableBody = styled.tbody`
   & tr {
-    td {
+     td {
       font-size: 16px;
       vertical-align: middle;
+
+      // background: ${({ theme }) => theme.card.background};
+      // border-radius: 8px;
+
+      // border-collapse:separate;
+      // border-spacing: 0px 15px;
     }
   }
 `;
+
+
 
 const TableContainer = styled.div`
   position: relative;
@@ -81,6 +89,7 @@ const FarmTable: React.FC<ITableProps> = (props) => {
         <TableWrapper ref={tableWrapperEl}>
           <StyledTable>
             <TableBody className="text-white">
+
               {rows.map((row) => {
                 return <Row {...row.original} key={`table-row-${row.id}`} />;
               })}

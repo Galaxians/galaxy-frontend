@@ -35,7 +35,6 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: left;
   align-items: left;
-  margin-left: 15px;
   margin-top:15px;
   margin-bottom:15px;
 
@@ -45,6 +44,6 @@ const Wrapper = styled.div`
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    margin-left: 16px;
+    margin-left: 30px;
   }
 `;

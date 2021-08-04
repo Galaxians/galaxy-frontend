@@ -47,6 +47,7 @@ const CellInner = styled.div`
 const StyledTr = styled.tr`
   cursor: pointer;
   border-bottom: 2px solid ${({ theme }) => theme.colors.borderColor};
+  border-radius: 20px;
 `;
 
 const EarnedMobileCell = styled.td`
@@ -130,6 +131,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
     }
 
     return (
+
       <StyledTr onClick={toggleActionPanel}>
         <td>
           <tr>
@@ -160,6 +162,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
           </CellInner>
         </td>
       </StyledTr>
+
     );
   };
 
@@ -167,11 +170,13 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
     <>
       {handleRenderRow()}
       {actionPanelToggled && details && (
+
         <tr>
           <td colSpan={6}>
             <ActionPanel {...props} />
           </td>
         </tr>
+
       )}
     </>
   );
