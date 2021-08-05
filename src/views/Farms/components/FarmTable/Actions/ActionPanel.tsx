@@ -25,7 +25,7 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   flex-direction: column-reverse;
-  padding: 24px;
+  padding: 16px;
 
   ${({ theme }) => theme.mediaQueries.lg} {
     flex-direction: row;
