@@ -20,14 +20,49 @@ export default function Navbar({toggle}) {
   return (
     <div className="container-fluid top-nav-bg">
       <nav className="navbar navbar-dark navbar-expand-lg">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px"}} />
-            </a>         
-          <button type="submit" data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="/navcol-1" style={{marginTop:'0px', marginLeft:'px'}} onClick={toggle}>
+        <div className="d-flex flex-row">
+          <button type="submit" data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="/navcol-1" style={{marginTop:'0px', marginRight:'10px', border: "none", color: "pink"}} onClick={toggle}>
             <span className="visually-hidden">Toggle navigation</span>
-            <span className="navbar-toggler-icon text-white" />
+            <span className="navbar-toggler-icon" />
           </button>
+          
+          <a className="toggle-header navbar-brand" href="/">
+            <img src="./assets/img/Icon-galaxyswap.png" alt="Galaxy Swap" style={{height: "40px"}} />
+          </a>
+        </div>
+        <div className="d-flex flex-row">
+          <span className="toggle-header navbar-text actions">
+            <div>
+              {account ? (
+                <Button
+                className="btn text-white xrounded pink-gredient"
+                style={{height: '36px', width:'120px'}}
+                  onClick={() => {
+                    onPresentAccountModal()
+                  }}
+                >
+                  {accountEllipsis}
+                </Button>
+              ) : (
+                <Button
+                className="btn text-white xrounded pink-gredient"
+                style={{height: '36px', width:'120px'}}
+                  onClick={() => {
+                    onPresentConnectModal()
+                  }}
+                >
+                  Connect
+                </Button>
+              )}
+            </div>
+          </span>
+          <img className="toggle-header" src="./assets/img/alien-kal-avatar.png" alt="profile" style={{width:'40px', height: "40px", margin: "auto", marginLeft:'10px'}} />
+        </div>
+        <div className="container-fluid">
+          
+          <a className="collapse navbar-collapse navbar-brand" href="/">
+            <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px"}} />
+          </a>
           <div className="collapse navbar-collapse" id="navcol-1">
           <span className="pink-color small mt-2">Powered by GalaxyProtocol</span>
             <ul className="navbar-nav ms-auto">
@@ -38,31 +73,31 @@ export default function Navbar({toggle}) {
               </li>
             </ul>
             <span className="navbar-text actions">
-            <div>
-              {account ? (
-                <Button
-                className="btn text-white xrounded pink-gredient"
-                style={{marginLeft:'70px',height: '46px', width:'150px'}}
-                  onClick={() => {
-                    onPresentAccountModal()
-                  }}
-                >
-                  {accountEllipsis}
-                </Button>
-              ) : (
-                <Button
-                className="btn text-white xrounded pink-gredient"
-                style={{marginLeft:'70px',height: '46px', width:'150px'}}
-                  onClick={() => {
-                    onPresentConnectModal()
-                  }}
-                >
-                  Connect
-                </Button>
-              )}
-            </div>
-          </span>
-          <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', width:'40px'}} />
+              <div>
+                {account ? (
+                  <Button
+                  className="btn text-white xrounded pink-gredient"
+                  style={{marginLeft:'70px',height: '46px', width:'150px'}}
+                    onClick={() => {
+                      onPresentAccountModal()
+                    }}
+                  >
+                    {accountEllipsis}
+                  </Button>
+                ) : (
+                  <Button
+                  className="btn text-white xrounded pink-gredient"
+                  style={{marginLeft:'70px',height: '46px', width:'150px'}}
+                    onClick={() => {
+                      onPresentConnectModal()
+                    }}
+                  >
+                    Connect
+                  </Button>
+                )}
+              </div>
+            </span>
+            <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', width:'40px'}} />
           </div>
         </div>
       </nav>
