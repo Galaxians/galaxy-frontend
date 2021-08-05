@@ -11,10 +11,10 @@ export const SidebarContainer = styled.aside<{ isOpen: any; }>`
 //   display: grid;
   align-items: center;
   top: 0;
-  right: 0;
+  left: 0;
   transition: 1s ease-in-out;
   opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
-  right: ${({ isOpen }) => (isOpen ? '0%' : '-100%')};
+  left: ${({ isOpen }) => (isOpen ? '0%' : '-100%')};
 `;
 
 

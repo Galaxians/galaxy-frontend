@@ -22,6 +22,7 @@ const Hero = styled.div`
   flex-direction: column;
   margin: auto;
   margin-bottom: 32px;
+  margin-top: 15px;
   text-align: center;
 
   ${({ theme }) => theme.mediaQueries.lg} {
@@ -44,7 +45,7 @@ const Cards = styled(BaseLayout)`
 
   ${({ theme }) => theme.mediaQueries.sm} {
     & > div {
-      grid-column: span 8;
+      grid-column: span 6;
     }
   }
 

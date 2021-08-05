@@ -390,3 +390,14 @@ min-height: 200px;
 @media (min-width:1400px){
   .col-xxl-3{flex:0 0 auto;width:25%}
 }
+.toggle-header{
+  display: none;
+}
+@media (max-width:992px){
+  .toggle-header{
+    display: block;
+  }
+  .leftnav{
+    display: none;
+  }
+}
