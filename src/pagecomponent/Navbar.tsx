@@ -18,8 +18,8 @@ export default function Navbar({toggle}) {
   const history = useHistory()
 
   return (
-    <div className="container-fluid top-nav-bg">
-      <nav className="navbar navbar-dark navbar-expand-lg">
+    <div className="container-fluid top-nav-bg p-2 pt-4">
+      <nav className="navbar navbar-dark navbar-expand-lg pt-4">
         <div className="d-flex flex-row">
           <button type="submit" data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="/navcol-1" style={{marginTop:'0px', marginRight:'10px', border: "none", color: "pink"}} onClick={toggle}>
             <span className="visually-hidden">Toggle navigation</span>
@@ -56,15 +56,17 @@ export default function Navbar({toggle}) {
               )}
             </div>
           </span>
-          <img className="toggle-header" src="./assets/img/alien-kal-avatar.png" alt="profile" style={{width:'40px', height: "40px", margin: "auto", marginLeft:'10px'}} />
+          <img className="toggle-header px-2" src="./assets/img/alien-kal-avatar.png" alt="profile" style={{width:'40px', height: "40px", margin: "auto", marginLeft:'10px'}} />
         </div>
-        <div className="container-fluid">
+        <div className="container-fluid" style={{justifyContent: "flex-start"}}>
+          {/* <div className="d-flex flex-row"> */}
+            <a className="collapse navbar-collapse navbar-brand" style={{flexGrow:0, width: 180}} href="/">
+              <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px"}} />
+            </a>
+            <div className="collapse navbar-collapse" id="navcol-1">
+              <span className="pink-color small mt-2">Powered by GalaxyProtocol</span>
+          {/* </div> */}
           
-          <a className="collapse navbar-collapse navbar-brand" href="/">
-            <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px"}} />
-          </a>
-          <div className="collapse navbar-collapse" id="navcol-1">
-          <span className="pink-color small mt-2">Powered by GalaxyProtocol</span>
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
                 <a className="nav-link small mosk-bold-700 text-white" href="https://galaxyprotocol.io/#/" target='_blank' rel="noreferrer">
