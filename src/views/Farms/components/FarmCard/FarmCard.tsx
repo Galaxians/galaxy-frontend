@@ -95,6 +95,7 @@ interface FarmCardProps {
   ethPrice?: BigNumber;
   provider?: ProviderType;
   account?: string;
+  className?: string;
 }
 
 const FarmCard: React.FC<FarmCardProps> = ({
@@ -104,6 +105,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
   bnbPrice,
   ethPrice,
   account,
+  className,
 }) => {
   const TranslateString = useI18n();
 
@@ -165,75 +167,78 @@ const FarmCard: React.FC<FarmCardProps> = ({
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`;
 
   return (
-    <FCard>
-      {farm.tokenSymbol === "GLX" && <StyledCardAccent />}
-      <CardHeading
-        lpLabel={lpLabel}
-        multiplier={farm.multiplier}
-        isCommunityFarm={isCommunityFarm}
-        farmImage={farmImage}
-        tokenSymbol={farm.tokenSymbol}
-      />
-
-      <CardActionsContainer
-        farm={farm}
-        account={account}
-        addLiquidityUrl={addLiquidityUrl}
-      />
-
-      {!removed && (
-        <Flex
-          justifyContent="space-between"
-          alignItems="center"
-          className="mt-4"
-        >
-          <Text className="small pink-color">
-            {TranslateString(736, "APR")}:
-          </Text>
-          <Text
-            style={{ display: "flex", alignItems: "center" }}
-            className="small text-white"
-          >
-            {farm.apy ? (
-              <>
-                <ApyButton
-                  lpLabel={lpLabel}
-                  addLiquidityUrl={addLiquidityUrl}
-                  cakePrice={cakePrice}
-                  apy={farm.apy}
-                />
-                {farmAPY}%
-              </>
-            ) : (
-              <Skeleton height={24} width={80} />
-            )}
-          </Text>
-        </Flex>
-      )}
-      <Flex justifyContent="space-between">
-        <Text className="small pink-color">
-          {TranslateString(318, "Earn")}:
-        </Text>
-        <Text className="small text-white">{earnLabel}</Text>
-      </Flex>
-
-      <Divider />
-      <ExpandableSectionButton
-        onClick={() => setShowExpandableSection(!showExpandableSection)}
-        expanded={showExpandableSection}
-      />
-      <ExpandingWrapper expanded={showExpandableSection}>
-        <DetailsSection
-          removed={removed}
-          maticExplorerAddress={`https://bscscan.com/address/${
-            farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
-          }`}
-          totalValueFormated={totalValueFormated}
+    <div className={className}>
+      <FCard>
+        {farm.tokenSymbol === "GLX" && <StyledCardAccent />}
+        <CardHeading
           lpLabel={lpLabel}
+          multiplier={farm.multiplier}
+          isCommunityFarm={isCommunityFarm}
+          farmImage={farmImage}
+          tokenSymbol={farm.tokenSymbol}
+        />
+
+        <CardActionsContainer
+          farm={farm}
+          account={account}
           addLiquidityUrl={addLiquidityUrl}
         />
-      </ExpandingWrapper>
-    </FCard>
+
+        {!removed && (
+          <Flex
+            justifyContent="space-between"
+            alignItems="center"
+            className="mt-4"
+          >
+            <Text className="small pink-color">
+              {TranslateString(736, "APR")}:
+            </Text>
+            <Text
+              style={{ display: "flex", alignItems: "center" }}
+              className="small text-white"
+            >
+              {farm.apy ? (
+                <>
+                  <ApyButton
+                    lpLabel={lpLabel}
+                    addLiquidityUrl={addLiquidityUrl}
+                    cakePrice={cakePrice}
+                    apy={farm.apy}
+                  />
+                  {farmAPY}%
+                </>
+              ) : (
+                <Skeleton height={24} width={80} />
+              )}
+            </Text>
+          </Flex>
+        )}
+        <Flex justifyContent="space-between">
+          <Text className="small pink-color">
+            {TranslateString(318, "Earn")}:
+          </Text>
+          <Text className="small text-white">{earnLabel}</Text>
+        </Flex>
+
+        <Divider />
+        <ExpandableSectionButton
+          onClick={() => setShowExpandableSection(!showExpandableSection)}
+          expanded={showExpandableSection}
+        />
+        <ExpandingWrapper expanded={showExpandableSection}>
+          <DetailsSection
+            removed={removed}
+            maticExplorerAddress={`https://bscscan.com/address/${
+              farm.lpAddresses[process.env.REACT_APP_CHAIN_ID]
+            }`}
+            totalValueFormated={totalValueFormated}
+            lpLabel={lpLabel}
+            addLiquidityUrl={addLiquidityUrl}
+          />
+        </ExpandingWrapper>
+      </FCard>
+    </div>
+    
   );
 };
 

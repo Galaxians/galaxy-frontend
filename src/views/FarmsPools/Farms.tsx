@@ -31,26 +31,25 @@ import { DesktopColumnSchema, ViewMode } from "./components/types";
 import Select, { OptionProps } from "./components/Select/Select";
 
 const ControlContainer = styled.div`
-  display: flex;
-  width: 100%;
-  align-items: center;
-  position: relative;
+display: flex;
+width: 100%;
+align-items: center;
+position: relative;
+justify-content: space-around;
+flex-direction: column;
+color: #ffffff;
 
-  justify-content: space-between;
-  flex-direction: column;
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 16px 32px;
-  }
+${({ theme }) => theme.mediaQueries.sm} {
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 16px 32px;
+}
 `;
 
 const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 10px;
-  width: 30%;
   ${Text} {
     margin-left: 8px;
   }
@@ -69,6 +68,7 @@ const FilterContainer = styled.div`
   padding: 8px 0px;
   border-radius: 8px;
 
+  justify-content: space-around;
   ${({ theme }) => theme.mediaQueries.sm} {
     width: 100%;
     padding: 0;
@@ -79,16 +79,14 @@ const ViewControls = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   display: flex;
-  align-items: center;
   width: 100%;
 
   > div {
-    padding: 8px 0px;
+    //padding: 8px 0px;
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    justify-content: flex-start;
-
+    justify-content: space-between;
     width: 100%;
 
     > div {
@@ -373,8 +371,8 @@ const Farms: React.FC = () => {
 
     return (
       <div>
-        <FlexLayout>
-          <Route exact path={`${path}`}>
+        <Route exact path={`${path}`}>
+          <div className="row justify-content-md-center">
             {farmsStaked.map((farm) => (
               <FarmCard
                 key={farm.pid}
@@ -384,10 +382,13 @@ const Farms: React.FC = () => {
                 ethPrice={ethPriceUsd}
                 account={account}
                 removed={false}
+                className="col-md-4 col-sm-6 col-xs-6 col-xs-8 col-xl-3 mb-4"
               />
             ))}
-          </Route>
-          <Route exact path={`${path}/history`}>
+          </div>
+        </Route>
+        <Route exact path={`${path}/history`}>
+          <FlexLayout>
             {farmsStaked.map((farm) => (
               <FarmCard
                 key={farm.pid}
@@ -399,8 +400,8 @@ const Farms: React.FC = () => {
                 removed
               />
             ))}
-          </Route>
-        </FlexLayout>
+          </FlexLayout>
+        </Route>
       </div>
     );
   };
@@ -427,10 +428,10 @@ const Farms: React.FC = () => {
       </Header>
       <Page>
         <div
-          className="row mb-3 rounded"
+          className="row mb-3 pt-3 rounded"
           style={{ backgroundColor: "#0B001E" }}
         >
-          <ControlContainer>
+          <ControlContainer className="mb-1 px-4">
             <ViewControls>
               <ToggleView
                 viewMode={viewMode}
@@ -453,7 +454,7 @@ const Farms: React.FC = () => {
             style={{ backgroundColor: "#0B001E" }}
           >
             <FilterContainer>
-              <LabelWrapper style={{ width: "63%", marginLeft: "5%" }}>
+              <LabelWrapper className="m-2">
                 <Text>SORT BY</Text>
                 <Select
                   options={[
@@ -481,7 +482,7 @@ const Farms: React.FC = () => {
                   onChange={handleSortOptionChange}
                 />
               </LabelWrapper>
-              <LabelWrapper style={{ width: "30%" }}>
+              <LabelWrapper className="m-2">
                 <Text>SEARCH</Text>
                 <SearchInput onChange={handleChangeQuery} value={query} />
               </LabelWrapper>
