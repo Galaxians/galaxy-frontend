@@ -46,7 +46,7 @@ const Wrapper = styled.div`
   margin: auto;
 
   ${({ theme }) => theme.mediaQueries.xl} {
-    max-width: calc(100vw - 400px);
+    max-width: calc(100vw - 350px);
   }
 `;
 

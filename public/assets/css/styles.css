@@ -386,3 +386,7 @@ min-height: 200px;
     color: white;
   }
 }
+
+@media (min-width:1400px){
+  .col-xxl-3{flex:0 0 auto;width:25%}
+}
