@@ -27,7 +27,7 @@ export default function Sidebar({ isOpen, toggle }) {
             <div className="navbar-nav">
                 <ul className="list-unstyled">
                     <li className="left-exchange-icon">
-                        <a href="/" onClick={()=>{setIsTag(true)}}>Exchange</a>
+                        <a href="https://exchange.galaxyswap.net/" onClick={()=>{setIsTag(true)}}>Exchange</a>
                     </li>
                     <li className="left-farms-icon">
                         <Link to="/farms">Galaxia Farms</Link>{" "}

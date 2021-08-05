@@ -178,47 +178,47 @@ const FarmCard: React.FC<FarmCardProps> = ({
           tokenSymbol={farm.tokenSymbol}
         />
 
-      <CardActionsContainer
-        farm={farm}
-        account={account}
-        addLiquidityUrl={addLiquidityUrl}
-      />
+        <CardActionsContainer
+          farm={farm}
+          account={account}
+          addLiquidityUrl={addLiquidityUrl}
+        />
 
-      {!removed && (
-        <Flex
-          justifyContent="space-between"
-          alignItems="center"
-          className="mt-4"
-        >
-          <Text className="small pink-color">
-            {TranslateString(736, "APR")}:
-          </Text>
-          <Text
-            style={{ display: "flex", alignItems: "center" }}
-            className="small text-white"
+        {!removed && (
+          <Flex
+            justifyContent="space-between"
+            alignItems="center"
+            className="mt-4"
           >
-            {farm.apy ? (
-              <>
-                <ApyButton
-                  lpLabel={lpLabel}
-                  addLiquidityUrl={addLiquidityUrl}
-                  cakePrice={cakePrice}
-                  apy={farm.apy}
-                />
-                {farmAPY}%
-              </>
-            ) : (
-              <Skeleton height={24} width={80} />
-            )}
+            <Text className="small pink-color">
+              {TranslateString(736, "APR")}:
+            </Text>
+            <Text
+              style={{ display: "flex", alignItems: "center" }}
+              className="small text-white"
+            >
+              {farm.apy ? (
+                <>
+                  <ApyButton
+                    lpLabel={lpLabel}
+                    addLiquidityUrl={addLiquidityUrl}
+                    cakePrice={cakePrice}
+                    apy={farm.apy}
+                  />
+                  {farmAPY}%
+                </>
+              ) : (
+                <Skeleton height={24} width={80} />
+              )}
+            </Text>
+          </Flex>
+        )}
+        <Flex justifyContent="space-between">
+          <Text className="small pink-color">
+            {TranslateString(318, "Earn")}:
           </Text>
+          <Text className="small text-white">{earnLabel}</Text>
         </Flex>
-      )}
-      <Flex justifyContent="space-between">
-        <Text className="small pink-color">
-          {TranslateString(318, "Earn")}:
-        </Text>
-        <Text className="small text-white">{earnLabel}</Text>
-      </Flex>
 
         <Divider />
         <ExpandableSectionButton

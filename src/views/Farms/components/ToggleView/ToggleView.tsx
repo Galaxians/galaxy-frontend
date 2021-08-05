@@ -10,7 +10,6 @@ interface ToogleViewProps {
 
 const Container = styled.div`
   margin-left: -8px;
-
   ${({ theme }) => theme.mediaQueries.sm} {
     margin-left: 0;
   }
@@ -27,7 +26,7 @@ const ToggleView: React.FunctionComponent<ToogleViewProps> = ({
   };
 
   return (
-    <Container style={{marginLeft:'5%'}}>
+    <Container>
       <IconButton
         variant="text"
         scale="sm"

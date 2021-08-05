@@ -33,9 +33,4 @@ const Wrapper = styled.div`
     padding-right: 12px;
   }
 
-  margin-left: 12px;
-  ${({ theme }) => theme.mediaQueries.xs} {
-    margin-left: 16px;
-  }
-
 `;

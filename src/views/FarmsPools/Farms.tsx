@@ -35,22 +35,21 @@ display: flex;
 width: 100%;
 align-items: center;
 position: relative;
-justify-content: space-between;
+justify-content: space-around;
 flex-direction: column;
 color: #ffffff;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 16px 32px;
-  }
+${({ theme }) => theme.mediaQueries.sm} {
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 16px 32px;
+}
 `;
 
 const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 10px;
-  width: 30%;
   ${Text} {
     margin-left: 8px;
   }
@@ -77,19 +76,17 @@ const FilterContainer = styled.div`
 `;
 
 const ViewControls = styled.div`
-  // flex-wrap: wrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   display: flex;
-  align-items: center;
   width: 100%;
 
   > div {
-    padding: 8px 0px;
+    //padding: 8px 0px;
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    justify-content: flex-start;
-
+    justify-content: space-between;
     width: 100%;
 
     > div {
@@ -375,7 +372,7 @@ const Farms: React.FC = () => {
     return (
       <div>
         <Route exact path={`${path}`}>
-          <div className="row">
+          <div className="row justify-content-md-center">
             {farmsStaked.map((farm) => (
               <FarmCard
                 key={farm.pid}
@@ -431,10 +428,10 @@ const Farms: React.FC = () => {
       </Header>
       <Page>
         <div
-          className="row mb-3 rounded"
+          className="row mb-3 pt-3 rounded"
           style={{ backgroundColor: "#0B001E" }}
         >
-          <ControlContainer>
+          <ControlContainer className="mb-1 px-4">
             <ViewControls>
               <ToggleView
                 viewMode={viewMode}

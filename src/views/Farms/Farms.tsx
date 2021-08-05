@@ -35,7 +35,7 @@ const ControlContainer = styled.div`
   width: 100%;
   align-items: center;
   position: relative;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: column;
   color: #ffffff;
 
@@ -50,7 +50,6 @@ const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 10px;
-  width: 30%;
   ${Text} {
     margin-left: 8px;
   }
@@ -77,7 +76,7 @@ const FilterContainer = styled.div`
 `;
 
 const ViewControls = styled.div`
-  // flex-wrap: wrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   display: flex;
   width: 100%;
@@ -378,7 +377,7 @@ const Farms: React.FC = () => {
     return (
       <div>
         <Route exact path={`${path}`}>
-          <div className="row">
+          <div className="row justify-content-center">
             {farmsStaked.map((farm) => (
               <FarmCard
                 key={farm.pid}
@@ -433,8 +432,8 @@ const Farms: React.FC = () => {
         </Text>
       </Header>
       <Page>
-        <div className="row mb-3 rounded" style={{ background: "#0B001E" }}>
-          <ControlContainer>
+        <div className="row mb-3 pt-3 rounded" style={{ background: "#0B001E" }}>
+          <ControlContainer className="mb-1 px-4">
             <ViewControls>
               <ToggleView
                 viewMode={viewMode}
@@ -442,6 +441,7 @@ const Farms: React.FC = () => {
               />
               <ToggleWrapper>
                 <Toggle
+                  style={{ background: "#ffffff" }}
                   checked={stackedOnly}
                   onChange={() => setStackedOnly(!stackedOnly)}
                   scale="sm"
