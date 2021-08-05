@@ -38,7 +38,6 @@ const ControlContainer = styled.div`
   justify-content: space-around;
   flex-direction: column;
   color: #ffffff;
-
   ${({ theme }) => theme.mediaQueries.sm} {
     flex-direction: row;
     flex-wrap: wrap;
@@ -77,7 +76,7 @@ const FilterContainer = styled.div`
 
 const ViewControls = styled.div`
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   display: flex;
   width: 100%;
 
@@ -387,7 +386,7 @@ const Farms: React.FC = () => {
                 ethPrice={ethPriceUsd}
                 account={account}
                 removed={false}
-                className="col-md-4 col-sm-6 col-xs-6 col-xs-8 col-xl-3 mb-4"
+                className="col-lg-6 col-sm-6 col-xs-8 col-xl-4 col-xxl-3 mb-4"
               />
             ))}
           </div>
@@ -432,13 +431,14 @@ const Farms: React.FC = () => {
         </Text>
       </Header>
       <Page>
-        <div className="row mb-3 pt-3 rounded" style={{ background: "#0B001E" }}>
+        <div className="row mb-3 pt-3 rounded" style={{ background: "#0B001E", maxWidth: 800, margin: "auto" }}>
           <ControlContainer className="mb-1 px-4">
             <ViewControls>
               <ToggleView
                 viewMode={viewMode}
                 onToggle={(mode: ViewMode) => setViewMode(mode)}
               />
+              <FarmTabButtons />
               <ToggleWrapper>
                 <Toggle
                   style={{ background: "#ffffff" }}
@@ -448,7 +448,6 @@ const Farms: React.FC = () => {
                 />
                 <Text> {TranslateString(1116, "Staked only")}</Text>
               </ToggleWrapper>
-              <FarmTabButtons />
             </ViewControls>
           </ControlContainer>
           <ControlContainer

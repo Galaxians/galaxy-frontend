@@ -8,7 +8,7 @@ const DropDownHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 16px;
+  padding: 0px 8px;
   box-shadow: ${({ theme }) => theme.shadows.inset};
   border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
   border-radius: 4px;
@@ -17,7 +17,7 @@ const DropDownHeader = styled.div`
 `;
 
 const DropDownListContainer = styled.div`
-  min-width: 136px;
+  min-width: 110px;
   height: 0;
   position: absolute;
   overflow: hidden;
@@ -44,7 +44,7 @@ const DropDownContainer = styled.div<{
   background: ${({ theme }) => theme.colors.input};
   border-radius: 4px;
   height: 40px;
-  min-width: 136px;
+  min-width: 100px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     min-width: 168px;

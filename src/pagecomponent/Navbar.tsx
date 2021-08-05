@@ -22,7 +22,7 @@ export default function Navbar({toggle}) {
       <nav className="navbar navbar-dark navbar-expand-lg">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px", marginLeft:'30px'}} />
+            <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px"}} />
             </a>         
           <button type="submit" data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="/navcol-1" style={{marginTop:'0px', marginLeft:'px'}} onClick={toggle}>
             <span className="visually-hidden">Toggle navigation</span>

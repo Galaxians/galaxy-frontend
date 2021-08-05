@@ -77,7 +77,7 @@ const FilterContainer = styled.div`
 
 const ViewControls = styled.div`
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   display: flex;
   width: 100%;
 
@@ -86,7 +86,7 @@ const ViewControls = styled.div`
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
 
     > div {
@@ -372,7 +372,7 @@ const Farms: React.FC = () => {
     return (
       <div>
         <Route exact path={`${path}`}>
-          <div className="row justify-content-md-center">
+          <div className="row justify-content-center">
             {farmsStaked.map((farm) => (
               <FarmCard
                 key={farm.pid}
@@ -429,7 +429,7 @@ const Farms: React.FC = () => {
       <Page>
         <div
           className="row mb-3 pt-3 rounded"
-          style={{ backgroundColor: "#0B001E" }}
+          style={{ backgroundColor: "#0B001E", maxWidth: 800, margin: "auto" }}
         >
           <ControlContainer className="mb-1 px-4">
             <ViewControls>
@@ -437,6 +437,7 @@ const Farms: React.FC = () => {
                 viewMode={viewMode}
                 onToggle={(mode: ViewMode) => setViewMode(mode)}
               />
+              <FarmTabButtons />
               <ToggleWrapper>
                 <Toggle
                   style={{ background: "#ffffff" }}
@@ -446,7 +447,6 @@ const Farms: React.FC = () => {
                 />
                 <Text> {TranslateString(1116, "Staked only")}</Text>
               </ToggleWrapper>
-              <FarmTabButtons />
             </ViewControls>
           </ControlContainer>
           <ControlContainer
