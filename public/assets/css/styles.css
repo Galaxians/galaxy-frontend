@@ -397,4 +397,7 @@ min-height: 200px;
   .toggle-header{
     display: block;
   }
+  .leftnav{
+    display: none;
+  }
 }
