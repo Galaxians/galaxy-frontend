@@ -31,25 +31,27 @@ import { DesktopColumnSchema, ViewMode } from "./components/types";
 import Select, { OptionProps } from "./components/Select/Select";
 
 const ControlContainer = styled.div`
-display: flex;
-width: 100%;
-align-items: center;
-position: relative;
-justify-content: space-around;
-flex-direction: column;
-color: #ffffff;
-
-${({ theme }) => theme.mediaQueries.sm} {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  position: relative;
+  justify-content: space-between;
   flex-direction: row;
-  flex-wrap: wrap;
-  padding: 16px 32px;
-}
+  color: #ffffff;
+  @media only screen and (max-width: 1200px) {
+    flex-direction: column;
+    padding: 16px 32px;
+    & > * {
+      width: 100%;
+    }
+  }
 `;
 
 const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 10px;
+  margin-right: 15px;
   ${Text} {
     margin-left: 8px;
   }
@@ -64,13 +66,11 @@ const LabelWrapper = styled.div`
 const FilterContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
   padding: 8px 0px;
   border-radius: 8px;
 
   justify-content: space-around;
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: 100%;
     padding: 0;
   }
 `;
@@ -79,15 +79,13 @@ const ViewControls = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   display: flex;
-  width: 100%;
 
   > div {
     //padding: 8px 0px;
   }
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    justify-content: space-around;
-    width: 100%;
+    justify-content: space-between;
 
     > div {
       padding: 0;
@@ -106,10 +104,9 @@ const Header = styled.div`
   //background: ${({ theme }) => theme.colors.gradients.bubblegum};
   background: transperent;
   color: #ffffff !important;
-
   padding-left: 16px;
   padding-right: 16px;
-  text-align: center;
+  text-align: center; 
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-left: 24px;
     padding-right: 24px;
@@ -382,7 +379,7 @@ const Farms: React.FC = () => {
                 ethPrice={ethPriceUsd}
                 account={account}
                 removed={false}
-                className="col-md-4 col-sm-6 col-xs-6 col-xs-8 col-xl-3 mb-4"
+                className="col-lg-6 col-sm-6 col-xs-8 col-xl-4 col-xxl-3 mb-4"
               />
             ))}
           </div>
@@ -417,8 +414,7 @@ const Farms: React.FC = () => {
           as="h1"
           size="xl"
           color="#ffffff"
-          mb="24px"
-          style={{ marginTop: "30px" }}
+          mb="10px"
         >
           {TranslateString(999, "Galaxia Pools")}
         </Heading>
@@ -427,17 +423,13 @@ const Farms: React.FC = () => {
         </Heading>
       </Header>
       <Page>
-        <div
-          className="row mb-3 pt-3 rounded"
-          style={{ backgroundColor: "#0B001E", maxWidth: 800, margin: "auto" }}
-        >
+        <div className="row mb-3 pt-3 rounded" style={{ backgroundColor: "#0B001E", margin: "auto" }}>
           <ControlContainer className="mb-1 px-4">
             <ViewControls>
               <ToggleView
                 viewMode={viewMode}
                 onToggle={(mode: ViewMode) => setViewMode(mode)}
               />
-              <FarmTabButtons />
               <ToggleWrapper>
                 <Toggle
                   style={{ background: "#ffffff" }}
@@ -447,12 +439,8 @@ const Farms: React.FC = () => {
                 />
                 <Text> {TranslateString(1116, "Staked only")}</Text>
               </ToggleWrapper>
+              <FarmTabButtons />
             </ViewControls>
-          </ControlContainer>
-          <ControlContainer
-            className="mb-3 rounded"
-            style={{ backgroundColor: "#0B001E" }}
-          >
             <FilterContainer>
               <LabelWrapper className="m-2">
                 <Text>SORT BY</Text>
@@ -489,7 +477,9 @@ const Farms: React.FC = () => {
             </FilterContainer>
           </ControlContainer>
         </div>
-        {renderContent()}
+        <div className="row">
+          {renderContent()}
+        </div>
         {/* <StyledImage
           src="/images/3dpan.png"
           alt="Galaxia illustration"

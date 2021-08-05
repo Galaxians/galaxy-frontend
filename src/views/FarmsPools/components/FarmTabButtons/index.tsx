@@ -36,9 +36,8 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-
   a {
-    padding-left: 12px;
-    padding-right: 12px;
+    padding-left: 6px;
+    padding-right: 6px;
   }
 `;

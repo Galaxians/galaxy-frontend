@@ -35,13 +35,15 @@ const ControlContainer = styled.div`
   width: 100%;
   align-items: center;
   position: relative;
-  justify-content: space-around;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-direction: row;
   color: #ffffff;
-  ${({ theme }) => theme.mediaQueries.sm} {
-    flex-direction: row;
-    flex-wrap: wrap;
+  @media only screen and (max-width: 1200px) {
+    flex-direction: column;
     padding: 16px 32px;
+    & > * {
+      width: 100%;
+    }
   }
 `;
 
@@ -49,6 +51,7 @@ const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 10px;
+  margin-right: 15px;
   ${Text} {
     margin-left: 8px;
   }
@@ -63,13 +66,11 @@ const LabelWrapper = styled.div`
 const FilterContainer = styled.div`
   display: flex;
   align-items: center;
-  width: 100%;
   padding: 8px 0px;
   border-radius: 8px;
 
   justify-content: space-around;
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: 100%;
     padding: 0;
   }
 `;
@@ -78,7 +79,6 @@ const ViewControls = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   display: flex;
-  width: 100%;
 
   > div {
     //padding: 8px 0px;
@@ -86,7 +86,6 @@ const ViewControls = styled.div`
 
   ${({ theme }) => theme.mediaQueries.sm} {
     justify-content: space-between;
-    width: 100%;
 
     > div {
       padding: 0;
@@ -422,7 +421,6 @@ const Farms: React.FC = () => {
           size="xl"
           color="#ffffff"
           mb="10px"
-          style={{ marginTop: "30px" }}
         >
           {TranslateString(999, "Galaxia Farms")}
         </Heading>
@@ -431,14 +429,13 @@ const Farms: React.FC = () => {
         </Text>
       </Header>
       <Page>
-        <div className="row mb-3 pt-3 rounded" style={{ background: "#0B001E", maxWidth: 800, margin: "auto" }}>
+        <div className="row mb-3 pt-3 rounded" style={{ background: "#0B001E", margin: "auto" }}>
           <ControlContainer className="mb-1 px-4">
             <ViewControls>
               <ToggleView
                 viewMode={viewMode}
                 onToggle={(mode: ViewMode) => setViewMode(mode)}
               />
-              <FarmTabButtons />
               <ToggleWrapper>
                 <Toggle
                   style={{ background: "#ffffff" }}
@@ -448,12 +445,8 @@ const Farms: React.FC = () => {
                 />
                 <Text> {TranslateString(1116, "Staked only")}</Text>
               </ToggleWrapper>
+              <FarmTabButtons />
             </ViewControls>
-          </ControlContainer>
-          <ControlContainer
-            className="mb-3 rounded"
-            style={{ background: "#0B001E" }}
-          >
             <FilterContainer>
               <LabelWrapper className="m-2">
                 <Text>SORT BY</Text>
