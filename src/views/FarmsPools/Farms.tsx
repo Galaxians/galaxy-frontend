@@ -437,6 +437,7 @@ const Farms: React.FC = () => {
                 viewMode={viewMode}
                 onToggle={(mode: ViewMode) => setViewMode(mode)}
               />
+              <FarmTabButtons />
               <ToggleWrapper>
                 <Toggle
                   style={{ background: "#ffffff" }}
@@ -446,7 +447,6 @@ const Farms: React.FC = () => {
                 />
                 <Text> {TranslateString(1116, "Staked only")}</Text>
               </ToggleWrapper>
-              <FarmTabButtons />
             </ViewControls>
           </ControlContainer>
           <ControlContainer
