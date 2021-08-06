@@ -18,7 +18,7 @@ export default function Navbar({toggle}) {
   const history = useHistory()
 
   return (
-    <div className="container-fluid top-nav-bg p-2 pt-0">
+    <div className="container-fluid top-nav-bg p-5 pr-0 pt-0 pb-0">
       <nav className="navbar navbar-dark navbar-expand-lg">
         <div className="d-flex flex-row">
           <button type="submit" data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="/navcol-1" style={{marginTop:'0px', marginRight:'10px', border: "none", color: "pink"}} onClick={toggle}>
