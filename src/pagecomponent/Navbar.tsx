@@ -18,7 +18,7 @@ export default function Navbar({toggle}) {
   const history = useHistory()
 
   return (
-    <div className="container-fluid top-nav-bg p-5 pr-0 pt-0 pb-0">
+    <div className="container-fluid top-nav-bg">
       <nav className="navbar navbar-dark navbar-expand-lg">
         <div className="d-flex flex-row">
           <button type="submit" data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="/navcol-1" style={{marginTop:'0px', marginRight:'10px', border: "none", color: "pink"}} onClick={toggle}>
@@ -27,7 +27,7 @@ export default function Navbar({toggle}) {
           </button>
           
           <a className="toggle-header navbar-brand" href="/">
-            <img src="./assets/img/Icon-galaxyswap.png" alt="Galaxy Swap" style={{height: "40px"}} />
+            <img src="./assets/img/Icon-galaxyswap.png" alt="Galaxy Swap" style={{width:'40px', height: "40px"}} />
           </a>
         </div>
         <div className="d-flex flex-row">
@@ -35,7 +35,7 @@ export default function Navbar({toggle}) {
             <div>
               {account ? (
                 <Button
-                className="btn text-white xrounded pink-gredient"
+                className="btn text-white  pink-gredient"
                 style={{height: '36px', width:'120px'}}
                   onClick={() => {
                     onPresentAccountModal()
@@ -45,7 +45,7 @@ export default function Navbar({toggle}) {
                 </Button>
               ) : (
                 <Button
-                className="btn text-white xrounded pink-gredient"
+                className="btn text-white  pink-gredient"
                 style={{height: '36px', width:'120px'}}
                   onClick={() => {
                     onPresentConnectModal()
@@ -56,11 +56,11 @@ export default function Navbar({toggle}) {
               )}
             </div>
           </span>
-          <img className="toggle-header px-2" src="./assets/img/alien-kal-avatar.png" alt="profile" style={{width:'40px', height: "40px", margin: "auto", marginLeft:'10px'}} />
+          <img className="toggle-header" src="./assets/img/alien-kal-avatar.png" alt="profile" style={{width:'40px', height: "40px", margin: "auto", marginLeft:'10px'}} />
         </div>
         <div className="container-fluid" style={{justifyContent: "flex-start"}}>
           {/* <div className="d-flex flex-row"> */}
-            <a className="collapse navbar-collapse navbar-brand" style={{flexGrow:0, width: 180}} href="/">
+            <a className="collapse navbar-collapse navbar-brand" style={{flexGrow:0, width: 180, marginLeft: 30}} href="/">
               <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px"}} />
             </a>
             <div className="collapse navbar-collapse" id="navcol-1">
@@ -78,8 +78,8 @@ export default function Navbar({toggle}) {
               <div>
                 {account ? (
                   <Button
-                  className="btn text-white xrounded pink-gredient"
-                  style={{marginLeft:'70px',height: '46px', width:'150px'}}
+                  className="btn text-white  pink-gredient"
+                  style={{marginLeft:'70px',height: '46px', width:'150px', borderRadius: 8}}
                     onClick={() => {
                       onPresentAccountModal()
                     }}
@@ -88,8 +88,8 @@ export default function Navbar({toggle}) {
                   </Button>
                 ) : (
                   <Button
-                  className="btn text-white xrounded pink-gredient"
-                  style={{marginLeft:'70px',height: '46px', width:'150px'}}
+                  className="btn text-white  pink-gredient"
+                  style={{marginLeft:'70px',height: '46px', width:'150px', borderRadius: 8}}
                     onClick={() => {
                       onPresentConnectModal()
                     }}
@@ -99,7 +99,7 @@ export default function Navbar({toggle}) {
                 )}
               </div>
             </span>
-            <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', width:'40px'}} />
+            <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', height: 40, width:'40px'}} />
           </div>
         </div>
       </nav>
