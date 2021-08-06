@@ -24,7 +24,8 @@ export default function Navbar({toggle}) {
           <div style={{display:"flex"}}>
           <button type="submit" data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="/navcol-1" style={{marginTop:'0px', marginLeft:'-15px' ,alignSelf: 'center', border: 'unset'}} onClick={toggle}>
             <span className="visually-hidden">Toggle navigation</span>
-            <span className="navbar-toggler-icon text-white" />
+            {/* <span className="navbar-toggler-icon text-white" /> */}
+            <div className="toggle-icon" style={{backgroundColor: "#FE1EF9"}} />
           </button>
           <a className="navbar-brand" href="https://galaxyswap.net/">
             <img src="./assets/img/galaxyswap-logo-color-800px.png" alt="Galaxy Swap" style={{width: "180px", marginLeft:'30px'}} />
