@@ -24,6 +24,8 @@ const Container = styled.div`
   background: ${({ theme }) => theme.colors.background};
   display: flex;
   width: 100%;
+  border-radius: 0px 0px 15px 15px;
+  margin-bottom: 10px;
   flex-direction: column-reverse;
   padding: 24px;
 
