@@ -5,7 +5,7 @@ import { Card } from 'glx-uikit'
 export const BodyWrapper = styled(Card)`
   position: relative;
   padding: 10px 0px;
-  max-width: 600px;
+  max-width: 500px;
   min-width: 372px;
   width: 100%;
   z-index: 5;
