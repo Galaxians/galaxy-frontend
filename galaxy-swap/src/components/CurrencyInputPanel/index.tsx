@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react'
 import { Currency, Pair } from '@pancakeswap-libs/sdk'
+import Grid from '@material-ui/core/Grid';
 import { Button, ChevronDownIcon, Text } from 'glx-uikit'
 import styled from 'styled-components'
 import { darken } from 'polished'
@@ -23,6 +24,7 @@ const CurrencySelect = styled.button<{ selected: boolean }>`
   height: 34px;
   font-size: .7rem;
   font-weight: 500;
+  width: 100%;
   background-color: #ff00ff;
   color: ${({ selected, theme }) => (selected ? theme.colors.text : '#FFFFFF')};
   border-radius: 4px;
@@ -43,7 +45,7 @@ const LabelRow = styled.div`
   color: ${({ theme }) => theme.colors.text};
   font-size: 0.75rem;
   line-height: 1rem;
-  padding: 0.75rem 1rem 0 1rem;
+  padding: 0.75rem 0rem 0 0rem;
   span:hover {
     cursor: pointer;
     color: ${({ theme }) => darken(0.2, theme.colors.textSubtle)};
@@ -65,6 +67,7 @@ const InputPanel = styled.div<{ hideInput?: boolean }>`
 `
 const Container = styled.div<{ hideInput: boolean }>`
   border-radius: 8px;
+  margin: 10px;
   //background-color: ${({ theme }) => theme.colors.input};
   box-shadow: ${({ theme }) => theme.shadows.inset};
 `
@@ -111,8 +114,8 @@ export default function CurrencyInputPanel({
   return (
     <InputPanel id={id}>
       <Container hideInput={hideInput}>
-        <div className="row">
-          <div className="col-auto" style={{ marginLeft: '15px', marginTop: '21px', width: '160px' }}>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={12} md={6} lg={4} xl={4}>
             <CurrencySelect
               style={{ textAlign: 'left' }}
               selected={!!currency}
@@ -134,38 +137,37 @@ export default function CurrencyInputPanel({
                     {pair?.token0.symbol}:{pair?.token1.symbol}
                   </Text>
                 ) : (
-                  <Text>
+                  <Text style={{whiteSpace: 'nowrap'}}>
                     {(currency && currency.symbol && currency.symbol.length > 20
                       ? `${currency.symbol.slice(0, 4)}...${currency.symbol.slice(
-                          currency.symbol.length - 5,
-                          currency.symbol.length
-                        )}`
+                        currency.symbol.length - 5,
+                        currency.symbol.length
+                      )}`
                       : currency?.symbol) || TranslateString(1196, 'Select Token')}
                   </Text>
                 )}
                 {!disableCurrencySelect && <ChevronDownIcon />}
               </Aligner>
             </CurrencySelect>
-          </div>
+            {!hideInput && (
+              <LabelRow>
+                <RowBetween>
+                  {/* <Text fontSize="14px">{translatedLabel}</Text> */}
+                  {account && (
+                    <Text onClick={onMax} fontSize="13px" color="D9D9D9" style={{ display: 'inline', cursor: 'pointer' }}>
+                      {!hideBalance && !!currency && selectedCurrencyBalance
+                        ? `Balance: ${selectedCurrencyBalance?.toSignificant(6)}`
+                        : ' -'}
+                    </Text>
+                  )}
+                </RowBetween>
+              </LabelRow>
+            )}
+          </Grid>
 
-          <div className="col-auto p-2">
-            <div className="dark-input rounded fs-2" style={{ width: '100%',minWidth:'180px'}}>
-              {!hideInput && (
-                <LabelRow>
-                  <RowBetween>
-                    {/* <Text fontSize="14px">{translatedLabel}</Text> */}
-                    {account && (
-                      <Text onClick={onMax} fontSize="0.7rem" style={{ display: 'inline', cursor: 'pointer' }}>
-                        {!hideBalance && !!currency && selectedCurrencyBalance
-                          ? `Balance: ${selectedCurrencyBalance?.toSignificant(6)}`
-                          : ' -'}
-                      </Text>
-                    )}
-                  </RowBetween>
-                </LabelRow>
-              )}
-
-              <InputRow style={hideInput ? { padding: '0', borderRadius: '8px'} : {}} selected={disableCurrencySelect}>
+          <Grid item xs={12} sm={12} md={6} lg={8} xl={8}>
+            <div className="dark-input rounded fs-2" style={{ width: '100%' }}>
+              <InputRow style={hideInput ? { padding: '0', borderRadius: '8px' } : {}} selected={disableCurrencySelect}>
                 {!hideInput && (
                   <>
                     <NumericalInput
@@ -184,8 +186,8 @@ export default function CurrencyInputPanel({
                 )}
               </InputRow>
             </div>
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </Container>
       {!disableCurrencySelect && onCurrencySelect && (
         <CurrencySearchModal

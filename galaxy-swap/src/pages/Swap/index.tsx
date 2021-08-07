@@ -10,6 +10,7 @@ import ConfirmSwapModal from 'components/swap/ConfirmSwapModal'
 import CurrencyInputPanel from 'components/CurrencyInputPanel'
 import CardNav from 'components/CardNav'
 import { AutoRow, RowBetween } from 'components/Row'
+import Page from "components/layout/Page";
 import AdvancedSwapDetailsDropdown from 'components/swap/AdvancedSwapDetailsDropdown'
 import confirmPriceImpactWithoutFee from 'components/swap/confirmPriceImpactWithoutFee'
 import { ArrowWrapper, BottomGrouping, SwapCallbackError, Wrapper } from 'components/swap/styleds'
@@ -83,13 +84,13 @@ const Swap = () => {
 
   const parsedAmounts = showWrap
     ? {
-        [Field.INPUT]: parsedAmount,
-        [Field.OUTPUT]: parsedAmount,
-      }
+      [Field.INPUT]: parsedAmount,
+      [Field.OUTPUT]: parsedAmount,
+    }
     : {
-        [Field.INPUT]: independentField === Field.INPUT ? parsedAmount : trade?.inputAmount,
-        [Field.OUTPUT]: independentField === Field.OUTPUT ? parsedAmount : trade?.outputAmount,
-      }
+      [Field.INPUT]: independentField === Field.INPUT ? parsedAmount : trade?.inputAmount,
+      [Field.OUTPUT]: independentField === Field.OUTPUT ? parsedAmount : trade?.outputAmount,
+    }
 
   const { onSwitchTokens, onCurrencySelection, onUserInput, onChangeRecipient } = useSwapActionHandlers()
   const isValid = !swapInputError
@@ -257,8 +258,8 @@ const Swap = () => {
   )
 
   return (
-    <>
-    {/* <div className="row">
+    <Page style={{ width: '100%' }}>
+      {/* <div className="row">
       <div className="d-flex justify-content-left leftnav col-auto">
            <ul className="list-unstyled">
 
@@ -300,10 +301,10 @@ const Swap = () => {
             swapErrorMessage={swapErrorMessage}
             onDismiss={handleConfirmDismiss}
           />
-          
+
           <CardBody>
-            <AutoColumn gap="md">
-            
+            <AutoColumn gap="md" style={{ margin: '10px 20px' }}>
+
               <CurrencyInputPanel
                 label={
                   independentField === Field.OUTPUT && !showWrap && trade
@@ -318,7 +319,7 @@ const Swap = () => {
                 onCurrencySelect={handleInputSelect}
                 otherCurrency={currencies[Field.OUTPUT]}
                 id="swap-currency-input"
-                
+
               />
               <AutoColumn justify="space-between">
                 <AutoRow justify={isExpertMode ? 'space-between' : 'left'} style={{ padding: '0 2rem' }}>
@@ -330,7 +331,7 @@ const Swap = () => {
                         setApprovalSubmitted(false) // reset 2 step UI for approvals
                         onSwitchTokens()
                       }}
-                      style={{ borderRadius: '50%', textAlign:'left', backgroundColor:'#271049' }}
+                      style={{ borderRadius: '50%', textAlign: 'left', backgroundColor: '#271049' }}
                       scale="sm"
                     >
                       <ArrowDownIcon color="primary" width="29px" />
@@ -356,7 +357,7 @@ const Swap = () => {
                 onCurrencySelect={handleOutputSelect}
                 otherCurrency={currencies[Field.INPUT]}
                 id="swap-currency-output"
-                
+
               />
 
               {recipient !== null && !showWrap ? (
@@ -396,7 +397,7 @@ const Swap = () => {
                 </Card>
               )}
             </AutoColumn>
-            <BottomGrouping>
+            <BottomGrouping style={{ maxWidth: "600px", margin: '10px 20px' }}>
               {!account ? (
                 <ConnectWalletButton width="100%" />
               ) : showWrap ? (
@@ -488,7 +489,7 @@ const Swap = () => {
       <AdvancedSwapDetailsDropdown trade={trade} />
       {/* </div>
     </div> */}
-    </>
+    </Page>
   )
 }
 

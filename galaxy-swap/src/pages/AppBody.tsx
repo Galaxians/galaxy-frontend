@@ -4,9 +4,9 @@ import { Card } from 'glx-uikit'
 
 export const BodyWrapper = styled(Card)`
   position: relative;
-  max-width: 478px;
+  padding: 10px 0px;
+  max-width: 600px;
   min-width: 372px;
-  min-height: 470px;
   width: 100%;
   z-index: 5;
   //background: #0b001e 0% 0% no-repeat padding-box;
@@ -19,7 +19,7 @@ export const BodyWrapper = styled(Card)`
 
 export default function AppBody({ children }: { children: React.ReactNode }) {
   return (
-    <div>
+    <div style={{ width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <BodyWrapper>{children}</BodyWrapper>
     </div>
   )

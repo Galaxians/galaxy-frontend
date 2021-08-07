@@ -10,16 +10,23 @@ import RecentTransactionsModal from '../PageHeader/RecentTransactionsModal'
 const StyledNav = styled.div`
   margin-bottom: 10px;
 `
-
+const CustomButtonMenu = styled(ButtonMenu)`
+  background-color: #271049 !important;
+  border-radius: 4px;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+`;
 function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
   const TranslateString = useI18n()
   const [onPresentSettings] = useModal(<SettingsModal translateString={TranslateString} />)
   const [onPresentRecentTransactions] = useModal(<RecentTransactionsModal translateString={TranslateString} />)
   return (
     <StyledNav style={{ marginLeft: '10px', borderRadius: '4px' }}>
-      <div className="row" style={{ marginTop: '10px'}}>
-        <div className="col-auto" style={{ background: '#0B001E' }}>
-          <ButtonMenu activeIndex={activeIndex} scale="sm">
+      <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'space-between', margin: '10px' }}>
+        <div style={{ background: '#271049' }}>
+          <CustomButtonMenu activeIndex={activeIndex} scale="sm">
             {activeIndex === 0 ? (
               <ButtonMenuItem
                 style={{
@@ -29,7 +36,7 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
                   paddingBottom: '0.9rem',
                   background: '#271049',
                   border: '1px solid #FF00FF',
-                  borderRadius: '4px',
+                  // borderRadius: '4px',
                 }}
                 id="swap-nav-link"
                 to="/swap"
@@ -45,7 +52,7 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
                   paddingTop: '0.9rem',
                   paddingBottom: '0.9rem',
                   background: '#271049',
-                  borderRadius: '4px',
+                  // borderRadius: '4px',
                 }}
                 id="swap-nav-link"
                 to="/swap"
@@ -62,7 +69,7 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
                   paddingTop: '0.9rem',
                   paddingBottom: '0.9rem',
                   background: '#271049',
-                  borderRadius: '4px',
+                  // borderRadius: '4px',
                   border: '1px solid #FF00FF',
                 }}
                 id="pool-nav-link"
@@ -79,7 +86,7 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
                   paddingTop: '0.9rem',
                   paddingBottom: '0.9rem',
                   background: '#271049',
-                  borderRadius: '4px',
+                  // borderRadius: '4px',
                 }}
                 id="pool-nav-link"
                 to="/pool"
@@ -97,7 +104,7 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
                   paddingTop: '0.9rem',
                   paddingBottom: '0.9rem',
                   background: '#271049',
-                  borderRadius: '4px',
+                  // borderRadius: '4px',
                   border: '1px solid #FF00FF',
                 }}
                 id="pool-nav-link"
@@ -116,7 +123,7 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
                   paddingTop: '0.9rem',
                   paddingBottom: '0.9rem',
                   background: '#271049',
-                  borderRadius: '4px',
+                  // borderRadius: '4px',
                 }}
                 id="pool-nav-link"
                 as="a"
@@ -127,15 +134,15 @@ function Nav({ activeIndex = 0 }: { activeIndex?: number }) {
                 Bridge
               </ButtonMenuItem>
             )}
-          </ButtonMenu>
+          </CustomButtonMenu>
         </div>
-        <div className="col-auto">
-          <ButtonMenuItem className="setting-icon" scale="sm" onClick={onPresentSettings} style={{ marginLeft: '0px', height:'32px',width:'32px' }} />
+        <div>
+          <ButtonMenuItem className="setting-icon" scale="sm" onClick={onPresentSettings} style={{ marginLeft: '0px', height: '32px', width: '32px' }} />
           <ButtonMenuItem
             className="order-history-icon"
             scale="sm"
             onClick={onPresentRecentTransactions}
-            style={{ marginLeft: '9px', marginRight:'10px' }}
+            style={{ marginLeft: '9px', marginRight: '10px' }}
           />
         </div>
       </div>

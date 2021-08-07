@@ -11,7 +11,7 @@ import { StyledInternalLink } from 'components/Shared'
 import { LightCard } from 'components/Card'
 import { RowBetween } from 'components/Row'
 import { AutoColumn } from 'components/Column'
-
+import Page from "components/layout/Page";
 import { useActiveWeb3React } from 'hooks'
 import { usePairs } from 'data/Reserves'
 import { toV2LiquidityToken, useTrackedTokenPairs } from 'state/user/hooks'
@@ -56,83 +56,83 @@ export default function Pool() {
   const allV2PairsWithLiquidity = v2Pairs.map(([, pair]) => pair).filter((v2Pair): v2Pair is Pair => Boolean(v2Pair))
 
   return (
-    <>
+    <Page style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div className="h1 text-white text-center mt-5">Liquidity</div>
       <div className="fs6 pink-color">Add liquidity to receive LP tokens</div>
       <br />
-      <div style={{width:'372px'}}>
-      <AppBody>
-        <CardNav activeIndex={1} />
-        {/* <PageHeader title={TranslateString(262, '')} description={TranslateString(1168, '')}>
+      <div style={{ width: '100%' }}>
+        <AppBody>
+          <CardNav activeIndex={1} />
+          {/* <PageHeader title={TranslateString(262, '')} description={TranslateString(1168, '')}>
 
         </PageHeader> */}
-        <Button
-          className="pink-gredient"
-          style={{ width: '94%', marginLeft: '3%', borderRadius: '4px' }}
-          id="join-pool-button"
-          as={Link}
-          to="/add/BNB"
-        >
-          {TranslateString(168, 'Add Liquidity')}
-        </Button>
-        <AutoColumn justify="center">
-          <CardBody>
-            <AutoColumn gap="12px" style={{ width: '100%' }}>
-              <RowBetween padding="0 8px">
-                <Text color={theme.colors.text}>{TranslateString(107, 'Your Liquidity')}</Text>
-                <Question
-                  text={TranslateString(
-                    1170,
-                    'When you add liquidity, you are given pool tokens that represent your share. If you don’t see a pool you joined in this list, try importing a pool below.'
-                  )}
-                />
-              </RowBetween>
+          <Button
+            className="pink-gredient"
+            style={{ width: '94%', marginLeft: '3%', borderRadius: '4px' }}
+            id="join-pool-button"
+            as={Link}
+            to="/add/BNB"
+          >
+            {TranslateString(168, 'Add Liquidity')}
+          </Button>
+          <AutoColumn justify="center">
+            <CardBody>
+              <AutoColumn gap="12px" style={{ margin: '10px' }}>
+                <RowBetween padding="0 8px">
+                  <Text color={theme.colors.text}>{TranslateString(107, 'Your Liquidity')}</Text>
+                  <Question
+                    text={TranslateString(
+                      1170,
+                      'When you add liquidity, you are given pool tokens that represent your share. If you don’t see a pool you joined in this list, try importing a pool below.'
+                    )}
+                  />
+                </RowBetween>
 
-              {!account ? (
-                <LightCard
-                  style={{ width: '98%', marginLeft:'1%', borderRadius: '6px', borderColor: '#696272', background: '#696272' }}
-                  padding="20px"
-                >
-                  <Text color="textDisabled" textAlign="center">
-                    {TranslateString(156, 'Connect to a wallet to view your liquidity.')}
-                  </Text>
-                </LightCard>
-              ) : v2IsLoading ? (
-                <LightCard padding="20px">
-                  <Text color="textDisabled" textAlign="center">
-                    <Dots>Loading</Dots>
-                  </Text>
-                </LightCard>
-              ) : allV2PairsWithLiquidity?.length > 0 ? (
-                <>
-                  {allV2PairsWithLiquidity.map((v2Pair) => (
-                    <FullPositionCard key={v2Pair.liquidityToken.address} pair={v2Pair} />
-                  ))}
-                </>
-              ) : (
-                <LightCard padding="40px">
-                  <Text color="textDisabled" textAlign="center">
-                    {TranslateString(104, 'No liquidity found.')}
-                  </Text>
-                </LightCard>
-              )}
+                {!account ? (
+                  <LightCard
+                    style={{ width: '98%', marginLeft: '1%', borderRadius: '6px', borderColor: '#696272', background: '#696272' }}
+                    padding="20px"
+                  >
+                    <Text color="textDisabled" textAlign="center">
+                      {TranslateString(156, 'Connect to a wallet to view your liquidity.')}
+                    </Text>
+                  </LightCard>
+                ) : v2IsLoading ? (
+                  <LightCard padding="20px">
+                    <Text color="textDisabled" textAlign="center">
+                      <Dots>Loading</Dots>
+                    </Text>
+                  </LightCard>
+                ) : allV2PairsWithLiquidity?.length > 0 ? (
+                  <>
+                    {allV2PairsWithLiquidity.map((v2Pair) => (
+                      <FullPositionCard key={v2Pair.liquidityToken.address} pair={v2Pair} />
+                    ))}
+                  </>
+                ) : (
+                  <LightCard padding="40px">
+                    <Text color="textDisabled" textAlign="center">
+                      {TranslateString(104, 'No liquidity found.')}
+                    </Text>
+                  </LightCard>
+                )}
 
-              <div>
-                <Text fontSize="14px" style={{marginLeft:'5px', padding: '.5rem 0 .5rem 0' }}>
-                  {TranslateString(106, "Don't see a pool you joined?")}{' '}
-                  <StyledInternalLink id="import-pool-link" to="/find">
-                    {TranslateString(108, 'Import it.')}
-                  </StyledInternalLink>
-                </Text>
-                <Text fontSize="14px" style={{marginLeft:'5px', padding: '.5rem 0 .5rem 0' }}>
-                  {TranslateString(1172, 'Or, if you staked your LP tokens in a farm, unstake them to see them here.')}
-                </Text>
-              </div>
-            </AutoColumn>
-          </CardBody>
-        </AutoColumn>
-      </AppBody>
+                <div>
+                  <Text fontSize="14px" style={{ marginLeft: '5px', padding: '.5rem 0 .5rem 0' }}>
+                    {TranslateString(106, "Don't see a pool you joined?")}{' '}
+                    <StyledInternalLink id="import-pool-link" to="/find">
+                      {TranslateString(108, 'Import it.')}
+                    </StyledInternalLink>
+                  </Text>
+                  <Text fontSize="14px" style={{ marginLeft: '5px', padding: '.5rem 0 .5rem 0' }}>
+                    {TranslateString(1172, 'Or, if you staked your LP tokens in a farm, unstake them to see them here.')}
+                  </Text>
+                </div>
+              </AutoColumn>
+            </CardBody>
+          </AutoColumn>
+        </AppBody>
       </div>
-    </>
+    </Page>
   )
 }
