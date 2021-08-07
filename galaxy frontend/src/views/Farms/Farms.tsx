@@ -189,7 +189,7 @@ const Farms: React.FC = () => {
     (farmsToDisplay): FarmWithStakedValue[] => {
       const cakePriceVsBNB = new BigNumber(
         farmsLP.find((farm) => farm.pid === CAKE_POOL_PID)?.tokenPriceVsQuote ||
-          0
+        0
       );
       let farmsToDisplayWithAPY: FarmWithStakedValue[] = farmsToDisplay.map(
         (farm) => {
@@ -369,9 +369,9 @@ const Farms: React.FC = () => {
       }));
 
       return (
-        <div className="pink-gredient p-3">
+        <div className="p-3" style={{ background: 'transparent linear-gradient(90deg, #440C8B 0%, #FF1FFF 100%) 0% 0% no-repeat padding-box' }}>
           <div className="row">
-          <Table data={rowData} columns={columns} />
+            <Table data={rowData} columns={columns} />
           </div>
         </div>
       );
@@ -445,9 +445,9 @@ const Farms: React.FC = () => {
                   onChange={() => setStackedOnly(!stackedOnly)}
                   scale="sm"
                 />
-                <Text style={{fontSize:'11px'}}>Staked only</Text>
+                <Text style={{ fontSize: '11px' }}>Staked only</Text>
               </ToggleWrapper>
-             
+
             </ViewControls>
           </ControlContainer>
 

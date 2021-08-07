@@ -9,6 +9,7 @@ interface DetailsProps {
 const Container = styled.div`
   display: flex;
   width: 100%;
+  align-items: center;
   justify-content: flex-end;
   padding-right: 8px;
   color: ${({ theme }) => theme.colors.primary};
