@@ -22,7 +22,7 @@ const Hero = styled.div`
   flex-direction: column;
   margin: auto;
   margin-bottom: 32px;
-  margin-top: 15px;
+  // margin-top: 15px;
   text-align: center;
 
   ${({ theme }) => theme.mediaQueries.lg} {
@@ -83,10 +83,10 @@ const Home: React.FC = () => {
   return (
     <Page>
       <Hero>
-        <Heading as="h1" size="xl" mb="1px" color="#ffffff">
+        <Text fontSize="68px" mb="10px" color="#ffffff">
           {TranslateString(576, "Galaxia")}
-        </Heading>
-        <Text className="pink-color">
+        </Text>
+        <Text fontSize="30px" className="pink-color">
           {TranslateString(578, "The #1 AMM and yield farm on Bsc BlockChain.")}
         </Text>
       </Hero>

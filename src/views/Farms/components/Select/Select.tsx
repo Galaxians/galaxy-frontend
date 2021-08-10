@@ -49,7 +49,7 @@ const DropDownContainer = styled.div<{
   background: ${({ theme }) => theme.colors.input};
   border-radius: 4px;
   height: 40px;
-  min-width: 100px;
+  width: 100px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     min-width: 168px;

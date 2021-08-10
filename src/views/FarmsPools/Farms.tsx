@@ -408,17 +408,16 @@ const Farms: React.FC = () => {
   return (
     <>
       <Header>
-        <Heading
-          as="h1"
-          size="xl"
+        <Text
+          fontSize="68px"
           color="#ffffff"
           mb="10px"
         >
           {TranslateString(999, "Galaxia Pools")}
-        </Heading>
-        <Heading size="lg" color="#FF1FFF">
+        </Text>
+        <Text fontSize="30px" color="#FF1FFF">
           {TranslateString(999, "Stake tokens to earn GLX.")}
-        </Heading>
+        </Text>
       </Header>
       <Page>
         <div className="mb-3 pt-3 rounded" style={{ margin: "auto" }}>

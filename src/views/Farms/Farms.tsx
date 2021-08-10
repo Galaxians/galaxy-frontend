@@ -416,15 +416,15 @@ const Farms: React.FC = () => {
   return (
     <>
       <Header>
-        <Heading
-          as="h1"
-          size="xl"
+        <Text
+          // size="xl"
+          fontSize="68px"
           color="#ffffff"
           mb="10px"
         >
           {TranslateString(999, "Galaxia Farms")}
-        </Heading>
-        <Text color="#FF1FFF">
+        </Text>
+        <Text color="#FF1FFF" fontSize="30px">
           {TranslateString(999, "Stake liquidity Pool (LP) tokens to earn.")}
         </Text>
       </Header>
