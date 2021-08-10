@@ -32,18 +32,16 @@ import Select, { OptionProps } from "./components/Select/Select";
 
 const ControlContainer = styled.div`
   display: flex;
-  width: 100%;
   align-items: center;
   position: relative;
-  justify-content: space-between;
+  justify-content: space-around;
+  width: 50%;
+  margin: auto;
   flex-direction: row;
   color: #ffffff;
-  @media only screen and (max-width: 1200px) {
-    flex-direction: column;
+  @media only screen and (max-width: 660px) {
+    width: 100%;
     padding: 16px 32px;
-    & > * {
-      width: 100%;
-    }
   }
 `;
 
@@ -410,26 +408,24 @@ const Farms: React.FC = () => {
   return (
     <>
       <Header>
-        <Heading
-          as="h1"
-          size="xl"
+        <Text
+          fontSize="68px"
           color="#ffffff"
           mb="10px"
         >
           {TranslateString(999, "Galaxia Pools")}
-        </Heading>
-        <Heading size="lg" color="#FF1FFF">
+        </Text>
+        <Text fontSize="30px" color="#FF1FFF">
           {TranslateString(999, "Stake tokens to earn GLX.")}
-        </Heading>
+        </Text>
       </Header>
       <Page>
-        <div className="row mb-3 pt-3 rounded" style={{ background: "#0B001E", margin: "auto" }}>
+        <div className="mb-3 pt-3 rounded" style={{ margin: "auto" }}>
           <ControlContainer className="mb-1 px-2">
-            <ViewControls>
-              <ToggleView
+              {/* <ToggleView
                 viewMode={viewMode}
                 onToggle={(mode: ViewMode) => setViewMode(mode)}
-              />
+              /> */}
               <ToggleWrapper>
                 <Toggle
                   style={{ background: "#ffffff" }}
@@ -437,13 +433,12 @@ const Farms: React.FC = () => {
                   onChange={() => setStackedOnly(!stackedOnly)}
                   scale="sm"
                 />
-                <Text> {TranslateString(1116, "Staked only")}</Text>
+                <Text fontSize="12px" > {TranslateString(1116, "Staked only")}</Text>
               </ToggleWrapper>
               <FarmTabButtons />
-            </ViewControls>
-            <FilterContainer>
+            {/* <FilterContainer>
               <LabelWrapper className="m-2">
-                <Text>SORT BY</Text>
+                <Text>Sort by</Text>
                 <Select
                   options={[
                     {
@@ -471,10 +466,10 @@ const Farms: React.FC = () => {
                 />
               </LabelWrapper>
               <LabelWrapper className="m-2">
-                <Text>SEARCH</Text>
+                <Text>Search</Text>
                 <SearchInput onChange={handleChangeQuery} value={query} />
               </LabelWrapper>
-            </FilterContainer>
+            </FilterContainer> */}
           </ControlContainer>
         </div>
         <div className="row">

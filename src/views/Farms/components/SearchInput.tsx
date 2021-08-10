@@ -11,7 +11,7 @@ const StyledInput = styled(Input)`
 const InputWrapper = styled.div`
   position: relative;
   ${({ theme }) => theme.mediaQueries.sm} {
-    width: 234px;
+    width: 300px;
     display: block;
   }
 `;
