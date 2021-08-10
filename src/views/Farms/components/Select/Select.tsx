@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { ArrowDropDownIcon, Text } from "glx-uikit";
 
 const DropDownHeader = styled.div`
-  width: 100%;
+  width: 100px;
   height: 40px;
   display: flex;
   align-items: center;
@@ -15,10 +15,13 @@ const DropDownHeader = styled.div`
   // background: ${({ theme }) => theme.colors.input};
   background-color: #1e0038;
   transition: border-radius 0.15s;
+  ${({ theme }) => theme.mediaQueries.sm} {
+    min-width: 168px;
+  }
 `;
 
 const DropDownListContainer = styled.div`
-  min-width: 110px;
+  min-width: 100px;
   height: 0;
   position: absolute;
   overflow: hidden;
@@ -74,7 +77,7 @@ const DropDownContainer = styled.div<{
 
   svg {
     position: absolute;
-    right: 16px;
+    right: 0px;
     top: 50%;
     transform: translateY(-50%);
   }
