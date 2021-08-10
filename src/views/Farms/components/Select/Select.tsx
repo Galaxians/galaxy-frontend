@@ -21,7 +21,7 @@ const DropDownHeader = styled.div`
 `;
 
 const DropDownListContainer = styled.div`
-  min-width: 100px;
+  width: 100px;
   height: 0;
   position: absolute;
   overflow: hidden;

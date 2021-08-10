@@ -32,18 +32,16 @@ import Select, { OptionProps } from "./components/Select/Select";
 
 const ControlContainer = styled.div`
   display: flex;
-  width: 100%;
   align-items: center;
   position: relative;
-  justify-content: space-between;
+  justify-content: space-around;
+  width: 50%;
+  margin: auto;
   flex-direction: row;
   color: #ffffff;
-  @media only screen and (max-width: 1200px) {
-    flex-direction: column;
+  @media only screen and (max-width: 660px) {
+    width: 100%;
     padding: 16px 32px;
-    & > * {
-      width: 100%;
-    }
   }
 `;
 
@@ -423,13 +421,12 @@ const Farms: React.FC = () => {
         </Heading>
       </Header>
       <Page>
-        <div className="row mb-3 pt-3 rounded" style={{ background: "#0B001E", margin: "auto" }}>
+        <div className="mb-3 pt-3 rounded" style={{ margin: "auto" }}>
           <ControlContainer className="mb-1 px-2">
-            <ViewControls>
-              <ToggleView
+              {/* <ToggleView
                 viewMode={viewMode}
                 onToggle={(mode: ViewMode) => setViewMode(mode)}
-              />
+              /> */}
               <ToggleWrapper>
                 <Toggle
                   style={{ background: "#ffffff" }}
@@ -437,11 +434,10 @@ const Farms: React.FC = () => {
                   onChange={() => setStackedOnly(!stackedOnly)}
                   scale="sm"
                 />
-                <Text> {TranslateString(1116, "Staked only")}</Text>
+                <Text fontSize="12px" > {TranslateString(1116, "Staked only")}</Text>
               </ToggleWrapper>
               <FarmTabButtons />
-            </ViewControls>
-            <FilterContainer>
+            {/* <FilterContainer>
               <LabelWrapper className="m-2">
                 <Text>Sort by</Text>
                 <Select
@@ -474,7 +470,7 @@ const Farms: React.FC = () => {
                 <Text>Search</Text>
                 <SearchInput onChange={handleChangeQuery} value={query} />
               </LabelWrapper>
-            </FilterContainer>
+            </FilterContainer> */}
           </ControlContainer>
         </div>
         <div className="row">
