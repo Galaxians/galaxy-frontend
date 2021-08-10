@@ -59,7 +59,7 @@ const Farm: React.FunctionComponent<FarmProps> = ({ image, label, pid }) => {
       />
       <div>
         {handleRenderFarming()}
-        <Text bold>{label}</Text>
+        <Text>{label}</Text>
       </div>
     </Container>
   );

@@ -5,6 +5,7 @@ import styled from "styled-components";
 const StyledInput = styled(Input)`
   border-radius: 4px;
   margin-left: auto;
+  background-color: #1e0038 !important;
 `;
 
 const InputWrapper = styled.div`

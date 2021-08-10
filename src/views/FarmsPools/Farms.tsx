@@ -69,7 +69,7 @@ const FilterContainer = styled.div`
   padding: 8px 0px;
   border-radius: 8px;
 
-  justify-content: space-around;
+  justify-content: space-between;
   ${({ theme }) => theme.mediaQueries.sm} {
     padding: 0;
   }
@@ -360,7 +360,7 @@ const Farms: React.FC = () => {
       }));
 
       return (
-        <div className="pink-gredient p-3">
+        <div className="pink-gredient p-2">
           <Table data={rowData} columns={columns} />
         </div>
       );
@@ -423,8 +423,8 @@ const Farms: React.FC = () => {
         </Heading>
       </Header>
       <Page>
-        <div className="row mb-3 pt-3 rounded" style={{ backgroundColor: "#0B001E", margin: "auto" }}>
-          <ControlContainer className="mb-1 px-4">
+        <div className="row mb-3 pt-3 rounded" style={{ background: "#0B001E", margin: "auto" }}>
+          <ControlContainer className="mb-1 px-2">
             <ViewControls>
               <ToggleView
                 viewMode={viewMode}

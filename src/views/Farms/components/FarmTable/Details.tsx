@@ -10,11 +10,11 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  padding-right: 0px;
+  padding-right: 5px;
   color: ${({ theme }) => theme.colors.primary};
 
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding-right: 0px;
+    padding-right: 5px;
   }
 `;
 
