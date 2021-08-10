@@ -71,7 +71,7 @@ const FilterContainer = styled.div`
 
   justify-content: space-between;
   ${({ theme }) => theme.mediaQueries.sm} {
-    padding: 0;
+    padding: 0; 
   }
 `;
 
@@ -449,7 +449,7 @@ const Farms: React.FC = () => {
             </ViewControls>
             <FilterContainer>
               <LabelWrapper className="m-2">
-                <Text>SORT BY</Text>
+                <Text>Sort by</Text>
                 <Select
                   options={[
                     {
@@ -477,7 +477,7 @@ const Farms: React.FC = () => {
                 />
               </LabelWrapper>
               <LabelWrapper className="m-2">
-                <Text>SEARCH</Text>
+                <Text>Search</Text>
                 <SearchInput onChange={handleChangeQuery} value={query} />
               </LabelWrapper>
             </FilterContainer>
