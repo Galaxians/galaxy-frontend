@@ -1,12 +1,13 @@
 import React, { useMemo, useState } from "react";
 import BigNumber from "bignumber.js";
 import styled, { keyframes } from "styled-components";
-import { Flex, Text, Skeleton } from "glx-uikit";
+import { Flex, Text, Skeleton, Button, CheckmarkCircleIcon } from "glx-uikit";
 import { communityFarms } from "config/constants";
 import { Farm } from "state/types";
 import { provider as ProviderType } from "web3-core";
 import useI18n from "hooks/useI18n";
 import ExpandableSectionButton from "components/ExpandableSectionButton";
+import CoreButton from "components/CoreButton";
 import { QuoteToken } from "config/constants/types";
 import { BASE_ADD_LIQUIDITY_URL } from "config";
 import getLiquidityUrlPathParts from "utils/getLiquidityUrlPathParts";
@@ -219,11 +220,18 @@ const FarmCard: React.FC<FarmCardProps> = ({
           <Text className="small text-white">{earnLabel}</Text>
         </Flex>
         <Divider />
-        <ExpandableSectionButton
-          onClick={() => setShowExpandableSection(!showExpandableSection)}
-          expanded={showExpandableSection}
-        />
+        <div className="d-flex flex-row justify-content-between px-1">
+          <CoreButton
+            // onClick = {() => {console.log("")}}
+          />
+          <ExpandableSectionButton
+            onClick={() => setShowExpandableSection(!showExpandableSection)}
+            expanded={showExpandableSection}
+          />
+        </div>
+        
         <ExpandingWrapper expanded={showExpandableSection}>
+          
           <DetailsSection
             removed={removed}
             maticExplorerAddress={

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FarmWithStakedValue } from "views/Farms/components/FarmCard/FarmCard";
 import { useMatchBreakpoints } from "glx-uikit";
@@ -51,11 +51,13 @@ const StyledTr = styled.tr`
 
 const EarnedMobileCell = styled.td`
   padding: 16px 0 24px 16px;
+  width: 50%;
 `;
 
 const AprMobileCell = styled.td`
   padding-top: 16px;
   padding-bottom: 24px;
+  width: 50%;
 `;
 
 const FarmMobileCell = styled.td`
@@ -71,8 +73,17 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
     setActionPanelToggled(!actionPanelToggled);
   };
 
-  const { isXl, isXs } = useMatchBreakpoints();
-
+  const { isXl } = useMatchBreakpoints();
+  let small = false;
+  if(window.innerWidth < 384) small = true;
+  const [isXs, setXs]  = useState(small);
+  window.addEventListener('resize', function() {
+    console.log(window.innerWidth);
+    if(window.innerWidth < 384)
+      setXs(true);
+    else setXs(false);
+  }, true);
+  
   const isMobile = !isXl;
   const tableSchema = isMobile ? MobileColumnSchema : DesktopColumnSchema;
   const columnNames = tableSchema.map((column) => column.name);
@@ -140,16 +151,21 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
             </FarmMobileCell>
           </tr>
           <tr>
-            <EarnedMobileCell>
-              <CellLayout label={TranslateString(1072, "Earned")}>
-                <Earned {...props.earned} />
-              </CellLayout>
-            </EarnedMobileCell>
-            <AprMobileCell>
-              <CellLayout label={TranslateString(736, "APR")}>
-                <Apr {...props.apr} hideButton />
-              </CellLayout>
-            </AprMobileCell>
+            <td>
+              <tr>
+                <EarnedMobileCell>
+                  <CellLayout label={TranslateString(1072, "Earned")}>
+                    <Earned {...props.earned} />
+                  </CellLayout>
+                </EarnedMobileCell>
+                <AprMobileCell className="pl-2">
+                  <CellLayout label={TranslateString(736, "APR")}>
+                    <Apr {...props.apr} hideButton />
+                  </CellLayout>
+                </AprMobileCell>
+              </tr>
+            </td>
+            
           </tr>
         </td>
         <td>

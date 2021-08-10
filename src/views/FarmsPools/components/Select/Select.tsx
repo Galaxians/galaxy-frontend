@@ -10,9 +10,10 @@ const DropDownHeader = styled.div`
   justify-content: space-between;
   padding: 0px 8px;
   box-shadow: ${({ theme }) => theme.shadows.inset};
-  border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
+  // border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
   border-radius: 4px;
-  background: ${({ theme }) => theme.colors.input};
+  // background: ${({ theme }) => theme.colors.input};
+  background-color: #1e0038;
   transition: border-radius 0.15s;
 `;
 
@@ -21,7 +22,8 @@ const DropDownListContainer = styled.div`
   height: 0;
   position: absolute;
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.input};
+  // background: ${({ theme }) => theme.colors.input};
+  background-color: #1e0038;
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   transition: transform 0.15s, opacity 0.15s;
   transform: scaleY(0);
@@ -44,7 +46,7 @@ const DropDownContainer = styled.div<{
   background: ${({ theme }) => theme.colors.input};
   border-radius: 4px;
   height: 40px;
-  min-width: 110px;
+  min-width: 100px;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     min-width: 168px;
