@@ -48,7 +48,7 @@ const CakeStats = () => {
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(540, "New GLX/block")}</Text>
-          <CardValue fontSize="14px" decimals={0} value={25} />
+          <CardValue fontSize="14px" decimals={0} value={3} />
         </Row>
       </CardBody>
     </StyledCakeStats>
