@@ -1,11 +1,11 @@
 import React, { useCallback, useRef } from "react";
 import styled from "styled-components";
 import {
-  Heading,
+  Text,
   Card,
   CardBody,
   Flex,
-  ArrowForwardIcon,
+  ChevronRightIcon,
   Skeleton,
 } from "glx-uikit";
 import { NavLink } from "react-router-dom";
@@ -15,19 +15,32 @@ import { QuoteToken } from "config/constants/types";
 import { useFarms, usePriceBnbBusd } from "state/hooks";
 import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from "config";
 
+const ArrowRight = styled(ChevronRightIcon)`
+  fill: #ff1fff;
+  width: 40px;
+`
 const StyledFarmStakingCard = styled(Card)`
+  background: rgba(0,0,0,0);
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-
+  display: flex;
+  align-items: center;
+  border: 1px solid #61319F;
+  border-radius: 8px;
+  padding: 20px 30px;
   ${({ theme }) => theme.mediaQueries.lg} {
     margin: 0;
     max-width: none;
   }
 `;
-const CardMidContent = styled(Heading).attrs({ size: "xl" })`
+const CardMidContent = styled(Text)`
   line-height: 44px;
+  color: #ff1fff;
+  font-size: 35px;
+  padding: 0px 10px;
 `;
+
 const EarnAPYCard = () => {
   const TranslateString = useI18n();
   const farmsLP = useFarms();
@@ -100,28 +113,29 @@ const EarnAPYCard = () => {
   );
 
   return (
-    <StyledFarmStakingCard>
-      <CardBody>
-        <Heading color="contrast" size="lg">
-          Earn up to
-        </Heading>
-        <CardMidContent color="#7645d9">
-          {getHighestAPY() ? (
-            `${getHighestAPY()}% ${TranslateString(736, "APR")}`
-          ) : (
-            <Skeleton animation="pulse" variant="rect" height="44px" />
-          )}
-        </CardMidContent>
-        <Flex justifyContent="space-between">
-          <Heading color="contrast" size="lg">
+    <NavLink exact activeClassName="active" to="/farms" id="farm-apy-cta">
+      <StyledFarmStakingCard>
+      
+        <Flex style={{width: "100%"}} >
+          <Text fontSize="30px" color="contrast">
+            Earn up to
+          </Text>
+          <CardMidContent color="#7645d9">
+            {getHighestAPY() ? (
+              `${getHighestAPY()}% ${TranslateString(736, "APR")}`
+            ) : (
+              <Skeleton animation="pulse" variant="rect" height="44px" width="80px" />
+            )}
+          </CardMidContent>
+        
+          <Text fontSize="30px" color="contrast" >
             in Farms
-          </Heading>
-          <NavLink exact activeClassName="active" to="/farms" id="farm-apy-cta">
-            <ArrowForwardIcon mt={30} color="primary" />
-          </NavLink>
+          </Text>
+          
         </Flex>
-      </CardBody>
-    </StyledFarmStakingCard>
+        <ArrowRight />
+      </StyledFarmStakingCard>
+    </NavLink>
   );
 };
 

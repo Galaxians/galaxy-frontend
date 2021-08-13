@@ -83,7 +83,7 @@ const App: React.FC = () => {
       <Sidebar  isOpen={isOpen} toggle={toggle} />
       <div className="row m-0" style={{width:'100%'}}>
         <div className="col-auto">
-          <Leftnav />
+          {/* <Leftnav /> */}
         </div>
         <Wrapper>
           {/* <Menu> */}

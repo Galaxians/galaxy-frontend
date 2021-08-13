@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardBody, Heading, Text } from "glx-uikit";
+import { Card, Flex, Text } from "glx-uikit";
 import styled from "styled-components";
 import { getBalanceNumber } from "utils/formatBalance";
 import { useTotalSupply, useBurnedBalance } from "hooks/useTokenBalance";
@@ -8,17 +8,29 @@ import { getCakeAddress } from "utils/addressHelpers";
 import CardValue from "./CardValue";
 
 const StyledCakeStats = styled(Card)`
+  background: rgba(0,0,0,0);
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  min-width:350px;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  border: 1px solid #61319F;
+  border-radius: 8px;
+  padding: 20px;
 `;
 
 const Row = styled.div`
   align-items: center;
   display: flex;
-  font-size: 14px;
+  color: white;
   justify-content: space-between;
   margin-bottom: 8px;
 `;
+const CardValueWrapper = styled.div`
+  width: 40%;
+`
 
 const CakeStats = () => {
   const TranslateString = useI18n();
@@ -30,27 +42,30 @@ const CakeStats = () => {
 
   return (
     <StyledCakeStats>
-      <CardBody>
-        <Heading size="xl" mb="24px">
+        <Text fontSize="35px" color="#ff1fff" bold >
           {TranslateString(534, "GLX Stats")}
-        </Heading>
-        <Row>
-          <Text fontSize="14px">
-            {TranslateString(536, "Total GLX Supply")}
-          </Text>
-          {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} />}
-        </Row>
-        <Row>
-          <Text fontSize="14px">
-            {TranslateString(538, "Total GLX Burned")}
-          </Text>
-          <CardValue fontSize="14px" decimals={0} value={burnedBalance} />
-        </Row>
-        <Row>
-          <Text fontSize="14px">{TranslateString(540, "New GLX/block")}</Text>
-          <CardValue fontSize="14px" decimals={0} value={25} />
-        </Row>
-      </CardBody>
+        </Text>
+        <Flex flexDirection="column" mt="10px" >
+          <Row>
+            <Text color="contrast" fontSize="20px">
+              {TranslateString(536, "Total GLX Supply")}
+            </Text>
+            <CardValueWrapper>
+              {cakeSupply ===0 ? <CardValue color="contrast" decimals={0} fontSize="20px" value={cakeSupply} /> : <Text color="contrast" fontSize="20px" bold>0</Text>}
+            </CardValueWrapper>
+            
+          </Row>
+          <Row>
+            <Text color="contrast" fontSize="20px">
+              {TranslateString(538, "Total GLX Burned")}
+            </Text>
+            <CardValueWrapper><CardValue fontSize="20px" decimals={0} value={burnedBalance} /></CardValueWrapper>
+          </Row>
+          <Row>
+            <Text color="contrast" fontSize="20px">{TranslateString(540, "New GLX/block")}</Text>
+            <CardValueWrapper><CardValue fontSize="20px" decimals={0} value={25} /></CardValueWrapper>
+          </Row>
+        </Flex>
     </StyledCakeStats>
   );
 };
