@@ -10,14 +10,14 @@ const StyledTotalValueLockedCard = styled(Card)`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  min-width: 350px;
+  min-width: 360px;
   display: flex;
-  justify-content: left;
+  justify-content: space-between;
   flex-direction: column;
   align-items: left;
   border: 1px solid #61319F;
   border-radius: 8px;
-  padding: 20px;
+  padding: 10px 22px;
 `;
 
 const TotalValueLockedCard = () => {
@@ -31,7 +31,7 @@ const TotalValueLockedCard = () => {
 
   return (
     <StyledTotalValueLockedCard>
-      <Text fontSize="35px" color="#ff1fff" bold >
+      <Text fontSize="35px" color="#ff1fff" fontWeight="900" >
         {TranslateString(762, "Total Value Locked")}
       </Text>
       {data ? (

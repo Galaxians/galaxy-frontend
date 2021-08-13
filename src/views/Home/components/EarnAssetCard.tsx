@@ -19,7 +19,7 @@ const StyledFarmStakingCard = styled(Card)`
   border-radius: 8px;
   display: flex;
   align-items: center;
-  padding: 20px 30px;
+  padding: 31px 47px;
   ${({ theme }) => theme.mediaQueries.lg} {
     margin: 0;
     max-width: none;
@@ -30,6 +30,7 @@ const CardMidContent = styled(Text)`
   color: #ff1fff;
   font-size: 35px;
   padding: 0px 10px;
+  font-weight: 900;
 `;
 const EarnAssetCard = () => {
   const activeNonCakePools = pools.filter(
@@ -49,7 +50,7 @@ const EarnAssetCard = () => {
     <StyledFarmStakingCard>
         <Flex style={{width: "100%"}} >
           <Text fontSize="30px" color="contrast" >
-            Earn
+            Earning
           </Text>
           <CardMidContent bold >{assets}</CardMidContent>
           

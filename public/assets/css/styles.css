@@ -449,3 +449,22 @@ min-height: 200px;
 .start-btn:hover {
   background-position: -100% 0%;
 }
+
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Normal\ 400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Ultra-Bold\ 900.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Extra-Bold\ 800.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}

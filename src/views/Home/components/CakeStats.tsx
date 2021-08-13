@@ -12,13 +12,13 @@ const StyledCakeStats = styled(Card)`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  min-width:350px;
+  min-width:360px;
   display: flex;
   flex-direction: column;
   align-items: left;
   border: 1px solid #61319F;
   border-radius: 8px;
-  padding: 20px;
+  padding: 10px 22px;
 `;
 
 const Row = styled.div`
@@ -42,7 +42,7 @@ const CakeStats = () => {
 
   return (
     <StyledCakeStats>
-        <Text fontSize="35px" color="#ff1fff" bold >
+        <Text fontSize="35px" color="#ff1fff" bold fontWeight="900" >
           {TranslateString(534, "GLX Stats")}
         </Text>
         <Flex flexDirection="column" mt="10px" >
@@ -61,7 +61,7 @@ const CakeStats = () => {
             </Text>
             <CardValueWrapper><CardValue fontSize="20px" decimals={0} value={burnedBalance} /></CardValueWrapper>
           </Row>
-          <Row>
+          <Row style={{marginBottom:0}} >
             <Text color="contrast" fontSize="20px">{TranslateString(540, "New GLX/block")}</Text>
             <CardValueWrapper><CardValue fontSize="20px" decimals={0} value={25} /></CardValueWrapper>
           </Row>

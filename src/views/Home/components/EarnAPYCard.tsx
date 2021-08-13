@@ -28,7 +28,7 @@ const StyledFarmStakingCard = styled(Card)`
   align-items: center;
   border: 1px solid #61319F;
   border-radius: 8px;
-  padding: 20px 30px;
+  padding: 31px 47px;
   ${({ theme }) => theme.mediaQueries.lg} {
     margin: 0;
     max-width: none;
@@ -39,6 +39,7 @@ const CardMidContent = styled(Text)`
   color: #ff1fff;
   font-size: 35px;
   padding: 0px 10px;
+  font-weight: 900;
 `;
 
 const EarnAPYCard = () => {
