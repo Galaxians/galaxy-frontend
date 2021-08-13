@@ -47,23 +47,23 @@ const CakeStats = () => {
         </Text>
         <Flex flexDirection="column" mt="10px" >
           <Row>
-            <Text color="contrast" fontSize="20px">
+            <Text fontWeight="300" color="contrast" fontSize="20px">
               {TranslateString(536, "Total GLX Supply")}
             </Text>
             <CardValueWrapper>
-              {cakeSupply ===0 ? <CardValue color="contrast" decimals={0} fontSize="20px" value={cakeSupply} /> : <Text color="contrast" fontSize="20px" bold>0</Text>}
+              {cakeSupply ===0 ? <CardValue fontWeight="300" color="contrast" decimals={0} fontSize="20px" value={cakeSupply} /> : <Text fontWeight="300" color="contrast" fontSize="20px" bold>0</Text>}
             </CardValueWrapper>
             
           </Row>
           <Row>
-            <Text color="contrast" fontSize="20px">
+            <Text fontWeight="300" color="contrast" fontSize="20px">
               {TranslateString(538, "Total GLX Burned")}
             </Text>
-            <CardValueWrapper><CardValue fontSize="20px" decimals={0} value={burnedBalance} /></CardValueWrapper>
+            <CardValueWrapper><CardValue fontWeight="300" fontSize="20px" decimals={0} value={burnedBalance} /></CardValueWrapper>
           </Row>
           <Row style={{marginBottom:0}} >
-            <Text color="contrast" fontSize="20px">{TranslateString(540, "New GLX/block")}</Text>
-            <CardValueWrapper><CardValue fontSize="20px" decimals={0} value={25} /></CardValueWrapper>
+            <Text fontWeight="300" color="contrast" fontSize="20px">{TranslateString(540, "New GLX/block")}</Text>
+            <CardValueWrapper><CardValue fontWeight="300" fontSize="20px" decimals={0} value={25} /></CardValueWrapper>
           </Row>
         </Flex>
     </StyledCakeStats>

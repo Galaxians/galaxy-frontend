@@ -118,7 +118,7 @@ const EarnAPYCard = () => {
       <StyledFarmStakingCard>
       
         <Flex style={{width: "100%"}} >
-          <Text fontSize="30px" color="contrast">
+          <Text fontWeight="300" fontSize="30px" color="contrast">
             Earn up to
           </Text>
           <CardMidContent color="#7645d9">
@@ -129,7 +129,7 @@ const EarnAPYCard = () => {
             )}
           </CardMidContent>
         
-          <Text fontSize="30px" color="contrast" >
+          <Text fontWeight="300" fontSize="30px" color="contrast" >
             in Farms
           </Text>
           

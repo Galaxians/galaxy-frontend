@@ -36,8 +36,8 @@ const TotalValueLockedCard = () => {
       </Text>
       {data ? (
         <>
-          <Text fontSize="40px">{data.toNumber().toFixed(2)}</Text>
-          <Text fontSize="20px" color="contrast">
+          <Text fontWeight="700" fontSize="40px">{data.toNumber().toFixed(2)}</Text>
+          <Text fontWeight="300" fontSize="20px" color="contrast">
             {TranslateString(764, "Across all LPs and Galactic Pools")}
           </Text>
         </>

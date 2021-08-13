@@ -120,7 +120,7 @@ const Home: React.FC = () => {
           <Text fontSize="68px" fontWeight="800" bold mb="10px" color="#ffffff">
             {TranslateString(576, "Swap, Stake, Farm or Launch.")}
           </Text>
-          <a className="start-btn" href="https://exchange.galaxyswap.net/" ><Text color="contrast" fontSize="22px">{TranslateString(576, "START THE APP")}</Text></a>
+          <a className="start-btn" href="https://exchange.galaxyswap.net/" ><Text color="contrast" fontWeight="800" fontSize="22px">{TranslateString(576, "START THE APP")}</Text></a>
         </Hero>
         <div>
           <EarnAPYCard />

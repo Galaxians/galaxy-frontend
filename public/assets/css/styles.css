@@ -468,3 +468,33 @@ min-height: 200px;
   font-weight: 800;
   font-style: normal;
 }
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Bold\ 700.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Extra-Light\ 200.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Light\ 300.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Semi-Bold\ 600.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Thin\ 100.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}

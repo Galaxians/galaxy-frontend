@@ -42,19 +42,19 @@ const EarnAssetCard = () => {
     ["desc", "desc"]
   ).slice(0, 3);
   // Always include CAKE
-  const assets = ["GLX", ...latestPools.map((pool) => pool.tokenName)].join(
+  const assets = ["GLAXIA", ...latestPools.map((pool) => pool.tokenName)].join(
     ", "
   );
 
   return (
     <StyledFarmStakingCard>
         <Flex style={{width: "100%"}} >
-          <Text fontSize="30px" color="contrast" >
+          <Text fontWeight="300" fontSize="30px" color="contrast" >
             Earning
           </Text>
           <CardMidContent bold >{assets}</CardMidContent>
           
-          <Text fontSize="30px" color="contrast" >
+          <Text fontWeight="300" fontSize="30px" color="contrast" >
             in Pools
           </Text>
         </Flex>
