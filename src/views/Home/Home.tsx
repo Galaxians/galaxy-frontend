@@ -108,8 +108,35 @@ const CTACards = styled(BaseLayout)`
       grid-column: span 4;
     }
   }
-`;
+`
 
+export const StyledLink = styled.a`
+  padding: 13px 42px;
+  border: 1px solid #61319F;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  >span {
+    z-index: 1;
+  }
+  >div {
+    transition: 1s;
+    width: 0%;
+  }
+  &:hover {
+    color: white !important;
+    >div {
+      background: transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
+      width: 100%;
+    }
+  }
+`
 const Home: React.FC = () => {
   const TranslateString = useI18n();
 
@@ -120,7 +147,11 @@ const Home: React.FC = () => {
           <Text fontSize="68px" fontWeight="800" bold mb="10px" color="#ffffff">
             {TranslateString(576, "Swap, Stake, Farm or Launch.")}
           </Text>
-          <a className="start-btn" href="https://exchange.galaxyswap.net/" ><Text color="contrast" fontWeight="800" fontSize="22px">{TranslateString(576, "START THE APP")}</Text></a>
+          <StyledLink href="#" target='_blank' rel="noreferrer">
+            <span><Text color="contrast" fontWeight="800" fontSize="22px">{TranslateString(576, "START THE APP")}</Text></span>
+            <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
+          </StyledLink>
+          {/* <a className="start-btn" href="https://exchange.galaxyswap.net/" ><Text color="contrast" fontWeight="800" fontSize="22px">{TranslateString(576, "START THE APP")}</Text></a> */}
         </Hero>
         <div>
           <EarnAPYCard />

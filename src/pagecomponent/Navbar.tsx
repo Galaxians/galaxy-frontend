@@ -1,8 +1,74 @@
 import React, { useContext } from 'react'
 import { Button, useWalletModal as UikitMenu } from 'glx-uikit'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { useWeb3React } from '@web3-react/core'
 import useAuth from 'hooks/useAuth'
+import styled, { css } from 'styled-components'
+
+export const StyledLink = styled(Link)`
+  margin-left: 25px;
+  border: 1px solid #FF1FFF;
+  width: 120px;
+  text-align: center;
+  border-radius: 10px;
+  color: gray;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  height: 44px;
+  width: 146px;
+  >span {
+    font-size: 15px;
+    font-family: monospace;
+    z-index: 1;
+  }
+  >div {
+    transition: 1s;
+    width: 0%;
+  }
+  &:hover {
+    color: white !important;
+    >div {
+      background: transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
+      width: 100%;
+    }
+  }
+`
+export const StyledA = styled.a`
+  margin-left: 25px;
+  border: 1px solid #FF1FFF;
+  width: 120px;
+  text-align: center;
+  border-radius: 10px;
+  color: gray;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  height: 44px;
+  width: 146px;
+  >span {
+    font-size: 15px;
+    font-family: monospace;
+    z-index: 1;
+  }
+  >div {
+    transition: 1s;
+    width: 0%;
+  }
+  &:hover {
+    color: white !important;
+    >div {
+      background: transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
+      width: 100%;
+    }
+  }
+`
 
 export default function Navbar({toggle}) {
   const { account, activate, deactivate } = useWeb3React()
@@ -64,15 +130,28 @@ export default function Navbar({toggle}) {
             <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', width:'25px', marginTop: '7px', height: '25px'}} />
           </div>
           <div className="collapse navbar-collapse" id="navcol-1">
-          <span className="pink-color small mt-2">Powered by GalaxyProtocol</span>
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link small mosk-bold-700 text-white" href="https://galaxyprotocol.io/#/" target='_blank' rel="noreferrer">
-                Go to GalaxyProtocol
-                </a>
+          {/* <span className="pink-color small mt-2">Powered by GalaxyProtocol</span> */}
+            <ul className="navbar-nav" style={{flex:1, justifyContent:'center'}}>
+              <li className="nav-item" style={{display:'inline-flex'}}>
+                <StyledA href="https://exchange.galaxyswap.net/" target='_blank' rel="noreferrer" >
+                  <span>Exchange</span>
+                 <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
+                </StyledA>
+                <StyledLink to="/farms" rel="noreferrer">
+                  <span>FARMS</span>
+                 <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
+                </StyledLink>
+                <StyledLink to="/pools" rel="noreferrer">
+                  <span>POOL</span>
+                 <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
+                </StyledLink>
+                <StyledA href="https://galaxyprotocol.io/#/buyback" target='_blank' rel="noreferrer">
+                  <span>LANCHPAD</span>
+                 <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
+                </StyledA>
               </li>
             </ul>
-            <span className="navbar-text actions">
+            <span className="navbar-text actions ms-auto">
             <div>
               {account ? (
                 <Button
@@ -87,7 +166,7 @@ export default function Navbar({toggle}) {
               ) : (
                 <Button
                 className="btn text-white xrounded pink-gredient"
-                style={{marginLeft:'70px',height: '46px', width:'150px'}}
+                style={{marginLeft:'70px',fontWeight: 800, height: '46px', width:'150px'}}
                   onClick={() => {
                     onPresentConnectModal()
                   }}
