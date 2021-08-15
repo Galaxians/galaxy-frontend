@@ -35,21 +35,19 @@ const ControlContainer = styled.div`
   align-items: center;
   position: relative;
   justify-content: space-around;
-  width: 50%;
-  margin: auto;
   flex-direction: row;
   color: #ffffff;
-  @media only screen and (max-width: 660px) {
-    width: 100%;
-    padding: 16px 32px;
-  }
+  box-shadow: 0px 3px 29px #FF1FFF24;
+  border: 1px solid #FF1FFF;
+  border-radius: 9px;
+  padding: 28px 18px;
+  padding-left: 58px;
+  background: #0B001E 0% 0% no-repeat padding-box;
 `;
 
 const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 10px;
-  margin-right: 15px;
   ${Text} {
     margin-left: 8px;
   }
@@ -110,6 +108,12 @@ const Header = styled.div`
     padding-right: 24px;
   }
 `;
+
+const Wrapper = styled.div`
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 150px;
+`
 
 const Farms: React.FC = () => {
   const { path } = useRouteMatch();
@@ -358,9 +362,7 @@ const Farms: React.FC = () => {
       }));
 
       return (
-        <div className="pink-gredient p-2">
-          <Table data={rowData} columns={columns} />
-        </div>
+        <Table data={rowData} columns={columns} />
       );
     }
 
@@ -377,7 +379,7 @@ const Farms: React.FC = () => {
                 ethPrice={ethPriceUsd}
                 account={account}
                 removed={false}
-                className="col-lg-6 col-sm-6 col-xs-8 col-xl-4 col-xxl-3 mb-4"
+                className="col-lg-6 col-sm-6 col-xs-8 col-xl-4 col-xxl-4 mb-4"
               />
             ))}
           </div>
@@ -407,80 +409,43 @@ const Farms: React.FC = () => {
 
   return (
     <>
-      <Header>
-        <Text
-          fontSize="68px"
-          color="#ffffff"
-          mb="10px"
-        >
-          {TranslateString(999, "Galaxia Pools")}
-        </Text>
-        <Text fontSize="30px" color="#FF1FFF">
-          {TranslateString(999, "Stake tokens to earn GLX.")}
-        </Text>
-      </Header>
+      
       <Page>
-        <div className="mb-3 pt-3 rounded" style={{ margin: "auto" }}>
-          <ControlContainer className="mb-1 px-2">
-              {/* <ToggleView
-                viewMode={viewMode}
-                onToggle={(mode: ViewMode) => setViewMode(mode)}
-              /> */}
-              <ToggleWrapper>
-                <Toggle
-                  style={{ background: "#ffffff" }}
-                  checked={stackedOnly}
-                  onChange={() => setStackedOnly(!stackedOnly)}
-                  scale="sm"
-                />
-                <Text fontSize="12px" > {TranslateString(1116, "Staked only")}</Text>
-              </ToggleWrapper>
-              <FarmTabButtons />
-            {/* <FilterContainer>
-              <LabelWrapper className="m-2">
-                <Text>Sort by</Text>
-                <Select
-                  options={[
-                    {
-                      label: "Hot",
-                      value: "hot",
-                    },
-                    {
-                      label: "APR",
-                      value: "apr",
-                    },
-                    {
-                      label: "Multiplier",
-                      value: "multiplier",
-                    },
-                    {
-                      label: "Earned",
-                      value: "earned",
-                    },
-                    {
-                      label: "Liquidity",
-                      value: "liquidity",
-                    },
-                  ]}
-                  onChange={handleSortOptionChange}
-                />
-              </LabelWrapper>
-              <LabelWrapper className="m-2">
-                <Text>Search</Text>
-                <SearchInput onChange={handleChangeQuery} value={query} />
-              </LabelWrapper>
-            </FilterContainer> */}
-          </ControlContainer>
-        </div>
-        <div className="row">
+	      <Wrapper>
+          <div className="row mb-3 rounded" style={{ marginTop: 150, margin: "auto" }}>
+            <ControlContainer className="mb-1">
+          
+                <ToggleWrapper>
+                  <Toggle
+                    style={{ background: "#ffffff" }}
+                    checked={stackedOnly}
+                    onChange={() => setStackedOnly(!stackedOnly)}
+                    scale="sm"
+                  />
+                  <Text fontSize="20px" fontWeight="500"> {TranslateString(1116, "Staked only")}</Text>
+                </ToggleWrapper>
+                <ToggleWrapper>
+                  <Text mr="8px" fontSize="20px" fontWeight="500"> {TranslateString(1116, "Finished only")}</Text>
+                  <Toggle
+                    style={{ background: "#ffffff" }}
+                    checked={stackedOnly}
+                    onChange={() => setStackedOnly(!stackedOnly)}
+                    scale="sm"
+                  />
+                </ToggleWrapper>
+                {/* <FarmTabButtons /> */}
+            
+            </ControlContainer>
+          </div>
           {renderContent()}
-        </div>
-        {/* <StyledImage
-          src="/images/3dpan.png"
-          alt="Galaxia illustration"
-          width={120}
-          height={103}
-        /> */}
+
+            {/* <StyledImage
+              src="/images/3dpan.png"
+              alt="Galaxia illustration"
+              width={120}
+              height={103}
+            /> */}
+        </Wrapper>
       </Page>
     </>
   );

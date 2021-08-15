@@ -65,13 +65,15 @@ const StyledCardAccent = styled.div`
 const FCard = styled.div`
   align-self: baseline;
   background: ${(props) => props.theme.card.background};
+  background: #0B001E 0% 0% no-repeat padding-box;
+  border: 1px solid #FF1FFF;
   border-radius: 11px;
   box-shadow: 0px 2px 12px -8px rgba(25, 19, 38, 0.1),
     0px 1px 1px rgba(25, 19, 38, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 24px;
+  padding: 24px 0px;
   position: relative;
   text-align: center;
 `;
@@ -188,23 +190,25 @@ const FarmCard: React.FC<FarmCardProps> = ({
           <Flex
             justifyContent="space-between"
             alignItems="center"
-            className="mt-4"
+            className="mt-4 mx-4"
           >
-            <Text className="small pink-color">
+            <Text fontSize="14px" fontWeight="500" className="small pink-color">
               {TranslateString(736, "APR")}:
             </Text>
             <Text
+              fontSize="14px"
+              fontWeight="500"
               style={{ display: "flex", alignItems: "center" }}
               className="small text-white"
             >
               {farm.apy ? (
                 <>
-                  <ApyButton
+                  {/* <ApyButton
                     lpLabel={lpLabel}
                     addLiquidityUrl={addLiquidityUrl}
                     cakePrice={cakePrice}
                     apy={farm.apy}
-                  />
+                  /> */}
                   {farmAPY}%
                 </>
               ) : (
@@ -213,14 +217,14 @@ const FarmCard: React.FC<FarmCardProps> = ({
             </Text>
           </Flex>
         )}
-        <Flex justifyContent="space-between">
-          <Text className="small pink-color">
-            {TranslateString(318, "Earn")}:
+        <Flex className="mx-4 mt-2" justifyContent="space-between">
+          <Text fontSize="14px" fontWeight="500" className="small pink-color">
+            {TranslateString(318, "Your Stake")}:
           </Text>
-          <Text className="small text-white">{earnLabel}</Text>
+          <Text fontSize="14px" fontWeight="500" className="small text-white">{earnLabel}</Text>
         </Flex>
-        <Divider />
-        <div className="d-flex flex-row justify-content-between px-1">
+        <Divider style={{backgroundColor: "#ff1fff", opacity: 0.48}} />
+        <div className="d-flex flex-row justify-content-between px-4">
           <CoreButton
             // onClick = {() => {console.log("")}}
           />

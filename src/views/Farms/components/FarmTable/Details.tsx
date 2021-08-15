@@ -11,6 +11,7 @@ const Container = styled.div`
   width: 100%;
   justify-content: flex-end;
   padding-right: 5px;
+  margin-top: 16px;
   color: ${({ theme }) => theme.colors.primary};
 
   ${({ theme }) => theme.mediaQueries.sm} {

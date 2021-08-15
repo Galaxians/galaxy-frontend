@@ -33,9 +33,11 @@ const cells = {
 };
 
 const CellInner = styled.div`
+  margin: auto;
   padding: 24px 0px;
   display: flex;
   width: 100%;
+  height: 100%;
   align-items: center;
   // padding-right: 8px;
 
@@ -46,7 +48,7 @@ const CellInner = styled.div`
 
 const StyledTr = styled.tr`
   cursor: pointer;
-  border-bottom: 2px solid ${({ theme }) => theme.colors.borderColor};
+  background: #0B001E 0% 0% no-repeat padding-box;
 `;
 
 const EarnedMobileCell = styled.td`
@@ -100,7 +102,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
             switch (key) {
               case "details":
                 return (
-                  <td key={key}>
+                  <td className="farm-table" key={key}>
                     <CellInner>
                       <CellLayout>
                         <Details actionPanelToggled={actionPanelToggled} />
@@ -110,7 +112,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
                 );
               case "apr":
                 return (
-                  <td key={key}>
+                  <td className="farm-table" key={key}>
                     <CellInner>
                       <CellLayout label={TranslateString(736, "APR")}>
                         <Apr {...props.apr} hideButton={isMobile} />
@@ -120,7 +122,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
                 );
               default:
                 return (
-                  <td key={key}>
+                  <td className="farm-table" key={key}>
                     <CellInner>
                       <CellLayout
                         label={TranslateString(
@@ -141,7 +143,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
 
     return (
       <StyledTr onClick={toggleActionPanel}>
-        <td>
+        <td className="farm-table">
           <tr>
             <FarmMobileCell>
               <CellLayout>
@@ -167,7 +169,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
             
           </tr>
         </td>
-        <td>
+        <td className="farm-table">
           <CellInner>
             <CellLayout>
               <Details actionPanelToggled={actionPanelToggled} />

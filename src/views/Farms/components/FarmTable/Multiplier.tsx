@@ -13,7 +13,8 @@ const MultiplierWrapper = styled.div`
   color: ${({ theme }) => theme.colors.text};
   width: 36px;
   text-align: right;
-
+  font-size: 22px;
+  font-weight: 500;
   ${({ theme }) => theme.mediaQueries.sm} {
     text-align: left;
   }
@@ -43,24 +44,6 @@ const Multiplier: React.FunctionComponent<MultiplierProps> = ({
   return (
     <Container>
       <MultiplierWrapper>{displayMultipler}</MultiplierWrapper>
-      <Tooltip
-        content={
-          <div>
-            {TranslateString(
-              999,
-              "The multiplier represents the amount of GLX rewards each farm gets."
-            )}
-            <br />
-            <br />
-            {TranslateString(
-              999,
-              "For example, if a 1x farm was getting 1 GLX per block, a 40x farm would be getting 40 GLX per block."
-            )}
-          </div>
-        }
-      >
-        <HelpIcon color="textSubtle" />
-      </Tooltip>
     </Container>
   );
 };

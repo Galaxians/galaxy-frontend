@@ -3,9 +3,15 @@ import { Input } from "glx-uikit";
 import styled from "styled-components";
 
 const StyledInput = styled(Input)`
-  border-radius: 4px;
-  margin-left: auto;
+  width: 273px;
+  height: 45px;
   background-color: #1e0038 !important;
+  border: 1px solid #FF1FFF;
+  border-radius: 9px;
+
+  @media only screen and (max-width: 620px) {
+    width: 100%;
+  }
 `;
 
 const InputWrapper = styled.div`

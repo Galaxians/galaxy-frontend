@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { provider as ProviderType } from "web3-core";
 import { getAddress } from "utils/addressHelpers";
 import { getBep20Contract } from "utils/contractHelpers";
-import { Button, Flex, Text, Heading } from "glx-uikit";
+import { Button, Flex, Text } from "glx-uikit";
 import { Farm } from "state/types";
 import { useFarmFromSymbol, useFarmUser } from "state/hooks";
 import useI18n from "hooks/useI18n";
@@ -17,6 +17,7 @@ import HarvestAction from "./HarvestAction";
 
 const Action = styled.div`
   padding-top: 16px;
+  margin: 0px 24px;
 `;
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber;
@@ -68,10 +69,10 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       />
     ) : (
       <Button
-        width="76%"
-        className="btn rounded mt-5 mb-4"
+        width="70%"
         disabled={requestedApproval}
         onClick={handleApprove}
+        className="btn rounded mt-5 mb-4"
       >
         {TranslateString(758, "Approve Contract")}
       </Button>
@@ -84,20 +85,21 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
     <Action>
       <Flex justifyContent="space-between" mb="3" alignItems="flex-end" >
         <Flex flexDirection="column" justifyItems="self-start" >
-          <Heading textAlign="left" mb="2" color={rawEarningsBalance === 0 ? "textDisabled" : "text"}>
+          <Text fontSize="30px" fontWeight="800" textAlign="left" mb="2" color={rawEarningsBalance === 0 ? "textDisabled" : "text"}>
             {displayBalance}
-          </Heading>
+          </Text>
           <Flex>
             <Text
               className="pink-color"
               textTransform="uppercase"
               fontSize="14px"
+	            fontWeight="300"
               pr="3px"
             >
               {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-              GLX
+              GLAXIA
             </Text>
-            <Text className="pink-color" fontSize="14px">
+            <Text className="pink-color" fontWeight="300"  fontSize="14px">
               {TranslateString(1072, "Earned")}
             </Text>
           </Flex>
@@ -109,11 +111,12 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
             textTransform="uppercase"
             color="secondary"
             fontSize="14px"
+            fontWeight="300"
             pr="3px"
           >
             {lpName}
           </Text>
-          <Text bold textTransform="uppercase" color="textSubtle" fontSize="14px">
+          <Text fontSize="14px" fontWeight="300" textTransform="uppercase" color="textSubtle">
             {TranslateString(1074, "Staked")}
           </Text>
         </Flex>

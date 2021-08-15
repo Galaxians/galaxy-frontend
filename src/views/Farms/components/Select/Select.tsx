@@ -3,38 +3,40 @@ import styled, { css } from "styled-components";
 import { ArrowDropDownIcon, Text } from "glx-uikit";
 
 const DropDownHeader = styled.div`
-  width: 100px;
-  height: 40px;
+  width: 192px;
+  height: 45px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px 8px;
   box-shadow: ${({ theme }) => theme.shadows.inset};
-  // border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
-  border-radius: 4px;
+  border: 0.5px solid ${({ theme }) => theme.colors.primary};
+  border-radius: 10px;
   // background: ${({ theme }) => theme.colors.input};
   background-color: #1e0038;
   transition: border-radius 0.15s;
-  ${({ theme }) => theme.mediaQueries.sm} {
-    min-width: 168px;
+  @media only screen and (max-width: 620px) {
+    width: 100%;
   }
 `;
 
 const DropDownListContainer = styled.div`
-  width: 100px;
+  width: 192px;
   height: 0;
   position: absolute;
   overflow: hidden;
   // background: ${({ theme }) => theme.colors.input};
   background-color: #1e0038;
+  border: 0.5px solid #FF1FFF;
+  border-radius: 10px;
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   transition: transform 0.15s, opacity 0.15s;
   transform: scaleY(0);
   transform-origin: top;
   opacity: 0;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
-    min-width: 168px;
+  @media only screen and (max-width: 620px) {
+    width: 100%;
   }
 `;
 
@@ -47,30 +49,35 @@ const DropDownContainer = styled.div<{
   width: ${({ width }) => width}px;
   position: relative;
   background: ${({ theme }) => theme.colors.input};
-  border-radius: 4px;
-  height: 40px;
-  width: 100px;
+  // border: 0.5px solid #FF1FFF;
+  border-radius: 10px;
+  height: 45px;
+  width: 192px;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
-    min-width: 168px;
+  @media only screen and (max-width: 620px) {
+    width: 100%;
   }
 
   ${(props) =>
     props.isOpen &&
     css`
       ${DropDownHeader} {
-        border-bottom: 1px solid ${({ theme }) => theme.colors.inputSecondary};
         box-shadow: ${({ theme }) => theme.tooltip.boxShadow};
-        border-radius: 4px 4px 0 0;
+        border-radius: 10px 10px 0 0;
+        width: 192px;
+        height: 45px;
+        border: 0.5px solid #FF1FFF;
+        border-bottom-width: 0px;
       }
 
       ${DropDownListContainer} {
         height: auto;
+        width: 192px;
         transform: scaleY(1);
         opacity: 1;
-        border: 1px solid ${({ theme }) => theme.colors.inputSecondary};
+        border: 0.5px solid #FF1FFF;
         border-top-width: 0;
-        border-radius: 0 0 4px 4px;
+        border-radius: 0 0 10px 10px;
         box-shadow: ${({ theme }) => theme.tooltip.boxShadow};
       }
     `}

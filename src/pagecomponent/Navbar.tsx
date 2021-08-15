@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, useWalletModal as UikitMenu } from 'glx-uikit'
 import { useHistory, Link } from 'react-router-dom'
 import { useWeb3React } from '@web3-react/core'
@@ -73,6 +73,7 @@ export const StyledA = styled.a`
 export default function Navbar({toggle}) {
   const { account, activate, deactivate } = useWeb3React()
   const { login, logout } = useAuth()
+  const [current, setCurrent] = useState("");
   //   const { selectedLanguage, setSelectedLanguage } = useContext(LanguageContext)
   //   const { isDark, toggleTheme } = useTheme()
   //   const priceData = useGetPriceData()
@@ -137,13 +138,13 @@ export default function Navbar({toggle}) {
                   <span>Exchange</span>
                  <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
                 </StyledA>
-                <StyledLink to="/farms" rel="noreferrer">
+                <StyledLink to="/farms" rel="noreferrer" onClick={() => setCurrent("farms")} style={current === "farms" ? {background: 'transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box'} : {}} >
                   <span>FARMS</span>
-                 <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
+                 {current !== "farms" && <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />}
                 </StyledLink>
-                <StyledLink to="/pools" rel="noreferrer">
+                <StyledLink to="/pools" rel="noreferrer" onClick={() => setCurrent("pools")} style={current === "pools" ? {background: 'transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box'} : {}}>
                   <span>POOL</span>
-                 <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
+                 {current !== "pools" && <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />}
                 </StyledLink>
                 <StyledA href="https://galaxyprotocol.io/#/buyback" target='_blank' rel="noreferrer">
                   <span>LANCHPAD</span>

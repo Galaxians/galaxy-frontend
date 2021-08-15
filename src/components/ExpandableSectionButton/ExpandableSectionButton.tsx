@@ -28,7 +28,7 @@ const ExpandableSectionButton: React.FC<ExpandableSectionButtonProps> = ({
       role="button"
       onClick={() => onClick()}
     >
-      <Text color="primary" bold>
+      <Text fontSize="14px" fontWeight="700" color="primary">
         {expanded ? "Hide" : "Details"}
       </Text>
       {expanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
