@@ -11,6 +11,8 @@ import CoreButton from "components/CoreButton";
 import { QuoteToken } from "config/constants/types";
 import { BASE_ADD_LIQUIDITY_URL } from "config";
 import getLiquidityUrlPathParts from "utils/getLiquidityUrlPathParts";
+import { useFarmFromSymbol, useFarmUser } from "state/hooks";
+import { getBalanceNumber } from "utils/formatBalance";
 import DetailsSection from "./DetailsSection";
 import CardHeading from "./CardHeading";
 import CardActionsContainer from "./CardActionsContainer";
@@ -113,12 +115,10 @@ const FarmCard: React.FC<FarmCardProps> = ({
   const TranslateString = useI18n();
 
   const [showExpandableSection, setShowExpandableSection] = useState(false);
-
   const isCommunityFarm = communityFarms.includes(farm.tokenSymbol);
   // We assume the token name is coin pair + lp e.g. CAKE-BNB LP, LINK-BNB LP,
   // NAR-CAKE LP. The images should be cake-bnb.svg, link-bnb.svg, nar-cake.svg
   const farmImage = farm.lpSymbol.split(" ")[0].toLocaleLowerCase();
-
   const totalValue: BigNumber = useMemo(() => {
     if (!farm.lpTotalInQuoteToken) {
       return null;
@@ -161,7 +161,10 @@ const FarmCard: React.FC<FarmCardProps> = ({
       .toNumber()
       .toLocaleString("en-US", { maximumFractionDigits: 2 });
 
-  const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses } = farm;
+  const { quoteTokenAdresses, quoteTokenSymbol, tokenAddresses, pid } = farm;
+  const { stakedBalance } = useFarmUser(pid);
+  const rawStakedBalance = getBalanceNumber(stakedBalance);
+  const displayStake = rawStakedBalance.toFixed(4).toLocaleString();
   const liquidityUrlPathParts = getLiquidityUrlPathParts({
     quoteTokenAdresses,
     quoteTokenSymbol,
@@ -221,7 +224,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
           <Text fontSize="14px" fontWeight="500" className="small pink-color">
             {TranslateString(318, "Your Stake")}:
           </Text>
-          <Text fontSize="14px" fontWeight="500" className="small text-white">{earnLabel}</Text>
+          <Text fontSize="14px" fontWeight="500" className="small text-white">{displayStake}</Text>
         </Flex>
         <Divider style={{backgroundColor: "#ff1fff", opacity: 0.48}} />
         <div className="d-flex flex-row justify-content-between px-4">

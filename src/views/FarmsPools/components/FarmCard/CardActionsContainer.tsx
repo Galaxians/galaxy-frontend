@@ -69,24 +69,24 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       />
     ) : (
       <Button
-        width="45%"
+        width="60%"
         ml="8px"
         disabled={requestedApproval}
         onClick={handleApprove}
         className="btn rounded"
       >
-        <Text fontSize="14px" fontWeight="900">{TranslateString(758, "Approve Contract")}</Text>
+        <Text fontSize="14px" fontWeight="900">{TranslateString(758, `Approve ${lpName}`)}</Text>
       </Button>
     );
   };
 
   const rawEarningsBalance = getBalanceNumber(earnings);
-  const displayBalance = rawEarningsBalance.toLocaleString();
+  const displayBalance = rawEarningsBalance.toFixed(4).toLocaleString();
   return (
     <Action>
       <Flex justifyContent="space-between" mb="3" alignItems="flex-end" >
         <Flex flexDirection="column" justifyItems="self-start" >
-          <Text fontSize="30px" fontWeight="800" textAlign="left" mb="2" color={rawEarningsBalance === 0 ? "textDisabled" : "text"}>
+          <Text fontSize="30px" fontWeight="800" textAlign="left" mb="2" color={rawEarningsBalance === 0 ? "text" : "text"}>
             {displayBalance}
           </Text>
           <Flex>
@@ -98,16 +98,17 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
               pr="3px"
             >
               {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-              GLAXIA
+              {/* GLAXIA */}
+              {lpName}
             </Text>
             <Text className="pink-color" fontWeight="300"  fontSize="14px">
-              {TranslateString(1072, "Earned")}
+              {TranslateString(1072, "earned")}
             </Text>
           </Flex>
           
         </Flex>
 
-        <Flex>
+        {/* <Flex>
           <Text
             textTransform="uppercase"
             color="secondary"
@@ -120,13 +121,13 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
           <Text fontSize="14px" fontWeight="300" textTransform="uppercase" color="textSubtle">
             {TranslateString(1074, "Staked")}
           </Text>
-        </Flex>
+        </Flex> */}
       </Flex>
       
-      <Flex justifyContent="space-between">
-        <HarvestAction earnings={earnings} pid={pid} />
+      <Flex justifyContent="center">
+        {/* <HarvestAction earnings={earnings} pid={pid} /> */}
         {!account ? (
-          <UnlockButton ml="8px" width="45%" />
+          <UnlockButton ml="8px" width="60%" />
         ) : (
           renderApprovalOrStakeButton()
         )}
