@@ -8,9 +8,14 @@ const DropDownHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 8px;
+  padding: 0px 19px;
+  font-size: 20px;
+  font-weight: 500;
   box-shadow: ${({ theme }) => theme.shadows.inset};
-  border: 0.5px solid ${({ theme }) => theme.colors.primary};
+  border-width: 0px;
+  border-style: solid;
+  border-color: white;
+  box-shadow: 0 0 0 0.5px #ff1fff;
   border-radius: 10px;
   // background: ${({ theme }) => theme.colors.input};
   background-color: #1e0038;
@@ -33,6 +38,8 @@ const DropDownListContainer = styled.div`
   transition: transform 0.15s, opacity 0.15s;
   transform: scaleY(0);
   transform-origin: top;
+  font-size: 20px;
+  font-weight: 500;
   opacity: 0;
 
   @media only screen and (max-width: 620px) {
@@ -53,7 +60,8 @@ const DropDownContainer = styled.div<{
   border-radius: 10px;
   height: 45px;
   width: 192px;
-
+  font-size: 20px;
+  font-weight: 500;
   @media only screen and (max-width: 620px) {
     width: 100%;
   }
@@ -147,7 +155,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
     <DropDownContainer isOpen={isOpen} ref={containerRef} {...containerSize}>
       {containerSize.width !== 0 && (
         <DropDownHeader onClick={toggling}>
-          <Text>{selectedOption.label}</Text>
+          <Text fontSize="20px" fontWeight="500" >{selectedOption.label}</Text>
         </DropDownHeader>
       )}
       <ArrowDropDownIcon color="text" onClick={toggling} />
@@ -156,7 +164,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
           {options.map((option) =>
             option.label !== selectedOption.label ? (
               <ListItem onClick={onOptionClicked(option)} key={option.label}>
-                <Text>{option.label}</Text>
+                <Text fontSize="20px" fontWeight="500" >{option.label}</Text>
               </ListItem>
             ) : null
           )}

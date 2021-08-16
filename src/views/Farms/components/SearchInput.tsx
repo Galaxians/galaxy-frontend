@@ -6,9 +6,13 @@ const StyledInput = styled(Input)`
   width: 273px;
   height: 45px;
   background-color: #1e0038 !important;
-  border: 1px solid #FF1FFF;
+  border-width: 0px;
+  border-style: solid;
+  border-color: white;
+  box-shadow: 0 0 0 0.5px #ff1fff;
   border-radius: 9px;
-
+  font-size: 20px;
+  font-weight: 500;
   @media only screen and (max-width: 620px) {
     width: 100%;
   }
@@ -40,7 +44,7 @@ const SearchInput: React.FC<Props> = ({ value, onChange }) => {
           ref={inputEl}
           value={value}
           onChange={onChange}
-          placeholder="Search farms"
+          placeholder="Search Farms"
           onBlur={() => setToggled(false)}
         />
       </InputWrapper>

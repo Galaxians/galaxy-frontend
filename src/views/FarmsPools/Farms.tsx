@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback, useState } from "react";
-import { Route, useRouteMatch, useLocation } from "react-router-dom";
+import { Route, useRouteMatch, useLocation, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import BigNumber from "bignumber.js";
 import { useWeb3React } from "@web3-react/core";
@@ -41,8 +41,11 @@ const ControlContainer = styled.div`
   border: 1px solid #FF1FFF;
   border-radius: 9px;
   padding: 28px 18px;
-  padding-left: 58px;
   background: #0B001E 0% 0% no-repeat padding-box;
+  @media screen and (max-width: 420px) {
+    flex-direction: column;
+    gap: 24px;
+  }
 `;
 
 const ToggleWrapper = styled.div`
@@ -139,7 +142,13 @@ const Farms: React.FC = () => {
   }, [account, dispatch, fastRefresh]);
 
   const [stackedOnly, setStackedOnly] = useState(false);
-
+  const history = useHistory();
+  const [finishedOnly, setFinishedOnly] = useState(false);
+  useEffect(() => {
+    if(!finishedOnly)
+      history.push("/pools");
+    else history.push("/pools/history")
+  }, [finishedOnly, history])
   const activeFarms = farmsLP.filter(
     (farm) => farm.multiplier !== "0X" && farm.isTokenOnly
   );
@@ -365,12 +374,12 @@ const Farms: React.FC = () => {
         <Table data={rowData} columns={columns} />
       );
     }
-
+    const fakeFarms = [farmsStaked[0], farmsStaked[0], farmsStaked[0]]; // Need to be deleted
     return (
       <div>
         <Route exact path={`${path}`}>
           <div className="row justify-content-center">
-            {farmsStaked.map((farm) => (
+            {fakeFarms.map((farm) => (                                  // fakeFarms need to be changed to farmsStaked
               <FarmCard
                 key={farm.pid}
                 farm={farm}
@@ -385,8 +394,8 @@ const Farms: React.FC = () => {
           </div>
         </Route>
         <Route exact path={`${path}/history`}>
-          <FlexLayout>
-            {farmsStaked.map((farm) => (
+          <div className="row justify-content-center">
+            {fakeFarms.map((farm) => (                                  // fakeFarms need to be changed to farmsStaked
               <FarmCard
                 key={farm.pid}
                 farm={farm}
@@ -395,9 +404,10 @@ const Farms: React.FC = () => {
                 ethPrice={ethPriceUsd}
                 account={account}
                 removed
+                className="col-lg-6 col-sm-6 col-xs-8 col-xl-4 col-xxl-4 mb-4"
               />
             ))}
-          </FlexLayout>
+          </div>
         </Route>
       </div>
     );
@@ -414,7 +424,6 @@ const Farms: React.FC = () => {
 	      <Wrapper>
           <div className="row mb-3 rounded" style={{ marginTop: 150, margin: "auto" }}>
             <ControlContainer className="mb-1">
-          
                 <ToggleWrapper>
                   <Toggle
                     style={{ background: "#ffffff" }}
@@ -427,9 +436,10 @@ const Farms: React.FC = () => {
                 <ToggleWrapper>
                   <Text mr="8px" fontSize="20px" fontWeight="500"> {TranslateString(1116, "Finished only")}</Text>
                   <Toggle
-                    style={{ background: "#ffffff" }}
-                    checked={stackedOnly}
-                    onChange={() => setStackedOnly(!stackedOnly)}
+                    color="green"
+                    width="400px"
+                    checked={finishedOnly}
+                    onChange={() => setFinishedOnly(!finishedOnly)}
                     scale="sm"
                   />
                 </ToggleWrapper>

@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback, useState } from "react";
-import { Route, useRouteMatch, useLocation } from "react-router-dom";
+import { Route, useRouteMatch, useLocation, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import BigNumber from "bignumber.js";
 import { useWeb3React } from "@web3-react/core";
@@ -151,9 +151,14 @@ const Farms: React.FC = () => {
       dispatch(fetchFarmUserDataAsync(account));
     }
   }, [account, dispatch, fastRefresh]);
-
   const [stackedOnly, setStackedOnly] = useState(false);
-
+  const history = useHistory();
+  const [finishedOnly, setFinishedOnly] = useState(false);
+  useEffect(() => {
+    if(!finishedOnly)
+      history.push("/farms");
+    else history.push("/farms/history")
+  }, [finishedOnly, history])
   const activeFarms = farmsLP.filter(
     (farm) => farm.multiplier !== "0X" && !farm.isTokenOnly
   );
@@ -408,7 +413,7 @@ const Farms: React.FC = () => {
           </div>
         </Route>
         <Route exact path={`${path}/history`}>
-          <FlexLayout>
+          <div className="row justify-content-center">
             {farmsStaked.map((farm) => (
               <FarmCard
                 key={farm.pid}
@@ -418,9 +423,10 @@ const Farms: React.FC = () => {
                 ethPrice={ethPriceUsd}
                 account={account}
                 removed
+                className="col-lg-6 col-sm-6 col-xs-8 col-xl-4 col-xxl-4 mb-4"
               />
             ))}
-          </FlexLayout>
+          </div>
         </Route>
       </div>
     );
@@ -453,8 +459,8 @@ const Farms: React.FC = () => {
                 <ToggleWrapper>
                   <Toggle
                     style={{ background: "#ffffff" }}
-                    checked={stackedOnly}
-                    onChange={() => setStackedOnly(!stackedOnly)}
+                    checked={finishedOnly}
+                    onChange={() => setFinishedOnly(!finishedOnly)}
                     scale="sm"
                   />
                   <Text fontSize="20px" fontWeight="500"> {TranslateString(1116, "Finished only")}</Text>
@@ -463,7 +469,7 @@ const Farms: React.FC = () => {
               </ViewControls>
               <FilterContainer>
                 <LabelWrapper>
-                  <Text fontWeight="100" >SORT BY</Text>
+                  <Text color="#cecece" fontWeight="100" >SORT BY</Text>
                   <Select
                     options={[
                       {
@@ -491,7 +497,7 @@ const Farms: React.FC = () => {
                   />
                 </LabelWrapper>
                 <LabelWrapper>
-                  <Text fontWeight="100" >SEARCH</Text>
+                  <Text color="#cecece" fontWeight="100" >SEARCH</Text>
                   <SearchInput onChange={handleChangeQuery} value={query} />
                 </LabelWrapper>
               </FilterContainer>

@@ -69,12 +69,13 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       />
     ) : (
       <Button
-        width="70%"
+        width="45%"
+        ml="8px"
         disabled={requestedApproval}
         onClick={handleApprove}
-        className="btn rounded mt-5 mb-4"
+        className="btn rounded"
       >
-        {TranslateString(758, "Approve Contract")}
+        <Text fontSize="14px" fontWeight="900">{TranslateString(758, "Approve Contract")}</Text>
       </Button>
     );
   };
