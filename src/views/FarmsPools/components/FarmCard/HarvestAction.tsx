@@ -22,7 +22,7 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
 
       <Button
         className="btn rounded"
-        style={{width: "45%"}}
+        style={{width: "45%", fontSize: 14, fontWeight: 900}}
         disabled={rawEarningsBalance === 0 || pendingTx}
         onClick={async () => {
           setPendingTx(true);

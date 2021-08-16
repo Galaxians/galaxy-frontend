@@ -56,7 +56,7 @@ const ToggleView: React.FunctionComponent<ToogleViewProps> = ({
         onClick={() => handleToggle(ViewMode.CARD)}
       >
         <CardViewIcon
-          color={viewMode === ViewMode.CARD ? "primary" : "textDisabled"}
+          color={viewMode === ViewMode.CARD ? "primary" : "white"}
         />
       </IconButton>
       <IconButton
@@ -65,7 +65,7 @@ const ToggleView: React.FunctionComponent<ToogleViewProps> = ({
         onClick={() => handleToggle(ViewMode.TABLE)}
       >
         <ListViewIcon
-          color={viewMode === ViewMode.TABLE ? "#ff1fff" : "#666171"}
+          color={viewMode === ViewMode.TABLE ? "#ff1fff" : "white"}
         />
       </IconButton>
     </Container>

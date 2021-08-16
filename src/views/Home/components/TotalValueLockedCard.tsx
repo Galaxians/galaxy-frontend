@@ -6,9 +6,18 @@ import { useGetStats } from "hooks/api";
 import { useTotalValue } from "state/hooks";
 
 const StyledTotalValueLockedCard = styled(Card)`
-  align-items: center;
+  background: rgba(0,0,0,0);
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  min-width: 360px;
   display: flex;
-  flex: 1;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: left;
+  border: 1px solid #61319F;
+  border-radius: 8px;
+  padding: 10px 22px;
 `;
 
 const TotalValueLockedCard = () => {
@@ -22,23 +31,21 @@ const TotalValueLockedCard = () => {
 
   return (
     <StyledTotalValueLockedCard>
-      <CardBody>
-        <Heading size="lg" mb="24px">
-          {TranslateString(762, "Total Value Locked (TVL)")}
-        </Heading>
-        {data ? (
-          <>
-            <Heading size="xl">{data.toNumber().toFixed(2)}</Heading>
-            <Text color="textSubtle">
-              {TranslateString(764, "Across all LPs and Galactic Pools")}
-            </Text>
-          </>
-        ) : (
-          <>
-            <Skeleton height={66} />
-          </>
-        )}
-      </CardBody>
+      <Text fontSize="35px" color="#ff1fff" fontWeight="900" >
+        {TranslateString(762, "Total Value Locked")}
+      </Text>
+      {data ? (
+        <>
+          <Text fontWeight="700" fontSize="40px">{data.toNumber().toFixed(2)}</Text>
+          <Text fontWeight="300" fontSize="20px" color="contrast">
+            {TranslateString(764, "Across all LPs and Galactic Pools")}
+          </Text>
+        </>
+      ) : (
+        <>
+          <Skeleton height={66} />
+        </>
+      )}
     </StyledTotalValueLockedCard>
   );
 };

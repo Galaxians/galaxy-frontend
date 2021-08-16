@@ -6,6 +6,8 @@ const StyledInput = styled(Input)`
   border-radius: 4px;
   margin-left: auto;
   background-color: #1e0038 !important;
+  font-size: 20px;
+  font-weight: 500;
 `;
 
 const InputWrapper = styled.div`
@@ -34,7 +36,7 @@ const SearchInput: React.FC<Props> = ({ value, onChange }) => {
           ref={inputEl}
           value={value}
           onChange={onChange}
-          placeholder="Search farms"
+          placeholder="Search Farms"
           onBlur={() => setToggled(false)}
         />
       </InputWrapper>

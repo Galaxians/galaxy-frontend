@@ -16,6 +16,7 @@ import HarvestAction from "./HarvestAction";
 
 const Action = styled.div`
   padding-top: 16px;
+  margin: 0px 24px;
 `;
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber;
@@ -84,12 +85,13 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
         <Text className="pink-color"          
           textTransform="uppercase"          
           fontSize="14px"
+          fontWeight="300"
           pr="3px"
         >
           {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-          GLX
+          GLAXIA
         </Text>
-        <Text className="pink-color mb-3" fontSize="14px">
+        <Text className="pink-color mb-3" fontWeight="300" fontSize="14px">
           {TranslateString(1072, "Earned")}
         </Text>
       </Flex>

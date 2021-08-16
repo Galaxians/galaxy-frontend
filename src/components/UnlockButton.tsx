@@ -9,7 +9,7 @@ const UnlockButton = (props) => {
   const { onPresentConnectModal } = useWalletModal(login, logout);
 
   return (
-    <Button className="rounded" onClick={onPresentConnectModal} {...props}>
+    <Button style={{fontSize: 14, fontWeight: 900}} className="rounded" onClick={onPresentConnectModal} {...props}>
       {TranslateString(292, "Unlock Wallet")}
     </Button>
   );

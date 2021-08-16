@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { provider as ProviderType } from "web3-core";
 import { getAddress } from "utils/addressHelpers";
 import { getBep20Contract } from "utils/contractHelpers";
-import { Button, Flex, Text, Heading } from "glx-uikit";
+import { Button, Flex, Text } from "glx-uikit";
 import { Farm } from "state/types";
 import { useFarmFromSymbol, useFarmUser } from "state/hooks";
 import useI18n from "hooks/useI18n";
@@ -17,6 +17,7 @@ import HarvestAction from "./HarvestAction";
 
 const Action = styled.div`
   padding-top: 16px;
+  margin: 0px 24px;
 `;
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber;
@@ -68,61 +69,65 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       />
     ) : (
       <Button
-        width="76%"
-        className="btn rounded mt-5 mb-4"
+        width="60%"
+        ml="8px"
         disabled={requestedApproval}
         onClick={handleApprove}
+        className="btn rounded"
       >
-        {TranslateString(758, "Approve Contract")}
+        <Text fontSize="14px" fontWeight="900">{TranslateString(758, `Approve ${lpName}`)}</Text>
       </Button>
     );
   };
 
   const rawEarningsBalance = getBalanceNumber(earnings);
-  const displayBalance = rawEarningsBalance.toLocaleString();
+  const displayBalance = rawEarningsBalance.toFixed(4).toLocaleString();
   return (
     <Action>
       <Flex justifyContent="space-between" mb="3" alignItems="flex-end" >
         <Flex flexDirection="column" justifyItems="self-start" >
-          <Heading textAlign="left" mb="2" color={rawEarningsBalance === 0 ? "textDisabled" : "text"}>
+          <Text fontSize="30px" fontWeight="800" textAlign="left" mb="2" color={rawEarningsBalance === 0 ? "text" : "text"}>
             {displayBalance}
-          </Heading>
+          </Text>
           <Flex>
             <Text
               className="pink-color"
               textTransform="uppercase"
               fontSize="14px"
+	            fontWeight="300"
               pr="3px"
             >
               {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-              GLX
+              {/* GLAXIA */}
+              {lpName}
             </Text>
-            <Text className="pink-color" fontSize="14px">
-              {TranslateString(1072, "Earned")}
+            <Text className="pink-color" fontWeight="300"  fontSize="14px">
+              {TranslateString(1072, "earned")}
             </Text>
           </Flex>
           
         </Flex>
 
-        <Flex>
+        {/* <Flex>
           <Text
             textTransform="uppercase"
             color="secondary"
             fontSize="14px"
+            fontWeight="300"
             pr="3px"
           >
             {lpName}
           </Text>
-          <Text bold textTransform="uppercase" color="textSubtle" fontSize="14px">
+          <Text fontSize="14px" fontWeight="300" textTransform="uppercase" color="textSubtle">
             {TranslateString(1074, "Staked")}
           </Text>
-        </Flex>
+        </Flex> */}
       </Flex>
       
-      <Flex justifyContent="space-between">
-        <HarvestAction earnings={earnings} pid={pid} />
+      <Flex justifyContent="center">
+        {/* <HarvestAction earnings={earnings} pid={pid} /> */}
         {!account ? (
-          <UnlockButton ml="8px" width="45%" />
+          <UnlockButton ml="8px" width="60%" />
         ) : (
           renderApprovalOrStakeButton()
         )}

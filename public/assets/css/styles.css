@@ -5,11 +5,11 @@ background-repeat: no-repeat;
 padding: 0;
 }
 .ghost{
-  background: url(../img/podium-gswap-5.png);
-  background-size: cover;
+  background: url(../img/Kal-artwork-giveaway-page.png);
+  /* background-size: cover; */
   background-repeat: no-repeat;
   background-position-x: right;
-  background-position-y: 70px;
+  background-position-y: -120px;
   padding: 0;
 }
 .setting-icon{
@@ -434,3 +434,76 @@ min-height: 200px;
     display: flex;
   }
 }
+
+.start-btn {
+  padding: 13px 42px;
+  border: 1px solid #61319F;
+  border-radius: 8px;
+  margin-top: 20px;
+  background-size: 200% 100%;
+  background-image: linear-gradient(to left, #FF1FFF, #440C8B 50%, rgba(0,0,0,0) 50%);
+  -webkit-transition: background-position .5s;
+  -moz-transition: background-position .5s;
+  transition: background-position .5s;
+}
+.start-btn:hover {
+  background-position: -100% 0%;
+}
+
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Normal\ 400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Ultra-Bold\ 900.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Extra-Bold\ 800.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Bold\ 700.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Extra-Light\ 200.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Light\ 300.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Semi-Bold\ 600.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face { 
+  font-family: 'Mosk';
+  src: local('Mosk'), url('../fonts/Mosk_Typeface/Mosk\ Thin\ 100.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+td.farm-table {
+  border: 1px solid #FF1FFF;
+  border-left: none;
+  border-right: none;
+  border-spacing: 2px;
+}
+td.farm-table:first-child { border-left: 1px solid #FF1FFF; border-top-left-radius: 10px; border-bottom-left-radius: 10px }
+td.farm-table:last-child { border-right: 1px solid #FF1FFF; border-top-right-radius: 10px; border-bottom-right-radius: 10px; }

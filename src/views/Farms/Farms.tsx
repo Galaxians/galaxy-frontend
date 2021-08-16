@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback, useState } from "react";
-import { Route, useRouteMatch, useLocation } from "react-router-dom";
+import { Route, useRouteMatch, useLocation, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import BigNumber from "bignumber.js";
 import { useWeb3React } from "@web3-react/core";
@@ -38,6 +38,12 @@ const ControlContainer = styled.div`
   justify-content: space-between;
   flex-direction: row;
   color: #ffffff;
+  box-shadow: 0px 3px 29px #FF1FFF24;
+  border: 1px solid #FF1FFF;
+  border-radius: 9px;
+  padding: 28px 18px;
+  padding-left: 58px;
+  background: #0B001E 0% 0% no-repeat padding-box;
   @media only screen and (max-width: 1200px) {
     flex-direction: column;
     padding: 16px 32px;
@@ -50,16 +56,16 @@ const ControlContainer = styled.div`
 const ToggleWrapper = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 10px;
-  margin-right: 15px;
   ${Text} {
     margin-left: 8px;
   }
+  
 `;
 
 const LabelWrapper = styled.div`
   > ${Text} {
-    font-size: 12px;
+    margin-bottom: 6px;
+    font-size: 14px;
   }
 `;
 
@@ -68,10 +74,13 @@ const FilterContainer = styled.div`
   align-items: center;
   padding: 8px 0px;
   border-radius: 8px;
-
+  gap: 18px;
   justify-content: space-between;
-  ${({ theme }) => theme.mediaQueries.sm} {
-    padding: 0; 
+  @media only screen and (max-width: 620px) {
+    flex-direction: column;
+    & > * {
+      width: 100%;
+    }
   }
 `;
 
@@ -79,7 +88,8 @@ const ViewControls = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   display: flex;
-
+  gap: 30px;
+  margin-top: 24px;
   > div {
     //padding: 8px 0px;
   }
@@ -114,6 +124,12 @@ const Header = styled.div`
   }
 `;
 
+const Wrapper = styled.div`
+  max-width: 1054px;
+  margin: auto;
+  margin-top: 150px;
+`
+
 const Farms: React.FC = () => {
   const { path } = useRouteMatch();
   const { pathname } = useLocation();
@@ -135,9 +151,14 @@ const Farms: React.FC = () => {
       dispatch(fetchFarmUserDataAsync(account));
     }
   }, [account, dispatch, fastRefresh]);
-
   const [stackedOnly, setStackedOnly] = useState(false);
-
+  const history = useHistory();
+  const [finishedOnly, setFinishedOnly] = useState(false);
+  useEffect(() => {
+    if(!finishedOnly)
+      history.push("/farms");
+    else history.push("/farms/history")
+  }, [finishedOnly, history])
   const activeFarms = farmsLP.filter(
     (farm) => farm.multiplier !== "0X" && !farm.isTokenOnly
   );
@@ -354,7 +375,6 @@ const Farms: React.FC = () => {
                   Number(a.original.apr.value) - Number(b.original.apr.value)
                 );
               }
-
               return 0;
             case "earned":
               return a.original.earned.earnings - b.original.earned.earnings;
@@ -366,8 +386,10 @@ const Farms: React.FC = () => {
       }));
 
       return (
-        <div className="pink-gredient p-2">
-          <Table data={rowData} columns={columns} />
+        <div>
+          <div className="justify-content-center">
+            <Table data={rowData} columns={columns} />
+          </div>
         </div>
       );
     }
@@ -385,13 +407,13 @@ const Farms: React.FC = () => {
                 ethPrice={ethPriceUsd}
                 account={account}
                 removed={false}
-                className="col-lg-6 col-sm-6 col-xs-8 col-xl-4 col-xxl-3 mb-4"
+                className="col-lg-6 col-sm-6 col-xs-8 col-xl-4 col-xxl-4 mb-4"
               />
             ))}
           </div>
         </Route>
         <Route exact path={`${path}/history`}>
-          <FlexLayout>
+          <div className="row justify-content-center">
             {farmsStaked.map((farm) => (
               <FarmCard
                 key={farm.pid}
@@ -401,9 +423,10 @@ const Farms: React.FC = () => {
                 ethPrice={ethPriceUsd}
                 account={account}
                 removed
+                className="col-lg-6 col-sm-6 col-xs-8 col-xl-4 col-xxl-4 mb-4"
               />
             ))}
-          </FlexLayout>
+          </div>
         </Route>
       </div>
     );
@@ -415,85 +438,80 @@ const Farms: React.FC = () => {
 
   return (
     <>
-      <Header>
-        <Text
-          // size="xl"
-          fontSize="68px"
-          color="#ffffff"
-          mb="10px"
-        >
-          {TranslateString(999, "Galaxia Farms")}
-        </Text>
-        <Text color="#FF1FFF" fontSize="30px">
-          {TranslateString(999, "Stake liquidity Pool (LP) tokens to earn.")}
-        </Text>
-      </Header>
       <Page>
-        <div className="row mb-3 pt-3 rounded" style={{ background: "#0B001E", margin: "auto" }}>
-          <ControlContainer className="mb-1 px-2">
-            <ViewControls>
-              <ToggleView
-                viewMode={viewMode}
-                onToggle={(mode: ViewMode) => setViewMode(mode)}
-              />
-              <ToggleWrapper>
-                <Toggle
-                  style={{ background: "#ffffff" }}
-                  checked={stackedOnly}
-                  onChange={() => setStackedOnly(!stackedOnly)}
-                  scale="sm"
+        <Wrapper>
+          <div className="row mb-3 rounded" style={{  marginTop: 150, margin: "auto"}}>
+            <ControlContainer className="mb-1">
+              <ViewControls>
+                <ToggleView
+                  viewMode={viewMode}
+                  onToggle={(mode: ViewMode) => setViewMode(mode)}
                 />
-                <Text> {TranslateString(1116, "Staked only")}</Text>
-              </ToggleWrapper>
-              <FarmTabButtons />
-            </ViewControls>
-            <FilterContainer>
-              <LabelWrapper className="m-2">
-                <Text>Sort by</Text>
-                <Select
-                  options={[
-                    {
-                      label: "Hot",
-                      value: "hot",
-                    },
-                    {
-                      label: "APR",
-                      value: "apr",
-                    },
-                    {
-                      label: "Multiplier",
-                      value: "multiplier",
-                    },
-                    {
-                      label: "Earned",
-                      value: "earned",
-                    },
-                    {
-                      label: "Liquidity",
-                      value: "liquidity",
-                    },
-                  ]}
-                  onChange={handleSortOptionChange}
-                />
-              </LabelWrapper>
-              <LabelWrapper className="m-2">
-                <Text>Search</Text>
-                <SearchInput onChange={handleChangeQuery} value={query} />
-              </LabelWrapper>
-            </FilterContainer>
-          </ControlContainer>
-        </div>
-        <div className="row">
+                <ToggleWrapper>
+                  <Toggle
+                    style={{ background: "#ffffff" }}
+                    checked={stackedOnly}
+                    onChange={() => setStackedOnly(!stackedOnly)}
+                    scale="sm"
+                  />
+                  <Text fontSize="20px" fontWeight="500"> {TranslateString(1116, "Staked only")}</Text>
+                </ToggleWrapper>
+                <ToggleWrapper>
+                  <Toggle
+                    style={{ background: "#ffffff" }}
+                    checked={finishedOnly}
+                    onChange={() => setFinishedOnly(!finishedOnly)}
+                    scale="sm"
+                  />
+                  <Text fontSize="20px" fontWeight="500"> {TranslateString(1116, "Finished only")}</Text>
+                </ToggleWrapper>
+                {/* <FarmTabButtons /> */}
+              </ViewControls>
+              <FilterContainer>
+                <LabelWrapper>
+                  <Text color="#cecece" fontWeight="100" >SORT BY</Text>
+                  <Select
+                    options={[
+                      {
+                        label: "Hot",
+                        value: "hot",
+                      },
+                      {
+                        label: "APR",
+                        value: "apr",
+                      },
+                      {
+                        label: "Multiplier",
+                        value: "multiplier",
+                      },
+                      {
+                        label: "Earned",
+                        value: "earned",
+                      },
+                      {
+                        label: "Liquidity",
+                        value: "liquidity",
+                      },
+                    ]}
+                    onChange={handleSortOptionChange}
+                  />
+                </LabelWrapper>
+                <LabelWrapper>
+                  <Text color="#cecece" fontWeight="100" >SEARCH</Text>
+                  <SearchInput onChange={handleChangeQuery} value={query} />
+                </LabelWrapper>
+              </FilterContainer>
+            </ControlContainer>
+          </div>
           {renderContent()}
-        </div>
-        
 
-        {/* <StyledImage
-          src="/images/3dpan.png"
-          alt="Galaxia illustration"
-          width={120}
-          height={103}
-        /> */}
+          {/* <StyledImage
+            src="/images/3dpan.png"
+            alt="Galaxia illustration"
+            width={120}
+            height={103}
+          /> */}
+        </Wrapper>
       </Page>
     </>
   );

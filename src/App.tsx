@@ -44,10 +44,6 @@ const Profile = lazy(() => import("./views/Profile"));
 const Wrapper = styled.div`
   margin-top: 20px;
   margin: auto;
-
-  ${({ theme }) => theme.mediaQueries.xl} {
-    max-width: calc(100vw - 350px);
-  }
 `;
 
 // This config is required for number formating
@@ -82,9 +78,6 @@ const App: React.FC = () => {
       <Navbar  toggle={toggle} />
       <Sidebar  isOpen={isOpen} toggle={toggle} />
       <div className="row m-0" style={{width:'100%'}}>
-        <div className="col-auto">
-          <Leftnav />
-        </div>
         <Wrapper>
           {/* <Menu> */}
           <SuspenseWithChunkError fallback={<PageLoader />}>

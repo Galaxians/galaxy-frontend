@@ -13,10 +13,8 @@ export interface ITableProps {
 
 const Container = styled.div`
   filter: ${({ theme }) => theme.card.dropShadow};
-  width: 100%;
-  background: ${({ theme }) => theme.card.background};
-  border-radius: 16px;
   margin: 0px;
+  padding: 0 30px;
 `;
 
 const TableWrapper = styled.div`
@@ -28,18 +26,19 @@ const TableWrapper = styled.div`
 `;
 
 const StyledTable = styled.table`
-  border-collapse: collapse;
+  border-collapse: separate;
   font-size: 14px;
   border-radius: 4px;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   color:#ffffff;
-
+  border-spacing: 0 16px;
 `;
 
 const TableBody = styled.tbody`
   & tr {
+    border-spacing: 20px 15px;
     td {
       font-size: 16px;
       vertical-align: middle;
@@ -48,7 +47,7 @@ const TableBody = styled.tbody`
 `;
 
 const TableContainer = styled.div`
-  position: relative;
+  // position: relative;
 }
 `;
 
@@ -79,7 +78,7 @@ const FarmTable: React.FC<ITableProps> = (props) => {
     <Container>
       <TableContainer>
         <TableWrapper ref={tableWrapperEl}>
-          <StyledTable>
+          <StyledTable >
             <TableBody className="text-white">
               {rows.map((row) => {
                 return <Row {...row.original} key={`table-row-${row.id}`} />;
