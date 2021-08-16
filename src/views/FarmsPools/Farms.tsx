@@ -374,12 +374,11 @@ const Farms: React.FC = () => {
         <Table data={rowData} columns={columns} />
       );
     }
-    const fakeFarms = [farmsStaked[0], farmsStaked[0], farmsStaked[0]]; // Need to be deleted
     return (
       <div>
         <Route exact path={`${path}`}>
           <div className="row justify-content-center">
-            {fakeFarms.map((farm) => (                                  // fakeFarms need to be changed to farmsStaked
+            {farmsStaked.map((farm) => (
               <FarmCard
                 key={farm.pid}
                 farm={farm}
@@ -395,7 +394,7 @@ const Farms: React.FC = () => {
         </Route>
         <Route exact path={`${path}/history`}>
           <div className="row justify-content-center">
-            {fakeFarms.map((farm) => (                                  // fakeFarms need to be changed to farmsStaked
+            {farmsStaked.map((farm) => (
               <FarmCard
                 key={farm.pid}
                 farm={farm}
