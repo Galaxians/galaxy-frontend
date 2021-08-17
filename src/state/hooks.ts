@@ -128,7 +128,7 @@ export const usePriceCakeBusd = (): BigNumber => {
   const pid = 0; // GLX-BNB LP
   const bnbPriceUSD = usePriceBnbBusd();
   // window.alert(bnbPriceUSD.toNumber());
-  console.log(bnbPriceUSD.toNumber());
+  // console.log(bnbPriceUSD.toNumber());
   const farm = useFarmFromPid(pid);
   return farm.tokenPriceVsQuote
     ? bnbPriceUSD.times(farm.tokenPriceVsQuote)

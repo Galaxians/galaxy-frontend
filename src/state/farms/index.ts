@@ -49,7 +49,7 @@ export const fetchFarmUserDataAsync = (account) => async (dispatch) => {
 
   const arrayOfUserDataObjects = userFarmAllowances.map(
     (farmAllowance, index) => {
-      console.log(userFarmAllowances[index].toString());
+      // console.log(userFarmAllowances[index].toString());
       return {
         index,
         allowance: userFarmAllowances[index],
