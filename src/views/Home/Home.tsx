@@ -87,6 +87,7 @@ const Card = styled.div`
   color: white;
   padding: 20px 30px;
   width: 500px;
+  font-family: 'Mosk';
 `
 
 const BtnDiv = styled.div`

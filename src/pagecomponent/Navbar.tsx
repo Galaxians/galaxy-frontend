@@ -26,7 +26,8 @@ export const StyledLink = styled(Link)`
     z-index: 1;
   }
   >div {
-    transition: 1s;
+    transition: 0.3s;
+    background: transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
     width: 0%;
   }
   &:hover {
@@ -58,7 +59,8 @@ export const StyledA = styled.a`
     z-index: 1;
   }
   >div {
-    transition: 1s;
+    transition: 0.3s;
+    background: transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
     width: 0%;
   }
   &:hover {
@@ -146,11 +148,11 @@ export default function Navbar({toggle}) {
                   <span>POOL</span>
                  {current !== "pools" && <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />}
                 </StyledLink>
-                <StyledA href="https://galaxyprotocol.io/#/buyback" target='_blank' rel="noreferrer">
+                <StyledLink to="/launchpad" rel="noreferrer" onClick={() => setCurrent("launchpad")} style={current === "launchpad" ? {background: 'transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box'} : {}}>
                   <span>LANCHPAD</span>
-                 <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
-                </StyledA>
-              </li>
+                  {current !== "launchpad" && <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />}
+                </StyledLink>
+                </li>
             </ul>
             <span className="navbar-text actions ms-auto">
             <div>
