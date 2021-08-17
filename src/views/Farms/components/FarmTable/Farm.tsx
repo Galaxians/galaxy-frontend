@@ -55,11 +55,11 @@ const Farm: React.FunctionComponent<FarmProps> = ({ image, label, pid }) => {
         alt="icon"
         width={80}
         height={40}
-        mr="8px"
+        mr="24px"
       />
       <div>
         {handleRenderFarming()}
-        <Text>{label}</Text>
+        <Text fontSize="22px" fontWeight="500">{label}</Text>
       </div>
     </Container>
   );

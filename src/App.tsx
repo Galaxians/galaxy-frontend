@@ -67,10 +67,6 @@ const Profile = lazy(() => import("./views/Profile"));
 const Wrapper = styled.div`
   margin-top: 20px;
   margin: auto;
-
-  ${({ theme }) => theme.mediaQueries.xl} {
-    max-width: calc(100vw - 350px);
-  }
 `;
 
 // This config is required for number formating

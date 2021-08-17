@@ -64,13 +64,15 @@ const StyledCardAccent = styled.div`
 const FCard = styled.div`
   align-self: baseline;
   background: ${(props) => props.theme.card.background};
+  // background: #0B001E 0% 0% no-repeat padding-box;
+  border: 1px solid #FF1FFF;
   border-radius: 11px;
   box-shadow: 0px 2px 12px -8px rgba(25, 19, 38, 0.1),
     0px 1px 1px rgba(25, 19, 38, 0.05);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 24px;
+  padding: 24px 0px;
   position: relative;
   text-align: center;
 `;
@@ -115,7 +117,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
   // We assume the token name is coin pair + lp e.g. CAKE-BNB LP, LINK-BNB LP,
   // NAR-CAKE LP. The images should be cake-bnb.svg, link-bnb.svg, nar-cake.svg
   const farmImage = farm.lpSymbol.split(" ")[0].toLocaleLowerCase();
-  // console.log(cakePrice.toNumber());
+  console.log(cakePrice.toNumber());
   const totalValue: BigNumber = useMemo(() => {
     if (!farm.lpTotalInQuoteToken) {
       return null;
@@ -188,9 +190,9 @@ const FarmCard: React.FC<FarmCardProps> = ({
           <Flex
             justifyContent="space-between"
             alignItems="center"
-            className="mt-4"
+            className="mt-4 mx-4"
           >
-            <Text className="small pink-color">
+            <Text fontSize="14px" fontWeight="500" className="small pink-color">
               {TranslateString(736, "APR")}:
             </Text>
             <Text
@@ -213,14 +215,14 @@ const FarmCard: React.FC<FarmCardProps> = ({
             </Text>
           </Flex>
         )}
-        <Flex justifyContent="space-between">
-          <Text className="small pink-color">
+        <Flex className="mx-4" justifyContent="space-between">
+          <Text fontSize="14px" fontWeight="500" className="small pink-color">
             {TranslateString(318, "Earn")}:
           </Text>
           <Text className="small text-white">{earnLabel}</Text>
         </Flex>
 
-        <Divider />
+        <Divider style={{backgroundColor: "#ff1fff", opacity: 0.48}} />
         <ExpandableSectionButton
           onClick={() => setShowExpandableSection(!showExpandableSection)}
           expanded={showExpandableSection}

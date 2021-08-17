@@ -38,6 +38,8 @@ const Container = styled.div`
 
 const AprWrapper = styled.div`
   min-width: 60px;
+  font-size: 22px;
+  font-weight: 300;
   text-align: left;
 `;
 
@@ -63,14 +65,6 @@ const Apr: React.FC<AprProps> = ({
       {originalValue ? (
         <>
           <AprWrapper>{value}%</AprWrapper>
-          {!hideButton && (
-            <ApyButton
-              lpLabel={lpLabel}
-              cakePrice={cakePrice}
-              apy={originalValue}
-              addLiquidityUrl={addLiquidityUrl}
-            />
-          )}
         </>
       ) : (
         <AprWrapper>{TranslateString(656, "Loading...")}</AprWrapper>

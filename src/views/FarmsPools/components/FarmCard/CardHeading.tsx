@@ -29,9 +29,9 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
   tokenSymbol,
 }) => {
   return (
-    <Wrapper justifyContent="space-between" alignItems="center" mb="12px">
+    <Wrapper justifyContent="space-between" alignItems="center" mb="12px" marginX="24px" >
       <Flex flexDirection="column" alignItems="flex-start">
-        <Heading mb="4px" style={{ color: "#ffffff", marginBottom: "30px" }}>
+        <Heading mb="4px" style={{fontSize: 27, fontWeight: 800, color: "#ffffff", marginBottom: "30px" }}>
           {lpLabel}
         </Heading>
         <Flex justifyContent="center">

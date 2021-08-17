@@ -4,7 +4,8 @@
       "node": {
         "paths": ["./src"]
       }
-    }
+    },
+    "typescript": {}
   },
   "env": {
     "es6": true,

@@ -2,23 +2,20 @@ name: Deploy to Staging
 
 on:
   push:
-    branches: [staging]
+    branches:
+      - staging
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-      - name: Remove build folder
-        uses: peterkimzz/aws-ssm-send-command@v1.1.1
+      - uses: actions/checkout@v2
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
-          instance-ids: ${{ secrets.INSTANCE_ID  }}
-          working-directory: /home/ubuntu
-          command: sudo rm -rf build
       - name: Configure env file
         run: |
           echo "REACT_APP_API_PROFILE=${{ secrets.REACT_APP_API_PROFILE }}" > .env
@@ -33,11 +30,5 @@ jobs:
           cat .env
       - name: Build React App
         run: rm -rf build && rm package-lock.json -f && rm yarn.lock -f && npm i && npm run build
-      - name: Copy build folder to EC2
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          local: ./build
-          remote: /var/www/main-stage
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          privateKey: ${{ secrets.SSH_PRIVATE_KEY}}
+      - name: Deploy app build to S3 bucket
+        run: aws s3 sync ./build/ s3://stage.frontend.galaxyswap.net --delete

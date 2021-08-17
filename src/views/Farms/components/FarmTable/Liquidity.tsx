@@ -11,12 +11,12 @@ export interface LiquidityProps {
 
 const LiquidityWrapper = styled.div`
   min-width: 110px;
-  font-weight: 600;
   text-align: right;
-
   ${({ theme }) => theme.mediaQueries.sm} {
     text-align: left;
   }
+  font-size: 22px;
+  font-weight: 500;
 `;
 
 const Container = styled.div`
@@ -46,16 +46,8 @@ const Liquidity: React.FunctionComponent<LiquidityProps> = ({ liquidity }) => {
   return (
     <Container>
       <LiquidityWrapper>
-        <Text>{displayLiquidity}</Text>
+        {displayLiquidity}
       </LiquidityWrapper>
-      <Tooltip
-        content={TranslateString(
-          999,
-          "The total value of the funds in this farm’s liquidity pool"
-        )}
-      >
-        <HelpIcon color="textSubtle" />
-      </Tooltip>
     </Container>
   );
 };

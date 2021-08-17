@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  padding: 1px 0px;
   border: 2px solid #ff1fff;
   border-radius: 30px;
   svg {
@@ -27,8 +28,8 @@ const CoreButton: React.FC<CoreButtonProps> = ({
       role="button"
       onClick={() => onClick()}
     >
-      <CheckmarkCircleIcon />
-      <Text color="primary" className="px-2">
+      <CheckmarkCircleIcon width="24px" height="24px" />
+      <Text color="contrast" fontSize="14px" fontWeight="100" className="px-2">
         Core
       </Text>
     </Wrapper>
