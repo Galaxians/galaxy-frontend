@@ -117,7 +117,7 @@ const Farms: React.FC = () => {
   const TranslateString = useI18n();
   const farmsLP = useFarms();
   const cakePrice = usePriceCakeBusd();
-  console.log(cakePrice.toNumber());
+  // console.log(cakePrice.toNumber());
   const bnbPrice = usePriceBnbBusd();
   const [query, setQuery] = useState("");
   const [viewMode, setViewMode] = useState(ViewMode.CARD);

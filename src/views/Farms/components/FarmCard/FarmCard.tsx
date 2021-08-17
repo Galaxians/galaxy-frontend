@@ -115,7 +115,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
   // We assume the token name is coin pair + lp e.g. CAKE-BNB LP, LINK-BNB LP,
   // NAR-CAKE LP. The images should be cake-bnb.svg, link-bnb.svg, nar-cake.svg
   const farmImage = farm.lpSymbol.split(" ")[0].toLocaleLowerCase();
-  console.log(cakePrice.toNumber());
+  // console.log(cakePrice.toNumber());
   const totalValue: BigNumber = useMemo(() => {
     if (!farm.lpTotalInQuoteToken) {
       return null;

@@ -28,6 +28,29 @@ import GlobalCheckBullHiccupClaimStatus from "./views/Collectibles/components/Gl
 import history from "./routerHistory";
 import Sidebar from "./pagecomponent/Sidebar";
 
+
+const getWindowDimensions = () => {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+      width,
+      height,
+  };
+}
+const useWindowDimensions = () => {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useEffect(() => {
+      function handleResize() {
+          setWindowDimensions(getWindowDimensions());
+      }
+
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}
+
 // Route-based code splitting
 // Only pool is included in the main bundle because of it's the most visited page
 const Home = lazy(() => import("./views/Home"));
@@ -74,6 +97,15 @@ const App: React.FC = () => {
     setIsOpen(!isOpen);
   };
 
+  const screenWidth = useWindowDimensions().width;
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    if(screenWidth > 950) setIsMobile(false)
+    else setIsMobile(true)
+    // screenWidth > 950 ? setIsMobile(false) : setIsMobile(true)
+}, [screenWidth]);
+
 
   return (
     <Router history={history}>
@@ -81,16 +113,16 @@ const App: React.FC = () => {
       <GlobalStyle />
       <Navbar  toggle={toggle} />
       <Sidebar  isOpen={isOpen} toggle={toggle} />
-      <div className="row m-0" style={{width:'100%'}}>
-        <div className="col-auto">
+      {/* <div className="row m-0" style={{width:'100%'}}> */}
+        {/* <div className="col-auto">
           <Leftnav />
-        </div>
+        </div> */}
         <Wrapper>
           {/* <Menu> */}
           <SuspenseWithChunkError fallback={<PageLoader />}>
             <Switch>
               <Route path="/" exact>
-                <Home />
+                <Home isMobile={isMobile}/>
               </Route>
               <Route path="/farms">
                 <Farms />
@@ -105,7 +137,7 @@ const App: React.FC = () => {
             </Switch>
           </SuspenseWithChunkError>
         </Wrapper>
-      </div>
+      {/* </div> */}
       {/* </Menu> */}
       <Footer />
       <EasterEgg iterations={2} />
