@@ -40,7 +40,38 @@ export const StyledLink = styled(Link)`
 export const StyledA = styled.a`
   margin-left: 25px;
   border: 1px solid #FF1FFF;
-  width: 120px;
+  text-align: center;
+  border-radius: 10px;
+  color: gray;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  cursor: pointer;
+  height: 44px;
+  width: 146px;
+  >span {
+    font-size: 15px;
+    font-family: monospace;
+    z-index: 1;
+  }
+  >div {
+    transition: 1s;
+    width: 0%;
+  }
+  &:hover {
+    color: white !important;
+    >div {
+      background: transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
+      width: 100%;
+    }
+  }
+`
+
+const StyledButton = styled.button`
+  margin-left: 25px;
+  border: 1px solid #FF1FFF;
   text-align: center;
   border-radius: 10px;
   color: gray;
@@ -153,31 +184,32 @@ export default function Navbar({toggle}) {
               </li>
             </ul>
             <span className="navbar-text actions ms-auto">
-            <div>
-              {account ? (
-                <Button
-                className="btn text-white xrounded pink-gredient"
-                style={{marginLeft:'70px',height: '46px', width:'150px'}}
-                  onClick={() => {
-                    onPresentAccountModal()
-                  }}
-                >
-                  {accountEllipsis}
-                </Button>
-              ) : (
-                <Button
-                className="btn text-white xrounded pink-gredient"
-                style={{marginLeft:'70px',fontWeight: 800, height: '46px', width:'150px'}}
-                  onClick={() => {
-                    onPresentConnectModal()
-                  }}
-                >
-                  Connect
-                </Button>
-              )}
-            </div>
-          </span>
-          <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', width:'40px'}} />
+              <div>
+                {account ? (
+                  <Button
+                  className="btn text-white xrounded"
+                  style={{marginRight:'10px', marginLeft:'10px',  height: '46px', width:'146px'}}
+                    onClick={() => {
+                      onPresentAccountModal()
+                    }}
+                  >
+                    {accountEllipsis}
+                  </Button>
+                ) : (
+                  <StyledButton
+                  className="btn text-white xrounded "
+                  style={{marginRight:'10px', marginLeft:'10px', fontWeight: 800, height: '46px', width:'146px'}}
+                    onClick={() => {
+                      onPresentConnectModal()
+                    }}
+                  >
+                    <span>Connect</span>
+                    <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
+                  </StyledButton>
+                )}
+              </div>
+            </span>
+            <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{width:'40px'}} />
           </div>
         </div>
       </nav>

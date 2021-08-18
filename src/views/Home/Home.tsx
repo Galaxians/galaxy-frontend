@@ -86,8 +86,8 @@ const Card = styled.div`
   cursor: pointer;
   color: white;
   padding: 20px 30px;
-  width: 500px;
 `
+// width: 500px;
 
 const BtnDiv = styled.div`
   border: 1px solid #61319F;
@@ -128,12 +128,14 @@ const BtnDiv = styled.div`
     font-size: 12px;
   }
 `
+
 const StartBtnDiv = styled(BtnDiv)`
   font: normal normal normal 22px/27px Mosk;
+  width: 239px;
 `;
 
 const Wrapper = styled.div`
-  max-width: 1054px;
+  max-width: 1362px;
   margin: auto;
 `
 
@@ -154,6 +156,21 @@ const StartBtn = ({ text }) => {
     </StartBtnDiv>    
   );
 }
+
+const NormalHalfText = styled(Text)`
+  font: normal normal 300 20px/24px Mosk;
+  color: #FFFFFF;
+  width: 50%;
+`
+const NormalText = styled(Text)`
+  font: normal normal 300 20px/24px Mosk;
+  color: #FFFFFF;
+`
+
+const LargeText = styled(Text)`
+  font: normal normal 300 30px/35px Mosk;
+  color: #FFFFFF;
+`
 
 interface HomeProps {
   isMobile?: boolean;
@@ -183,34 +200,39 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
               </div>
               <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '1.5' }} />
             </Card>
-            <div style={{ display: 'flex', marginTop: '20px', width: '450px' }}>
+            {/* , width: '450px' */}
+            <div style={{ display: 'flex', marginTop: '20px' }}> 
               <div style={{ flex: 1 }}>
-                <Card style={{ flexDirection: 'column', marginRight: '5px', padding: '10px', height: '100%', width: '240px' }}>
-                  <Text style={{ fontSize: '25px', color: '#FF1FFF' }}>GLX Stats</Text>
+              {/* width: '240px' */}
+                <Card style={{ flexDirection: 'column', marginRight: '5px', padding: '10px', height: '100%' }}>
+                  <Text style={{ font: 'normal normal normal 35px/44px Mosk', color: '#FF1FFF' }}>GLX Stats</Text>
                   <div style={{ display: 'flex' }}>
-                    <Text style={{ fontSize: '14px', width: '130px' }}>Total GLX Supply</Text><Text style={{ fontSize: '14px' }}>100,000,000</Text>
+                    <NormalHalfText >Total GLX Supply</NormalHalfText><NormalHalfText >100,000,000</NormalHalfText>
                   </div>
-                  <div style={{ display: 'flex' }}>
-                    <Text style={{ fontSize: '14px', width: '130px' }}>Total GLX Burned</Text><Text style={{ fontSize: '14px' }}>0</Text>
+                  <div style={{ display: 'flex', justifyContent:'space-between' }}>
+                    <NormalHalfText >Total GLX Burned</NormalHalfText><NormalHalfText >0</NormalHalfText>
                   </div>
-                  <div style={{ display: 'flex' }}>
-                    <Text style={{ fontSize: '14px', width: '130px' }}>Total GLX/ Block</Text><Text style={{ fontSize: '14px' }}>25</Text>
+                  <div style={{ display: 'flex', justifyContent:'space-between' }}>
+                    <NormalHalfText >Total GLX/ Block</NormalHalfText><NormalHalfText >25</NormalHalfText>
                   </div>
                 </Card>
               </div>
-              <div style={{ flex: 1 }}>
-                <Card style={{ flexDirection: 'column', padding: '10px', height: '100%', width: '250px' }}>
-                  <Text style={{ fontSize: '24px', color: '#FF1FFF' }}>Total Value Locked</Text>
-                  <Text style={{ fontSize: '25px' }}>2648710.50</Text>
-                  <Text style={{ fontSize: '14px' }}>Across all LPs and Galastic Pools</Text>
+              {/* width: '250px' */}
+              <div style={{ flex: 1, justifyContent:'space-between' }}>
+                <Card style={{ flexDirection: 'column', padding: '10px', height: '100%' }}>
+                  <Text style={{ textAlign: 'center', font: 'normal normal normal 30px/38px Mosk', letterSpacing: '0px', color: '#FF1FFF' }}>Total Value Locked</Text>
+                  <div style={{ flex:1, flexDirection: 'column', justifyContent:'space-between'}}>
+                    <Text style={{ font: 'normal normal bold 40px/48px Mosk' }}>2648710.50</Text>
+                    <Text style={{ fontSize: '14px' }}>Across all LPs and Galastic Pools</Text>
+                  </div>
                 </Card>
               </div>
             </div>
             <Card style={{ justifyContent: 'space-between', marginTop: '25px' }}>
               <div style={{ display: 'flex' }}>
-                <Text style={{ fontSize: '25px' }}>Earning </Text>
-                <Text style={{ fontSize: '25px', color: '#FF1FFF', margin: '0px 10px' }}>GALAXIA</Text>
-                <Text style={{ fontSize: '25px' }}>in pools</Text>
+                <LargeText style={{ marginRight: '15px' }}>Earning </LargeText>
+                <Text style={{ textAlign: 'center', font: 'normal normal normal 35px/44px Mosk', letterSpacing: '0px', color: '#FF1FFF' }}>GALAXIA</Text>
+                <LargeText style={{ marginLeft: '15px' }}>in pools</LargeText>
               </div>
               <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '1.5' }} />
             </Card>
