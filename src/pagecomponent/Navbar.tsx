@@ -109,8 +109,8 @@ export default function Navbar({toggle}) {
               <div>
                 {account ? (
                   <Button
-                  className="btn text-white xrounded pink-gredient"
-                  style={{height: '25px', fontSize:'12px'}}
+                  className="btn text-white xrounded "
+                  style={{height: '25px', fontSize:'12px', background: 'transparent', border: '1px solid #FF1FFF'}}
                     onClick={() => {
                       onPresentAccountModal()
                     }}
@@ -119,8 +119,8 @@ export default function Navbar({toggle}) {
                   </Button>
                 ) : (
                   <Button
-                  className="btn text-white xrounded pink-gredient"
-                  style={{height: '25px', fontSize:'12px'}}
+                  className="btn text-white xrounded "
+                  style={{height: '25px', fontSize:'12px', background: 'transparent', border: '1px solid #FF1FFF'}}
                     onClick={() => {
                       onPresentConnectModal()
                     }}
@@ -158,8 +158,8 @@ export default function Navbar({toggle}) {
             <div>
               {account ? (
                 <Button
-                className="btn text-white xrounded pink-gredient"
-                style={{marginLeft:'70px',height: '46px', width:'150px'}}
+                className="btn text-white xrounded "
+                style={{marginLeft:'70px',height: '46px', width:'150px', background: 'transparent', border: '1px solid #FF1FFF'}}
                   onClick={() => {
                     onPresentAccountModal()
                   }}
@@ -168,8 +168,8 @@ export default function Navbar({toggle}) {
                 </Button>
               ) : (
                 <Button
-                className="btn text-white xrounded pink-gredient"
-                style={{marginLeft:'70px',fontWeight: 800, height: '46px', width:'150px'}}
+                className="btn text-white xrounded "
+                style={{marginLeft:'70px',fontWeight: 800, height: '46px', width:'150px', background: 'transparent', border: '1px solid #FF1FFF'}}
                   onClick={() => {
                     onPresentConnectModal()
                   }}
