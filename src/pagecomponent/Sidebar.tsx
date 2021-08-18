@@ -6,7 +6,7 @@ export const SidebarContainer = styled.aside<{ isOpen: any; }>`
   position: fixed;
   z-index: 998;
   color: white;
-  width: 60%;
+  width: 280px;
   height: 100%;
   background: transparent linear-gradient(90deg, #000000 0%, #0b001e 100%) 0% 0% no-repeat padding-box;
   cursor: pointer;
