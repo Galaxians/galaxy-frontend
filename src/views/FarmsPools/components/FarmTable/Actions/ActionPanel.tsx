@@ -4,6 +4,7 @@ import useI18n from "hooks/useI18n";
 import { LinkExternal, Text } from "glx-uikit";
 import { FarmWithStakedValue } from "views/Farms/components/FarmCard/FarmCard";
 import getLiquidityUrlPathParts from "utils/getLiquidityUrlPathParts";
+import { BASE_EXCHANGE_URL } from "config";
 import { communityFarms } from "config/constants";
 import { CommunityTag, CoreTag, DualTag } from "components/Tags";
 
@@ -133,7 +134,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
       <InfoContainer>
         <StakeContainer>
           <StyledLinkExternal
-            href={`https://exchange.galaxyswap.net//#/add/${liquidityUrlPathParts}`}
+            href={`${BASE_EXCHANGE_URL}/#/add/${liquidityUrlPathParts}`}
           >
             {TranslateString(999, `Get ${lpLabel}`, { name: lpLabel })}
           </StyledLinkExternal>

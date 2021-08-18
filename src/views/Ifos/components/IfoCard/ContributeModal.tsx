@@ -10,6 +10,7 @@ import useI18n from "hooks/useI18n";
 import ApproveConfirmButtons from "views/Profile/components/ApproveConfirmButtons";
 import useApproveConfirmTransaction from "hooks/useApproveConfirmTransaction";
 import { useERC20 } from "hooks/useContract";
+import { BASE_EXCHANGE_URL } from "config";
 
 interface Props {
   currency: string;
@@ -101,7 +102,7 @@ const ContributeModal: React.FC<Props> = ({
           onConfirm={handleConfirm}
         />
         <LinkExternal
-          href="https://exchange.galaxyswap.net//#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82"
+          href={`${BASE_EXCHANGE_URL}/#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82`}
           style={{ margin: "16px auto 0" }}
         >
           {`Get ${currency}`}
