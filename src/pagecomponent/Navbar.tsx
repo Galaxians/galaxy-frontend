@@ -137,25 +137,27 @@ export default function Navbar({toggle}) {
             <span className="navbar-text actions">
               <div>
                 {account ? (
-                  <Button
-                  className="btn text-white xrounded pink-gredient"
+                  <StyledButton
+                  className="btn text-white xrounded "
                   style={{height: '25px', fontSize:'12px'}}
                     onClick={() => {
                       onPresentAccountModal()
                     }}
                   >
-                    {accountEllipsis}
-                  </Button>
+                    <span>{accountEllipsis}</span>
+                    <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
+                  </StyledButton>
                 ) : (
-                  <Button
-                  className="btn text-white xrounded pink-gredient"
+                  <StyledButton
+                  className="btn text-white xrounded"
                   style={{height: '25px', fontSize:'12px'}}
                     onClick={() => {
                       onPresentConnectModal()
                     }}
                   >
-                    Connect
-                  </Button>
+                    <span>Connect</span>
+                    <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
+                  </StyledButton>
                 )}
               </div>
             </span>
@@ -186,15 +188,16 @@ export default function Navbar({toggle}) {
             <span className="navbar-text actions ms-auto">
               <div>
                 {account ? (
-                  <Button
+                  <StyledButton
                   className="btn text-white xrounded"
                   style={{marginRight:'10px', marginLeft:'10px',  height: '46px', width:'146px'}}
                     onClick={() => {
                       onPresentAccountModal()
                     }}
                   >
-                    {accountEllipsis}
-                  </Button>
+                    <span>{accountEllipsis}</span>
+                    <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
+                  </StyledButton>
                 ) : (
                   <StyledButton
                   className="btn text-white xrounded "
