@@ -514,3 +514,22 @@ td.farm-table:last-child { border-right: 1px solid #FF1FFF; border-top-right-rad
     display: none;
   } 
 }
+
+.footer-image {
+  width: 427px;
+}
+
+@media(max-width : 500px) {
+  .footer-image {
+    width: 250px;
+  }
+  .no-padding {
+    padding: 0px !important;
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  .footer-text {
+    font-size: 12px;
+  }
+}

@@ -19,52 +19,55 @@ export default function Navbar() {
 
   return (
 <div className="footer">
-        <div className="footer-bg p-5">
+<div className="footer-bg">
           <div className="row justify-content-center">
-            <img src="./assets/img/galaxy-footer-logo.png" style={{width: '427px'}} alt="" />            
+            <img src="./assets/img/galaxy-footer-logo.png" className="footer-image" alt="" />            
           </div>
           
           <div className="row justify-content-center mt-5">
-            <div className="col-auto">
+            <div className="col-auto  no-padding">
               <a href="https://discord.com/invite/dq7m6R7UAz" target='_blank' rel="noreferrer">
                 <img src="./assets/img/icon-1.png" alt=""/>
               </a>
             </div>
-            <div className="col-auto">
+            <div className="col-auto no-padding">
             <a href="https://t.me/GalaxyProtocolOfficialTG" target='_blank' rel="noreferrer">
               <img src="./assets/img/telegram.png" alt=""/>
             </a>
             </div>
-            <div className="col-auto">
+            <div className="col-auto no-padding">
             <a href="https://twitter.com/GalaxyProtocol" target='_blank' rel="noreferrer">
               <img src="./assets/img/twitter.png" alt=""/>
             </a>
             </div>
-            <div className="col-auto">
+            <div className="col-auto no-padding">
             <a href="https://www.facebook.com/GalaxyProtocol/" target='_blank' rel="noreferrer">
               <img src="./assets/img/facebook.png" alt=""/>
             </a>  
             </div>
-            <div className="col-auto">
+            <div className="col-auto no-padding">
             <a href="https://www.instagram.com/safegalaxytoken/?igshid=jr936k6emyet" target='_blank' rel="noreferrer">
               <img src="./assets/img/instagram.png" alt=""/>
             </a>  
             </div>
-            <div className="col-auto">
+            <div className="col-auto no-padding">
             <a href="https://www.reddit.com/r/GalaxyProtocolx/" target='_blank' rel="noreferrer">
               <img src="./assets/img/icon-6.png" alt=""/>
             </a>  
             </div>
-            <div className="col-auto">
+            <div className="col-auto no-padding">
             <a href="https://www.tiktok.com/@safegalaxytoken" target='_blank' rel="noreferrer">
               <img src="./assets/img/tiktok.png" alt=""/>
             </a>  
             </div>
           </div>
-          
 
-          <div className="row justify-content-center text-secondary mt-4">
-            &#169; 2021 GalaxySwap all rights reserved.
+
+          <div className="row justify-content-center text-secondary mt-4 footer-text">
+
+
+            
+            &#169; 2021 SafeGalaxy
           </div>
 
 
