@@ -3,6 +3,7 @@ import { Button, useWalletModal as UikitMenu } from 'glx-uikit'
 import { useHistory } from 'react-router-dom'
 import { useWeb3React } from '@web3-react/core'
 import useAuth from 'hooks/useAuth'
+import { unset } from 'lodash'
 
 export default function Navbar() {
   const { account, activate, deactivate } = useWeb3React()
@@ -18,62 +19,53 @@ export default function Navbar() {
   const history = useHistory()
 
   return (
-<div className="footer">
-<div className="footer-bg">
-          <div className="row justify-content-center">
-            <img src="./assets/img/galaxy-footer-logo.png" className="footer-image" alt="" />            
-          </div>
-          
-          <div className="row justify-content-center mt-5">
-            <div className="col-auto  no-padding">
-              <a href="https://discord.com/invite/dq7m6R7UAz" target='_blank' rel="noreferrer">
-                <img src="./assets/img/icon-1.png" alt=""/>
-              </a>
-            </div>
-            <div className="col-auto no-padding">
-            <a href="https://t.me/GalaxyProtocolOfficialTG" target='_blank' rel="noreferrer">
-              <img src="./assets/img/telegram.png" alt=""/>
-            </a>
-            </div>
-            <div className="col-auto no-padding">
-            <a href="https://twitter.com/GalaxyProtocol" target='_blank' rel="noreferrer">
-              <img src="./assets/img/twitter.png" alt=""/>
-            </a>
-            </div>
-            <div className="col-auto no-padding">
-            <a href="https://www.facebook.com/GalaxyProtocol/" target='_blank' rel="noreferrer">
-              <img src="./assets/img/facebook.png" alt=""/>
-            </a>  
-            </div>
-            <div className="col-auto no-padding">
-            <a href="https://www.instagram.com/safegalaxytoken/?igshid=jr936k6emyet" target='_blank' rel="noreferrer">
-              <img src="./assets/img/instagram.png" alt=""/>
-            </a>  
-            </div>
-            <div className="col-auto no-padding">
-            <a href="https://www.reddit.com/r/GalaxyProtocolx/" target='_blank' rel="noreferrer">
-              <img src="./assets/img/icon-6.png" alt=""/>
-            </a>  
-            </div>
-            <div className="col-auto no-padding">
-            <a href="https://www.tiktok.com/@safegalaxytoken" target='_blank' rel="noreferrer">
-              <img src="./assets/img/tiktok.png" alt=""/>
-            </a>  
-            </div>
-          </div>
-
-
-          <div className="row justify-content-center text-secondary mt-4 footer-text">
-
-
-            
-            &#169; 2021 SafeGalaxy
-          </div>
-
-
+    <div className="footer">
+      <div className="footer-bg" style={{marginTop: '150px'}}>
+        <div className="row justify-content-center">
+          <img src="./assets/img/galaxy-footer-logo.png" className="footer-image" alt="" />
         </div>
 
+        <div className="row justify-content-center mt-5">
+          <div className="col-auto  no-padding">
+            <a href="https://discord.com/invite/dq7m6R7UAz" target='_blank' rel="noreferrer">
+              <img src="./assets/img/icon-1.png" alt="" />
+            </a>
+          </div>
+          <div className="col-auto no-padding">
+            <a href="https://t.me/GalaxyProtocolOfficialTG" target='_blank' rel="noreferrer">
+              <img src="./assets/img/telegram.png" alt="" />
+            </a>
+          </div>
+          <div className="col-auto no-padding">
+            <a href="https://twitter.com/GalaxyProtocol" target='_blank' rel="noreferrer">
+              <img src="./assets/img/twitter.png" alt="" />
+            </a>
+          </div>
+          <div className="col-auto no-padding">
+            <a href="https://www.facebook.com/GalaxyProtocol/" target='_blank' rel="noreferrer">
+              <img src="./assets/img/facebook.png" alt="" />
+            </a>
+          </div>
+          <div className="col-auto no-padding">
+            <a href="https://www.instagram.com/safegalaxytoken/?igshid=jr936k6emyet" target='_blank' rel="noreferrer">
+              <img src="./assets/img/instagram.png" alt="" />
+            </a>
+          </div>
+          <div className="col-auto no-padding">
+            <a href="https://www.reddit.com/r/GalaxyProtocolx/" target='_blank' rel="noreferrer">
+              <img src="./assets/img/icon-6.png" alt="" />
+            </a>
+          </div>
+          <div className="col-auto no-padding">
+            <a href="https://www.tiktok.com/@safegalaxytoken" target='_blank' rel="noreferrer">
+              <img src="./assets/img/tiktok.png" alt="" />
+            </a>
+          </div>
+        </div>
+        <div className="row justify-content-center text-secondary mt-4 footer-text">
+          &#169; 2021 SafeGalaxy
+        </div>
+      </div>
     </div>
-
-    )
+  )
 }

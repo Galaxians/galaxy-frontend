@@ -57,8 +57,9 @@ export const Header = styled.div`
     opacity: 1;
     width: 100%;
     color: white;
-    padding: 10px;
+    padding: 12px;
     font-size: 14px;
+    font-weight: 700;
 `
 
 export const Footer = styled.div`
@@ -70,7 +71,7 @@ export const Footer = styled.div`
     opacity: 1;
     width: 100%;
     color: white;
-    padding: 10px;
+    padding: 12px;
     font-size: 12px;
 `
 export const Input = styled.input`
@@ -80,12 +81,18 @@ export const Input = styled.input`
     border-radius: 8px;
     margin-top: 5px;
     font-size: 14px;
-    padding: 4px;
+    padding: 8px 12px;
     outline: none;
     color: white;
 `
 
 export default function LaunchPadDetatil() {
+
+    const [isPair, setPair] = useState(true);
+
+    const btnclick = () => {
+        // console.log('haha'); 
+    }
 
     return (
         <DetailCard>
@@ -93,9 +100,9 @@ export default function LaunchPadDetatil() {
                 <div style={{ display: 'flex', margin: '25px 0px', padding: '5px' }}>
                     <div style={{ flex: 1, width: '50%', position: 'relative', display: 'flex' }}>
                         <img src="./assets/img/Kal-with-tongue-out.png" alt="tongue" style={{ width: '150px' }} />
-                        <div style={{ position: 'absolute', color: 'black', fontSize: '14px', right: 60, top: -40, background: 'white', borderRadius: '100%', width: '100px', height: '100px', display: 'flex', alignItems: 'center', textAlign: 'center' }}>Token Logo Here</div>
+                        <div style={{ position: 'absolute', color: 'black', fontSize: '14px', right: 60, top: -50, background: 'white', borderRadius: '100%', width: '100px', height: '100px', display: 'flex', alignItems: 'center', textAlign: 'center', fontWeight: 'bold' }}>Token Logo Here</div>
                     </div>
-                    <div style={{ flex: 1 }}>
+                    <div style={{ flex: 1, marginTop: '-20px' }}>
                         <div style={{ padding: '5px' }}>
                             Socials
                         </div>
@@ -117,16 +124,20 @@ export default function LaunchPadDetatil() {
                         Tag line of the token here
                     </Header>
                     <Footer>
-                        <div >Presale Address: 0x45ce53b1760eBFF556a2f670b0530822C5b7500A</div>
-                        <div style={{ marginTop: '15px' }}>Token Address: 0xC512261b8AE70260447A74aC7d94dAee150B90C0</div>
-                        <div style={{ marginTop: '5px', color: '#FF1FFF' }}>Do not send BNB to the token address</div>
+                        <div>
+                            <span style={{ fontWeight: 600 }}>Presale Address: </span><span style={{ fontWeight: 'lighter' }}>0x45ce53b1760eBFF556a2f670b0530822C5b7500A</span>
+                        </div>
+                        <div style={{ marginTop: '15px' }}>
+                            <span style={{ fontWeight: 600 }}>Token Address: </span><span style={{ fontWeight: 'lighter' }}>0xC512261b8AE70260447A74aC7d94dAee150B90C0</span>
+                        </div>
+                        <div style={{ marginTop: '3px', color: '#FF1FFF' }}>Do not send BNB to the token address</div>
                     </Footer>
                 </Body>
                 <Body>
                     <Header>
                         About the token
                     </Header>
-                    <Footer>
+                    <Footer style={{ fontWeight: 'lighter', lineHeight: '1.3', fontSize: '12px' ,paddingRight: '50px' }}>
                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                     </Footer>
                 </Body>
@@ -135,7 +146,7 @@ export default function LaunchPadDetatil() {
                         Token details
                     </Header>
                     <Footer>
-                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+                        <div style={{ display: 'flex', flexDirection: 'column', fontWeight: 'lighter' }}>
                             <div style={{ display: 'flex', margin: '5px 0px' }}>
                                 <div style={{ flex: 1 }}>Sale Id</div>
                                 <div style={{ flex: 1 }}>16</div>
@@ -190,54 +201,70 @@ export default function LaunchPadDetatil() {
             </div>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                 <div style={{ display: 'flex' }}>
-                    <div style={{ marginTop: '45px' }}>Raised: 50/100 BNB</div><QuestionMark style={{ marginTop: '35px' }}>?</QuestionMark>
+                    <div style={{ marginTop: '45px' }}>
+                        <span style={{ fontWeight: 800 }}>Raised</span>: 50/100 BNB
+                    </div><QuestionMark style={{ marginTop: '35px' }}>?</QuestionMark>
                 </div>
-                <div style={{ position: 'relative', background: '#3F064E', width: '100%', height: '12px', borderRadius: '10px' , marginTop: '10px'}}>
+                <div style={{ position: 'relative', background: '#3F064E', width: '100%', height: '12px', borderRadius: '10px', marginTop: '10px' }}>
                     <div style={{ position: 'absolute', top: 0, left: 0, height: '100%', width: '50%', borderRadius: '10px', background: '#FF1FFF' }} />
                 </div>
-                <div style={{marginTop: '10px'}}>
-                    Sale ends in: 00:11:23:10
+                <div style={{ marginTop: '10px' }}>
+                    <span style={{ fontWeight: 800 }}>Sale ends in</span>: 00:11:23:10
                 </div>
-                <div style={{marginTop: '30px', fontSize: '12px'}}>
+                <div style={{ marginTop: '30px', fontSize: '12px' }}>
                     Participate in this token
                 </div>
-                <Input placeholder="1BNB = 10000000000 Tokencoinname"/>
-                <div style={{marginTop: '5px', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#FF1FFF 0% 0% no-repeat padding-box', borderRadius:'8px', height: '32px', cursor: 'pointer'}}>
+                <Input placeholder="1BNB = 10000000000 Tokencoinname" />
+                <div style={{ fontWeight: 800, marginTop: '5px', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#FF1FFF 0% 0% no-repeat padding-box', borderRadius: '8px', height: '32px', cursor: 'pointer' }}>
                     BUY TOKEN
                 </div>
-                <div style={{marginTop: '20px', display: 'flex'}}>
-                    <div style={{flex: 1}}>
-                        <div style={{fontSize: '12px'}}>The amount you founded</div>
-                        <Input placeholder="1BNB"/>
+                <div style={{ marginTop: '20px', display: 'flex' }}>
+                    <div style={{ flex: 1 }}>
+                        <div style={{ fontSize: '12px' }}>The amount you founded</div>
+                        <Input placeholder="1BNB" />
                     </div>
-                    <div style={{flex: 1, marginLeft: '5px'}}>
-                        <div style={{fontSize: '12px'}}>Amount of tokens reserved</div>
-                        <Input placeholder="1000,000,000"/>
+                    <div style={{ flex: 1, marginLeft: '5px' }}>
+                        <div style={{ fontSize: '12px' }}>Amount of tokens reserved</div>
+                        <Input placeholder="1000,000,000" />
                     </div>
                 </div>
-                <div style={{marginTop: '5px', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#9A9A9A 0% 0% no-repeat padding-box', borderRadius:'8px', height: '32px', cursor: 'pointer'}}>
-                    <Btn>CLAIM TOKEN</Btn>
+                <div style={{ marginTop: '5px', display: 'flex', justifyContent: 'center', alignItems: 'center', background: '#9A9A9A 0% 0% no-repeat padding-box', borderRadius: '8px', height: '32px', cursor: 'pointer' }}>
+                    <Btn style={{ fontWeight: 800 }}>CLAIM TOKEN</Btn>
                 </div>
-                <Body style={{padding: '0px', margin: '20px 0'}}>
+                <Body style={{ padding: '0px', margin: '20px 0' }}>
                     <Header>
-                        Token locks
+                        {`{Token name}  `}Token locks
                     </Header>
-                    <Footer style={{textAlign: 'center'}}>
-                        <div style={{display: 'flex', justifyContent: 'center'}}><QuestionMark style={{width: '20px', height: '20px', margin: '0px', fontSize: '20px', color: '#40117E', background: '#FF1FFF'}}>!</QuestionMark></div>
-                        <div style={{marginTop: '5px', fontSize: '14px'}}>No token Locks for this token</div>
-                        <div style={{marginTop: '5px'}}>On GalaxySwap</div>
+                    <Footer style={{ textAlign: 'center' }}>
+                        <div style={{ display: 'flex', justifyContent: 'center' }}><QuestionMark style={{ width: '20px', height: '20px', margin: '0px', fontSize: '20px', color: '#40117E', background: '#FF1FFF', fontWeight: 900 }}>!</QuestionMark></div>
+                        <div style={{ marginTop: '5px', fontSize: '14px', fontWeight: 700 }}>No token Locks for this token</div>
+                        <div style={{ marginTop: '5px' }}>On GalaxySwap</div>
                     </Footer>
                 </Body>
-                <Footer style={{textAlign: 'center', borderRadius: '8px', border: '0.5px solid #FF1FFF'}}>
-                        <div style={{display: 'flex', justifyContent: 'center'}}><QuestionMark style={{width: '20px', height: '20px', margin: '0px', fontSize: '20px', color: '#40117E', background: '#FF1FFF'}}>!</QuestionMark></div>
-                        <div style={{marginTop: '5px', fontSize: '14px'}}>No token Locks for this token</div>
-                        <div style={{marginTop: '5px'}}>On GalaxySwap</div>
+                <Footer style={{ textAlign: 'center', borderRadius: '8px', border: '0.5px solid #FF1FFF' }}>
+                    <div style={{ display: 'flex', justifyContent: 'center' }}><QuestionMark style={{ width: '20px', height: '20px', margin: '0px', fontSize: '20px', color: '#40117E', background: '#FF1FFF', fontWeight: 900 }}>!</QuestionMark></div>
+                    <div style={{ marginTop: '5px', fontSize: '14px', fontWeight: 700 }}>No token Locks for this token</div>
+                    <div style={{ marginTop: '5px' }}>On GalaxySwap</div>
                 </Footer>
-                <Body style={{padding: '0px', margin: '20px 0'}}>
-                    <Header style={{textAlign: 'center'}}>
-                        Pairs &nbsp; &nbsp; &nbsp; &nbsp; Comments(15)
+                <Body style={{ padding: '0px', margin: '20px 0' }}>
+                    <Header style={{ textAlign: 'center', display: 'flex' }}>
+                        {isPair ? <>
+                            <div style={{ fontSize: '12px', flex: 1, textAlign: 'right', marginRight: '60px', color: '#FF1FFF' }} onClick={() => setPair(true)} onKeyDown={() => btnclick()} role='button' tabIndex={0}>
+                                Pairs
+                            </div>
+                            <div style={{ fontSize: '12px', flex: 1, textAlign: 'left' }} onClick={() => setPair(false)} onKeyDown={() => btnclick()} role='button' tabIndex={0}>
+                                Comments(15)
+                            </div></> : <>
+                            <div style={{ fontSize: '12px', flex: 1, textAlign: 'right', marginRight: '60px' }} onClick={() => setPair(true)} onKeyDown={() => btnclick()} role='button' tabIndex={0}>
+                                Pairs
+                            </div>
+                            <div style={{ fontSize: '12px', flex: 1, textAlign: 'left', color: '#FF1FFF' }} onClick={() => setPair(false)} onKeyDown={() => btnclick()} role='button' tabIndex={0}>
+                                Comments(15)
+                            </div></>}
                     </Header>
-                    <Footer style={{textAlign: 'center', height: '100px'}}/>
+                    <Footer style={{ textAlign: 'center', minHeight: '100px', padding: '0px' }}>
+                        {isPair ? <></> : <img src ="./assets/img/comments.png" alt="comment"/>}
+                    </Footer>
                 </Body>
             </div>
         </DetailCard>

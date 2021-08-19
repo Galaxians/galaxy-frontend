@@ -14,6 +14,9 @@ export const SidebarContainer = styled.aside<{ isOpen: any; }>`
   top: 0;
   left: 0;
   transition: 1s ease-in-out;
+  * {
+    font-family: 'Mosk';
+  }
   opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
   left: ${({ isOpen }) => (isOpen ? '0%' : '-100%')};
 `;
@@ -96,7 +99,7 @@ export default function Sidebar({ isOpen, toggle }) {
     return (
         <SidebarContainer isOpen={isOpen} onClick={toggle}>
             <img src="./assets/img/menu.png" alt="menu" style={{marginTop: '50px', marginLeft: '25px'}}/>
-            <div style={{ display: 'flex', alignItems: 'center', marginTop: '100px', flexDirection: 'column', height: '60%' }}>
+            <div style={{ display: 'flex', alignItems: 'center', marginTop: '100px', flexDirection: 'column', height: '50%' }}>
                 <img src="./assets/img/Icon-galaxyswap.png" alt="icon" style={{ width: '25px', marginBottom: '20px' }} />
                 <Btn text="EXCHANGE" />
                 <Btn text="FARMS" />
@@ -104,7 +107,7 @@ export default function Sidebar({ isOpen, toggle }) {
                 <Btn text="LAUNCHPAD" />
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                 <BtnImg>
                     <img src="./assets/img/Kal-with-tongue-out.png" alt="tongue" />
                     <span>Need Help?</span>

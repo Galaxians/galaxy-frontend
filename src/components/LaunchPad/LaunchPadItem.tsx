@@ -13,10 +13,13 @@ export const QuestionMark = styled(Text)`
   border: 1px solid #FF1FFF;
   width: 12px;
   height: 12px;
-  font-size: 12px;
+  font-size: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  * {
+      font-family: 'Mosk';
+  }
 `
 
 export const Btn = styled.button`
@@ -30,17 +33,23 @@ export const Btn = styled.button`
     justify-content: center;
     border: unset;
     color: white;
+    font-weight: 800;
+    * {
+        font-family: 'Mosk';
+    }
 `
 
 export const DetailCard = styled(Card)`
     cursor: pointer; 
     background: #0B001E 0% 0% no-repeat padding-box;
     border-radius: 8px;
-    height: 120px;
     width: 120px;
     display: flex;
     align-items: center;
     justify-content: center;
+    * {
+        font-family: 'Mosk';
+    }
     &:hover {
         background: #16003C 0% 0% no-repeat padding-box;
     } 
@@ -50,12 +59,15 @@ export const ContentCard = styled(Card)`
     cursor: pointer;
     background: #0B001E 0% 0% no-repeat padding-box;
     border-radius: 8px;
-    height: 120px;
     width: 800px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-right: 2px;
+    height: 120px;
+    * {
+        font-family: 'Mosk';
+    }
     &:hover {
         background: #16003C 0% 0% no-repeat padding-box;
     } 
@@ -89,6 +101,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
+        fontFamily: 'Mosk',
     },
 }));
 
@@ -121,9 +134,9 @@ export default function LaunchPadItem({ stateIndex, changeDetail }: { stateIndex
     const Modalbody = (
         <div style={modalStyle} className={classes.paper}>
             <img src="./assets/img/Kal-with-tongue-out.png" alt="tongue" style={{ width: '200px' }} />
-            <p style={{ fontSize: '32px', padding: '10px' }}>Disclaimer</p>
-            <p style={{ padding: '10px 30px' }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-            <div style={{ display: 'flex', padding: '10px 30px' }}>
+            <p style={{ fontSize: '32px', padding: '10px', fontWeight: 800 }}>Disclaimer</p>
+            <p style={{ padding: '10px 40px', fontWeight: 600, lineHeight: 'normal' }}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+            <div style={{ display: 'flex', padding: '10px 40px' }}>
                 <Checkbox
                     checked={checked}
                     onChange={handleChange}
@@ -146,8 +159,8 @@ export default function LaunchPadItem({ stateIndex, changeDetail }: { stateIndex
             {/* <div style={{ cursor: 'pointer', background: '#0B001E 0% 0% no-repeat padding-box', borderRadius: '8px', height: '120px', width: '800px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginRight: '2px' }}> */}
             <ContentCard>
                 <div style={{ width: '20%', position: 'relative', display: 'flex' }}>
-                    <img src="./assets/img/Kal-with-tongue-out.png" alt="tongue" style={{ width: '100px' }} />
-                    <div style={{ position: 'absolute', color: 'black', fontSize: '10px', right: 30, top: -20, background: 'white', borderRadius: '100%', width: '60px', height: '60px', display: 'flex', alignItems: 'center', textAlign: 'center' }}>Token Logo Here</div>
+                    <img src="./assets/img/Kal-with-tongue-out.png" alt="tongue" style={{ width: '100px', marginLeft: '10px', marginTop: '30px' }} />
+                    <div style={{ position: 'absolute', color: 'black', fontSize: '10px', right: 25, top: -5, background: 'white', borderRadius: '100%', width: '70px', height: '70px', display: 'flex', alignItems: 'center', textAlign: 'center' }}>Token Logo Here</div>
                 </div>
                 <div style={{ width: '25%', display: 'flex', flexDirection: 'column' }}>
                     <div>TKN$</div>
@@ -188,11 +201,11 @@ export default function LaunchPadItem({ stateIndex, changeDetail }: { stateIndex
                             <QuestionMark>?</QuestionMark>
                         </div>
                         <div style={{ display: 'flex' }}>
-                            <Text style={{ fontSize: '14px' }}>Sales end in: </Text>
+                            <Text style={{ fontSize: '14px', fontWeight: 700 }}>Sales end in: &nbsp;</Text>
                             <Text style={{ fontSize: '14px' }}>00:11:23:10 </Text>
                         </div>
                     </div>
-                    <div style={{ position: 'relative', background: '#3F064E', width: '100%', height: '12px', borderRadius: '10px' }}>
+                    <div style={{ position: 'relative', background: '#3F064E', width: '100%', height: '12px', borderRadius: '10px', marginTop: '5px', marginBottom: '5px' }}>
                         <div style={{ position: 'absolute', top: 0, left: 0, height: '100%', width: '50%', borderRadius: '10px', background: '#FF1FFF' }} />
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center' }}>

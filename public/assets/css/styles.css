@@ -1,3 +1,14 @@
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin:0;
+  overflow-x: hidden;
+  font-family: 'Mosk' !important;
+}
+
 .backgroun-gredient{
 background: url(../img/galaxyswap-background-3.jpg);
 background-size: cover;
@@ -516,10 +527,22 @@ td.farm-table:last-child { border-right: 1px solid #FF1FFF; border-top-right-rad
 }
 
 .footer-image {
-  width: 427px;
+  width: 323px;
 }
 
-@media(max-width : 500px) {
+.no-padding {
+  padding: 0px !important;
+  width: 40px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.footer-text {
+  font-family: 'Mosk';
+  font-size: 18px;
+}
+
+@media(max-width : 600px) {
   .footer-image {
     width: 250px;
   }

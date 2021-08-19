@@ -20,6 +20,9 @@ export const StyledLink = styled(Link)`
   cursor: pointer;
   height: 44px;
   width: 146px;
+  * {
+    font-family : 'Mosk';
+  }
   >span {
     font-size: 15px;
     font-family: monospace;
@@ -53,6 +56,9 @@ export const StyledA = styled.a`
   cursor: pointer;
   height: 44px;
   width: 146px;
+  * {
+    font-family : 'Mosk';
+  } 
   >span {
     font-size: 15px;
     font-family: monospace;
@@ -137,7 +143,7 @@ export default function Navbar({toggle}) {
             <ul className="navbar-nav" style={{flex:1, justifyContent:'center'}}>
               <li className="nav-item" style={{display:'inline-flex'}}>
                 <StyledA href="https://exchange.galaxyswap.net/" target='_blank' rel="noreferrer" >
-                  <span>Exchange</span>
+                  <span>EXCHANGE</span>
                  <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
                 </StyledA>
                 <StyledLink to="/farms" rel="noreferrer" onClick={() => setCurrent("farms")} style={current === "farms" ? {background: 'transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box'} : {}} >
@@ -159,7 +165,7 @@ export default function Navbar({toggle}) {
               {account ? (
                 <Button
                 className="btn text-white xrounded "
-                style={{marginLeft:'70px',height: '46px', width:'150px', background: 'transparent', border: '1px solid #FF1FFF'}}
+                style={{marginLeft:'70px',height: '40px', width:'140px', background: 'transparent', border: '1px solid #FF1FFF', fontFamily: 'Mosk'}}
                   onClick={() => {
                     onPresentAccountModal()
                   }}
@@ -169,7 +175,7 @@ export default function Navbar({toggle}) {
               ) : (
                 <Button
                 className="btn text-white xrounded "
-                style={{marginLeft:'70px',fontWeight: 800, height: '46px', width:'150px', background: 'transparent', border: '1px solid #FF1FFF'}}
+                style={{marginLeft:'70px',fontWeight: 800, height: '40px', width:'140px', background: 'transparent', border: '1px solid #FF1FFF', fontFamily: 'Mosk'}}
                   onClick={() => {
                     onPresentConnectModal()
                   }}
