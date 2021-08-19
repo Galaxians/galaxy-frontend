@@ -21,13 +21,17 @@ export const StyledLink = styled(Link)`
   cursor: pointer;
   height: 44px;
   width: 146px;
-  > span {
+  * {
+    font-family : 'Mosk';
+  }
+  >span {
     font-size: 15px;
     font-family: monospace;
     z-index: 1;
   }
-  > div {
-    transition: 1s;
+  >div {
+    transition: 0.3s;
+    background: transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
     width: 0%;
   }
   &:hover {
@@ -53,13 +57,17 @@ export const StyledA = styled.a`
   cursor: pointer;
   height: 44px;
   width: 146px;
+  * {
+    font-family : 'Mosk';
+  } 
   >span {
     font-size: 15px;
     font-family: monospace;
     z-index: 1;
   }
   >div {
-    transition: 1s;
+    transition: 0.3s;
+    background: transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
     width: 0%;
   }
   &:hover {
@@ -126,7 +134,7 @@ export default function Navbar({ toggle }) {
 
   return (
     <div className="container-fluid top-nav-bg">
-      <nav className="navbar navbar-dark navbar-expand-lg">
+      <nav className="navbar navbar-dark navbar-expand-lg" style={{paddingBottom: '1rem', paddingTop: '1rem'}}>
         <div className="container-fluid">
           <div style={{ display: "flex" }}>
             <button
@@ -169,9 +177,9 @@ export default function Navbar({ toggle }) {
             <span className="navbar-text actions">
               <div>
                 {account ? (
-                  <StyledButton
+                  <Button
                   className="btn text-white xrounded "
-                  style={{height: '25px', fontSize:'12px'}}
+                  style={{height: '25px', fontSize:'12px', background: 'transparent', border: '1px solid #FF1FFF'}}
                     onClick={() => {
                       onPresentAccountModal();
                     }}
@@ -180,9 +188,9 @@ export default function Navbar({ toggle }) {
                     <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
                   </StyledButton>
                 ) : (
-                  <StyledButton
-                  className="btn text-white xrounded"
-                  style={{height: '25px', fontSize:'12px'}}
+                  <Button
+                  className="btn text-white xrounded "
+                  style={{height: '25px', fontSize:'12px', background: 'transparent', border: '1px solid #FF1FFF'}}
                     onClick={() => {
                       onPresentConnectModal();
                     }}
@@ -205,27 +213,12 @@ export default function Navbar({ toggle }) {
             />
           </div>
           <div className="collapse navbar-collapse" id="navcol-1">
-            {/* <span className="pink-color small mt-2">Powered by GalaxyProtocol</span> */}
-            <ul
-              className="navbar-nav"
-              style={{ flex: 1, justifyContent: "center" }}
-            >
-              <li className="nav-item" style={{ display: "inline-flex" }}>
-                <StyledA
-                  href={BASE_EXCHANGE_URL}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <span>Exchange</span>
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      height: "100%",
-                      borderRadius: "10px",
-                    }}
-                  />
+          {/* <span className="pink-color small mt-2">Powered by GalaxyProtocol</span> */}
+            <ul className="navbar-nav" style={{flex:1, justifyContent:'center'}}>
+              <li className="nav-item" style={{display:'inline-flex'}}>
+                <StyledA href="https://exchange.galaxyswap.net/" target='_blank' rel="noreferrer" >
+                  <span>EXCHANGE</span>
+                 <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
                 </StyledA>
                 <StyledLink
                   to="/farms"
@@ -279,52 +272,38 @@ export default function Navbar({ toggle }) {
                     />
                   )}
                 </StyledLink>
-                <StyledA
-                  href="https://galaxyprotocol.io/#/buyback"
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <StyledLink to="/launchpad" rel="noreferrer" onClick={() => setCurrent("launchpad")} style={current === "launchpad" ? {background: 'transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box'} : {}}>
                   <span>LANCHPAD</span>
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      height: "100%",
-                      borderRadius: "10px",
-                    }}
-                  />
-                </StyledA>
-              </li>
+                  {current !== "launchpad" && <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />}
+                </StyledLink>
+                </li>
             </ul>
             <span className="navbar-text actions ms-auto">
-              <div>
-                {account ? (
-                  <StyledButton
-                  className="btn text-white xrounded"
-                  style={{marginRight:'10px', marginLeft:'10px',  height: '46px', width:'146px'}}
-                    onClick={() => {
-                      onPresentAccountModal()
-                    }}
-                  >
-                    <span>{accountEllipsis}</span>
-                    <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
-                  </StyledButton>
-                ) : (
-                  <StyledButton
-                  className="btn text-white xrounded "
-                  style={{marginRight:'10px', marginLeft:'10px', fontWeight: 800, height: '46px', width:'146px'}}
-                    onClick={() => {
-                      onPresentConnectModal()
-                    }}
-                  >
-                    <span>Connect</span>
-                    <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
-                  </StyledButton>
-                )}
-              </div>
-            </span>
-            <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{width:'40px'}} />
+            <div>
+              {account ? (
+                <Button
+                className="btn text-white xrounded "
+                style={{marginLeft:'70px',height: '40px', width:'140px', background: 'transparent', border: '1px solid #FF1FFF', fontFamily: 'Mosk'}}
+                  onClick={() => {
+                    onPresentAccountModal()
+                  }}
+                >
+                  {accountEllipsis}
+                </Button>
+              ) : (
+                <Button
+                className="btn text-white xrounded "
+                style={{marginLeft:'70px',fontWeight: 800, height: '40px', width:'140px', background: 'transparent', border: '1px solid #FF1FFF', fontFamily: 'Mosk'}}
+                  onClick={() => {
+                    onPresentConnectModal()
+                  }}
+                >
+                  Connect
+                </Button>
+              )}
+            </div>
+          </span>
+          <img src="./assets/img/alien-kal-avatar.png" alt="profile" style={{marginLeft:'11px', width:'40px'}} />
           </div>
         </div>
       </nav>

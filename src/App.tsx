@@ -63,6 +63,7 @@ const Collectibles = lazy(() => import("./views/Collectibles"));
 const Teams = lazy(() => import("./views/Teams"));
 const Team = lazy(() => import("./views/Teams/Team"));
 const Profile = lazy(() => import("./views/Profile"));
+const LaunchPad = lazy(() => import("./views/LaunchPad"));
 
 const Wrapper = styled.div`
   margin-top: 20px;
@@ -128,6 +129,9 @@ const App: React.FC = () => {
               </Route>
               <Route path="/ifo">
                 <Ifos />
+              </Route>
+              <Route path="/launchpad">
+                <LaunchPad />
               </Route>
               <Route component={NotFound} />
             </Switch>
