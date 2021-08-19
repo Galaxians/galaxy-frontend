@@ -556,3 +556,15 @@ td.farm-table:last-child { border-right: 1px solid #FF1FFF; border-top-right-rad
     font-size: 12px;
   }
 }
+
+.MuiSlider-rail {
+  background-color: white !important;
+}
+
+.MuiSlider-track {
+  background-color: #FF1FFF !important;
+}
+
+.MuiSlider-thumb {
+  background-color: #FF1FFF !important;
+}
