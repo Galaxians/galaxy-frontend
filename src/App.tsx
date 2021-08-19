@@ -135,6 +135,7 @@ const App: React.FC = () => {
         </Wrapper>
       {/* </div> */}
       {/* </Menu> */}
+      <div className='mobile_ghost'/>
       <Footer />
       <EasterEgg iterations={2} />
       <ToastListener />

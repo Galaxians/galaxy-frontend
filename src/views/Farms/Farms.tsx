@@ -64,12 +64,14 @@ const ToggleWrapper = styled.div`
 
 const LabelWrapper = styled.div`
   > ${Text} {
-    margin-bottom: 6px;
+    
     font-size: 14px;
   }
 `;
+// margin-bottom: 6px;
 
 const FilterContainer = styled.div`
+  margin-top: -15px;
   display: flex;
   align-items: center;
   padding: 8px 0px;
@@ -441,15 +443,15 @@ const Farms: React.FC = () => {
       <Page>
         <Wrapper>
           <div className="row mb-3 rounded" style={{  marginTop: 150, margin: "auto"}}>
-            <ControlContainer className="mb-1">
-              <ViewControls>
+            <ControlContainer>
+              <ViewControls style={{ margin: "auto", marginLeft: "0px"}}>
                 <ToggleView
                   viewMode={viewMode}
                   onToggle={(mode: ViewMode) => setViewMode(mode)}
                 />
                 <ToggleWrapper>
                   <Toggle
-                    style={{ background: "#ffffff" }}
+                    style={{ background: "#ffffff", }}
                     checked={stackedOnly}
                     onChange={() => setStackedOnly(!stackedOnly)}
                     scale="sm"
@@ -469,7 +471,7 @@ const Farms: React.FC = () => {
               </ViewControls>
               <FilterContainer>
                 <LabelWrapper>
-                  <Text color="#cecece" fontWeight="100" >SORT BY</Text>
+                  <Text className="text-white" fontWeight="100" >SORT BY</Text>
                   <Select
                     options={[
                       {
@@ -497,7 +499,7 @@ const Farms: React.FC = () => {
                   />
                 </LabelWrapper>
                 <LabelWrapper>
-                  <Text color="#cecece" fontWeight="100" >SEARCH</Text>
+                  <Text className="text-white" fontWeight="100" >SEARCH</Text>
                   <SearchInput onChange={handleChangeQuery} value={query} />
                 </LabelWrapper>
               </FilterContainer>
