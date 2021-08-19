@@ -1,14 +1,14 @@
-import React, { useContext, useState } from 'react'
-import styled from 'styled-components';
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import styled from "styled-components";
 
-export const SidebarContainer = styled.aside<{ isOpen: any; }>`
+export const SidebarContainer = styled.aside<{ isOpen: any }>`
   position: fixed;
   z-index: 998;
   color: white;
   width: 280px;
   height: 100%;
-  background: transparent linear-gradient(90deg, #000000 0%, #0b001e 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(90deg, #000000 0%, #0b001e 100%) 0% 0%
+    no-repeat padding-box;
   cursor: pointer;
   align-items: center;
   top: 0;
@@ -21,9 +21,8 @@ export const SidebarContainer = styled.aside<{ isOpen: any; }>`
   left: ${({ isOpen }) => (isOpen ? '0%' : '-100%')};
 `;
 
-
 const BtnDiv = styled.div`
-  border: 1px solid #FF1FFF;
+  border: 1px solid #ff1fff;
   border-radius: 8px;
   opacity: 1;
   width: 140px;
@@ -36,10 +35,10 @@ const BtnDiv = styled.div`
   position: relative;
   cursor: pointer;
   margin: 10px 0px;
-  >span {
+  > span {
     z-index: 1;
   }
-  >div {
+  > div {
     transition: 0.3s;
     width: 0%;
     border-radius: 8px;
@@ -47,16 +46,17 @@ const BtnDiv = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    background: transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
-
+    background: transparent linear-gradient(90deg, #ff1fff 0%, #440c8b 100%) 0%
+      0% no-repeat padding-box;
   }
   &:hover {
-    >div {
-      background: transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
+    > div {
+      background: transparent linear-gradient(90deg, #ff1fff 0%, #440c8b 100%)
+        0% 0% no-repeat padding-box;
       width: 100%;
     }
   }
-`
+`;
 
 const BtnImg = styled.div`
   position: relative;
@@ -67,33 +67,59 @@ const BtnImg = styled.div`
   border: 1px solid transparent;
   cursor: pointer;
   margin-bottom: 25px;
-  >img {
-      width: 90px;
+  > img {
+    width: 90px;
   }
-  >span {
-      position: absolute;
-      font-size: 12px;
-      right: 0px;
-      top: 10px;
+  > span {
+    position: absolute;
+    font-size: 12px;
+    right: 0px;
+    top: 10px;
   }
   &:hover {
     transition: 0.5s;
-    border: 1px solid #FF1FFF;
+    border: 1px solid #ff1fff;
     border-radius: 8px;
     background: rgb(23, 13, 41);
   }
-`
+`;
 const Btn = ({ text }) => {
-    return (
-        <BtnDiv>
-            <span>{text}</span>
-            <div />
-        </BtnDiv>
-    );
-}
-
+  return (
+    <BtnDiv>
+      <span>{text}</span>
+      <div />
+    </BtnDiv>
+  );
+};
 
 export default function Sidebar({ isOpen, toggle }) {
+  const [isTag, setIsTag] = useState(false);
+  return (
+    <SidebarContainer isOpen={isOpen} onClick={toggle}>
+      <img
+        src="./assets/img/menu.png"
+        alt="menu"
+        style={{ marginTop: "50px", marginLeft: "25px" }}
+      />
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          marginTop: "100px",
+          flexDirection: "column",
+          height: "60%",
+        }}
+      >
+        <img
+          src="./assets/img/Icon-galaxyswap.png"
+          alt="icon"
+          style={{ width: "25px", marginBottom: "20px" }}
+        />
+        <Btn text="EXCHANGE" />
+        <Btn text="FARMS" />
+        <Btn text="POOL" />
+        <Btn text="LAUNCHPAD" />
+      </div>
 
     const [isTag, setIsTag] = useState(false);
     return (

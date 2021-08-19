@@ -27,6 +27,8 @@ jobs:
           echo "REACT_APP_TREAURY_CONTRACT_ADDRESS=${{ secrets.REACT_APP_TREAURY_CONTRACT_ADDRESS }}" >> .env
           echo "SKIP_PREFLIGHT_CHECK=${{ secrets.SKIP_PREFLIGHT_CHECK }}" >> .env
           echo "REACT_APP_CHAIN_NAME=${{ secrets.REACT_APP_CHAIN_NAME }}" >> .env
+          echo "REACT_APP_GALAXY_EXCHANGE_URL=http://stage.exchange.galaxyswap.net.s3-website-us-east-1.amazonaws.com" >> .env
+          echo "REACT_APP_GALAXY_SWAP_URL=http://stage.frontend.galaxyswap.net.s3-website-us-east-1.amazonaws.com" >> .env
           cat .env
       - name: Build React App
         run: rm -rf build && rm package-lock.json -f && rm yarn.lock -f && npm i && npm run build

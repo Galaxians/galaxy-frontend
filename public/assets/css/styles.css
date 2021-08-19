@@ -16,12 +16,28 @@ background-repeat: no-repeat;
 padding: 0;
 }
 .ghost{
-  background: url(../img/Kal-artwork-giveaway-page.png);
-  /* background-size: cover; */
+  background-size: contain;
   background-repeat: no-repeat;
   background-position-x: right;
   background-position-y: -120px;
   padding: 0;
+}
+@media (min-width: 950px) {
+  .ghost{
+    background: url(../img/Kal-artwork-giveaway-page.png);
+  }
+}
+@media (max-width: 949px) {
+  .mobile_ghost{
+    height: 330px;
+    /* background-size: cover; */
+    /* background-size: auto;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background: url(../img/Kal-3D-seperate-2.png); */
+    background: url(../img/Kal-3D-seperate-2.png) no-repeat; 
+    background-size: 100%;
+  }
 }
 .setting-icon{
 background: url(../img/settings-icon.png);

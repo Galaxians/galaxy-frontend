@@ -15,8 +15,9 @@ const ContentContainer = styled.div`
   min-height: 24px;
   display: flex;
   align-items: center;
-  margin-top: 16px;
+  
 `;
+// margin-top: 16px;
 
 interface CellLayoutProps {
   label?: string;
@@ -55,7 +56,7 @@ const CellLayout: React.FC<CellLayoutProps> = ({ label = "", children }) => {
     <div style={{paddingRight: 8}}>
       {label && 
       <div className="d-flex flex-row">
-        <Label style={{marginRight: 12,fontSize: 15, fontWeight: 300}}>{label}</Label>
+        <Label style={{marginRight: 12,fontSize: 15, fontWeight: 300, marginBottom: 15}}>{label}</Label>
         {label !== "Earned" && <Tooltip
           content={contents}
         >

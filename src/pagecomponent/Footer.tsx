@@ -1,10 +1,23 @@
 import React, { useContext } from 'react'
+import styled from "styled-components";
 import { Button, useWalletModal as UikitMenu } from 'glx-uikit'
 import { useHistory } from 'react-router-dom'
 import { useWeb3React } from '@web3-react/core'
 import useAuth from 'hooks/useAuth'
 import { unset } from 'lodash'
 
+const Img = styled.img`
+  width:35px;
+  @media (max-width: 950px) {
+    width: 24px;
+  }
+`
+const LogoImg = styled.img`
+  width:427px;
+  @media (max-width: 450px) {
+    width: 70%;
+  }
+`
 export default function Navbar() {
   const { account, activate, deactivate } = useWeb3React()
   const { login, logout } = useAuth()
