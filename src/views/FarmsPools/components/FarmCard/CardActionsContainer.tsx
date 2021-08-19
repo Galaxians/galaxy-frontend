@@ -69,13 +69,13 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       />
     ) : (
       <Button
-        width="60%"
         ml="8px"
+        padding="10px 60px"
         disabled={requestedApproval}
         onClick={handleApprove}
         className="btn rounded"
       >
-        <Text fontSize="14px" fontWeight="900">{TranslateString(758, `Approve ${lpName}`)}</Text>
+        <Text fontSize="14px" fontWeight="400">{TranslateString(758, `Approve ${lpName}`)}</Text>
       </Button>
     );
   };
@@ -86,7 +86,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
     <Action>
       <Flex justifyContent="space-between" mb="3" alignItems="flex-end" >
         <Flex flexDirection="column" justifyItems="self-start" >
-          <Text fontSize="30px" fontWeight="800" textAlign="left" mb="2" color={rawEarningsBalance === 0 ? "text" : "text"}>
+          <Text fontSize="30px" fontWeight="800" textAlign="left" mb="2" className="text-white">
             {displayBalance}
           </Text>
           <Flex>
@@ -127,7 +127,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       <Flex justifyContent="center">
         {/* <HarvestAction earnings={earnings} pid={pid} /> */}
         {!account ? (
-          <UnlockButton ml="8px" width="60%" />
+          <UnlockButton padding="10px 60px" />
         ) : (
           renderApprovalOrStakeButton()
         )}

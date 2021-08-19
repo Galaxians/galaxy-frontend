@@ -16,6 +16,19 @@ const StyledInput = styled(Input)`
   @media only screen and (max-width: 620px) {
     width: 100%;
   }
+  color: white;
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: white;
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color: white;
+  }
 `;
 
 const InputWrapper = styled.div`
