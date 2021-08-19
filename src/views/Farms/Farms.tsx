@@ -451,7 +451,7 @@ const Farms: React.FC = () => {
                 />
                 <ToggleWrapper>
                   <Toggle
-                    style={{ background: "#ffffff" }}
+                    style={{ background: "#ffffff", }}
                     checked={stackedOnly}
                     onChange={() => setStackedOnly(!stackedOnly)}
                     scale="sm"

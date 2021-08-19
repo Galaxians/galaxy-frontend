@@ -7,6 +7,7 @@ import Page from "components/layout/Page";
 import Container from "components/layout/Container";
 import Hero from "./components/Hero";
 import Title from "./components/Title";
+import { BASE_EXCHANGE_URL } from "config";
 
 const Content = styled(Container)`
   display: grid;
@@ -65,7 +66,9 @@ const ComingSoon = () => {
               )}
             </Text>
             <Text mb={3}>
-              <LiquidityLink href="https://exchange.galaxyswap.net//#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82">
+              <LiquidityLink
+                href={`${BASE_EXCHANGE_URL}/#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82`}
+              >
                 {TranslateString(506, "Get CAKE-BNB LP >")}
               </LiquidityLink>
             </Text>

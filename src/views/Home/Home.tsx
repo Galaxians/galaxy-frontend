@@ -1,85 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import { Heading, Text, BaseLayout, ChevronRightIcon } from "glx-uikit";
+import { Text, BaseLayout, ChevronRightIcon } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import Page from "components/layout/Page";
-import FarmStakingCard from "views/Home/components/FarmStakingCard";
-import LotteryCard from "views/Home/components/LotteryCard";
-import CakeStats from "views/Home/components/CakeStats";
-import TotalValueLockedCard from "views/Home/components/TotalValueLockedCard";
-import EarnAPYCard from "views/Home/components/EarnAPYCard";
-import EarnAssetCard from "views/Home/components/EarnAssetCard";
-import WinCard from "views/Home/components/WinCard";
 
-// background-image: url("/images/pan-bg-mobile.svg");
-const Hero = styled.div`
-  align-items: center;
-
-  background-repeat: no-repeat;
-  background-position: top center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: auto;
-  margin-bottom: 32px;
-  // margin-top: 15px;
-  text-align: center;
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    background-position: left center, right center;
-    height: 165px;
-    padding-top: 0;
-  }
-`;
-// background-image: url("/images/new/kal-artwork-exchange.png"),
-// url("/images/new/kal-artwork-exchange.png");
-const Cards = styled(BaseLayout)`
-  align-items: stretch;
-  justify-content: stretch;
-  margin-bottom: 32px;
-
-  & > div {
-    grid-column: span 6;
-    width: 100%;
-  }
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    & > div {
-      grid-column: span 6;
-    }
-  }
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    & > div {
-      grid-column: span 6;
-    }
-  }
-`;
-
-const CTACards = styled(BaseLayout)`
-  align-items: start;
-  margin-bottom: 32px;
-
-  & > div {
-    grid-column: span 6;
-  }
-
-  ${({ theme }) => theme.mediaQueries.sm} {
-    & > div {
-      grid-column: span 8;
-    }
-  }
-
-  ${({ theme }) => theme.mediaQueries.lg} {
-    & > div {
-      grid-column: span 4;
-    }
-  }
+const HomePage = styled(Page)`
+  max-width: 1200px;
 `;
 
 const Card = styled.div`
   display: flex;
-  border: 1px solid #61319F;
+  border: 1px solid #61319f;
   border-radius: 8px;
   opacity: 1;
   background: unset;
@@ -90,7 +21,7 @@ const Card = styled.div`
 // width: 500px;
 
 const BtnDiv = styled.div`
-  border: 1px solid #61319F;
+  border: 1px solid #61319f;
   border-radius: 8px;
   opacity: 1;
   width: 200px;
@@ -102,10 +33,10 @@ const BtnDiv = styled.div`
   font-size: 16px;
   position: relative;
   cursor: pointer;
-  >span {
+  > span {
     z-index: 1;
   }
-  >div {
+  > div {
     transition: 0.3s;
     width: 0%;
     border-radius: 8px;
@@ -113,12 +44,13 @@ const BtnDiv = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    background: transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
-
+    background: transparent linear-gradient(90deg, #ff1fff 0%, #440c8b 100%) 0%
+      0% no-repeat padding-box;
   }
   &:hover {
-    >div {
-      background: transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
+    > div {
+      background: transparent linear-gradient(90deg, #ff1fff 0%, #440c8b 100%)
+        0% 0% no-repeat padding-box;
       width: 100%;
     }
   }
@@ -127,7 +59,7 @@ const BtnDiv = styled.div`
     height: 40px;
     font-size: 12px;
   }
-`
+`;
 
 const StartBtnDiv = styled(BtnDiv)`
   font: normal normal normal 22px/27px Mosk;

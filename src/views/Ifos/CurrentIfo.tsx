@@ -11,6 +11,8 @@ import {
 } from "glx-uikit";
 import { ifosConfig } from "config/constants";
 import useI18n from "hooks/useI18n";
+import { BASE_EXCHANGE_URL } from "config";
+
 import IfoCard from "./components/IfoCard";
 import Title from "./components/Title";
 import IfoCards from "./components/IfoCards";
@@ -65,13 +67,12 @@ const Ifo = () => {
             </li>
           </List>
           <Flex mb="16px">
-            <LinkExternal
-              href="https://exchange.galaxyswap.net//#/swap"
-              mr="16px"
-            >
+            <LinkExternal href={`${BASE_EXCHANGE_URL}/#/swap`} mr="16px">
               {TranslateString(1060, "Buy GLX")}
             </LinkExternal>
-            <LinkExternal href="https://exchange.galaxyswap.net//#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82">
+            <LinkExternal
+              href={`${BASE_EXCHANGE_URL}/#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82`}
+            >
               {TranslateString(1062, "Get LP tokens")}
             </LinkExternal>
           </Flex>
