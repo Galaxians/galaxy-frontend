@@ -7,7 +7,33 @@ import Page from "components/layout/Page";
 import { Btn } from "components/LaunchPad/LaunchPadItem";
 
 const HomePage = styled(Page)`
-  max-width: 1200px;
+  max-width: 1400px;
+`;
+
+const HomePageContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 150px;
+
+  @media screen and (max-width: 950px) {
+    flex-direction: column;
+    margin-top: 40px;
+  }
+`;
+
+const TitleText = styled(Text)`
+  font-size: 68px;
+  font-weight: 800;
+  line-height: 76px;
+
+  @media (max-width: 1368px) {
+    font-size: 48px;
+    line-height: 54px;
+  }
+
+  @media (max-width: 950px) {
+    font-size: 36px;
+  }
 `;
 
 const Card = styled.div`
@@ -18,25 +44,23 @@ const Card = styled.div`
   background: unset;
   cursor: pointer;
   color: white;
-  padding: 20px 30px;
-  width: 650px;
-  * {
-    font-family: 'Mosk';
+  padding: 30px 40px;
+
+  @media (max-width: 1368px) {
+    padding: 15px 20px;
   }
-`
-// width: 500px;
+`;
 
 const BtnDiv = styled(Link)`
   border: 1px solid #61319f;
   border-radius: 8px;
   opacity: 1;
-  width: 240px;
-  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 16px;
+  font-size: 22px;
+  font-weight: 800;
   position: relative;
   cursor: pointer;
   * {
@@ -54,8 +78,8 @@ const BtnDiv = styled(Link)`
     position: absolute;
     top: 0;
     left: 0;
-    background: transparent linear-gradient(282deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
-
+    background: transparent linear-gradient(282deg, #ff1fff 0%, #440c8b 100%) 0%
+      0% no-repeat padding-box;
   }
   &:hover {
     color: white;
@@ -64,10 +88,136 @@ const BtnDiv = styled(Link)`
       width: 100%;
     }
   }
+
+  @media (max-width: 1368px) {
+    font-size: 18px;
+  }
+
   @media (max-width: 950px) {
-    width: 160px;
-    height: 40px;
     font-size: 12px;
+    margin-top: 30px;
+  }
+`;
+
+const LeftSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+
+  @media screen and (max-width: 950px) {
+    padding: 24px;
+    margin-top: 0;
+  }
+`;
+
+const RightSection = styled.div`
+  width: 50%;
+  margin-left: 24px;
+
+  @media screen and (max-width: 950px) {
+    margin-left: 0px;
+    width: 100%;
+    margin-top: 70px;
+  }
+`;
+
+const RightSectionLongDivText = styled(Text)`
+  font-size: 30px;
+  font-weight: 300;
+
+  @media (max-width: 1368px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 587px) {
+    font-size: 16px;
+  }
+`;
+
+const RightSectionHighlightText = styled(Text)`
+  font-size: 35px;
+  color: #ff1fff;
+  font-weight: 900;
+
+  @media (max-width: 1368px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 587px) {
+    font-size: 20px;
+  }
+`;
+
+const RightMiddleDetailText = styled(Text)`
+  font-size: 20px;
+  font-weight: 300;
+
+  @media (max-width: 1368px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 587px) {
+    font-size: 12px;
+  }
+`;
+
+const RightMiddleDetailLabel = styled(RightMiddleDetailText)`
+  width: 55%;
+  margin-right: 12px;
+`;
+
+const TotalLockedValueTtitle = styled(Text)`
+  font-size: 30px;
+  color: #ff1fff;
+  font-weight: 900;
+
+  @media (max-width: 1368px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 587px) {
+    font-size: 20px;
+  }
+`;
+
+const TotalLockedValueText = styled(Text)`
+  font-size: 40px;
+  color: white;
+  font-weight: 700;
+
+  @media (max-width: 1368px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 587px) {
+    font-size: 20px;
+  }
+`;
+
+const RightMiddleBox = styled.div`
+  display: flex;
+  margin: 24px 0;
+
+  @media (max-width: 1368px) {
+    margin: 16px 0;
+  }
+`;
+
+const RightMiddleCard = styled(Card)`
+  flex-direction: column;
+  padding: 10px 22px;
+  height: 100%;
+
+  @media (max-width: 587px) {
+    padding: 8px 16px;
+  }
+`;
+
+const RightMiddleCardLeft = styled(RightMiddleCard)`
+  margin-right: 24px;
+
+  @media (max-width: 1368px) {
+    margin-right: 16px;
   }
 `;
 
@@ -80,17 +230,35 @@ const StartBtnDiv = styled(BtnDiv)`
 const Wrapper = styled.div`
   max-width: 1362px;
   margin: auto;
-`
+`;
+
+const Btn = ({ text }) => {
+  return (
+    <BtnDiv>
+      <span>{text}</span>
+      <div />
+    </BtnDiv>
+  );
+};
+
+const StartBtn = ({ text }) => {
+  return (
+    <StartBtnDiv>
+      <span>{text}</span>
+      <div />
+    </StartBtnDiv>
+  );
+};
 
 const NormalHalfText = styled(Text)`
   font: normal normal 300 20px/24px Mosk;
-  color: #FFFFFF;
+  color: #ffffff;
   width: 50%;
-`
+`;
 const NormalText = styled(Text)`
   font: normal normal 300 20px/24px Mosk;
-  color: #FFFFFF;
-`
+  color: #ffffff;
+`;
 
 const LargeText = styled(Text)`
   font: normal normal 300 30px/35px Mosk;
@@ -124,7 +292,7 @@ interface HomeProps {
 
 const Home: React.FC<HomeProps> = ({ isMobile }) => {
   const TranslateString = useI18n();
-
+const Home: React.FC = () => {
   return (
     <Page>
       {!isMobile ? <div style={{ display: 'flex', marginTop: '150px' }}>
@@ -163,7 +331,7 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
                 <div style={{ display: 'flex' }}>
                   <Text style={{ fontSize: '20px', width: '170px', color: 'white' }}>Total GLX/ Block</Text><Text style={{ fontSize: '20px', color: 'white' }}>25</Text>
                 </div>
-              </Card>
+              </RightMiddleCardLeft>
             </div>
             <div style={{ flex: 1 }}>
               <Card style={{ flexDirection: 'column', padding: '10px', height: '100%', width: '320px' }}>
@@ -203,7 +371,7 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
               <Text style={{ fontSize: '20px', color: '#FF1FFF', margin: '0px 10px', fontWeight: 900 }}>200% APR</Text>
               <Text style={{ fontSize: '20px', color: 'white' }}>in Farms</Text>
             </div>
-            <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '1.2' }} />
+            <ChevronRightIcon style={{ fill: "#FF1FFF", zoom: "1.2" }} />
           </Card>
           <div style={{ display: 'flex', marginTop: '20px', width: '100%' }}>
             <div style={{ flex: 1 }}>
