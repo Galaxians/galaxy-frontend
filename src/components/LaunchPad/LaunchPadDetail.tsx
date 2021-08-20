@@ -102,7 +102,7 @@ export default function LaunchPadDetatil() {
                         <img src="./assets/img/Kal-with-tongue-out.png" alt="tongue" style={{ width: '150px' }} />
                         <div style={{ position: 'absolute', color: 'black', fontSize: '14px', right: 60, top: -50, background: 'white', borderRadius: '100%', width: '100px', height: '100px', display: 'flex', alignItems: 'center', textAlign: 'center', fontWeight: 'bold' }}>Token Logo Here</div>
                     </div>
-                    <div style={{ flex: 1, marginTop: '-20px' }}>
+                    <div style={{ flex: 1, marginTop: '-40px' }}>
                         <div style={{ padding: '5px' }}>
                             Socials
                         </div>

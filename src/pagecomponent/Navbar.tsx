@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Button, useWalletModal as UikitMenu } from "glx-uikit";
 import { useHistory, Link } from "react-router-dom";
 import { useWeb3React } from "@web3-react/core";
@@ -131,6 +131,10 @@ export default function Navbar({ toggle }) {
     ? `${account.substring(0, 4)}...${account.substring(account.length - 4)}`
     : null;
   const history = useHistory();
+  
+  useEffect(() => {
+    setCurrent(history.location.pathname);
+  }, [history.location.pathname]);
 
   return (
     <div className="container-fluid top-nav-bg">
@@ -214,16 +218,38 @@ export default function Navbar({ toggle }) {
           {/* <span className="pink-color small mt-2">Powered by GalaxyProtocol</span> */}
             <ul className="navbar-nav" style={{flex:1, justifyContent:'center'}}>
               <li className="nav-item" style={{display:'inline-flex'}}>
-                <StyledA href="https://exchange.galaxyswap.net/" target='_blank' rel="noreferrer" >
+              <StyledLink
+                  to="/exchange"
+                  rel="noreferrer"
+                  onClick={() => setCurrent("/exchange")}
+                  style={
+                    current === "/exchange"
+                      ? {
+                          background:
+                            "transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box",
+                        }
+                      : {}
+                  }
+                >
                   <span>EXCHANGE</span>
-                 <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
-                </StyledA>
+                  {current !== "/exchange" && (
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        height: "100%",
+                        borderRadius: "10px",
+                      }}
+                    />
+                  )}
+                </StyledLink>
                 <StyledLink
                   to="/farms"
                   rel="noreferrer"
-                  onClick={() => setCurrent("farms")}
+                  onClick={() => setCurrent("/farms")}
                   style={
-                    current === "farms"
+                    current === "/farms"
                       ? {
                           background:
                             "transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box",
@@ -232,7 +258,7 @@ export default function Navbar({ toggle }) {
                   }
                 >
                   <span>FARMS</span>
-                  {current !== "farms" && (
+                  {current !== "/farms" && (
                     <div
                       style={{
                         position: "absolute",
@@ -247,9 +273,9 @@ export default function Navbar({ toggle }) {
                 <StyledLink
                   to="/pools"
                   rel="noreferrer"
-                  onClick={() => setCurrent("pools")}
+                  onClick={() => setCurrent("/pools")}
                   style={
-                    current === "pools"
+                    current === "/pools"
                       ? {
                           background:
                             "transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box",
@@ -258,7 +284,7 @@ export default function Navbar({ toggle }) {
                   }
                 >
                   <span>POOL</span>
-                  {current !== "pools" && (
+                  {current !== "/pools" && (
                     <div
                       style={{
                         position: "absolute",
@@ -270,9 +296,9 @@ export default function Navbar({ toggle }) {
                     />
                   )}
                 </StyledLink>
-                <StyledLink to="/launchpad" rel="noreferrer" onClick={() => setCurrent("launchpad")} style={current === "launchpad" ? {background: 'transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box'} : {}}>
+                <StyledLink to="/launchpad" rel="noreferrer" onClick={() => setCurrent("/launchpad")} style={current === "/launchpad" ? {background: 'transparent linear-gradient(90deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box'} : {}}>
                   <span>LANCHPAD</span>
-                  {current !== "launchpad" && <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />}
+                  {current !== "/launchpad" && <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />}
                 </StyledLink>
                 </li>
             </ul>

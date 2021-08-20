@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState, useEffect } from 'react'
+import React, { useContext, useMemo, useRef, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { Card, Button, ChevronDownIcon, SearchIcon, Text, ChevronLeftIcon, ChevronRightIcon } from 'glx-uikit'
 import LaunchPadItem from 'components/LaunchPad/LaunchPadItem'
@@ -170,7 +170,7 @@ display: flex;
 }
 `
 
-const ComboDiv = styled.div`
+const ComboDiv = styled.div<{ref: any}>`
   cursor :pointer;
   align-items: center;
   width: 180px; 
@@ -254,15 +254,28 @@ export default function LaunchPad() {
     </div>
   )
   
+  const handleClick = () => {
+    // console.log("test");
+  }
   const ComboTemp = ["BSC NetWork1", "BSC NetWork2", "BSC NetWork3", "BSC NetWork4", "BSC NetWork5"];
   const [showToken, setToken] = useState(ComboTemp[0]);
   const [isCombox, setCombox] = useState(false);
+  const menuRef = useRef<HTMLElement>(null);
+
+  const handleClickOutside = (e: any) => {
+    if (menuRef.current && !menuRef.current.contains(e.target))
+      setCombox(false);
+  }
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+  });
 
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       {activeIndex === 0 ? FirstPage : null}
       {activeIndex === 1 ? <><GobackCard>
-        <Card style={{ padding: '20px', cursor: 'pointer', display: 'flex' }} onClick={() => GoBack()}><ChevronLeftIcon style={{ fill: '#FF1FFF', zoom: '1.5' }} /><div style={{alignSelf: 'center'}}>Go back</div></Card>
+        <Card style={{ padding: '20px', cursor: 'pointer', display: 'flex', borderRadius: '11px' }}><Card  onClick={() => GoBack()} style={{display: 'flex'}} ><ChevronLeftIcon style={{ fill: '#FF1FFF', zoom: '1.5' }} /><div style={{alignSelf: 'center'}}>Go back</div></Card></Card>
         <div style={{ display: 'flex', padding: '0px 20px 20px 20px' }}>
           <div style={{ marginRight: '10px' }}>
             <div style={{ fontSize: '12px', padding: '5px 0px' }}>Wallet</div>
@@ -270,7 +283,7 @@ export default function LaunchPad() {
           </div>
           <div style={{ marginRight: '10px' }}>
             <div style={{ fontSize: '12px', padding: '5px 0px' }}>NetWork</div>
-            <ComboDiv onClick={() => setCombox(!isCombox)}>
+            <ComboDiv onClick={() => setCombox(!isCombox)} ref={menuRef}>
               <div>{showToken}</div> <ChevronDownIcon style={{ fill: '#FF1FFF' }} />
               {isCombox ? <ComboDetailBody>
               {ComboTemp.map(item => 

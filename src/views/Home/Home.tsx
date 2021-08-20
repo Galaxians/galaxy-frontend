@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { useHistory, Link } from "react-router-dom";
 import { Text, BaseLayout, ChevronRightIcon } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import Page from "components/layout/Page";
+import { Btn } from "components/LaunchPad/LaunchPadItem";
 
 const HomePage = styled(Page)`
   max-width: 1200px;
@@ -24,7 +26,7 @@ const Card = styled.div`
 `
 // width: 500px;
 
-const BtnDiv = styled.div`
+const BtnDiv = styled(Link)`
   border: 1px solid #61319f;
   border-radius: 8px;
   opacity: 1;
@@ -41,6 +43,7 @@ const BtnDiv = styled.div`
     font-family: 'Mosk';
   }
   >span {
+    font-weight: 800;
     z-index: 1;
   }
   > div {
@@ -55,6 +58,7 @@ const BtnDiv = styled.div`
 
   }
   &:hover {
+    color: white;
     >div {
       background: transparent linear-gradient(282deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
       width: 100%;
@@ -78,24 +82,6 @@ const Wrapper = styled.div`
   margin: auto;
 `
 
-const Btn = ({ text }) => {
-  return (
-    <BtnDiv>
-      <span>{text}</span>
-      <div />
-    </BtnDiv>    
-  );
-}
-
-const StartBtn = ({ text }) => {
-  return (
-    <StartBtnDiv>
-      <span>{text}</span>
-      <div />
-    </StartBtnDiv>    
-  );
-}
-
 const NormalHalfText = styled(Text)`
   font: normal normal 300 20px/24px Mosk;
   color: #FFFFFF;
@@ -109,6 +95,26 @@ const NormalText = styled(Text)`
 const LargeText = styled(Text)`
   font: normal normal 300 30px/35px Mosk;
   color: #FFFFFF;
+`
+
+const AnimationDiv = styled.div`.
+  transform: translateX(0px);
+  &:hover {
+    transform: translateX(15px);
+    animation-duration: 0.7s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    @keyframes slidein {
+      from {
+        transform: translate(0px, 0px);
+      }
+    
+      to {
+        transform: translate(30px, 0px);
+      }
+    }
+  }
 `
 
 interface HomeProps {
@@ -126,20 +132,26 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
           <Text style={{ fontSize: '72px',fontFamily: 'Mosk', fontWeight: 700, color: 'white' }}>Swap, Stake,</Text>
           <Text style={{ fontSize: '72px',fontFamily: 'Mosk', fontWeight: 700, color: 'white' }}>Farm or Launch.</Text>
           <div style={{ marginTop: '30px' }}>
-            <StartBtn text="START THE APP" />
+          <BtnDiv to="/exchange"  rel="noreferrer">
+            <span>START THE APP</span>
+            <div style={{position: "absolute", top: 0, left: 0, height: "100%", borderRadius: "8px"}}/>
+          </BtnDiv>
           </div>
         </div>
-        <div style={{ flex: '1', marginLeft: '-250px' }}>
-          <Card style={{ justifyContent: 'space-between' }}>
+        <div style={{ flex: '1.5'}}>
+        <a href="/farms">
+          <Card style={{ justifyContent: 'space-between'}}>
             <div style={{ display: 'flex' }}>
               <Text style={{ fontSize: '36px', color: 'white' }}>Earn up to </Text>
               <Text style={{ fontSize: '36px', color: '#FF1FFF', margin: '0px 10px', fontWeight: 900 }}>200% APR</Text>
               <Text style={{ fontSize: '36px', color: 'white' }}>in Farms</Text>
             </div>
-            <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '2' }} />
+            <AnimationDiv style={{alignSelf: 'center'}}><ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '2' }} /></AnimationDiv>
           </Card>
+          </a>
           <div style={{ display: 'flex', marginTop: '20px', width: '650px' }}>
             <div style={{ flex: 1 }}>
+
               <Card style={{ flexDirection: 'column', marginRight: '5px', padding: '10px 20px', height: '100%', width: '320px' }}>
                 <Text style={{ fontSize: '36px', color: '#FF1FFF', fontWeight: 900 }}>GLX Stats</Text>
                 <div style={{ display: 'flex' }}>
@@ -161,14 +173,16 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
               </Card>
             </div>
           </div>
+          <a href="/pools">
           <Card style={{ justifyContent: 'space-between', marginTop: '25px' }}>
             <div style={{ display: 'flex' }}>
               <Text style={{ fontSize: '36px', color: 'white' }}>Earning </Text>
               <Text style={{ fontSize: '36px', color: '#FF1FFF', margin: '0px 10px', fontWeight: 900 }}>GALAXIA</Text>
               <Text style={{ fontSize: '36px', color: 'white' }}>in pools</Text>
             </div>
-            <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '2' }} />
+            <AnimationDiv style={{alignSelf: 'center'}}><ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '2' }} /></AnimationDiv>
           </Card>
+          </a>
         </div>
       </div> :  <div style={{ marginTop: '50px', flexDirection: 'column' }}>
         <div style={{marginLeft: '25px'}}>
@@ -176,7 +190,10 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
         <Text style={{ fontSize: '35px', fontWeight: 800, color: 'white'}}>Farm or Launch.</Text>
 
         <div style={{ marginTop: '30px', marginBottom: '100px' }}>
-          <Btn text="START THE APP" />
+          <BtnDiv to="/exchange"  rel="noreferrer">
+            <span>START THE APP</span>
+            <div style={{position: "absolute", top: 0, left: 0, height: "100%", borderRadius: "8px"}}/>
+          </BtnDiv>
         </div>
         </div>
 
