@@ -5,7 +5,6 @@ import BigNumber from "bignumber.js";
 import styled from "styled-components";
 import useEagerConnect from "hooks/useEagerConnect";
 
-import Navbar from "pagecomponent/Navbar";
 // @ts-ignore
 import Leftnav from "pagecomponent/Leftnav";
 // @ts-ignore
@@ -16,6 +15,7 @@ import {
   useFetchProfile,
   useFetchPublicData,
 } from "state/hooks";
+import Navbar from "./pagecomponent/Navbar";
 import useGetDocumentTitlePrice from "./hooks/useGetDocumentTitlePrice";
 import GlobalStyle from "./style/Global";
 import Menu from "./components/Menu";

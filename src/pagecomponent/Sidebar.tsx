@@ -93,35 +93,6 @@ const Btn = ({ text }) => {
 };
 
 export default function Sidebar({ isOpen, toggle }) {
-  const [isTag, setIsTag] = useState(false);
-  return (
-    <SidebarContainer isOpen={isOpen} onClick={toggle}>
-      <img
-        src="./assets/img/menu.png"
-        alt="menu"
-        style={{ marginTop: "50px", marginLeft: "25px" }}
-      />
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          marginTop: "100px",
-          flexDirection: "column",
-          height: "60%",
-        }}
-      >
-        <img
-          src="./assets/img/Icon-galaxyswap.png"
-          alt="icon"
-          style={{ width: "25px", marginBottom: "20px" }}
-        />
-        <Btn text="EXCHANGE" />
-        <Btn text="FARMS" />
-        <Btn text="POOL" />
-        <Btn text="LAUNCHPAD" />
-      </div>
-
-    const [isTag, setIsTag] = useState(false);
     return (
         <SidebarContainer isOpen={isOpen} onClick={toggle}>
             <img src="./assets/img/menu.png" alt="menu" style={{marginTop: '50px', marginLeft: '25px'}}/>
