@@ -4,6 +4,7 @@ import { Card, Button, ChevronDownIcon, SearchIcon, Text, ChevronLeftIcon, Chevr
 import LaunchPadItem from 'components/LaunchPad/LaunchPadItem'
 import LaunchPadDetail from 'components/LaunchPad/LaunchPadDetail'
 import DeveloperPad from 'components/LaunchPad/DeveloperPad'
+import { setupNetwork } from 'utils/wallet'
 
 const getWindowDimensions = () => {
   const { innerWidth: width, innerHeight: height } = window;
@@ -88,6 +89,7 @@ export const GobackCard = styled(Card)`
   opacity: 1;
   display: flex;
   flex-direction: column;
+  overflow: visible;
   justify-content: space-between;
     * {
     font-family: 'Mosk';
@@ -167,6 +169,44 @@ display: flex;
 
 }
 `
+
+const ComboDiv = styled.div`
+  cursor :pointer;
+  align-items: center;
+  width: 180px; 
+  height: 32px; 
+  padding: 5px 10px; 
+  border: 1px solid #27262C; 
+  border-radius: 4px;
+  display: flex; 
+  justify-content: space-between;
+  position: relative;
+`
+
+const ComboDetailBody = styled.div`
+  z-index: 1;
+  position: absolute;
+  width: 180px;
+  top: 35px;
+  left: 0px;
+  padding: 5px 10px;
+  border: 1px solid #27262C; 
+  background: rgb(11, 0, 30);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+`
+
+const ComboDetailCard = styled.div`
+  background: transparent;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  transition: 0.3s;
+  &:hover {
+    background: rgb(22, 0, 60);
+  }
+`
 export default function LaunchPad() {
 
   const [activeIndex, changeIndex] = useState(0);
@@ -213,6 +253,10 @@ export default function LaunchPad() {
       </MobileDeveloperCard>
     </div>
   )
+  
+  const ComboTemp = ["BSC NetWork1", "BSC NetWork2", "BSC NetWork3", "BSC NetWork4", "BSC NetWork5"];
+  const [showToken, setToken] = useState(ComboTemp[0]);
+  const [isCombox, setCombox] = useState(false);
 
   return (
     <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -226,9 +270,14 @@ export default function LaunchPad() {
           </div>
           <div style={{ marginRight: '10px' }}>
             <div style={{ fontSize: '12px', padding: '5px 0px' }}>NetWork</div>
-            <div style={{ alignItems: 'center', width: '180px', height: '32px', padding: '5px 10px', border: '1px solid #27262C', borderRadius: '4px', display: 'flex', justifyContent: 'space-between' }}>
-              <div>BSC Network</div> <ChevronDownIcon style={{ fill: '#FF1FFF' }} />
-            </div>
+            <ComboDiv onClick={() => setCombox(!isCombox)}>
+              <div>{showToken}</div> <ChevronDownIcon style={{ fill: '#FF1FFF' }} />
+              {isCombox ? <ComboDetailBody>
+              {ComboTemp.map(item => 
+                <ComboDetailCard onClick={()=>setToken(item)}>{item}</ComboDetailCard>
+              )}
+              </ComboDetailBody>: null}
+            </ComboDiv>
           </div>
           <div style={{ marginRight: '10px' }}>
             <div style={{ fontSize: '12px', padding: '5px 0px' }}>BNB Balance</div>

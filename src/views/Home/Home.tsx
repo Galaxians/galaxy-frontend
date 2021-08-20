@@ -132,9 +132,9 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
         <div style={{ flex: '1', marginLeft: '-250px' }}>
           <Card style={{ justifyContent: 'space-between' }}>
             <div style={{ display: 'flex' }}>
-              <Text style={{ fontSize: '36px' }}>Earn up to </Text>
+              <Text style={{ fontSize: '36px', color: 'white' }}>Earn up to </Text>
               <Text style={{ fontSize: '36px', color: '#FF1FFF', margin: '0px 10px', fontWeight: 900 }}>200% APR</Text>
-              <Text style={{ fontSize: '36px' }}>in Farms</Text>
+              <Text style={{ fontSize: '36px', color: 'white' }}>in Farms</Text>
             </div>
             <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '2' }} />
           </Card>
@@ -143,29 +143,29 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
               <Card style={{ flexDirection: 'column', marginRight: '5px', padding: '10px 20px', height: '100%', width: '320px' }}>
                 <Text style={{ fontSize: '36px', color: '#FF1FFF', fontWeight: 900 }}>GLX Stats</Text>
                 <div style={{ display: 'flex' }}>
-                  <Text style={{ fontSize: '20px', width: '170px' }}>Total GLX Supply</Text><Text style={{ fontSize: '20px' }}>100,000,000</Text>
+                  <Text style={{ fontSize: '20px', width: '170px', color: 'white' }}>Total GLX Supply</Text><Text style={{ fontSize: '20px', color: 'white' }}>100,000,000</Text>
                 </div>
                 <div style={{ display: 'flex' }}>
-                  <Text style={{ fontSize: '20px', width: '170px' }}>Total GLX Burned</Text><Text style={{ fontSize: '20px' }}>0</Text>
+                  <Text style={{ fontSize: '20px', width: '170px', color: 'white' }}>Total GLX Burned</Text><Text style={{ fontSize: '20px', color: 'white' }}>0</Text>
                 </div>
                 <div style={{ display: 'flex' }}>
-                  <Text style={{ fontSize: '20px', width: '170px' }}>Total GLX/ Block</Text><Text style={{ fontSize: '20px' }}>25</Text>
+                  <Text style={{ fontSize: '20px', width: '170px', color: 'white' }}>Total GLX/ Block</Text><Text style={{ fontSize: '20px', color: 'white' }}>25</Text>
                 </div>
               </Card>
             </div>
             <div style={{ flex: 1 }}>
               <Card style={{ flexDirection: 'column', padding: '10px', height: '100%', width: '320px' }}>
                 <Text style={{ fontSize: '32px', color: '#FF1FFF', fontWeight: 800 }}>Total Value Locked</Text>
-                <Text style={{ fontSize: '40px', fontWeight: 700 }}>2648710.50</Text>
-                <Text style={{ fontSize: '20px' }}>Across all LPs and Galastic Pools</Text>
+                <Text style={{ fontSize: '40px', fontWeight: 700, color: 'white' }}>2648710.50</Text>
+                <Text style={{ fontSize: '20px', color: 'white' }}>Across all LPs and Galastic Pools</Text>
               </Card>
             </div>
           </div>
           <Card style={{ justifyContent: 'space-between', marginTop: '25px' }}>
             <div style={{ display: 'flex' }}>
-              <Text style={{ fontSize: '36px' }}>Earning </Text>
+              <Text style={{ fontSize: '36px', color: 'white' }}>Earning </Text>
               <Text style={{ fontSize: '36px', color: '#FF1FFF', margin: '0px 10px', fontWeight: 900 }}>GALAXIA</Text>
-              <Text style={{ fontSize: '36px' }}>in pools</Text>
+              <Text style={{ fontSize: '36px', color: 'white' }}>in pools</Text>
             </div>
             <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '2' }} />
           </Card>
@@ -182,9 +182,9 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
 
         <Card style={{ justifyContent: 'space-between', padding: '10px 25px', width: '100%' }}>
             <div style={{ display: 'flex' }}>
-              <Text style={{ fontSize: '20px' }}>Earn up to </Text>
+              <Text style={{ fontSize: '20px', color: 'white' }}>Earn up to </Text>
               <Text style={{ fontSize: '20px', color: '#FF1FFF', margin: '0px 10px', fontWeight: 900 }}>200% APR</Text>
-              <Text style={{ fontSize: '20px' }}>in Farms</Text>
+              <Text style={{ fontSize: '20px', color: 'white' }}>in Farms</Text>
             </div>
             <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '1.2' }} />
           </Card>
@@ -193,30 +193,30 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
               <Card style={{ flexDirection: 'column', marginRight: '5px', padding: '5px 15px', height: '100%', width: '95%'}}>
                 <Text style={{ fontSize: '20px', color: '#FF1FFF', fontWeight: 900 }}>GLX Stats</Text>
                 <div style={{ display: 'flex' }}>
-                  <Text style={{ fontSize: '12px', width: '60%' }}>Total GLX Supply</Text><Text style={{ fontSize: '12px' }}>100,000,000</Text>
+                  <Text style={{ fontSize: '12px', width: '60%', color: 'white' }}>Total GLX Supply</Text><Text style={{ fontSize: '12px', color: 'white' }}>100,000,000</Text>
                 </div>
                 <div style={{ display: 'flex' }}>
-                  <Text style={{ fontSize: '12px', width: '60%' }}>Total GLX Burned</Text><Text style={{ fontSize: '12px' }}>0</Text>
+                  <Text style={{ fontSize: '12px', width: '60%', color: 'white' }}>Total GLX Burned</Text><Text style={{ fontSize: '12px', color: 'white' }}>0</Text>
                 </div>
                 <div style={{ display: 'flex' }}>
-                  <Text style={{ fontSize: '12px', width: '60%' }}>Total GLX/ Block</Text><Text style={{ fontSize: '12px' }}>25</Text>
+                  <Text style={{ fontSize: '12px', width: '60%', color: 'white' }}>Total GLX/ Block</Text><Text style={{ fontSize: '12px', color: 'white' }}>25</Text>
                 </div>
               </Card>
             </div>
             <div style={{ flex: 1 }}>
               <Card style={{ flexDirection: 'column', padding: '5px 15px', height: '100%', width: '100%' }}>
                 <Text style={{ fontSize: '18px', color: '#FF1FFF', fontWeight: 800 }}>Total Value Locked</Text>
-                <Text style={{ fontSize: '22px', fontWeight: 800 }}>2648710.50</Text>
-                <Text style={{ fontSize: '12px' }}>Across all LPs and Galastic Pools</Text>
+                <Text style={{ fontSize: '22px', fontWeight: 800, color: 'white' }}>2648710.50</Text>
+                <Text style={{ fontSize: '12px', color: 'white' }}>Across all LPs and Galastic Pools</Text>
               </Card>
             </div>
             
           </div>
           <Card style={{ justifyContent: 'space-between', padding: '10px 25px', marginTop: '25px', width: '100%' }}>
               <div style={{ display: 'flex' }}>
-                <Text style={{ fontSize: '20px' }}>Earning </Text>
+                <Text style={{ fontSize: '20px', color: 'white' }}>Earning </Text>
                 <Text style={{ fontSize: '20px', color: '#FF1FFF', margin: '0px 10px', fontWeight: 900 }}>GALAXIA</Text>
-                <Text style={{ fontSize: '20px' }}>in Pools</Text>
+                <Text style={{ fontSize: '20px', color: 'white' }}>in Pools</Text>
               </div>
               <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '1.2' }} />
             </Card>
