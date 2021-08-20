@@ -94,7 +94,7 @@ export default function Navbar({toggle}) {
 
   return (
     <div className="container-fluid top-nav-bg">
-      <nav className="navbar navbar-dark navbar-expand-lg">
+      <nav className="navbar navbar-dark navbar-expand-lg" style={{paddingBottom: '1rem', paddingTop: '1rem'}}>
         <div className="container-fluid">
           <div style={{display:"flex"}}>
           <button type="submit" data-bs-toggle="collapse" className="navbar-toggler" data-bs-target="/navcol-1" style={{marginTop:'0px', marginLeft:'-15px' ,alignSelf: 'center', border: 'unset'}} onClick={toggle}>
