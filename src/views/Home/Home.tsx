@@ -169,14 +169,16 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
             <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '2' }} />
           </Card>
         </div>
-      </div> : <div style={{ marginTop: '50px', flexDirection: 'column' }}>
+      </div> :  <div style={{ marginTop: '50px', flexDirection: 'column' }}>
         <div style={{marginLeft: '25px'}}>
         <Text style={{ fontSize: '35px', fontWeight: 800 }}>Swap, Stake,</Text>
         <Text style={{ fontSize: '35px', fontWeight: 800 }}>Farm or Launch.</Text>
+
         <div style={{ marginTop: '30px', marginBottom: '100px' }}>
           <Btn text="START THE APP" />
         </div>
         </div>
+
         <Card style={{ justifyContent: 'space-between', padding: '10px 15px', width: '100%' }}>
             <div style={{ display: 'flex' }}>
               <Text style={{ fontSize: '15px' }}>Earn up to </Text>
@@ -207,31 +209,17 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
                 <Text style={{ fontSize: '10px' }}>Across all LPs and Galastic Pools</Text>
               </Card>
             </div>
-            <Card style={{ justifyContent: 'space-between', marginTop: '25px' }}>
+            
+          </div>
+          <Card style={{ justifyContent: 'space-between', padding: '10px 15px', marginTop: '25px', width: '100%' }}>
               <div style={{ display: 'flex' }}>
-                <LargeText style={{ marginRight: '15px' }}>Earning </LargeText>
-                <Text style={{ textAlign: 'center', font: 'normal normal normal 35px/44px Mosk', letterSpacing: '0px', color: '#FF1FFF' }}>GALAXIA</Text>
-                <LargeText style={{ marginLeft: '15px' }}>in pools</LargeText>
+                <Text style={{ fontSize: '15px' }}>Earning </Text>
+                <Text style={{ fontSize: '15px', color: '#FF1FFF', margin: '0px 10px', fontWeight: 900 }}>GALAXIA</Text>
+                <Text style={{ fontSize: '15px' }}>in Pools</Text>
               </div>
-              <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '1.5' }} />
+              <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '1.2' }} />
             </Card>
-          </div>
-        </div> : <div style={{ marginTop: '50px', flexDirection: 'column' }}>
-          <div style={{marginLeft: '25px'}}>
-          <Text style={{ fontSize: '35px' }}>Swap, Stake,</Text>
-          <Text style={{ fontSize: '35px' }}>Farm or Launch.</Text>
-          <div style={{ marginTop: '10px', marginBottom: '100px' }}>
-            <StartBtn text="START THE APP" />
-          </div>
-          <Card style={{ justifyContent: 'space-between', marginTop: '25px' , width: '100%', padding: '10px 15px'}}>
-            <div style={{ display: 'flex' }}>
-              <Text style={{ fontSize: '15px' }}>Earning </Text>
-              <Text style={{ fontSize: '15px', color: '#FF1FFF', margin: '0px 10px', fontWeight: 900 }}>GALAXIA</Text>
-              <Text style={{ fontSize: '15px' }}>in pools</Text>
-            </div>
-            <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '1.2' }} />
-          </Card>
-      </div>
+        </div>
       }
     </Page>
   );

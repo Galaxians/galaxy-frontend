@@ -176,28 +176,26 @@ export default function Navbar({ toggle }) {
           <div className="nav-btn-show">
             <span className="navbar-text actions">
               <div>
-                {account ? (
+              {account ? (
                   <Button
                   className="btn text-white xrounded "
                   style={{height: '25px', fontSize:'12px', background: 'transparent', border: '1px solid #FF1FFF'}}
                     onClick={() => {
-                      onPresentAccountModal();
+                      onPresentAccountModal()
                     }}
                   >
-                    <span>{accountEllipsis}</span>
-                    <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
-                  </StyledButton>
+                    {accountEllipsis}
+                  </Button>
                 ) : (
                   <Button
                   className="btn text-white xrounded "
                   style={{height: '25px', fontSize:'12px', background: 'transparent', border: '1px solid #FF1FFF'}}
                     onClick={() => {
-                      onPresentConnectModal();
+                      onPresentConnectModal()
                     }}
                   >
-                    <span>Connect</span>
-                    <div style={{position:'absolute',top:0,left:0,height:'100%', borderRadius: '10px'}} />
-                  </StyledButton>
+                    Connect
+                  </Button>
                 )}
               </div>
             </span>
