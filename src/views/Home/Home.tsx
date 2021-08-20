@@ -1,11 +1,36 @@
 import React from "react";
 import styled from "styled-components";
-import { Text, BaseLayout, ChevronRightIcon } from "glx-uikit";
-import useI18n from "hooks/useI18n";
+import { Text, ChevronRightIcon } from "glx-uikit";
 import Page from "components/layout/Page";
 
 const HomePage = styled(Page)`
-  max-width: 1200px;
+  max-width: 1400px;
+`;
+
+const HomePageContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 150px;
+
+  @media screen and (max-width: 950px) {
+    flex-direction: column;
+    margin-top: 40px;
+  }
+`;
+
+const TitleText = styled(Text)`
+  font-size: 68px;
+  font-weight: 800;
+  line-height: 76px;
+
+  @media (max-width: 1368px) {
+    font-size: 48px;
+    line-height: 54px;
+  }
+
+  @media (max-width: 950px) {
+    font-size: 36px;
+  }
 `;
 
 const Card = styled.div`
@@ -16,31 +41,29 @@ const Card = styled.div`
   background: unset;
   cursor: pointer;
   color: white;
-  padding: 20px 30px;
-  width: 650px;
-  * {
-    font-family: 'Mosk';
+  padding: 30px 40px;
+
+  @media (max-width: 1368px) {
+    padding: 15px 20px;
   }
-`
-// width: 500px;
+`;
 
 const BtnDiv = styled.div`
   border: 1px solid #61319f;
   border-radius: 8px;
   opacity: 1;
-  width: 240px;
-  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 16px;
+  font-size: 22px;
+  font-weight: 800;
   position: relative;
   cursor: pointer;
-  * {
-    font-family: 'Mosk';
-  }
-  >span {
+  margin-top: 48px;
+  padding: 18px 38px;
+
+  > span {
     z-index: 1;
   }
   > div {
@@ -51,19 +74,146 @@ const BtnDiv = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    background: transparent linear-gradient(282deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
-
+    background: transparent linear-gradient(282deg, #ff1fff 0%, #440c8b 100%) 0%
+      0% no-repeat padding-box;
   }
   &:hover {
-    >div {
-      background: transparent linear-gradient(282deg, #FF1FFF 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
+    > div {
+      background: transparent linear-gradient(282deg, #ff1fff 0%, #440c8b 100%)
+        0% 0% no-repeat padding-box;
       width: 100%;
     }
   }
+
+  @media (max-width: 1368px) {
+    font-size: 18px;
+  }
+
   @media (max-width: 950px) {
-    width: 160px;
-    height: 40px;
     font-size: 12px;
+    margin-top: 30px;
+  }
+`;
+
+const LeftSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+
+  @media screen and (max-width: 950px) {
+    padding: 24px;
+    margin-top: 0;
+  }
+`;
+
+const RightSection = styled.div`
+  width: 50%;
+  margin-left: 24px;
+
+  @media screen and (max-width: 950px) {
+    margin-left: 0px;
+    width: 100%;
+    margin-top: 70px;
+  }
+`;
+
+const RightSectionLongDivText = styled(Text)`
+  font-size: 30px;
+  font-weight: 300;
+
+  @media (max-width: 1368px) {
+    font-size: 22px;
+  }
+
+  @media (max-width: 587px) {
+    font-size: 16px;
+  }
+`;
+
+const RightSectionHighlightText = styled(Text)`
+  font-size: 35px;
+  color: #ff1fff;
+  font-weight: 900;
+
+  @media (max-width: 1368px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 587px) {
+    font-size: 20px;
+  }
+`;
+
+const RightMiddleDetailText = styled(Text)`
+  font-size: 20px;
+  font-weight: 300;
+
+  @media (max-width: 1368px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 587px) {
+    font-size: 12px;
+  }
+`;
+
+const RightMiddleDetailLabel = styled(RightMiddleDetailText)`
+  width: 55%;
+  margin-right: 12px;
+`;
+
+const TotalLockedValueTtitle = styled(Text)`
+  font-size: 30px;
+  color: #ff1fff;
+  font-weight: 900;
+
+  @media (max-width: 1368px) {
+    font-size: 24px;
+  }
+
+  @media (max-width: 587px) {
+    font-size: 20px;
+  }
+`;
+
+const TotalLockedValueText = styled(Text)`
+  font-size: 40px;
+  color: white;
+  font-weight: 700;
+
+  @media (max-width: 1368px) {
+    font-size: 30px;
+  }
+
+  @media (max-width: 587px) {
+    font-size: 20px;
+  }
+`;
+
+const RightMiddleBox = styled.div`
+  display: flex;
+  margin: 24px 0;
+
+  @media (max-width: 1368px) {
+    margin: 16px 0;
+  }
+`;
+
+const RightMiddleCard = styled(Card)`
+  flex-direction: column;
+  padding: 10px 22px;
+  height: 100%;
+
+  @media (max-width: 587px) {
+    padding: 8px 16px;
+  }
+`;
+
+const RightMiddleCardLeft = styled(RightMiddleCard)`
+  margin-right: 24px;
+
+  @media (max-width: 1368px) {
+    margin-right: 16px;
   }
 `;
 
@@ -76,153 +226,116 @@ const StartBtnDiv = styled(BtnDiv)`
 const Wrapper = styled.div`
   max-width: 1362px;
   margin: auto;
-`
+`;
 
 const Btn = ({ text }) => {
   return (
     <BtnDiv>
       <span>{text}</span>
       <div />
-    </BtnDiv>    
+    </BtnDiv>
   );
-}
+};
 
 const StartBtn = ({ text }) => {
   return (
     <StartBtnDiv>
       <span>{text}</span>
       <div />
-    </StartBtnDiv>    
+    </StartBtnDiv>
   );
-}
+};
 
 const NormalHalfText = styled(Text)`
   font: normal normal 300 20px/24px Mosk;
-  color: #FFFFFF;
+  color: #ffffff;
   width: 50%;
-`
+`;
 const NormalText = styled(Text)`
   font: normal normal 300 20px/24px Mosk;
-  color: #FFFFFF;
-`
+  color: #ffffff;
+`;
 
 const LargeText = styled(Text)`
   font: normal normal 300 30px/35px Mosk;
-  color: #FFFFFF;
-`
+  color: #ffffff;
+`;
 
-interface HomeProps {
-  isMobile?: boolean;
-}
-
-
-const Home: React.FC<HomeProps> = ({ isMobile }) => {
-  const TranslateString = useI18n();
-
+const Home: React.FC = () => {
   return (
-    <Page>
-      {!isMobile ? <div style={{ display: 'flex', marginTop: '150px' }}>
-        <div style={{ flex: '1', display: 'flex', flexDirection: 'column', marginTop: '50px', paddingLeft: '200px' }}>
-          <Text style={{ fontSize: '72px',fontFamily: 'Mosk', fontWeight: 700, color: 'white' }}>Swap, Stake,</Text>
-          <Text style={{ fontSize: '72px',fontFamily: 'Mosk', fontWeight: 700, color: 'white' }}>Farm or Launch.</Text>
-          <div style={{ marginTop: '30px' }}>
-            <StartBtn text="START THE APP" />
+    <HomePage>
+      <HomePageContent>
+        <LeftSection>
+          <TitleText>Swap, Stake,</TitleText>
+          <TitleText>Farm or Launch.</TitleText>
+          <div style={{ display: "flex" }}>
+            <Btn text="START THE APP" />
           </div>
-        </div>
-        <div style={{ flex: '1', marginLeft: '-250px' }}>
-          <Card style={{ justifyContent: 'space-between' }}>
-            <div style={{ display: 'flex' }}>
-              <Text style={{ fontSize: '36px' }}>Earn up to </Text>
-              <Text style={{ fontSize: '36px', color: '#FF1FFF', margin: '0px 10px', fontWeight: 900 }}>200% APR</Text>
-              <Text style={{ fontSize: '36px' }}>in Farms</Text>
+        </LeftSection>
+        <RightSection>
+          <Card style={{ justifyContent: "space-between" }}>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <RightSectionLongDivText>Earn up to</RightSectionLongDivText>
+              <RightSectionHighlightText style={{ margin: "0 10px" }}>
+                200% APR
+              </RightSectionHighlightText>
+              <RightSectionLongDivText>in Farms</RightSectionLongDivText>
             </div>
-            <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '2' }} />
+            <ChevronRightIcon style={{ fill: "#FF1FFF", zoom: "1.5" }} />
           </Card>
-          <div style={{ display: 'flex', marginTop: '20px', width: '650px' }}>
+          <RightMiddleBox>
             <div style={{ flex: 1 }}>
-              <Card style={{ flexDirection: 'column', marginRight: '5px', padding: '10px 20px', height: '100%', width: '320px' }}>
-                <Text style={{ fontSize: '36px', color: '#FF1FFF', fontWeight: 900 }}>GLX Stats</Text>
-                <div style={{ display: 'flex' }}>
-                  <Text style={{ fontSize: '20px', width: '170px' }}>Total GLX Supply</Text><Text style={{ fontSize: '20px' }}>100,000,000</Text>
+              <RightMiddleCardLeft>
+                <RightSectionHighlightText>GLX Stats</RightSectionHighlightText>
+                <div style={{ display: "flex" }}>
+                  <RightMiddleDetailLabel>
+                    Total GLX Supply
+                  </RightMiddleDetailLabel>
+                  <RightMiddleDetailText>100,000,000</RightMiddleDetailText>
                 </div>
-                <div style={{ display: 'flex' }}>
-                  <Text style={{ fontSize: '20px', width: '170px' }}>Total GLX Burned</Text><Text style={{ fontSize: '20px' }}>0</Text>
+                <div style={{ display: "flex" }}>
+                  <RightMiddleDetailLabel>
+                    Total GLX Burned
+                  </RightMiddleDetailLabel>
+                  <RightMiddleDetailText>0</RightMiddleDetailText>
                 </div>
-                <div style={{ display: 'flex' }}>
-                  <Text style={{ fontSize: '20px', width: '170px' }}>Total GLX/ Block</Text><Text style={{ fontSize: '20px' }}>25</Text>
+                <div style={{ display: "flex" }}>
+                  <RightMiddleDetailLabel>
+                    Total GLX/ Block
+                  </RightMiddleDetailLabel>
+                  <RightMiddleDetailText>25</RightMiddleDetailText>
                 </div>
-              </Card>
+              </RightMiddleCardLeft>
             </div>
             <div style={{ flex: 1 }}>
-              <Card style={{ flexDirection: 'column', padding: '10px', height: '100%', width: '320px' }}>
-                <Text style={{ fontSize: '32px', color: '#FF1FFF', fontWeight: 800 }}>Total Value Locked</Text>
-                <Text style={{ fontSize: '40px', fontWeight: 700 }}>2648710.50</Text>
-                <Text style={{ fontSize: '20px' }}>Across all LPs and Galastic Pools</Text>
-              </Card>
+              <RightMiddleCard
+                style={{
+                  justifyContent: "space-between",
+                }}
+              >
+                <TotalLockedValueTtitle>
+                  Total Value Locked
+                </TotalLockedValueTtitle>
+                <TotalLockedValueText>2648710.50</TotalLockedValueText>
+                <Text style={{ fontSize: "14px" }}>
+                  Across all LPs and Galastic Pools
+                </Text>
+              </RightMiddleCard>
             </div>
-          </div>
-          <Card style={{ justifyContent: 'space-between', marginTop: '25px' }}>
-            <div style={{ display: 'flex' }}>
-              <Text style={{ fontSize: '36px' }}>Earning </Text>
-              <Text style={{ fontSize: '36px', color: '#FF1FFF', margin: '0px 10px', fontWeight: 900 }}>GALAXIA</Text>
-              <Text style={{ fontSize: '36px' }}>in pools</Text>
+          </RightMiddleBox>
+          <Card style={{ justifyContent: "space-between" }}>
+            <div style={{ display: "flex", alignItems: "center" }}>
+              <RightSectionLongDivText>Earning </RightSectionLongDivText>
+              <RightSectionHighlightText style={{ margin: "0 10px" }}>
+                GALAXIA
+              </RightSectionHighlightText>
+              <RightSectionLongDivText>in pools</RightSectionLongDivText>
             </div>
-            <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '2' }} />
+            <ChevronRightIcon style={{ fill: "#FF1FFF", zoom: "1.2" }} />
           </Card>
-        </div>
-      </div> :  <div style={{ marginTop: '50px', flexDirection: 'column' }}>
-        <div style={{marginLeft: '25px'}}>
-        <Text style={{ fontSize: '35px', fontWeight: 800, color: 'white'}}>Swap, Stake,</Text>
-        <Text style={{ fontSize: '35px', fontWeight: 800, color: 'white'}}>Farm or Launch.</Text>
-
-        <div style={{ marginTop: '30px', marginBottom: '100px' }}>
-          <Btn text="START THE APP" />
-        </div>
-        </div>
-
-        <Card style={{ justifyContent: 'space-between', padding: '10px 25px', width: '100%' }}>
-            <div style={{ display: 'flex' }}>
-              <Text style={{ fontSize: '20px' }}>Earn up to </Text>
-              <Text style={{ fontSize: '20px', color: '#FF1FFF', margin: '0px 10px', fontWeight: 900 }}>200% APR</Text>
-              <Text style={{ fontSize: '20px' }}>in Farms</Text>
-            </div>
-            <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '1.2' }} />
-          </Card>
-          <div style={{ display: 'flex', marginTop: '20px', width: '100%' }}>
-            <div style={{ flex: 1 }}>
-              <Card style={{ flexDirection: 'column', marginRight: '5px', padding: '5px 15px', height: '100%', width: '95%'}}>
-                <Text style={{ fontSize: '20px', color: '#FF1FFF', fontWeight: 900 }}>GLX Stats</Text>
-                <div style={{ display: 'flex' }}>
-                  <Text style={{ fontSize: '12px', width: '60%' }}>Total GLX Supply</Text><Text style={{ fontSize: '12px' }}>100,000,000</Text>
-                </div>
-                <div style={{ display: 'flex' }}>
-                  <Text style={{ fontSize: '12px', width: '60%' }}>Total GLX Burned</Text><Text style={{ fontSize: '12px' }}>0</Text>
-                </div>
-                <div style={{ display: 'flex' }}>
-                  <Text style={{ fontSize: '12px', width: '60%' }}>Total GLX/ Block</Text><Text style={{ fontSize: '12px' }}>25</Text>
-                </div>
-              </Card>
-            </div>
-            <div style={{ flex: 1 }}>
-              <Card style={{ flexDirection: 'column', padding: '5px 15px', height: '100%', width: '100%' }}>
-                <Text style={{ fontSize: '18px', color: '#FF1FFF', fontWeight: 800 }}>Total Value Locked</Text>
-                <Text style={{ fontSize: '22px', fontWeight: 800 }}>2648710.50</Text>
-                <Text style={{ fontSize: '12px' }}>Across all LPs and Galastic Pools</Text>
-              </Card>
-            </div>
-            
-          </div>
-          <Card style={{ justifyContent: 'space-between', padding: '10px 25px', marginTop: '25px', width: '100%' }}>
-              <div style={{ display: 'flex' }}>
-                <Text style={{ fontSize: '20px' }}>Earning </Text>
-                <Text style={{ fontSize: '20px', color: '#FF1FFF', margin: '0px 10px', fontWeight: 900 }}>GALAXIA</Text>
-                <Text style={{ fontSize: '20px' }}>in Pools</Text>
-              </div>
-              <ChevronRightIcon style={{ fill: '#FF1FFF', zoom: '1.2' }} />
-            </Card>
-        </div>
-      }
-    </Page>
+        </RightSection>
+      </HomePageContent>
+    </HomePage>
   );
 };
 
