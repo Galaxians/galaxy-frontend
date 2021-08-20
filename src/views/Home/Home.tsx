@@ -28,8 +28,8 @@ const BtnDiv = styled.div`
   border: 1px solid #61319f;
   border-radius: 8px;
   opacity: 1;
-  width: 200px;
-  height: 50px;
+  width: 240px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,6 +70,7 @@ const BtnDiv = styled.div`
 const StartBtnDiv = styled(BtnDiv)`
   font: normal normal normal 22px/27px Mosk;
   width: 239px;
+  font-weight: 800;
 `;
 
 const Wrapper = styled.div`
@@ -122,8 +123,8 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
     <Page>
       {!isMobile ? <div style={{ display: 'flex', marginTop: '150px' }}>
         <div style={{ flex: '1', display: 'flex', flexDirection: 'column', marginTop: '50px', paddingLeft: '200px' }}>
-          <Text style={{ fontSize: '72px',fontFamily: 'Mosk', fontWeight: 700 }}>Swap, Stake,</Text>
-          <Text style={{ fontSize: '72px',fontFamily: 'Mosk', fontWeight: 700 }}>Farm or Launch.</Text>
+          <Text style={{ fontSize: '72px',fontFamily: 'Mosk', fontWeight: 700, color: 'white' }}>Swap, Stake,</Text>
+          <Text style={{ fontSize: '72px',fontFamily: 'Mosk', fontWeight: 700, color: 'white' }}>Farm or Launch.</Text>
           <div style={{ marginTop: '30px' }}>
             <StartBtn text="START THE APP" />
           </div>
@@ -171,8 +172,8 @@ const Home: React.FC<HomeProps> = ({ isMobile }) => {
         </div>
       </div> :  <div style={{ marginTop: '50px', flexDirection: 'column' }}>
         <div style={{marginLeft: '25px'}}>
-        <Text style={{ fontSize: '35px', fontWeight: 800 }}>Swap, Stake,</Text>
-        <Text style={{ fontSize: '35px', fontWeight: 800 }}>Farm or Launch.</Text>
+        <Text style={{ fontSize: '35px', fontWeight: 800, color: 'white'}}>Swap, Stake,</Text>
+        <Text style={{ fontSize: '35px', fontWeight: 800, color: 'white'}}>Farm or Launch.</Text>
 
         <div style={{ marginTop: '30px', marginBottom: '100px' }}>
           <Btn text="START THE APP" />
