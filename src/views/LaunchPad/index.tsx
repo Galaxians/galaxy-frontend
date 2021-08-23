@@ -116,6 +116,7 @@ export const GobackCard = styled(Card)`
   display: flex;
   flex-direction: column;
   overflow: visible;
+  cursor: pointer;
   justify-content: space-between;
     * {
     font-family: 'Mosk';

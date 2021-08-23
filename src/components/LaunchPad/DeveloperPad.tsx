@@ -8,7 +8,8 @@ import { Card, Button, ChevronDownIcon, SearchIcon, Text, ChevronLeftIcon, Chevr
 import { ChevronRight } from 'react-feather';
 
 export const DeveloperDiv = styled.div`
-    width: 900px;
+    max-width: 900px;
+    width: 98%;
     background: transparent;
     margin-top: 50px;
     * {
@@ -33,12 +34,21 @@ export const ChildDiv = styled.div`
     &:hover {
         background: #440C8B 0% 0% no-repeat padding-box;
     }
+    @media(max-width: 600px) {
+        padding: 10px 20px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border: 0.5px solid #FF1FFF;
+    }
 `
 
 export const BackDiv = styled.div`
     color: white;
     width: 100px;
     cursor: pointer;
+    @media (max-width: 700px) {
+        display: none;
+    }
 `
 
 export const PresaleDiv = styled.div`
@@ -112,6 +122,59 @@ export const PreDiv = styled.div`
     padding: 10px;
 `
 
+export const FirstDiv = styled.div`
+    margin-top: 50px;
+    background: #0B001E;
+    >div:first-child {
+        height: 100px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 800;
+        @media(max-width: 600px) {
+            height: 75px;
+            border: 1px solid #FF1FFF;
+        }
+        @media(max-width: 420px) {
+            height: 50px;
+            font-size: 14px;
+        }
+    }
+    >div:last-child {
+        background: rgb(66, 11, 135);
+        display: flex;
+        @media(max-width: 600px) {
+            flex-direction: column;
+            padding: 20px;
+        }
+    }
+    @media(max-width: 600px) {
+        border: 1px solid #FF1FFF;
+    }
+`
+
+export const Header = styled.div`
+    color: white;
+    font-size: 48px;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 50px;
+    @media(max-width: 600px) {
+        display: none;
+    }
+`
+
+export const HDescription = styled.div`
+    color: #FF1FFF;
+    font-size: 24px;
+    text-align: center;
+    @media(max-width: 600px) {
+        display: none;
+    }
+`
+
 export default function DeveloperPad({
     GoBack,
 }: { GoBack: () => void }) {
@@ -147,25 +210,25 @@ export default function DeveloperPad({
     };
 
     return (<DeveloperDiv>
-
         {activeIndex === 0 ? <BackDiv onClick={() => GoBack()}>
             <ChevronLeftIcon style={{ fill: '#FF1FFF', zoom: '1.5' }} /> Go back
         </BackDiv> : <BackDiv onClick={() => setIndex(0)}>
             <ChevronLeftIcon style={{ fill: '#FF1FFF', zoom: '1.5'  }} /> Go back
         </BackDiv>}
-        <div style={{ color: 'white', fontSize: '48px', fontWeight: 800, textAlign: 'center', marginTop: '50px' }}>
+        <Header>
             Nebula Launchpad
-        </div>
-        <div style={{ color: '#FF1FFF', fontSize: '24px', textAlign: 'center' }}>
+        </Header>
+        <HDescription>
             Launch your token easily
-        </div>
+        </HDescription>
 
-        {activeIndex === 0 ? <MainDiv><div style={{ height: '100px', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '16px', fontWeight: 800 }}>
-            Choose the services you would like to use
-        </div>
-            <div style={{ display: 'flex' }}>
+        {activeIndex === 0 ? <FirstDiv>
+            <div>
+                Choose the services you would like to use
+            </div>
+            <div>
                 <ChildDiv onClick={() => setIndex(1)}>
-                    <div style={{ fontSize: '16px', padding: '10px', textAlign: 'center', fontWeight: 800 }}>
+                    <div style={{ fontSize: '18px', padding: '10px', textAlign: 'center', fontWeight: 800 }}>
                         Nebula Lanunchpad
                     </div>
                     <div style={{ fontSize: '12px', padding: '0px 50px', textAlign: 'center' }}>
@@ -173,7 +236,7 @@ export default function DeveloperPad({
                     </div>
                 </ChildDiv>
                 <ChildDiv onClick={() => setIndex(2)}>
-                    <div style={{ fontSize: '16px', padding: '10px', textAlign: 'center', fontWeight: 800 }}>
+                    <div style={{ fontSize: '18px', padding: '10px', textAlign: 'center', fontWeight: 800 }}>
                         High Security Token Locker
                     </div>
                     <div style={{ fontSize: '12px', textAlign: 'center' }}>
@@ -181,14 +244,14 @@ export default function DeveloperPad({
                     </div>
                 </ChildDiv>
                 <ChildDiv onClick={() => setIndex(3)}>
-                    <div style={{ fontSize: '16px', padding: '10px', textAlign: 'center', fontWeight: 800 }}>
+                    <div style={{ fontSize: '18px', padding: '10px', textAlign: 'center', fontWeight: 800 }}>
                         Intergalatic Liquidity Locker
                     </div>
                     <div style={{ fontSize: '12px', textAlign: 'center' }}>
                         Lock Liquidity tokens
                     </div>
                 </ChildDiv>
-            </div></MainDiv> : null}
+            </div></FirstDiv> : null}
         {activeIndex === 1 ? <div style={{ display: 'flex', justifyContent: 'center' }}><MainDiv style={{ width: '750px' }}>
             <div style={{ fontWeight: 800, height: '100px', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px' }}>
                 Nebula Lanunchpad

@@ -37,6 +37,9 @@ const BtnDiv = styled.div`
   margin: 10px 0px;
   > span {
     z-index: 1;
+    >a:hover {
+      color: white;
+    }
   }
   > div {
     transition: 0.3s;
@@ -83,11 +86,13 @@ const BtnImg = styled.div`
     background: rgb(23, 13, 41);
   }
 `;
-const Btn = ({ text }) => {
+const Btn = ({ text}) => {
   return (
     <BtnDiv>
-      <span>{text}</span>
+      
+      <span><a href={text.toLowerCase()}>{text}</a></span>
       <div />
+      
     </BtnDiv>
   );
 };
@@ -98,10 +103,10 @@ export default function Sidebar({ isOpen, toggle }) {
             <img src="./assets/img/menu.png" alt="menu" style={{marginTop: '50px', marginLeft: '25px'}}/>
             <div style={{ display: 'flex', alignItems: 'center', marginTop: '100px', flexDirection: 'column', height: '50%' }}>
                 <img src="./assets/img/Icon-galaxyswap.png" alt="icon" style={{ width: '25px', marginBottom: '20px' }} />
-                <Btn text="EXCHANGE" />
-                <Btn text="FARMS" />
-                <Btn text="POOL" />
-                <Btn text="LAUNCHPAD" />
+                <Btn text="EXCHANGE"/>
+                <Btn text="FARMS"/>
+                <Btn text="POOLS"/>
+                <Btn text="LAUNCHPAD"/>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
