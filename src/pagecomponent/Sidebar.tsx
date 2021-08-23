@@ -19,6 +19,9 @@ export const SidebarContainer = styled.aside<{ isOpen: any }>`
   }
   opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
   left: ${({ isOpen }) => (isOpen ? '0%' : '-100%')};
+  @media(min-width: 990px) {
+    display: none;
+  }
 `;
 
 const BtnDiv = styled.div`

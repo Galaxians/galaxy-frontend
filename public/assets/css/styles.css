@@ -584,3 +584,38 @@ td.farm-table:last-child { border-right: 1px solid #FF1FFF; border-top-right-rad
 .MuiSlider-thumb {
   background-color: #FF1FFF !important;
 }
+
+.nebula-class {
+  display: flex;
+  padding: 50px;
+  flex-direction: column;
+  background: transparent linear-gradient(342deg, #1D0041 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
+}
+
+.token-class {
+  display: flex;
+  padding: 50px 130px;
+  background: transparent linear-gradient(342deg, #1D0041 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
+  flex-direction: column;
+  text-align: center;
+}
+
+.liquidity-class {
+  display: flex;
+  padding: 100px;
+  background: transparent linear-gradient(342deg, #1D0041 0%, #440C8B 100%) 0% 0% no-repeat padding-box;
+  flex-direction: column;
+  text-align: left;
+}
+
+@media(max-width: 600px) {
+  .nebula-class {
+    padding: 20px;
+  }
+  .token-class {
+    padding: 20px;
+  }
+  .liquidity-class {
+    padding: 20px;
+  }
+}
