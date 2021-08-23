@@ -38,7 +38,8 @@ export const DetailCard = styled(Card)`
     border-radius: 8px;
     opacity: 1;
     display: flex;
-    width: 900px;
+    max-width: 1000px;
+    width: 100%;
     padding: 50px;
 `
 
