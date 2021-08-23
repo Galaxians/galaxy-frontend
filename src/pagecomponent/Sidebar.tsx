@@ -117,7 +117,7 @@ const Btn = ({ text}) => {
 export default function Sidebar({ isOpen, toggle }) {
     return (
         <>
-        <BackDiv onClick={toggle}/>
+        <BackDiv onClick={isOpen ? toggle : null}/>
         <SidebarContainer isOpen={isOpen}>
             <MenuLogo onClick={toggle}>
               <img src="./assets/img/menu.png" alt="menu"/>
