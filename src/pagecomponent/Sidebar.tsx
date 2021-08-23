@@ -89,21 +89,39 @@ const BtnImg = styled.div`
     background: rgb(23, 13, 41);
   }
 `;
+
+const BackDiv = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 997;
+`
+
+const MenuLogo = styled.div`
+  >img {
+    margin-top: 50px;
+    margin-left: 25px;
+  }
+`
+
 const Btn = ({ text}) => {
   return (
     <BtnDiv>
-      
       <span><a href={text.toLowerCase()}>{text}</a></span>
       <div />
-      
     </BtnDiv>
   );
 };
 
 export default function Sidebar({ isOpen, toggle }) {
     return (
-        <SidebarContainer isOpen={isOpen} onClick={toggle}>
-            <img src="./assets/img/menu.png" alt="menu" style={{marginTop: '50px', marginLeft: '25px'}}/>
+        <>
+        <BackDiv onClick={toggle}/>
+        <SidebarContainer isOpen={isOpen}>
+            <MenuLogo onClick={toggle}>
+              <img src="./assets/img/menu.png" alt="menu"/>
+            </MenuLogo>
             <div style={{ display: 'flex', alignItems: 'center', marginTop: '100px', flexDirection: 'column', height: '50%' }}>
                 <img src="./assets/img/Icon-galaxyswap.png" alt="icon" style={{ width: '25px', marginBottom: '20px' }} />
                 <Btn text="EXCHANGE"/>
@@ -121,5 +139,6 @@ export default function Sidebar({ isOpen, toggle }) {
                 <div style={{ marginTop: '25px', display: 'flex', alignItems: 'center'}}><img src="./assets/img/Galaxia-token-color-250px.png" alt="galaxy" style={{ width: '25px', marginRight: '10px' }} />$ 0,063</div>
             </div>
         </SidebarContainer >
+        </>
     )
 }
