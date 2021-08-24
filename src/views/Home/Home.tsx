@@ -227,6 +227,37 @@ const StartBtnDiv = styled(BtnDiv)`
 `;
 
 
+const AnimationIcon = styled.div`
+  align-self: center;
+  >svg {
+    fill: #FF1FFF;
+    zoom: 2.5;
+    @media (max-width: 1368px) {
+      zoom: 2;
+    }
+  
+    @media (max-width: 587px) {
+      zoom: 1.5;
+    }
+  }
+  &:hover {
+    transform: translateX(10px);
+    animation-duration: 0.3s;
+    animation-name: slidein;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    @keyframes slidein {
+      from {
+        transform: translate(0px, 0px);
+      }
+    
+      to {
+        transform: translate(20px, 0px);
+      }
+    }
+  }
+`;
+
 const Btn = ({ text }) => {
   return (
     <BtnDiv>
@@ -280,7 +311,9 @@ const Home: React.FC = () => {
               </RightSectionHighlightText>
               <RightSectionLongDivText>in Farms</RightSectionLongDivText>
             </div>
-            <ChevronRightIcon style={{ fill: "#FF1FFF", zoom: "1.5" }} />
+            <AnimationIcon>
+              <ChevronRightIcon/>
+            </AnimationIcon>
           </Card>
           <RightMiddleBox>
             <div style={{ flex: 1 }}>
@@ -330,7 +363,9 @@ const Home: React.FC = () => {
               </RightSectionHighlightText>
               <RightSectionLongDivText>in pools</RightSectionLongDivText>
             </div>
-            <ChevronRightIcon style={{ fill: "#FF1FFF", zoom: "1.2" }} />
+            <AnimationIcon>
+              <ChevronRightIcon/>
+            </AnimationIcon>
           </Card>
         </RightSection>
       </HomePageContent>

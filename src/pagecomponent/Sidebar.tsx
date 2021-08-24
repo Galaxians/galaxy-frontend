@@ -19,6 +19,9 @@ export const SidebarContainer = styled.aside<{ isOpen: any }>`
   }
   opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
   left: ${({ isOpen }) => (isOpen ? '0%' : '-100%')};
+  @media(min-width: 990px) {
+    display: none;
+  }
 `;
 
 const BtnDiv = styled.div`
@@ -37,6 +40,9 @@ const BtnDiv = styled.div`
   margin: 10px 0px;
   > span {
     z-index: 1;
+    >a:hover {
+      color: white;
+    }
   }
   > div {
     transition: 0.3s;
@@ -83,10 +89,26 @@ const BtnImg = styled.div`
     background: rgb(23, 13, 41);
   }
 `;
-const Btn = ({ text }) => {
+
+const BackDiv = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 997;
+`
+
+const MenuLogo = styled.div`
+  >img {
+    margin-top: 50px;
+    margin-left: 25px;
+  }
+`
+
+const Btn = ({ text}) => {
   return (
     <BtnDiv>
-      <span>{text}</span>
+      <span><a href={text.toLowerCase()}>{text}</a></span>
       <div />
     </BtnDiv>
   );
@@ -94,14 +116,18 @@ const Btn = ({ text }) => {
 
 export default function Sidebar({ isOpen, toggle }) {
     return (
-        <SidebarContainer isOpen={isOpen} onClick={toggle}>
-            <img src="./assets/img/menu.png" alt="menu" style={{marginTop: '50px', marginLeft: '25px'}}/>
+        <>
+        { isOpen ? <BackDiv onClick={isOpen ? toggle : null}/> : null }
+        <SidebarContainer isOpen={isOpen}>
+            <MenuLogo onClick={toggle}>
+              <img src="./assets/img/menu.png" alt="menu"/>
+            </MenuLogo>
             <div style={{ display: 'flex', alignItems: 'center', marginTop: '100px', flexDirection: 'column', height: '50%' }}>
                 <img src="./assets/img/Icon-galaxyswap.png" alt="icon" style={{ width: '25px', marginBottom: '20px' }} />
-                <Btn text="EXCHANGE" />
-                <Btn text="FARMS" />
-                <Btn text="POOL" />
-                <Btn text="LAUNCHPAD" />
+                <Btn text="EXCHANGE"/>
+                <Btn text="FARMS"/>
+                <Btn text="POOLS"/>
+                <Btn text="LAUNCHPAD"/>
             </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
@@ -113,5 +139,6 @@ export default function Sidebar({ isOpen, toggle }) {
                 <div style={{ marginTop: '25px', display: 'flex', alignItems: 'center'}}><img src="./assets/img/Galaxia-token-color-250px.png" alt="galaxy" style={{ width: '25px', marginRight: '10px' }} />$ 0,063</div>
             </div>
         </SidebarContainer >
+        </>
     )
 }

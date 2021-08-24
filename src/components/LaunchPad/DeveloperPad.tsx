@@ -8,7 +8,8 @@ import { Card, Button, ChevronDownIcon, SearchIcon, Text, ChevronLeftIcon, Chevr
 import { ChevronRight } from 'react-feather';
 
 export const DeveloperDiv = styled.div`
-    width: 900px;
+    max-width: 900px;
+    width: 98%;
     background: transparent;
     margin-top: 50px;
     * {
@@ -19,6 +20,8 @@ export const DeveloperDiv = styled.div`
 export const MainDiv = styled.div`
     margin-top: 50px;
     background: #0B001E;
+    max-width: 750px;
+    width: 100%;
 `
 
 export const ChildDiv = styled.div`
@@ -33,12 +36,21 @@ export const ChildDiv = styled.div`
     &:hover {
         background: #440C8B 0% 0% no-repeat padding-box;
     }
+    @media(max-width: 600px) {
+        padding: 10px 20px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border: 0.5px solid #FF1FFF;
+    }
 `
 
 export const BackDiv = styled.div`
     color: white;
     width: 100px;
     cursor: pointer;
+    @media (max-width: 700px) {
+        display: none;
+    }
 `
 
 export const PresaleDiv = styled.div`
@@ -63,6 +75,9 @@ export const PresaleDetail = styled.div`
     width: 100%;
     color: white;
     padding: 25px;
+    @media (max-width: 600px) {
+        padding: 10px;
+    }
 `
 export const TokenInput = styled.input`
   position: relative;
@@ -112,6 +127,59 @@ export const PreDiv = styled.div`
     padding: 10px;
 `
 
+export const FirstDiv = styled.div`
+    margin-top: 50px;
+    background: #0B001E;
+    >div:first-child {
+        height: 100px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 800;
+        @media(max-width: 600px) {
+            height: 75px;
+            border: 1px solid #FF1FFF;
+        }
+        @media(max-width: 420px) {
+            height: 50px;
+            font-size: 14px;
+        }
+    }
+    >div:last-child {
+        background: rgb(66, 11, 135);
+        display: flex;
+        @media(max-width: 600px) {
+            flex-direction: column;
+            padding: 20px;
+        }
+    }
+    @media(max-width: 600px) {
+        border: 1px solid #FF1FFF;
+    }
+`
+
+export const Header = styled.div`
+    color: white;
+    font-size: 48px;
+    font-weight: 800;
+    text-align: center;
+    margin-top: 50px;
+    @media(max-width: 600px) {
+        display: none;
+    }
+`
+
+export const HDescription = styled.div`
+    color: #FF1FFF;
+    font-size: 24px;
+    text-align: center;
+    @media(max-width: 600px) {
+        display: none;
+    }
+`
+
 export default function DeveloperPad({
     GoBack,
 }: { GoBack: () => void }) {
@@ -147,25 +215,25 @@ export default function DeveloperPad({
     };
 
     return (<DeveloperDiv>
-
         {activeIndex === 0 ? <BackDiv onClick={() => GoBack()}>
             <ChevronLeftIcon style={{ fill: '#FF1FFF', zoom: '1.5' }} /> Go back
         </BackDiv> : <BackDiv onClick={() => setIndex(0)}>
             <ChevronLeftIcon style={{ fill: '#FF1FFF', zoom: '1.5'  }} /> Go back
         </BackDiv>}
-        <div style={{ color: 'white', fontSize: '48px', fontWeight: 800, textAlign: 'center', marginTop: '50px' }}>
+        <Header>
             Nebula Launchpad
-        </div>
-        <div style={{ color: '#FF1FFF', fontSize: '24px', textAlign: 'center' }}>
+        </Header>
+        <HDescription>
             Launch your token easily
-        </div>
+        </HDescription>
 
-        {activeIndex === 0 ? <MainDiv><div style={{ height: '100px', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '16px', fontWeight: 800 }}>
-            Choose the services you would like to use
-        </div>
-            <div style={{ display: 'flex' }}>
+        {activeIndex === 0 ? <FirstDiv>
+            <div>
+                Choose the services you would like to use
+            </div>
+            <div>
                 <ChildDiv onClick={() => setIndex(1)}>
-                    <div style={{ fontSize: '16px', padding: '10px', textAlign: 'center', fontWeight: 800 }}>
+                    <div style={{ fontSize: '18px', padding: '10px', textAlign: 'center', fontWeight: 800 }}>
                         Nebula Lanunchpad
                     </div>
                     <div style={{ fontSize: '12px', padding: '0px 50px', textAlign: 'center' }}>
@@ -173,7 +241,7 @@ export default function DeveloperPad({
                     </div>
                 </ChildDiv>
                 <ChildDiv onClick={() => setIndex(2)}>
-                    <div style={{ fontSize: '16px', padding: '10px', textAlign: 'center', fontWeight: 800 }}>
+                    <div style={{ fontSize: '18px', padding: '10px', textAlign: 'center', fontWeight: 800 }}>
                         High Security Token Locker
                     </div>
                     <div style={{ fontSize: '12px', textAlign: 'center' }}>
@@ -181,19 +249,19 @@ export default function DeveloperPad({
                     </div>
                 </ChildDiv>
                 <ChildDiv onClick={() => setIndex(3)}>
-                    <div style={{ fontSize: '16px', padding: '10px', textAlign: 'center', fontWeight: 800 }}>
+                    <div style={{ fontSize: '18px', padding: '10px', textAlign: 'center', fontWeight: 800 }}>
                         Intergalatic Liquidity Locker
                     </div>
                     <div style={{ fontSize: '12px', textAlign: 'center' }}>
                         Lock Liquidity tokens
                     </div>
                 </ChildDiv>
-            </div></MainDiv> : null}
-        {activeIndex === 1 ? <div style={{ display: 'flex', justifyContent: 'center' }}><MainDiv style={{ width: '750px' }}>
+            </div></FirstDiv> : null}
+        {activeIndex === 1 ? <div style={{ display: 'flex', justifyContent: 'center' }}><MainDiv>
             <div style={{ fontWeight: 800, height: '100px', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px' }}>
                 Nebula Lanunchpad
             </div>
-            <div style={{ display: 'flex', padding: '50px', flexDirection: 'column', background: 'transparent linear-gradient(342deg, #1D0041 0%, #440C8B 100%) 0% 0% no-repeat padding-box' }}>
+            <div className="nebula-class">
                 <PresaleDiv>
                     Create your presale
                 </PresaleDiv>
@@ -211,12 +279,12 @@ export default function DeveloperPad({
                     <Text style={{ marginTop: '20px', fontSize: '12px' }}>GalaxySwap V2 par to created</Text>
                     <Text style={{ fontSize: '12px', color: '#FF1FFF' }}>WBNB/?</Text>
                 </PresaleDetail>
-                    : <PresaleDetail style={{ padding: '25px 50px' }}>
+                    : <PresaleDetail>
                         <div style={{ display: 'flex' }}>
                             <TokenInput placeholder="Enter your token address..." />
                             <CheckBtn  style={{fontWeight: 700}} onClick={() => handleCheck()}>CHECK</CheckBtn>
                         </div>
-                        <PreDiv style={{ width: '350px' }}>
+                        <PreDiv style={{ width: '90%' }}>
                             <div style={{ display: 'flex' }}>
                                 <div style={{ width: '100px', fontSize: '12px' }}>Status:</div>
                                 <div style={{ background: 'green', borderRadius: '100%', width: '10px', height: '10px', marginRight: '10px' }} />
@@ -313,7 +381,7 @@ export default function DeveloperPad({
                             <div style={{ width: '50px', borderRadius: '10px', border: '1px solid white', fontSize: '12px', cursor: 'pointer', padding: '5px', textAlign: 'center', marginRight: '10px' }}>40%</div>
                             <div style={{ width: '50px', borderRadius: '10px', border: '1px solid white', fontSize: '12px', cursor: 'pointer', padding: '5px', textAlign: 'center', marginRight: '10px' }}>60%</div>
                         </div>
-                        <PreDiv style={{ width: '350px', padding: '25px' }}>
+                        <PreDiv style={{ width: '90%', padding: '25px' }}>
                             <div style={{ fontSize: '14px', fontWeight: 700 }}>Amount of tokens for pre-sale</div>
                             <div style={{ fontSize: '14px', marginTop: '5px', textAlign: 'center' }}>{slider1}%</div>
                             <Grid container spacing={2} style={{ alignItems: 'center' }}>
@@ -437,31 +505,31 @@ export default function DeveloperPad({
                         </div>
                     </PresaleDetail>}
             </div></MainDiv></div> : null}
-        {activeIndex === 2 ? <div style={{ display: 'flex', justifyContent: 'center' }}><MainDiv style={{ width: '700px' }}>
+        {activeIndex === 2 ? <div style={{ display: 'flex', justifyContent: 'center' }}><MainDiv>
             <div style={{ fontWeight: 800, height: '100px', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px' }}>
                 High Security Token Locker
             </div>
-            <div style={{ display: 'flex', padding: '50px 130px', background: 'transparent linear-gradient(342deg, #1D0041 0%, #440C8B 100%) 0% 0% no-repeat padding-box', flexDirection: 'column', textAlign: 'center' }}>
+            <div className="token-class">
                 <Text style={{ fontSize: '12px' }}>We bring you the High Security Token Locker. Token locks are represented as shares of a pool, in a similar way to a GalaxySwap pool, allowing all BEP20 tokens including Rebasing and Deflationary mechanisms to be supported. This means lock amounts may change due to decimal rounding, but you will always retain your share of the pool.</Text>
                 <Text style={{ fontSize: '14px', marginTop: '25px', fontWeight: 700 }}>Selected Network</Text>
-                <div style={{ display: 'flex', marginTop: '20px', justifyContent: 'center', border: '1px solid #FF1FFF', padding: '5px', width: '350px', alignSelf: 'center', borderRadius: '8px' }}>
+                <div style={{ display: 'flex', marginTop: '20px', justifyContent: 'center', border: '1px solid #FF1FFF', padding: '5px', width: '70%', alignSelf: 'center', borderRadius: '8px' }}>
                     <div style={{ marginRight: '10px', borderRadius: '100%', background: 'white', width: '24px' }} />
                     <Text>Binance Smart Chain</Text>
                     <ChevronDownIcon style={{ marginLeft: '5px', fill: '#FF1FFF' }} />
                 </div>
-                <div style={{ display: 'flex', marginTop: '20px', justifyContent: 'space-between', border: '1px solid #FF1FFF', padding: '10px', width: '400px', alignSelf: 'center', borderRadius: '20px' }}>
-                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                <div style={{ display: 'flex', marginTop: '20px', justifyContent: 'space-between', border: '1px solid #FF1FFF', padding: '10px', width: '90%', alignSelf: 'center', borderRadius: '20px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
                         <div style={{ marginRight: '10px', borderRadius: '100%', background: 'white', width: '25px', height: '25px' }} />
-                        <SimpleInput style={{ width: '300px' }} onChange={onChange} value={tokenAddress} placeholder="Enter your token address" />
+                        <SimpleInput style={{ width: '100%' }} onChange={onChange} value={tokenAddress} placeholder="Enter your token address" />
                     </div>
                     <SearchIcon style={{ zoom: 1.5 }} />
                 </div>
             </div></MainDiv></div> : null}
-        {activeIndex === 3 ? <div style={{ display: 'flex', justifyContent: 'center' }}><MainDiv style={{ width: '700px' }}>
+        {activeIndex === 3 ? <div style={{ display: 'flex', justifyContent: 'center' }}><MainDiv>
             <div style={{ fontWeight: 800, height: '100px', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px' }}>
                 Intergalactic Liquidity Locker
             </div>
-            <div style={{ display: 'flex', padding: '100px 100px', background: 'transparent linear-gradient(342deg, #1D0041 0%, #440C8B 100%) 0% 0% no-repeat padding-box', flexDirection: 'column', textAlign: 'left' }}>
+            <div className="liquidity-class">
                 <Text style={{ fontSize: '12px' }}>The intergalactic Liquidity Locker does say his name. It locks your tokens. That way you will gain trust amongst your investors. If you are not developing a token this section is not ment for you. Instead we kindly direct you to <span style={{fontWeight: 900}}>this</span></Text>
                 <Text style={{ fontSize: '12px', fontWeight: 700, marginTop: '50px' }}>Enter the GalaxySwap V1 pair address you would like to lock liquidity for</Text>
                 <div style={{ display: 'flex', marginTop: '5px', justifyContent: 'space-between', border: '1px solid #FF1FFF', padding: '5px', width: '100%', alignSelf: 'center', borderRadius: '8px' }}>
