@@ -21,7 +21,9 @@ padding: 0;
   left: 238px;
   width: 1683px;
   height: 1216px;
-  background: transparent url(../img/Kal-artwork-giveaway-page.png) 0% 0% no-repeat padding-box;
+  /* background: transparent url(../img/Kal-artwork-giveaway-page.png) 0% 0% no-repeat padding-box; */
+  background: url(../img/Kal-artwork-giveaway-page.png);
+  background-size: contain;
   opacity: 1;
 }
 /* @media (min-width: 950px) {
