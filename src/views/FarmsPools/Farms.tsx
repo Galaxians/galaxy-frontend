@@ -118,6 +118,14 @@ const Wrapper = styled.div`
   margin-top: 150px;
 `
 
+const CustomToggle = styled(Toggle)`
+  color: white;
+  background-color: #483F5B;
+  > div {
+    background-color: #FFFFFF;
+  }
+`
+
 const Farms: React.FC = () => {
   const { path } = useRouteMatch();
   const { pathname } = useLocation();
@@ -424,8 +432,7 @@ const Farms: React.FC = () => {
           <div className="row mb-3 rounded" style={{ marginTop: 150, margin: "auto" }}>
             <ControlContainer className="mb-1">
                 <ToggleWrapper>
-                  <Toggle
-                    style={{ background: "#ffffff" }}
+                  <CustomToggle
                     checked={stackedOnly}
                     onChange={() => setStackedOnly(!stackedOnly)}
                     scale="sm"

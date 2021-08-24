@@ -19,11 +19,14 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
   const displayBalance = rawEarningsBalance.toFixed(4).toLocaleString();
 
   return (
-    <Flex mb="8px" justifyContent="space-between" alignItems="center">
-      <Heading style={{fontSize: 30, fontWeight: 800}} className="text-white">
+    <Flex justifyContent="space-between" alignItems="center">
+      <Heading style={{fontSize: 30, fontWeight: 800}} className="text-white" lineHeight="1" margin="0px">
         {displayBalance}
       </Heading>
       <Button className="btn rounded"
+        padding="7px 45px"
+        height="auto"
+        width="auto"
         disabled={rawEarningsBalance === 0 || pendingTx}
         onClick={async () => {
           setPendingTx(true);
