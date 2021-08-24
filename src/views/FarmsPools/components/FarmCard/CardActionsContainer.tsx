@@ -16,7 +16,7 @@ import StakeAction from "./StakeAction";
 import HarvestAction from "./HarvestAction";
 
 const Action = styled.div`
-  padding-top: 16px;
+  padding-top: 12px;
   margin: 0px 24px;
 `;
 export interface FarmWithStakedValue extends Farm {
@@ -87,8 +87,8 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
   return (
     <Action>
       <Flex justifyContent="space-between" mb="3" alignItems="flex-end" >
-        <Flex flexDirection="column" justifyItems="self-start" >
-          <Text fontSize="30px" fontWeight="800" textAlign="left" mb="2" className="text-white">
+        <Flex flexDirection="column" justifyItems="self-start" marginBottom="36px">
+          <Text fontSize="30px" fontWeight="800" textAlign="left" mb="2" className="text-white" lineHeight="1" margin="0px">
             {displayBalance}
           </Text>
           <Flex>
@@ -129,7 +129,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       <Flex justifyContent="center">
         {/* <HarvestAction earnings={earnings} pid={pid} /> */}
         {!account ? (
-          <UnlockButton padding="10px 60px" />
+          <UnlockButton />
         ) : (
           renderApprovalOrStakeButton()
         )}

@@ -73,7 +73,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
         width="auto"
         disabled={requestedApproval}
         onClick={handleApprove}
-        className="btn rounded mt-5 mb-4"
+        className="btn rounded"
       >
         <Text color ="#FFE4F2" fontSize="14px" fontWeight="400" letterSpacing="0px" lineHeight="18px">{TranslateString(758, "Approve Contract")}</Text>
       </Button>
@@ -91,14 +91,15 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
           pr="3px"
         >
           {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-          GLAXIA
+          {/* GLAXIA */}
+          {lpName}
         </Text>
-        <Text className="pink-color mb-3" fontWeight="300" fontSize="14px">
+        <Text className="pink-color " fontWeight="300" fontSize="14px">
           {TranslateString(1072, "Earned")}
         </Text>
       </Flex>
       
-      <Flex>
+      <Flex marginBottom="36px">
         <Text
           
           textTransform="uppercase"
@@ -113,7 +114,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
         </Text>
       </Flex>
       {!account ? (
-        <UnlockButton mt="8px" width="100%" />
+        <UnlockButton mt="8px" />
       ) : (
         renderApprovalOrStakeButton()
       )}
