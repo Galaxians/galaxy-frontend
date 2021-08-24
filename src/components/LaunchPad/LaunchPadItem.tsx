@@ -1,7 +1,7 @@
 import React, { useContext, useMemo, useState } from 'react'
-import Modal from '@material-ui/core/Modal';
-import Checkbox from '@material-ui/core/Checkbox';
-import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal'
+import Checkbox from '@material-ui/core/Checkbox'
+import { makeStyles } from '@material-ui/core/styles'
 import styled from 'styled-components'
 import { Card, Button, ChevronDownIcon, SearchIcon, Text, ChevronLeftIcon, ChevronRightIcon } from 'glx-uikit'
 

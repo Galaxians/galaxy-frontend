@@ -32,7 +32,7 @@ export default function Navbar() {
   const history = useHistory()
 
   return (
-    <div className="footer">
+    <div className="footer" style={{paddingBottom: '92px'}}>
       <div className="footer-bg" style={{marginTop: '150px'}}>
         <div className="row justify-content-center">
           <img src="./assets/img/galaxy-footer-logo.png" className="footer-image" alt="" />
