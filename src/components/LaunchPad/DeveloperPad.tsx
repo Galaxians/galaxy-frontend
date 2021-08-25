@@ -670,7 +670,7 @@ export default function DeveloperPad({
                 <BlurDiv>
                 <ZoomText>The intergalactic Liquidity Locker does say his name. It locks your tokens. That way you will gain trust amongst your investors. If you are not developing a token this section is not ment for you. Instead we kindly direct you to <span style={{fontWeight: 900}}>this</span></ZoomText>
                 <Text style={{ fontSize: '12px', fontWeight: 700, marginTop: '50px' }}>Enter the GalaxySwap V1 pair address you would like to lock liquidity for</Text>
-                <div style={{ display: 'flex', marginTop: '5px', justifyContent: 'space-between', border: '1px solid #FF1FFF', padding: '5px', width: '100%', alignSelf: 'center', borderRadius: '8px' }}>
+                <div style={{ display: 'flex', marginTop: '5px', justifyContent: 'space-between', border: '1px solid #FF1FFF', padding: '10px', width: '100%', alignSelf: 'center', borderRadius: '8px' }}>
                     <div style={{ display: 'flex' }}>
                         <div style={{ marginRight: '10px', borderRadius: '100%', background: 'white', width: '24px' }} />
                         <SimpleInput style={{ width: '450px' }} onChange={onChange} value={tokenAddress} placeholder="Enter your token address" />
