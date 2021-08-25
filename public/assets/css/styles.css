@@ -610,7 +610,7 @@ td.farm-table:last-child { border-right: 1px solid #FF1FFF; border-top-right-rad
 
 @media(max-width: 600px) {
   .nebula-class {
-    padding: 20px;
+    padding: 10px;
   }
   .token-class {
     padding: 20px;
