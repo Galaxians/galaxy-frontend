@@ -92,7 +92,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
   return (
     <Action>
       <Flex justifyContent="space-between" mb="3" alignItems="flex-end" >
-        <Flex flexDirection="column" justifyItems="self-start" marginBottom="36px">
+        <Flex flexDirection="column" justifyItems="self-start" marginBottom="36px" marginLeft="24px">
           <Text fontSize="30px" fontWeight="800" textAlign="left" mb="2" className="text-white" lineHeight="1" margin="0px">
             {displayBalance}
           </Text>
