@@ -16,6 +16,14 @@ background-repeat: no-repeat;
 padding: 0;
 }
 .ghost{
+  /* position: absolute;
+  top: -65px;
+  left: 238px;
+  width: 1683px;
+  height: 1216px;
+  background: url(../img/Kal-artwork-giveaway-page.png);
+  background-size: contain;
+  opacity: 1; */
   background-size: contain;
   background-repeat: no-repeat;
   background-position-x: right;
@@ -24,7 +32,7 @@ padding: 0;
 }
 @media (min-width: 950px) {
   .ghost{
-    background: url('../img/Kal-artwork-giveaway-page.png');
+    background: url(../img/Kal-artwork-giveaway-page.png);
   }
 }
 @media (max-width: 949px) {
