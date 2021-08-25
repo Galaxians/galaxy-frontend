@@ -147,6 +147,9 @@ const Wrapper = styled.div`
   max-width: 1054px;
   margin: auto;
   margin-top: 100px;
+  @media(max-width: 500px) {
+    margin-top: 0px;
+  }
 `
 
 const Farms: React.FC = () => {
