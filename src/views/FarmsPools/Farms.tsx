@@ -43,10 +43,18 @@ const ControlContainer = styled.div`
   padding: 28px 18px;
   background: #0B001E 0% 0% no-repeat padding-box;
   @media screen and (max-width: 420px) {
-    flex-direction: column;
+    // flex-direction: row;
     gap: 24px;
   }
 `;
+
+const ToogleText = styled(Text)`
+  font-size: 20px;
+  font-weight: 500px;
+  @media screen and (max-width: 420px) {
+    font-size: 12px;
+  }
+`
 
 const ToggleWrapper = styled.div`
   display: flex;
@@ -54,7 +62,26 @@ const ToggleWrapper = styled.div`
   ${Text} {
     margin-left: 8px;
   }
-`;
+`
+
+const ToggleWrapperCustom = styled.div`
+  display: flex;
+  align-items: center;
+  ${Text} {
+    margin-left: 8px;
+  }
+  >div:last-of-type {
+    display: none;
+    @media screen and (max-width: 420px) {
+      display: block !important;
+    }
+  }
+  >div:first-of-type {
+    @media screen and (max-width: 420px) {
+      display: none;
+    }
+  }
+`
 
 const LabelWrapper = styled.div`
   > ${Text} {
@@ -115,7 +142,11 @@ const Header = styled.div`
 const Wrapper = styled.div`
   max-width: 1000px;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 100px;
+  @media (max-width: 420px) {
+    margin-top: 25px;
+    padding: 0px 30px;
+  }
 `
 
 const Farms: React.FC = () => {
@@ -430,10 +461,10 @@ const Farms: React.FC = () => {
                     onChange={() => setStackedOnly(!stackedOnly)}
                     scale="sm"
                   />
-                  <Text fontSize="20px" fontWeight="500"> {TranslateString(1116, "Staked only")}</Text>
+                  <ToogleText> {TranslateString(1116, "Staked only")}</ToogleText>
                 </ToggleWrapper>
-                <ToggleWrapper>
-                  <Text mr="8px" fontSize="20px" fontWeight="500"> {TranslateString(1116, "Finished only")}</Text>
+                <ToggleWrapperCustom>
+                  <ToogleText marginRight="10px"> {TranslateString(1116, "Finished only")}</ToogleText>
                   <Toggle
                     color="green"
                     width="400px"
@@ -441,7 +472,8 @@ const Farms: React.FC = () => {
                     onChange={() => setFinishedOnly(!finishedOnly)}
                     scale="sm"
                   />
-                </ToggleWrapper>
+                  <ToogleText> {TranslateString(1116, "Show finished")}</ToogleText>
+                </ToggleWrapperCustom>
                 {/* <FarmTabButtons /> */}
             
             </ControlContainer>

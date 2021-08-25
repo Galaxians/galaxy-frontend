@@ -619,3 +619,22 @@ td.farm-table:last-child { border-right: 1px solid #FF1FFF; border-top-right-rad
     padding: 20px;
   }
 }
+
+@media(max-width: 420px) {
+  .nav-btn-show {
+    padding-left: 30px;
+  }
+}
+
+.dyxydX {
+  background-color: #FF1FFF !important;
+}
+
+.kPdWmh {
+  background-color: gray !important;
+}
+
+.boJkwk {
+  background-color: white !important;
+  box-shadow: unset !important;
+}

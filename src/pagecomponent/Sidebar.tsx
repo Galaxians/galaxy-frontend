@@ -22,23 +22,28 @@ export const SidebarContainer = styled.aside<{ isOpen: any }>`
   @media(min-width: 990px) {
     display: none;
   }
+  overflow: auto;
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
 `;
 
 const BtnDiv = styled.div`
   border: 1px solid #ff1fff;
   border-radius: 8px;
   opacity: 1;
-  width: 140px;
-  height: 40px;
+  width: 160px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  font-size: 14px;
+  font-size: 15px;
   position: relative;
   cursor: pointer;
   margin: 10px 0px;
   > span {
+    opacity: 0.9;
     z-index: 1;
     >a:hover {
       color: white;
@@ -66,7 +71,6 @@ const BtnDiv = styled.div`
 
 const BtnImg = styled.div`
   position: relative;
-  width: 120px;
   padding: 10px;
   display: flex;
   border-radius: 8px;
@@ -74,11 +78,12 @@ const BtnImg = styled.div`
   cursor: pointer;
   margin-bottom: 25px;
   > img {
-    width: 90px;
+    width: 120px;
   }
   > span {
     position: absolute;
-    font-size: 12px;
+    font-weight: 700px;
+    font-size: 14px;
     right: 0px;
     top: 10px;
   }
@@ -122,21 +127,21 @@ export default function Sidebar({ isOpen, toggle }) {
             <MenuLogo onClick={toggle}>
               <img src="./assets/img/menu.png" alt="menu"/>
             </MenuLogo>
-            <div style={{ display: 'flex', alignItems: 'center', marginTop: '100px', flexDirection: 'column', height: '50%' }}>
-                <img src="./assets/img/Icon-galaxyswap.png" alt="icon" style={{ width: '25px', marginBottom: '20px' }} />
+            <div style={{ display: 'flex', alignItems: 'center', marginTop: '70px', flexDirection: 'column', height: '550px' }}>
+                <img src="./assets/img/Icon-galaxyswap.png" alt="icon" style={{ width: '30px', marginBottom: '20px' }} />
                 <Btn text="EXCHANGE"/>
                 <Btn text="FARMS"/>
                 <Btn text="POOLS"/>
                 <Btn text="LAUNCHPAD"/>
             </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '100px', marginBottom: '50px'}}>
                 <BtnImg>
                     <img src="./assets/img/Kal-with-tongue-out.png" alt="tongue" />
                     <span>Need Help?</span>
                 </BtnImg>
                 <div style={{ width: '80%', height: '0px', border: '1px solid #FF1FFF' }} />
-                <div style={{ marginTop: '25px', display: 'flex', alignItems: 'center'}}><img src="./assets/img/Galaxia-token-color-250px.png" alt="galaxy" style={{ width: '25px', marginRight: '10px' }} />$ 0,063</div>
+                <div style={{ marginTop: '25px', display: 'flex', alignItems: 'center', fontSize: '20px'}}><img src="./assets/img/Galaxia-token-color-250px.png" alt="galaxy" style={{ width: '25px', marginRight: '10px' }} />$ 0,063</div>
             </div>
         </SidebarContainer >
         </>

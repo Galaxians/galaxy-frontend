@@ -138,7 +138,7 @@ export default function Navbar({ toggle }) {
 
   return (
     <div className="container-fluid top-nav-bg">
-      <nav className="navbar navbar-dark navbar-expand-lg" style={{paddingBottom: '1rem', paddingTop: '1rem'}}>
+      <nav className="navbar navbar-dark navbar-expand-lg" style={{paddingBottom: '1rem', paddingTop: '1rem', flexWrap: 'unset'}}>
         <div className="container-fluid">
           <div style={{ display: "flex" }}>
             <button
@@ -172,7 +172,7 @@ export default function Navbar({ toggle }) {
               <img
                 src="./assets/img/Icon-galaxyswap-192x192.png"
                 alt="Galaxy Swap"
-                style={{ marginLeft: "5px", width: "50px" }}
+                style={{ marginLeft: "5px", width: "50px", minWidth: '50px' }}
               />
             </a>
           </div>
@@ -181,26 +181,26 @@ export default function Navbar({ toggle }) {
             <span className="navbar-text actions">
               <div>
               {account ? (
-                  <Button
-                  className="btn text-white xrounded "
-                  style={{height: '25px', fontSize:'12px', background: 'transparent', border: '1px solid #FF1FFF'}}
-                    onClick={() => {
-                      onPresentAccountModal()
-                    }}
-                  >
-                    {accountEllipsis}
-                  </Button>
-                ) : (
-                  <Button
-                  className="btn text-white xrounded "
-                  style={{height: '25px', fontSize:'12px', background: 'transparent', border: '1px solid #FF1FFF'}}
-                    onClick={() => {
-                      onPresentConnectModal()
-                    }}
-                  >
-                    Connect
-                  </Button>
-                )}
+                <Button
+                className="btn text-white xrounded "
+                style={{height: '44px', width:'146px', background: 'transparent', border: '1px solid #FF1FFF', fontFamily: 'Mosk'}}
+                  onClick={() => {
+                    onPresentAccountModal()
+                  }}
+                >
+                  {accountEllipsis}
+                </Button>
+              ) : (
+                <Button
+                className="btn text-white xrounded "
+                style={{fontWeight: 800, height: '44px', width:'146px', background: 'transparent', border: '1px solid #FF1FFF', fontFamily: 'Mosk'}}
+                  onClick={() => {
+                    onPresentConnectModal()
+                  }}
+                >
+                  Connect
+                </Button>
+              )}
               </div>
             </span>
             <img
@@ -208,9 +208,9 @@ export default function Navbar({ toggle }) {
               alt="profile"
               style={{
                 marginLeft: "11px",
-                width: "25px",
-                marginTop: "7px",
-                height: "25px",
+                width: "40px",
+                marginTop: "9px",
+                height: "40px",
               }}
             />
           </div>
@@ -307,7 +307,7 @@ export default function Navbar({ toggle }) {
               {account ? (
                 <Button
                 className="btn text-white xrounded "
-                style={{marginLeft:'70px',height: '40px', width:'140px', background: 'transparent', border: '1px solid #FF1FFF', fontFamily: 'Mosk'}}
+                style={{marginLeft:'70px',height: '44px', width:'146px', background: 'transparent', border: '1px solid #FF1FFF', fontFamily: 'Mosk'}}
                   onClick={() => {
                     onPresentAccountModal()
                   }}
@@ -317,7 +317,7 @@ export default function Navbar({ toggle }) {
               ) : (
                 <Button
                 className="btn text-white xrounded "
-                style={{marginLeft:'70px',fontWeight: 800, height: '40px', width:'140px', background: 'transparent', border: '1px solid #FF1FFF', fontFamily: 'Mosk'}}
+                style={{marginLeft:'70px',fontWeight: 800, height: '44px', width:'146px', background: 'transparent', border: '1px solid #FF1FFF', fontFamily: 'Mosk'}}
                   onClick={() => {
                     onPresentConnectModal()
                   }}

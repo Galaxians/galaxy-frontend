@@ -460,7 +460,7 @@ const Farms: React.FC = () => {
                 </ToggleWrapper>
                 <ToggleWrapper>
                   <Toggle
-                    style={{ background: "#ffffff" }}
+                    style={{ backgroundColor: "#ffffff" }}
                     checked={finishedOnly}
                     onChange={() => setFinishedOnly(!finishedOnly)}
                     scale="sm"

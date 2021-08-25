@@ -11,12 +11,13 @@ import useI18n from "hooks/useI18n";
 import useWeb3 from "hooks/useWeb3";
 import { useApprove } from "hooks/useApprove";
 import UnlockButton from "components/UnlockButton";
+import HarvestButton from "components/HarvestButton";
 import { getBalanceNumber } from "utils/formatBalance";
 import StakeAction from "./StakeAction";
 import HarvestAction from "./HarvestAction";
 
 const Action = styled.div`
-  padding-top: 16px;
+  // padding-top: 16px;
   margin: 0px 24px;
 `;
 export interface FarmWithStakedValue extends Farm {
@@ -77,7 +78,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
         onClick={handleApprove}
         className="btn rounded"
       >
-        <Text color ="#FFE4F2" fontSize="14px" fontWeight="400" letterSpacing="0px" lineHeight="18px">{TranslateString(758, `Approve ${lpName}`)}</Text>
+        <Text color ="#FFE4F2" fontSize="14px" fontWeight="800" letterSpacing="0px" lineHeight="18px">{TranslateString(758, `Approve ${lpName}`)}</Text>
       </Button>
     );
   };
@@ -128,8 +129,10 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       
       <Flex justifyContent="center">
         {/* <HarvestAction earnings={earnings} pid={pid} /> */}
-        {!account ? (
-          <UnlockButton padding="10px 60px" />
+        {!account ? (<>
+          <HarvestButton padding="10px 60px" width="30%" marginRight="10px" />
+          <UnlockButton padding="10px 60px" width="30%" marginLeft="10px" />
+          </>
         ) : (
           renderApprovalOrStakeButton()
         )}
