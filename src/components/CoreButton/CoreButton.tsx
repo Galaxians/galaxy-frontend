@@ -28,7 +28,7 @@ const CoreButton: React.FC<CoreButtonProps> = ({
       role="button"
       onClick={() => onClick()}
     >
-      <CheckmarkCircleIcon color="red" width="24px" height="24px" />
+      <CheckmarkCircleIcon width="24px" height="24px" />
       <Text color="contrast" fontSize="14px" fontWeight="100" className="px-2">
         Core
       </Text>
