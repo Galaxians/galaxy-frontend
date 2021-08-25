@@ -11,12 +11,17 @@ import useI18n from "hooks/useI18n";
 import useWeb3 from "hooks/useWeb3";
 import { useApprove } from "hooks/useApprove";
 import UnlockButton from "components/UnlockButton";
+import HarvestButton from "components/HarvestButton";
 import { getBalanceNumber } from "utils/formatBalance";
 import StakeAction from "./StakeAction";
 import HarvestAction from "./HarvestAction";
 
 const Action = styled.div`
+<<<<<<< HEAD
+  // padding-top: 16px;
+=======
   padding-top: 12px;
+>>>>>>> 0ca79e82b10b665a2b4b62ddb56cfec6b826eaa5
   margin: 0px 24px;
 `;
 export interface FarmWithStakedValue extends Farm {
@@ -77,7 +82,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
         onClick={handleApprove}
         className="btn rounded"
       >
-        <Text color ="#FFE4F2" fontSize="14px" fontWeight="400" letterSpacing="0px" lineHeight="18px">{TranslateString(758, `Approve ${lpName}`)}</Text>
+        <Text color ="#FFE4F2" fontSize="14px" fontWeight="800" letterSpacing="0px" lineHeight="18px">{TranslateString(758, `Approve ${lpName}`)}</Text>
       </Button>
     );
   };
@@ -87,7 +92,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
   return (
     <Action>
       <Flex justifyContent="space-between" mb="3" alignItems="flex-end" >
-        <Flex flexDirection="column" justifyItems="self-start" marginBottom="36px">
+        <Flex flexDirection="column" justifyItems="self-start" marginBottom="36px" marginLeft="24px">
           <Text fontSize="30px" fontWeight="800" textAlign="left" mb="2" className="text-white" lineHeight="1" margin="0px">
             {displayBalance}
           </Text>
@@ -128,8 +133,10 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       
       <Flex justifyContent="center">
         {/* <HarvestAction earnings={earnings} pid={pid} /> */}
-        {!account ? (
-          <UnlockButton />
+        {!account ? (<>
+          <HarvestButton padding="10px 60px" width="30%" marginRight="10px" />
+          <UnlockButton padding="10px 60px" width="30%" marginLeft="10px" />
+          </>
         ) : (
           renderApprovalOrStakeButton()
         )}

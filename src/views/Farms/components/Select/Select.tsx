@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { ArrowDropDownIcon, Text } from "glx-uikit";
 
 const DropDownHeader = styled.div`
-  width: 192px;
+  // width: 192px;
   height: 45px;
   display: flex;
   align-items: center;
@@ -26,7 +26,7 @@ const DropDownHeader = styled.div`
 `;
 
 const DropDownListContainer = styled.div`
-  width: 192px;
+  // width: 192px;
   height: 0;
   position: absolute;
   overflow: hidden;
@@ -72,7 +72,7 @@ const DropDownContainer = styled.div<{
       ${DropDownHeader} {
         box-shadow: ${({ theme }) => theme.tooltip.boxShadow};
         border-radius: 10px 10px 0 0;
-        width: 192px;
+        width: 100%;
         height: 45px;
         border: 0.5px solid #FF1FFF;
         border-bottom-width: 0px;
@@ -80,7 +80,7 @@ const DropDownContainer = styled.div<{
 
       ${DropDownListContainer} {
         height: auto;
-        width: 192px;
+        width: 100%;
         transform: scaleY(1);
         opacity: 1;
         border: 0.5px solid #FF1FFF;
@@ -112,6 +112,17 @@ const ListItem = styled.li`
     background: ${({ theme }) => theme.colors.inputSecondary};
   }
 `;
+
+const ToogleText = styled(Text)`
+  font-size: 20px;
+  font-weight: 500px;
+  @media screen and (max-width: 505px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 465px) {
+    font-size: 12px;
+  }
+`
 
 export interface SelectProps {
   options: OptionProps[];
@@ -155,7 +166,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
     <DropDownContainer isOpen={isOpen} ref={containerRef} {...containerSize}>
       {containerSize.width !== 0 && (
         <DropDownHeader onClick={toggling}>
-          <Text fontSize="20px" fontWeight="500" >{selectedOption.label}</Text>
+          <ToogleText>{selectedOption.label}</ToogleText>
         </DropDownHeader>
       )}
       <ArrowDropDownIcon color="text" onClick={toggling} />
@@ -164,7 +175,7 @@ const Select: React.FunctionComponent<SelectProps> = ({
           {options.map((option) =>
             option.label !== selectedOption.label ? (
               <ListItem onClick={onOptionClicked(option)} key={option.label}>
-                <Text fontSize="20px" fontWeight="500" >{option.label}</Text>
+                <ToogleText>{option.label}</ToogleText>
               </ListItem>
             ) : null
           )}

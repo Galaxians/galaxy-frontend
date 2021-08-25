@@ -19,6 +19,9 @@ const Container = styled.div`
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-right: 5px;
   }
+  @media (max-width: 968px) {
+    margin-top: unset;
+  }
 `;
 
 const ArrowIcon = styled(ChevronDownIcon)<{ toggled: boolean }>`

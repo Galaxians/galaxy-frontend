@@ -19,6 +19,10 @@ const IconImage = styled(Image)`
     width: 80px;
     height: 40px;
   }
+  @media(max-width: 500px) {
+    width: 60px;
+    height: 35px
+  }
 `;
 
 const Container = styled.div`
@@ -28,6 +32,14 @@ const Container = styled.div`
 
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-left: 32px;
+  }
+`;
+
+const TitleText = styled(Text)`
+  font-weight: 500;
+  font-size: 22px;
+  @media(max-width: 500px) {
+    font-size: 12px;
   }
 `;
 
@@ -59,7 +71,7 @@ const Farm: React.FunctionComponent<FarmProps> = ({ image, label, pid }) => {
       />
       <div>
         {handleRenderFarming()}
-        <Text fontSize="22px" fontWeight="500">{label}</Text>
+        <TitleText>{label}</TitleText>
       </div>
     </Container>
   );

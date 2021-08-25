@@ -44,6 +44,9 @@ const CellInner = styled.div`
   ${({ theme }) => theme.mediaQueries.xl} {
     padding-right: 32px;
   }
+  @media(max-width: 500px) {
+    padding: 12px 0px;
+  }
 `;
 
 const StyledTr = styled.tr`
@@ -90,7 +93,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
   const columnNames = tableSchema.map((column) => column.name);
 
   const handleRenderRow = () => {
-    if (!isXs) {
+    // if (!isXs) {
       return (
         <StyledTr onClick={toggleActionPanel}>
           {Object.keys(props).map((key) => {
@@ -139,45 +142,45 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
           })}
         </StyledTr>
       );
-    }
+    // }
 
-    return (
-      <StyledTr onClick={toggleActionPanel}>
-        <td className="farm-table">
-          <tr>
-            <FarmMobileCell>
-              <CellLayout>
-                <Farm {...props.farm} />
-              </CellLayout>
-            </FarmMobileCell>
-          </tr>
-          <tr>
-            <td>
-              <tr>
-                <EarnedMobileCell>
-                  <CellLayout label={TranslateString(1072, "Earned")}>
-                    <Earned {...props.earned} />
-                  </CellLayout>
-                </EarnedMobileCell>
-                <AprMobileCell className="pl-2">
-                  <CellLayout label={TranslateString(736, "APR")}>
-                    <Apr {...props.apr} hideButton />
-                  </CellLayout>
-                </AprMobileCell>
-              </tr>
-            </td>
+    // return (
+    //   <StyledTr onClick={toggleActionPanel}>
+    //     <td className="farm-table">
+    //       <tr>
+    //         <FarmMobileCell>
+    //           <CellLayout>
+    //             <Farm {...props.farm} />
+    //           </CellLayout>
+    //         </FarmMobileCell>
+    //       </tr>
+    //       <tr>
+    //         <td>
+    //           <tr>
+    //             <EarnedMobileCell>
+    //               <CellLayout label={TranslateString(1072, "Earned")}>
+    //                 <Earned {...props.earned} />
+    //               </CellLayout>
+    //             </EarnedMobileCell>
+    //             <AprMobileCell className="pl-2">
+    //               <CellLayout label={TranslateString(736, "APR")}>
+    //                 <Apr {...props.apr} hideButton />
+    //               </CellLayout>
+    //             </AprMobileCell>
+    //           </tr>
+    //         </td>
             
-          </tr>
-        </td>
-        <td className="farm-table">
-          <CellInner>
-            <CellLayout>
-              <Details actionPanelToggled={actionPanelToggled} />
-            </CellLayout>
-          </CellInner>
-        </td>
-      </StyledTr>
-    );
+    //       </tr>
+    //     </td>
+    //     <td className="farm-table">
+    //       <CellInner>
+    //         <CellLayout>
+    //           <Details actionPanelToggled={actionPanelToggled} />
+    //         </CellLayout>
+    //       </CellInner>
+    //     </td>
+    //   </StyledTr>
+    // );
   };
 
   return (

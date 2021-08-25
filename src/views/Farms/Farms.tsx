@@ -51,6 +51,10 @@ const ControlContainer = styled.div`
       width: 100%;
     }
   }
+  @media only screen and (max-width: 500px) {
+    flex-direction: column;
+    padding: 8px 16px;
+  }
 `;
 
 const ToggleWrapper = styled.div`
@@ -62,10 +66,23 @@ const ToggleWrapper = styled.div`
   
 `;
 
+const ToogleText = styled(Text)`
+  font-size: 20px;
+  font-weight: 500;
+  @media screen and (max-width: 505px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 465px) {
+    font-size: 12px;
+  }
+`
+
 const LabelWrapper = styled.div`
   > ${Text} {
-    
     font-size: 14px;
+    @media(max-width: 500px) {
+      font-size: 10px;
+    }
   }
 `;
 // margin-bottom: 6px;
@@ -78,11 +95,8 @@ const FilterContainer = styled.div`
   border-radius: 8px;
   gap: 18px;
   justify-content: space-between;
-  @media only screen and (max-width: 620px) {
-    flex-direction: column;
-    & > * {
-      width: 100%;
-    }
+  @media only screen and (max-width: 1200px) {
+    margin-top: 15px;
   }
 `;
 
@@ -102,6 +116,9 @@ const ViewControls = styled.div`
     > div {
       padding: 0;
     }
+  }
+  @media (max-width: 500px) {
+    gap: 0px;
   }
 `;
 
@@ -129,7 +146,10 @@ const Header = styled.div`
 const Wrapper = styled.div`
   max-width: 1054px;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 100px;
+  @media(max-width: 500px) {
+    margin-top: 0px;
+  }
 `
 
 const Farms: React.FC = () => {
@@ -456,21 +476,21 @@ const Farms: React.FC = () => {
                     onChange={() => setStackedOnly(!stackedOnly)}
                     scale="sm"
                   />
-                  <Text fontSize="20px" fontWeight="500"> {TranslateString(1116, "Staked only")}</Text>
+                  <ToogleText> {TranslateString(1116, "Staked only")}</ToogleText>
                 </ToggleWrapper>
                 <ToggleWrapper>
                   <Toggle
-                    style={{ background: "#ffffff" }}
+                    style={{ backgroundColor: "#ffffff" }}
                     checked={finishedOnly}
                     onChange={() => setFinishedOnly(!finishedOnly)}
                     scale="sm"
                   />
-                  <Text fontSize="20px" fontWeight="500"> {TranslateString(1116, "Finished only")}</Text>
+                  <ToogleText> {TranslateString(1116, "Finished only")}</ToogleText>
                 </ToggleWrapper>
                 {/* <FarmTabButtons /> */}
               </ViewControls>
               <FilterContainer>
-                <LabelWrapper>
+                <LabelWrapper style={{width: "25%"}}>
                   <Text className="text-white" fontWeight="100" >SORT BY</Text>
                   <Select
                     options={[

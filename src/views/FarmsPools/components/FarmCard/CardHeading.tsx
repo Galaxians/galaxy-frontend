@@ -42,8 +42,8 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
         <Image
           src={`/images/farms/${farmImage}.png`}
           alt={tokenSymbol}
-          width={100}
-          height={60}
+          width={140}
+          height={70}
         />
           </div>
       </Flex>

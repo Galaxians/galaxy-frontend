@@ -63,6 +63,12 @@ export const PresaleDiv = styled.div`
     color: white;
     padding: 25px;
     font-weight: 700;
+    @media(max-width: 600px) {
+        font-size: 12px;
+        padding: 10px;
+        border: unset;
+        box-shadow: 0px 0px 10px 1px black;
+    }
 `
 
 export const PresaleDetail = styled.div`
@@ -77,6 +83,9 @@ export const PresaleDetail = styled.div`
     padding: 25px;
     @media (max-width: 600px) {
         padding: 10px;
+        border: unset;
+        border-top: 0.5px solid rgb(94, 19, 146);
+        box-shadow: 0px 5px 10px 0px black;
     }
 `
 export const TokenInput = styled.input`
@@ -93,7 +102,10 @@ export const TokenInput = styled.input`
   -webkit-appearance: none;
   font-size: 16px;
   transition: border 100ms;
-  width: 70%;
+  width: 80%;
+  @media(max-width: 600px) {
+      font-size: 12px;
+  }
 `
 
 export const CheckBtn = styled.div`
@@ -107,6 +119,9 @@ export const CheckBtn = styled.div`
     align-items: center;
     justify-content: center;
     margin-left: 50px;
+    @media(max-width: 600px) {
+        font-size: 12px;
+    }
 `
 
 export const SimpleInput = styled.input`
@@ -125,6 +140,9 @@ export const PreDiv = styled.div`
     flex-direction: column;
     margin-top: 25px;
     padding: 10px;
+    @media(max-width: 600px) {
+        margin-top: 10px;
+    }
 `
 
 export const FirstDiv = styled.div`
@@ -177,6 +195,118 @@ export const HDescription = styled.div`
     text-align: center;
     @media(max-width: 600px) {
         display: none;
+    }
+`
+
+const LaunchpadTitle = styled.div`
+    font-weight: 800;
+    height: 100px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    @media(max-width: 600px) {
+        border-radius: 8px 8px 0px 0px;
+        border: 1px solid #FF1FFF;
+        font-size: 14px;
+        height: 70px;
+    }
+`
+
+const MediumText = styled(Text)`
+    font-weight: 700;
+    @media(max-width: 600px) {
+        font-size: 14px;
+    }
+`
+
+const SmallText = styled(Text)`
+    font-size: 14px;
+    font-weight: 700;
+    @media(max-width: 600px) {
+        font-size: 12px;
+    }
+`
+
+const MiniText = styled.div`
+    flex: 1;
+    font-size: 14px;
+    @media(max-width: 600px) {
+        font-size: 10px;
+    }
+`
+
+const ResDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    @media(max-width: 600px) {
+        align-items: center;
+    }
+`
+
+const NBPrediv = styled(PreDiv)`
+    font-size: 12px;
+    color: #FF1FFF;
+    @media(max-width: 600px) {
+        font-size: 9px;
+        color: rgb(255, 31, 255);
+        align-items: center;
+        border: unset;
+    }
+`
+
+const ProDiv = styled.div`
+    width: 75%;
+    @media(max-width: 600px) {
+        width: 100%;
+    }
+`
+
+const ZoomText = styled(Text)`
+    font-size: 14px;
+    @media(max-width: 600px) {
+        font-size: 16px;
+        text-align: left;
+    }
+`
+
+const ZoomDiv = styled.div`
+    width: 70%;
+    display:flex;
+    justify-content: center;
+    border: 1px solid #FF1FFF;
+    padding: 10px 5px;
+    align-self: center;
+    border-radius: 8px;
+    margin: auto;
+    margin-top: 20px;
+    @media(max-width: 600px) {
+        width: 100%;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+`
+
+const BlurDiv = styled.div`
+    padding: 30px 20px;
+    @media(max-width: 600px) {
+        box-shadow: 0px 0px 5px 1px black;
+    }
+`
+
+const SearchDiv = styled.div`
+    display: flex;
+    justify-content: space-between; 
+    border: 1px solid #FF1FFF;
+    padding: 10px;
+    width: 90%; 
+    align-self: center; 
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 20px; 
+    @media(max-width: 600px) {
+        width: 100%;
     }
 `
 
@@ -258,9 +388,9 @@ export default function DeveloperPad({
                 </ChildDiv>
             </div></FirstDiv> : null}
         {activeIndex === 1 ? <div style={{ display: 'flex', justifyContent: 'center' }}><MainDiv>
-            <div style={{ fontWeight: 800, height: '100px', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px' }}>
+            <LaunchpadTitle>
                 Nebula Lanunchpad
-            </div>
+            </LaunchpadTitle>
             <div className="nebula-class">
                 <PresaleDiv>
                     Create your presale
@@ -271,9 +401,9 @@ export default function DeveloperPad({
                         <CheckBtn  style={{fontWeight: 700}} onClick={() => handleCheck()}>CHECK</CheckBtn>
                     </div>
                     <div style={{ display: 'flex', marginTop: '20px' }}>
-                        <Text style={{fontWeight: 700}}>Buyers participate with</Text>
+                        <MediumText>Buyers participate with</MediumText>
                         <div style={{ marginLeft: '50px', marginRight: '10px', borderRadius: '100%', background: 'white', width: '24px' }} />
-                        <Text style={{fontWeight: 700}}>WBNB</Text>
+                        <MediumText>WBNB</MediumText>
                         <ChevronDownIcon style={{ fill: '#FF1FFF' }} />
                     </div>
                     <Text style={{ marginTop: '20px', fontSize: '12px' }}>GalaxySwap V2 par to created</Text>
@@ -319,6 +449,8 @@ export default function DeveloperPad({
                             <Text style={{ fontSize: '14px', fontWeight: 700 }}>WBNB</Text>
                             <ChevronDownIcon style={{ fill: '#FF1FFF' }} />
                         </div>
+                        <Text style={{ marginTop: '20px', fontSize: '12px' }}>GalaxySwap V2 par to created</Text>
+                        <Text style={{ fontSize: '12px', color: '#FF1FFF' }}>WBNB/?</Text>
                         <PreDiv>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -326,20 +458,20 @@ export default function DeveloperPad({
                                     <Text style={{ fontSize: '12px', color: '#FF1FFF' }}>WBNB / SAFEGALAXY</Text>
                                 </div>
                                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                                    <Text style={{ fontSize: '12px', color: '#FF1FFF' }}>0x2dbd..54Cc</Text>
+                                    <Text style={{ fontSize: '12px', color: 'white' }}>0x2dbd..54Cc</Text>
                                     <Text style={{ fontSize: '12px', color: 'white', marginLeft: '5px', cursor: 'pointer' }}>X</Text>
                                 </div>
                             </div>
                         </PreDiv>
                         <div style={{ marginTop: '20px', fontSize: '12px' }}>GalaxySwap V2 par to be created</div>
                         <div style={{ marginTop: '5px', fontSize: '12px', color: '#FF1FFF' }}>WBNB / SAFEGALAXY</div>
-                        <div style={{ marginTop: '20px', fontSize: '14px', fontWeight: 700 }}>Presale creator</div>
-                        <div style={{ marginTop: '5px', fontSize: '12px', color: '#FF1FFF' }}>0x2dbd...54Cc</div>
+                        <SmallText marginTop="10px">Presale creator</SmallText>
+                        <div style={{ fontSize: '12px', color: '#FF1FFF' }}>0x2dbd...54Cc</div>
                         <div style={{ marginTop: '20px', fontSize: '12px' }}>This account will be the only account capable of adding presale information, editing presale contract paramaters and unlocking liquidity.</div>
-                        <PreDiv style={{ fontSize: '12px', color: '#FF1FFF' }}>
+                        <NBPrediv>
                             We recomend a minimum liquidity percentage of 60%, and a minimum lock of 1 year.
-                        </PreDiv>
-                        <div style={{ marginTop: '20px', fontSize: '14px', fontWeight: 700 }}>How many SAFEGALAXY are up for presale?</div>
+                        </NBPrediv>
+                        <SmallText marginTop="20px">How many SAFEGALAXY are up for presale?</SmallText>
                         <PreDiv>
                             <div style={{ fontSize: '12px', textAlign: 'right', marginBottom: '5px' }}>Balance: 0</div>
                             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -365,9 +497,9 @@ export default function DeveloperPad({
                                     </PreDiv>
                                 </div>
                             </div>
-                            <div style={{ display: 'flex', marginTop: '10px', color: '#FF1FFF', fontSize: '14px' }}>
+                            <div style={{ display: 'flex', marginTop: '10px'}}>
                                 <div style={{ flex: 1 }} />
-                                <div style={{ flex: 1 }}>Must be{'>'}0</div>
+                                <div style={{ flex: 1 }}><SmallText color="#FF1FFF">Must be{'>'}0</SmallText></div>
                             </div>
                         </div>
                         <div style={{ marginTop: '20px', fontSize: '12px' }}>Presale rate</div>
@@ -440,7 +572,7 @@ export default function DeveloperPad({
                                 </div>
                             </div>
                             <div style={{ display: 'flex', marginTop: '10px', color: '#FF1FFF', fontSize: '14px' }}>
-                                <div style={{ flex: 1 }}>Must be{'>'}0</div>
+                                <div style={{ flex: 1 }}><SmallText color="#FF1FFF">Must be above 0</SmallText></div>
                             </div>
                         </div>
                         <div style={{ marginTop: '20px', display: 'flex', flexDirection: 'column' }}>
@@ -464,10 +596,11 @@ export default function DeveloperPad({
                                     </PreDiv>
                                 </div>
                             </div>
-                            <div style={{ display: 'flex', marginTop: '10px', color: '#FF1FFF', fontSize: '14px' }}>
-                                <div style={{ flex: 1 }}>Presale should ideally start 1 week from today to give you time to raise awareness</div>
+                            <div style={{ display: 'flex', marginTop: '10px', color: '#FF1FFF'}}>
+                                <MiniText>Presale should ideally start 1 week from today to give you time to raise awareness</MiniText>
                             </div>
                         </div>
+                        <ResDiv>
                         <div style={{ marginTop: '50px', fontSize: '14px', fontWeight: 700 }}>Do you have a valid referral address?</div>
                         <div style={{ display: 'flex', marginTop: '10px' }}>
                             <div style={{ fontWeight: 700, cursor: 'pointer',  marginRight: '10px', width: '70px', height: '25px', borderRadius: '8px', background: '#1AC988', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -477,23 +610,23 @@ export default function DeveloperPad({
                                 Yes
                             </div>
                         </div>
+                        </ResDiv>
                         <div style={{ marginTop: '30px', fontSize: '14px', fontWeight: 700 }}>Fees</div>
-                        <PreDiv style={{ display: 'flex', marginTop: '10px', fontSize: '12px', width: '300px' }}>
+                        <PreDiv style={{ display: 'flex', marginTop: '10px', fontSize: '14px', width: '300px' }}>
                             <div>1.5 BNB - Presale & Locking fee </div>
                             <div>1.8% - WBNB raised fee </div>
                             <div>1.8% - SAFEGALAXY sold fee </div>
                             <div>GalaxySwap GSv1 locking fee</div>
                         </PreDiv>
                         <PreDiv style={{ display: 'flex', marginTop: '10px', fontSize: '12px', width: '300px' }}>
-                            <div style={{ fontSize: '14px', fontWeight: 700 }}>Total SAFEGALAXY required  </div>
-                            <div style={{ fontSize: '14px', fontWeight: 700, color: '#FF1FFF' }}>0 SAFEGALAXY  </div>
-                            <div>Amount for sale: 0  </div>
-                            <div>Amount for liquidity: 0 </div>
-                            <div>Fees: 0</div>
+                            <div style={{ fontSize: '16px', fontWeight: 700 }}>Total SAFEGALAXY required  </div>
+                            <div style={{ fontSize: '16px', fontWeight: 700, color: '#FF1FFF' }}>0 SAFEGALAXY  </div>
+                            <div style={{fontSize: '14px'}}>Amount for sale: 0  </div>
+                            <div style={{fontSize: '14px'}}>Amount for liquidity: 0 </div>
+                            <div style={{fontSize: '14px'}}>Fees: 0</div>
                         </PreDiv>
                         <div style={{ display: 'flex', marginTop: '10px', color: '#FF1FFF', fontSize: '12px' }}>
-                            <div style={{ flex: 2 }}>Please note: If the presale is a success, any unsold tokens are sent to the 0x00…dEaD burn address.</div>
-                            <div style={{ flex: 1 }} />
+                            <ProDiv>Please note: If the presale is a success, any unsold tokens are sent to the 0x00…dEaD burn address.</ProDiv>
                         </div>
                         <div style={{ display: 'flex', marginTop: '40px' }}>
                             <div style={{ fontWeight: 700, cursor: 'pointer',  marginRight: '10px', width: '200px', height: '25px', borderRadius: '8px', background: '#1AC988', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
@@ -506,33 +639,38 @@ export default function DeveloperPad({
                     </PresaleDetail>}
             </div></MainDiv></div> : null}
         {activeIndex === 2 ? <div style={{ display: 'flex', justifyContent: 'center' }}><MainDiv>
-            <div style={{ fontWeight: 800, height: '100px', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px' }}>
+            <LaunchpadTitle>
                 High Security Token Locker
-            </div>
+            </LaunchpadTitle>
             <div className="token-class">
-                <Text style={{ fontSize: '12px' }}>We bring you the High Security Token Locker. Token locks are represented as shares of a pool, in a similar way to a GalaxySwap pool, allowing all BEP20 tokens including Rebasing and Deflationary mechanisms to be supported. This means lock amounts may change due to decimal rounding, but you will always retain your share of the pool.</Text>
+                <BlurDiv>
+                <ZoomText>We bring you the High Security Token Locker. Token locks are represented as shares of a pool, in a similar way to a GalaxySwap pool, allowing all BEP20 tokens including Rebasing and Deflationary mechanisms to be supported. This means lock amounts may change due to decimal rounding, but you will always retain your share of the pool.</ZoomText>
                 <Text style={{ fontSize: '14px', marginTop: '25px', fontWeight: 700 }}>Selected Network</Text>
-                <div style={{ display: 'flex', marginTop: '20px', justifyContent: 'center', border: '1px solid #FF1FFF', padding: '5px', width: '70%', alignSelf: 'center', borderRadius: '8px' }}>
+                <ZoomDiv>
+                    <div style={{display:'flex'}}>
                     <div style={{ marginRight: '10px', borderRadius: '100%', background: 'white', width: '24px' }} />
                     <Text>Binance Smart Chain</Text>
+                    </div>
                     <ChevronDownIcon style={{ marginLeft: '5px', fill: '#FF1FFF' }} />
-                </div>
-                <div style={{ display: 'flex', marginTop: '20px', justifyContent: 'space-between', border: '1px solid #FF1FFF', padding: '10px', width: '90%', alignSelf: 'center', borderRadius: '20px' }}>
+                </ZoomDiv>
+                <SearchDiv>
                     <div style={{ display: 'flex', alignItems: 'center', width: '100%' }}>
                         <div style={{ marginRight: '10px', borderRadius: '100%', background: 'white', width: '25px', height: '25px' }} />
                         <SimpleInput style={{ width: '100%' }} onChange={onChange} value={tokenAddress} placeholder="Enter your token address" />
                     </div>
                     <SearchIcon style={{ zoom: 1.5 }} />
-                </div>
+                </SearchDiv>
+                </BlurDiv>
             </div></MainDiv></div> : null}
         {activeIndex === 3 ? <div style={{ display: 'flex', justifyContent: 'center' }}><MainDiv>
-            <div style={{ fontWeight: 800, height: '100px', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '20px' }}>
+            <LaunchpadTitle>
                 Intergalactic Liquidity Locker
-            </div>
+            </LaunchpadTitle>
             <div className="liquidity-class">
-                <Text style={{ fontSize: '12px' }}>The intergalactic Liquidity Locker does say his name. It locks your tokens. That way you will gain trust amongst your investors. If you are not developing a token this section is not ment for you. Instead we kindly direct you to <span style={{fontWeight: 900}}>this</span></Text>
+                <BlurDiv>
+                <ZoomText>The intergalactic Liquidity Locker does say his name. It locks your tokens. That way you will gain trust amongst your investors. If you are not developing a token this section is not ment for you. Instead we kindly direct you to <span style={{fontWeight: 900}}>this</span></ZoomText>
                 <Text style={{ fontSize: '12px', fontWeight: 700, marginTop: '50px' }}>Enter the GalaxySwap V1 pair address you would like to lock liquidity for</Text>
-                <div style={{ display: 'flex', marginTop: '5px', justifyContent: 'space-between', border: '1px solid #FF1FFF', padding: '5px', width: '100%', alignSelf: 'center', borderRadius: '8px' }}>
+                <div style={{ display: 'flex', marginTop: '5px', justifyContent: 'space-between', border: '1px solid #FF1FFF', padding: '10px', width: '100%', alignSelf: 'center', borderRadius: '8px' }}>
                     <div style={{ display: 'flex' }}>
                         <div style={{ marginRight: '10px', borderRadius: '100%', background: 'white', width: '24px' }} />
                         <SimpleInput style={{ width: '450px' }} onChange={onChange} value={tokenAddress} placeholder="Enter your token address" />
@@ -554,7 +692,7 @@ export default function DeveloperPad({
                     </div>
                     <Text style={{ marginTop: '10px', fontWeight: 700 }}>0 SAFEGALAXY</Text>
                 </>}
-            </div></MainDiv></div> : null}
+                </BlurDiv></div></MainDiv></div> : null}
     </DeveloperDiv>
     )
 }

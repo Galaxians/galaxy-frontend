@@ -29,6 +29,12 @@ const StyledInput = styled(Input)`
   ::-ms-input-placeholder { /* Microsoft Edge */
     color: white;
   }
+  @media(max-width: 500px) {
+    font-size: 16px;
+  }
+  @media(max-width: 465px) {
+    font-size: 12px;
+  }
 `;
 
 const InputWrapper = styled.div`

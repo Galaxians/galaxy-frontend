@@ -48,9 +48,15 @@ const ToggleView: React.FunctionComponent<ToogleViewProps> = ({
     }
   };
 
+const CusIconButton = styled(IconButton)`
+  @media(max-width: 500px) {
+    width: 24px;
+  }
+`
+
   return (
     <Container>
-      <IconButton
+      <CusIconButton
         variant="text"
         scale="sm"
         onClick={() => handleToggle(ViewMode.CARD)}
@@ -58,8 +64,8 @@ const ToggleView: React.FunctionComponent<ToogleViewProps> = ({
         <CardViewIcon
           color={viewMode === ViewMode.CARD ? "primary" : "white"}
         />
-      </IconButton>
-      <IconButton
+      </CusIconButton>
+      <CusIconButton
         variant="text"
         scale="sm"
         onClick={() => handleToggle(ViewMode.TABLE)}
@@ -67,7 +73,7 @@ const ToggleView: React.FunctionComponent<ToogleViewProps> = ({
         <ListViewIcon
           color={viewMode === ViewMode.TABLE ? "#ff1fff" : "white"}
         />
-      </IconButton>
+      </CusIconButton>
     </Container>
   );
 };

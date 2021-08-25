@@ -610,7 +610,7 @@ td.farm-table:last-child { border-right: 1px solid #FF1FFF; border-top-right-rad
 
 @media(max-width: 600px) {
   .nebula-class {
-    padding: 20px;
+    padding: 10px;
   }
   .token-class {
     padding: 20px;
@@ -618,4 +618,23 @@ td.farm-table:last-child { border-right: 1px solid #FF1FFF; border-top-right-rad
   .liquidity-class {
     padding: 20px;
   }
+}
+
+@media(max-width: 420px) {
+  .nav-btn-show {
+    padding-left: 30px;
+  }
+}
+
+.dyxydX {
+  background-color: #FF1FFF !important;
+}
+
+.kPdWmh {
+  background-color: gray !important;
+}
+
+.boJkwk {
+  background-color: white !important;
+  box-shadow: unset !important;
 }
