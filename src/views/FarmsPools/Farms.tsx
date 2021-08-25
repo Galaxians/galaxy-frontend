@@ -50,7 +50,7 @@ const ControlContainer = styled.div`
 
 const ToogleText = styled(Text)`
   font-size: 20px;
-  font-weight: 500px;
+  font-weight: 500;
   @media screen and (max-width: 420px) {
     font-size: 12px;
   }

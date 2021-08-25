@@ -15,6 +15,9 @@ const Container = styled.div`
   filter: ${({ theme }) => theme.card.dropShadow};
   margin: 0px;
   padding: 0 30px;
+  @media (max-width: 700px) {
+    padding: unset;
+  }
 `;
 
 const TableWrapper = styled.div`
@@ -34,6 +37,9 @@ const StyledTable = styled.table`
   width: 100%;
   color:#ffffff;
   border-spacing: 0 16px;
+  @media (max-width: 500px) {
+    border-spacing: 0 4px;
+  }
 `;
 
 const TableBody = styled.tbody`

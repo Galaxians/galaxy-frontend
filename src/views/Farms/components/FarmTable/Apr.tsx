@@ -41,6 +41,9 @@ const AprWrapper = styled.div`
   font-size: 22px;
   font-weight: 300;
   text-align: left;
+  @media (max-width: 500px) {
+    font-size: 12px;
+  }
 `;
 
 const Apr: React.FC<AprProps> = ({

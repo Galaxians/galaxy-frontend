@@ -6,10 +6,24 @@ import useI18n from "hooks/useI18n";
 import Tooltip from "../Tooltip/Tooltip";
 
 const Label = styled.div`
-  font-size: 12px;
   color: ${({ theme }) => theme.colors.primary};
   text-align: left;
+  margin-right: 12px;
+  font-size: 15px; 
+  font-weight: 300; 
+  margin-bottom: 15px;
+  @media (max-width: 500px) {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
 `;
+
+const ResHelpIcon = styled(HelpIcon)`
+  @media (max-width: 500px) {
+    display: none;
+  }
+`
+
 
 const ContentContainer = styled.div`
   min-height: 24px;
@@ -56,11 +70,11 @@ const CellLayout: React.FC<CellLayoutProps> = ({ label = "", children }) => {
     <div style={{paddingRight: 8}}>
       {label && 
       <div className="d-flex flex-row">
-        <Label style={{marginRight: 12,fontSize: 15, fontWeight: 300, marginBottom: 15}}>{label}</Label>
+        <Label>{label}</Label>
         {label !== "Earned" && <Tooltip
           content={contents}
         >
-          <HelpIcon width="16px" height="16px" color="primary" />
+          <ResHelpIcon width="16px" height="16px" color="primary" />
         </Tooltip>}
       </div>}
       <ContentContainer>{children}</ContentContainer>
