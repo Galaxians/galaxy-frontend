@@ -146,7 +146,7 @@ const Header = styled.div`
 const Wrapper = styled.div`
   max-width: 1054px;
   margin: auto;
-  margin-top: 150px;
+  margin-top: 100px;
 `
 
 const Farms: React.FC = () => {
