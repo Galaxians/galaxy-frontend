@@ -169,7 +169,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`;
 
   return (
-    <div className={className} style={{maxWidth: '345px', minWidth: '300px'}}>
+    <div className={className} style={{maxWidth: '345px', minWidth: '345px'}}>
       <FCard>
         {farm.tokenSymbol === "GLX" && <StyledCardAccent />}
         <CardHeading

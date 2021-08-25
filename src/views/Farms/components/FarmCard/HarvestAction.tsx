@@ -23,19 +23,6 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
       <Heading style={{fontSize: 30, fontWeight: 800}} className="text-white" lineHeight="1" margin="0px">
         {displayBalance}
       </Heading>
-      <Button className="btn rounded"
-        padding="7px 45px"
-        height="auto"
-        width="auto"
-        disabled={rawEarningsBalance === 0 || pendingTx}
-        onClick={async () => {
-          setPendingTx(true);
-          await onReward();
-          setPendingTx(false);
-        }}
-      >
-        {TranslateString(562, "Harvest")}
-      </Button>
     </Flex>
   );
 };
