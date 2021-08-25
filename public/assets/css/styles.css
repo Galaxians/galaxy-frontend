@@ -16,21 +16,25 @@ background-repeat: no-repeat;
 padding: 0;
 }
 .ghost{
-  position: absolute;
+  /* position: absolute;
   top: -65px;
   left: 238px;
   width: 1683px;
   height: 1216px;
-  /* background: transparent url(../img/Kal-artwork-giveaway-page.png) 0% 0% no-repeat padding-box; */
   background: url(../img/Kal-artwork-giveaway-page.png);
   background-size: contain;
-  opacity: 1;
+  opacity: 1; */
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: -120px;
+  padding: 0;
 }
-/* @media (min-width: 950px) {
+@media (min-width: 950px) {
   .ghost{
     background: url(../img/Kal-artwork-giveaway-page.png);
   }
-} */
+}
 @media (max-width: 949px) {
   .mobile_ghost{
     height: 330px;
