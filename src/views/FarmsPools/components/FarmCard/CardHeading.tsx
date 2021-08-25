@@ -31,7 +31,7 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
   return (
     <Wrapper justifyContent="space-between" alignItems="center" mb="12px" marginX="24px" >
       <Flex flexDirection="column" alignItems="flex-start">
-        <Heading mb="4px" style={{fontSize: 27, fontWeight: 800, color: "#ffffff", marginBottom: "15px" }}>
+        <Heading mb="4px" style={{fontSize: 27, fontWeight: 800, color: "#ffffff", marginBottom: "16px" }}>
           {lpLabel}
         </Heading>
         <Flex justifyContent="center">

@@ -190,7 +190,8 @@ const FarmCard: React.FC<FarmCardProps> = ({
           <Flex
             justifyContent="space-between"
             alignItems="center"
-            className="mt-4 mx-4"
+            className="mx-4"
+            marginTop="36px"
           >
             <Text fontSize="14px" fontWeight="500" className="small pink-color">
               {TranslateString(736, "APR")}:

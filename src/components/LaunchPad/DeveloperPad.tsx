@@ -1,7 +1,7 @@
 import React, { useContext, useMemo, useState } from 'react'
 import styled from 'styled-components'
-import Grid from '@material-ui/core/Grid';
-import Slider from '@material-ui/core/Slider';
+import Grid from '@material-ui/core/Grid'
+import Slider from '@material-ui/core/Slider'
 // import VolumeDown from '@material-ui/icons/VolumeDown';
 // import VolumeUp from '@material-ui/icons/VolumeUp';
 import { Card, Button, ChevronDownIcon, SearchIcon, Text, ChevronLeftIcon, ChevronRightIcon } from 'glx-uikit'

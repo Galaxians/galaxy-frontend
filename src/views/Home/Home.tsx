@@ -22,6 +22,7 @@ const TitleText = styled(Text)`
   font-size: 68px;
   font-weight: 800;
   line-height: 76px;
+  color: white;
 
   @media (max-width: 1368px) {
     font-size: 48px;
@@ -120,6 +121,7 @@ const RightSection = styled.div`
 const RightSectionLongDivText = styled(Text)`
   font-size: 30px;
   font-weight: 300;
+  color: white;
 
   @media (max-width: 1368px) {
     font-size: 22px;
@@ -147,6 +149,7 @@ const RightSectionHighlightText = styled(Text)`
 const RightMiddleDetailText = styled(Text)`
   font-size: 20px;
   font-weight: 300;
+  color: white;
 
   @media (max-width: 1368px) {
     font-size: 14px;
@@ -223,10 +226,6 @@ const StartBtnDiv = styled(BtnDiv)`
   font-weight: 800;
 `;
 
-const Wrapper = styled.div`
-  max-width: 1362px;
-  margin: auto;
-`;
 
 const AnimationIcon = styled.div`
   align-self: center;

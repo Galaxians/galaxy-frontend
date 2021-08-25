@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, useWalletModal } from "glx-uikit";
+import { Button, useWalletModal, Text } from "glx-uikit";
 import useAuth from "hooks/useAuth";
 import useI18n from "hooks/useI18n";
 
