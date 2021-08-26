@@ -125,8 +125,9 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       </Flex>
       {!account ? (
         <BtnDiv>
+          
               <Button className="btn rounded"
-              style={{font: 'normal normal normal 14px/18px Mosk', color: '#FFE4F2', fontWeight: 800, marginTop: '8px', marginRight: '8px'}} 
+              style={{font: 'normal normal normal 14px/18px Mosk', color: '#FFE4F2', fontWeight: 800, marginTop: '8px'}} 
               disabled={rawEarningsBalance === 0 || pendingTx}
               padding="5px 40px"
               height="auto"
