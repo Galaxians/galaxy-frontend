@@ -11,6 +11,8 @@ import useI18n from "hooks/useI18n";
 import useWeb3 from "hooks/useWeb3";
 import { useApprove } from "hooks/useApprove";
 import UnlockButton from "components/UnlockButton";
+import { useHarvest } from "hooks/useHarvest";
+import { getBalanceNumber } from "utils/formatBalance";
 import StakeAction from "./StakeAction";
 import HarvestAction from "./HarvestAction";
 
@@ -18,6 +20,10 @@ const Action = styled.div`
   padding-top: 16px;
   margin: 0px 24px;
 `;
+
+const BtnDiv = styled.div`
+  display: flex;
+`
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber;
 }
@@ -56,6 +62,10 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       console.error(e);
     }
   }, [onApprove]);
+
+  const [pendingTx, setPendingTx] = useState(false);
+  const { onReward } = useHarvest(pid);
+  const rawEarningsBalance = getBalanceNumber(earnings);
 
   const renderApprovalOrStakeButton = () => {
     return isApproved ? (
@@ -114,12 +124,27 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
         </Text>
       </Flex>
       {!account ? (
-        <UnlockButton mt="8px" />
+        <BtnDiv>
+              <Button className="btn rounded"
+              style={{font: 'normal normal normal 14px/18px Mosk', color: '#FFE4F2', fontWeight: 800, marginTop: '8px', marginRight: '8px'}} 
+              disabled={rawEarningsBalance === 0 || pendingTx}
+              padding="5px 40px"
+              height="auto"
+              width="auto"
+              onClick={async () => {
+                setPendingTx(true);
+                await onReward();
+                setPendingTx(false);
+              }}
+            >
+              {TranslateString(562, "Harvest")}
+            </Button>
+            <UnlockButton mt="8px" ml="8px"/>
+        </BtnDiv>
       ) : (
         renderApprovalOrStakeButton()
       )}
     </Action>
   );
 };
-
 export default CardActions;
