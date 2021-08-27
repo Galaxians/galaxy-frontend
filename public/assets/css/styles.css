@@ -38,6 +38,7 @@ padding: 0;
 @media (max-width: 949px) {
   .mobile_ghost{
     height: 330px;
+    margin-left: 20px;
     /* background-size: cover; */
     /* background-size: auto;
     background-repeat: no-repeat;
@@ -45,7 +46,6 @@ padding: 0;
     background: url(../img/Kal-3D-seperate-2.png); */
     background: url(../img/Kal-3D-seperate-2.png) no-repeat; 
     background-size: 100%;
-    padding: 10px 10px;
   }
 }
 .setting-icon{
@@ -65,7 +65,7 @@ margin-left: 20px;
 
 .top-nav-bg{
 background: #0B001E 0% 0% no-repeat padding-box;
-box-shadow: 0px 3px 69px #FF1FFF40;
+box-shadow: 0px 30px 69px #FF1FFF40;
 opacity: 1;
 }
 
