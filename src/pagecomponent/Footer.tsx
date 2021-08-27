@@ -18,6 +18,14 @@ const LogoImg = styled.img`
     width: 70%;
   }
 `
+
+const FooterBg = styled.div`
+  marginTop: 150px;
+  @media (max-width: 450px) {
+    marginTop: 0px;
+  }
+`
+
 export default function Navbar() {
   const { account, activate, deactivate } = useWeb3React()
   const { login, logout } = useAuth()
@@ -33,7 +41,7 @@ export default function Navbar() {
 
   return (
     <div className="footer" style={{paddingBottom: '92px'}}>
-      <div className="footer-bg" style={{marginTop: '150px'}}>
+      <FooterBg className="footer-bg" >
         <div className="row justify-content-center">
           <img src="./assets/img/galaxy-footer-logo.png" className="footer-image" alt="" />
         </div>
@@ -78,7 +86,7 @@ export default function Navbar() {
         <div className="row justify-content-center text-secondary mt-4 footer-text">
           &#169; 2021 SafeGalaxy
         </div>
-      </div>
+      </FooterBg>
     </div>
   )
 }

@@ -5,6 +5,9 @@ import Page from "components/layout/Page";
 
 const HomePage = styled(Page)`
   max-width: 1400px;
+  @media screen and (max-width: 950px) {
+    min-height: 0px;
+  }
 `;
 
 const HomePageContent = styled.div`
@@ -142,7 +145,7 @@ const RightSectionHighlightText = styled(Text)`
   }
 
   @media (max-width: 587px) {
-    font-size: 20px;
+    font-size: 17px;
   }
 `;
 
@@ -156,13 +159,13 @@ const RightMiddleDetailText = styled(Text)`
   }
 
   @media (max-width: 587px) {
-    font-size: 12px;
+    font-size: 10px;
   }
 `;
 
 const RightMiddleDetailLabel = styled(RightMiddleDetailText)`
   width: 55%;
-  margin-right: 12px;
+  // margin-right: 12px;
 `;
 
 const TotalLockedValueTtitle = styled(Text)`
@@ -175,7 +178,7 @@ const TotalLockedValueTtitle = styled(Text)`
   }
 
   @media (max-width: 587px) {
-    font-size: 20px;
+    font-size: 16px;
   }
 `;
 
@@ -189,7 +192,7 @@ const TotalLockedValueText = styled(Text)`
   }
 
   @media (max-width: 587px) {
-    font-size: 20px;
+    font-size: 17px;
   }
 `;
 
@@ -198,7 +201,7 @@ const RightMiddleBox = styled.div`
   margin: 24px 0;
 
   @media (max-width: 1368px) {
-    margin: 16px 0;
+    margin: 17px 0;
   }
 `;
 
@@ -349,7 +352,7 @@ const Home: React.FC = () => {
                   Total Value Locked
                 </TotalLockedValueTtitle>
                 <TotalLockedValueText>2648710.50</TotalLockedValueText>
-                <Text style={{ fontSize: "14px" }}>
+                <Text style={{ fontSize: "10px" }}>
                   Across all LPs and Galastic Pools
                 </Text>
               </RightMiddleCard>
