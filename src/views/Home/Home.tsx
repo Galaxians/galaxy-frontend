@@ -211,7 +211,7 @@ const RightMiddleCard = styled(Card)`
   height: 100%;
 
   @media (max-width: 587px) {
-    padding: 8px 16px;
+    padding: 8px 10px;
   }
 `;
 
@@ -326,19 +326,19 @@ const Home: React.FC = () => {
                   <RightMiddleDetailLabel>
                     Total GLX Supply
                   </RightMiddleDetailLabel>
-                  <RightMiddleDetailText>100,000,000</RightMiddleDetailText>
+                  <RightMiddleDetailText style={{ paddingLeft: "15px"}} >100,000,000</RightMiddleDetailText>
                 </div>
                 <div style={{ display: "flex" }}>
                   <RightMiddleDetailLabel>
                     Total GLX Burned
                   </RightMiddleDetailLabel>
-                  <RightMiddleDetailText>0</RightMiddleDetailText>
+                  <RightMiddleDetailText style={{ paddingLeft: "15px"}}>0</RightMiddleDetailText>
                 </div>
                 <div style={{ display: "flex" }}>
                   <RightMiddleDetailLabel>
                     Total GLX/ Block
                   </RightMiddleDetailLabel>
-                  <RightMiddleDetailText>25</RightMiddleDetailText>
+                  <RightMiddleDetailText style={{ paddingLeft: "15px"}}>25</RightMiddleDetailText>
                 </div>
               </RightMiddleCardLeft>
             </div>
