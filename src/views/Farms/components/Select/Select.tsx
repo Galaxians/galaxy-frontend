@@ -22,6 +22,7 @@ const DropDownHeader = styled.div`
   transition: border-radius 0.15s;
   @media only screen and (max-width: 620px) {
     width: 100%;
+    height: 30px;
   }
 `;
 
@@ -44,6 +45,7 @@ const DropDownListContainer = styled.div`
 
   @media only screen and (max-width: 620px) {
     width: 100%;
+    height: 30px;
   }
 `;
 
@@ -64,6 +66,7 @@ const DropDownContainer = styled.div<{
   font-weight: 500;
   @media only screen and (max-width: 620px) {
     width: 100%;
+    height: 30px;
   }
 
   ${(props) =>

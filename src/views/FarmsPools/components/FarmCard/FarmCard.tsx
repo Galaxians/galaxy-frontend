@@ -93,6 +93,13 @@ const ExpandingWrapper = styled.div<{ expanded: boolean }>`
   overflow: hidden;
 `;
 
+const FlexStaked = styled(Flex)`
+  margin-top: 36px;
+  @media(max-width: 500px) {
+    margin-top: 12px;
+  }
+`
+
 interface FarmCardProps {
   farm: FarmWithStakedValue;
   removed: boolean;
@@ -191,11 +198,10 @@ const FarmCard: React.FC<FarmCardProps> = ({
           addLiquidityUrl={addLiquidityUrl}
         />
         {!removed && (
-          <Flex
+          <FlexStaked
             justifyContent="space-between"
             alignItems="center"
             className="mx-4"
-            marginTop="36px"
           >
             <Text fontSize="14px" fontWeight="500" className="small pink-color">
               {TranslateString(736, "APR")}:
@@ -220,7 +226,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
                 <Skeleton height={24} width={80} />
               )}
             </Text>
-          </Flex>
+          </FlexStaked>
         )}
         <Flex className="mx-4 mt-2" justifyContent="space-between">
           <Text fontSize="14px" fontWeight="500" className="small pink-color">

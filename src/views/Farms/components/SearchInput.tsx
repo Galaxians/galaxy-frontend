@@ -31,6 +31,7 @@ const StyledInput = styled(Input)`
   }
   @media(max-width: 500px) {
     font-size: 16px;
+    height: 30px;
   }
   @media(max-width: 465px) {
     font-size: 12px;

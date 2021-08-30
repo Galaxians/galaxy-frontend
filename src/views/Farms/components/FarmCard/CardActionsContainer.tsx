@@ -24,6 +24,14 @@ const Action = styled.div`
 const BtnDiv = styled.div`
   display: flex;
 `
+
+const FlexStaked = styled(Flex)`
+  margin-bottm: 36px;
+  @media(max-width: 500px) {
+    margin-bottm: 0px;
+  }
+`
+
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber;
 }
@@ -109,7 +117,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
         </Text>
       </Flex>
       
-      <Flex marginBottom="36px">
+      <FlexStaked>
         <Text
           
           textTransform="uppercase"
@@ -122,7 +130,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
         <Text bold textTransform="uppercase" color="textSubtle" fontSize="12px">
           {TranslateString(1074, "Staked")}
         </Text>
-      </Flex>
+      </FlexStaked>
       {!account ? (
         <BtnDiv>
           

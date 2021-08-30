@@ -2,9 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import { Text, ChevronRightIcon } from "glx-uikit";
 import Page from "components/layout/Page";
+import { Route, useRouteMatch, useLocation, useHistory } from "react-router-dom";
+
+enum ViewMode {
+  "TABLE" = "TABLE",
+  "CARD" = "CARD",
+}
 
 const HomePage = styled(Page)`
   max-width: 1400px;
+  @media screen and (max-width: 950px) {
+    min-height: 0px;
+  }
 `;
 
 const HomePageContent = styled.div`
@@ -142,7 +151,7 @@ const RightSectionHighlightText = styled(Text)`
   }
 
   @media (max-width: 587px) {
-    font-size: 20px;
+    font-size: 17px;
   }
 `;
 
@@ -156,13 +165,13 @@ const RightMiddleDetailText = styled(Text)`
   }
 
   @media (max-width: 587px) {
-    font-size: 12px;
+    font-size: 10px;
   }
 `;
 
 const RightMiddleDetailLabel = styled(RightMiddleDetailText)`
   width: 55%;
-  margin-right: 12px;
+  // margin-right: 12px;
 `;
 
 const TotalLockedValueTtitle = styled(Text)`
@@ -175,7 +184,7 @@ const TotalLockedValueTtitle = styled(Text)`
   }
 
   @media (max-width: 587px) {
-    font-size: 20px;
+    font-size: 16px;
   }
 `;
 
@@ -189,7 +198,7 @@ const TotalLockedValueText = styled(Text)`
   }
 
   @media (max-width: 587px) {
-    font-size: 20px;
+    font-size: 17px;
   }
 `;
 
@@ -198,7 +207,7 @@ const RightMiddleBox = styled.div`
   margin: 24px 0;
 
   @media (max-width: 1368px) {
-    margin: 16px 0;
+    margin: 17px 0;
   }
 `;
 
@@ -208,7 +217,7 @@ const RightMiddleCard = styled(Card)`
   height: 100%;
 
   @media (max-width: 587px) {
-    padding: 8px 16px;
+    padding: 8px 10px;
   }
 `;
 
@@ -292,6 +301,12 @@ const LargeText = styled(Text)`
 `;
 
 const Home: React.FC = () => {
+
+  const history = useHistory();
+  const handleApprove = () => {
+    history.push("/farms", { viewparam: ViewMode.TABLE });
+  }
+
   return (
     <HomePage>
       <HomePageContent>
@@ -303,7 +318,10 @@ const Home: React.FC = () => {
           </div>
         </LeftSection>
         <RightSection>
-          <Card style={{ justifyContent: "space-between" }}>
+          <Card 
+            style={{ justifyContent: "space-between" }}
+            onClick={handleApprove}
+          >
             <div style={{ display: "flex", alignItems: "center" }}>
               <RightSectionLongDivText>Earn up to</RightSectionLongDivText>
               <RightSectionHighlightText style={{ margin: "0 10px" }}>
@@ -323,19 +341,19 @@ const Home: React.FC = () => {
                   <RightMiddleDetailLabel>
                     Total GLX Supply
                   </RightMiddleDetailLabel>
-                  <RightMiddleDetailText>100,000,000</RightMiddleDetailText>
+                  <RightMiddleDetailText style={{ paddingLeft: "15px"}} >100,000,000</RightMiddleDetailText>
                 </div>
                 <div style={{ display: "flex" }}>
                   <RightMiddleDetailLabel>
                     Total GLX Burned
                   </RightMiddleDetailLabel>
-                  <RightMiddleDetailText>0</RightMiddleDetailText>
+                  <RightMiddleDetailText style={{ paddingLeft: "15px"}}>0</RightMiddleDetailText>
                 </div>
                 <div style={{ display: "flex" }}>
                   <RightMiddleDetailLabel>
                     Total GLX/ Block
                   </RightMiddleDetailLabel>
-                  <RightMiddleDetailText>25</RightMiddleDetailText>
+                  <RightMiddleDetailText style={{ paddingLeft: "15px"}}>25</RightMiddleDetailText>
                 </div>
               </RightMiddleCardLeft>
             </div>
@@ -349,7 +367,7 @@ const Home: React.FC = () => {
                   Total Value Locked
                 </TotalLockedValueTtitle>
                 <TotalLockedValueText>2648710.50</TotalLockedValueText>
-                <Text style={{ fontSize: "14px" }}>
+                <Text style={{ fontSize: "10px" }}>
                   Across all LPs and Galastic Pools
                 </Text>
               </RightMiddleCard>
