@@ -152,15 +152,18 @@ const Wrapper = styled.div`
   }
 `
 
+
 const Farms: React.FC = () => {
   const { path } = useRouteMatch();
-  const { pathname } = useLocation();
+  const {pathname} = useLocation();
+  
   const TranslateString = useI18n();
   const farmsLP = useFarms();
   const cakePrice = usePriceCakeBusd();
   const bnbPrice = usePriceBnbBusd();
   const [query, setQuery] = useState("");
   const [viewMode, setViewMode] = useState(ViewMode.CARD);
+
   const ethPriceUsd = usePriceEthBusd();
   // console.log(ethPriceUsd.toNumber());
   const { account } = useWeb3React();

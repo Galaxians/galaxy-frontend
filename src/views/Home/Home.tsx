@@ -2,6 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Text, ChevronRightIcon } from "glx-uikit";
 import Page from "components/layout/Page";
+import { Route, useRouteMatch, useLocation, useHistory } from "react-router-dom";
+
+enum ViewMode {
+  "TABLE" = "TABLE",
+  "CARD" = "CARD",
+}
 
 const HomePage = styled(Page)`
   max-width: 1400px;
@@ -295,6 +301,12 @@ const LargeText = styled(Text)`
 `;
 
 const Home: React.FC = () => {
+
+  const history = useHistory();
+  const handleApprove = () => {
+    history.push("/farms", { viewparam: ViewMode.TABLE });
+  }
+
   return (
     <HomePage>
       <HomePageContent>
@@ -306,7 +318,10 @@ const Home: React.FC = () => {
           </div>
         </LeftSection>
         <RightSection>
-          <Card style={{ justifyContent: "space-between" }}>
+          <Card 
+            style={{ justifyContent: "space-between" }}
+            onClick={handleApprove}
+          >
             <div style={{ display: "flex", alignItems: "center" }}>
               <RightSectionLongDivText>Earn up to</RightSectionLongDivText>
               <RightSectionHighlightText style={{ margin: "0 10px" }}>

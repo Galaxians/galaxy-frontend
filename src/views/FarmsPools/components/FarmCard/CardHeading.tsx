@@ -12,6 +12,10 @@ export interface ExpandableSectionProps {
 }
 
 const Wrapper = styled(Flex)`
+  margin-bottom:12px;
+  @media(max-width: 500px) {
+    margin-bottom: 0px;
+  }
   svg {
     margin-right: 4px;
   }
@@ -29,7 +33,7 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
   tokenSymbol,
 }) => {
   return (
-    <Wrapper justifyContent="space-between" alignItems="center" mb="12px" marginX="24px" >
+    <Wrapper justifyContent="space-between" alignItems="center" marginX="24px" >
       <Flex flexDirection="column" alignItems="flex-start">
         <Heading mb="4px" style={{fontSize: 27, fontWeight: 800, color: "#ffffff", marginBottom: "16px" }}>
           {lpLabel}
