@@ -56,6 +56,17 @@ const StyledErrorMessage = styled(Text)`
   }
 `;
 
+const defaultProps: ModalInputProps = {
+  max: "",
+  symbol: "",
+  onSelectMax: () => {},
+  onChange: (e: React.FormEvent<HTMLInputElement>) => {},
+  placeholder: "",
+  value: "",
+  addLiquidityUrl: "",
+  inputTitle: "",
+}
+
 const ModalInput: React.FC<ModalInputProps> = ({
   max,
   symbol,
@@ -105,5 +116,5 @@ const ModalInput: React.FC<ModalInputProps> = ({
     </div>
   );
 };
-
+ModalInput.defaultProps = defaultProps;
 export default ModalInput;

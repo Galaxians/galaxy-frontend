@@ -7,6 +7,11 @@ interface PreviewProps {
   isOwned?: boolean;
 }
 
+const defaultProps: PreviewProps = {
+  nft: null,
+  isOwned: false,
+}
+
 const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.borderColor};
   position: relative;
@@ -72,5 +77,6 @@ const Preview: React.FC<PreviewProps> = ({ nft, isOwned = false }) => {
     </Container>
   );
 };
+Preview.defaultProps = defaultProps;
 
 export default Preview;
