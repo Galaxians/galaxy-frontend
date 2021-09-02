@@ -92,7 +92,7 @@ const FarmedStakingCard = () => {
   };
 
   const [onPresentBuy] = useModal(
-    <BuyModal max={cakeBalance} tokenName="CAKE" />
+    <BuyModal max={cakeBalance} />
   );
 
   return (

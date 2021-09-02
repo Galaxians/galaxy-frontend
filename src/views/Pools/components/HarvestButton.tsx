@@ -11,7 +11,7 @@ interface ButtonProps {
   size?: "sm" | "md" | "lg";
   text?: string;
   to?: string;
-  variant?: "default" | "secondary" | "tertiary";
+  // variant?: "default" | "secondary" | "tertiary";
 }
 
 const Button: React.FC<ButtonProps> = ({

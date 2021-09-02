@@ -11,7 +11,7 @@ import { REGISTER_COST } from "../ProfileCreation/config";
 import ApproveConfirmButtons from "./ApproveConfirmButtons";
 
 interface Props {
-  userName: string;
+  // userName: string;
   tokenId: number;
   account: string;
   teamId: number;

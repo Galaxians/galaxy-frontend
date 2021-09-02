@@ -84,7 +84,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
   const [isXs, setXs] = useState(small);
   window.addEventListener(
     "resize",
-    function () {
+    () => {
       if (window.innerWidth < 384) setXs(true);
       else setXs(false);
     },

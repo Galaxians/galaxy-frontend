@@ -79,7 +79,7 @@ const UserName: React.FC = () => {
   const hasMinimumCakeRequired = useHasCakeBalance(minimumCakeToRegister);
   const [onPresentConfirmProfileCreation] = useModal(
     <ConfirmProfileCreationModal
-      userName={userName}
+      // userName={userName}
       tokenId={tokenId}
       account={account}
       teamId={teamId}

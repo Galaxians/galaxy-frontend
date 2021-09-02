@@ -34,7 +34,7 @@ const TicketCard: React.FC = () => {
   );
   const [onPresentApprove] = useModal(<PurchaseWarningModal />);
   const [onPresentBuy] = useModal(
-    <BuyTicketModal max={cakeBalance} tokenName="CAKE" />
+    <BuyTicketModal max={cakeBalance} />
   );
   const { handleApprove, requestedApproval } = useApproval(onPresentApprove);
 
