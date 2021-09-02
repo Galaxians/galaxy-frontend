@@ -91,9 +91,7 @@ const FarmedStakingCard = () => {
     );
   };
 
-  const [onPresentBuy] = useModal(
-    <BuyModal max={cakeBalance} />
-  );
+  const [onPresentBuy] = useModal(<BuyModal max={cakeBalance} />);
 
   return (
     <StyledLotteryCard>

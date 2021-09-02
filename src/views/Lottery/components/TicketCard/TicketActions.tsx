@@ -33,9 +33,7 @@ const TicketCard: React.FC = () => {
     <MyTicketsModal myTicketNumbers={tickets} from="buy" />
   );
   const [onPresentApprove] = useModal(<PurchaseWarningModal />);
-  const [onPresentBuy] = useModal(
-    <BuyTicketModal max={cakeBalance} />
-  );
+  const [onPresentBuy] = useModal(<BuyTicketModal max={cakeBalance} />);
   const { handleApprove, requestedApproval } = useApproval(onPresentApprove);
 
   const renderLotteryTicketButtons = () => {
