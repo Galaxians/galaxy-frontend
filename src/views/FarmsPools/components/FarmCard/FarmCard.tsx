@@ -1,23 +1,20 @@
 import React, { useMemo, useState } from "react";
 import BigNumber from "bignumber.js";
 import styled, { keyframes } from "styled-components";
-import { Flex, Text, Skeleton, Button, CheckmarkCircleIcon } from "glx-uikit";
+import { Flex, Text, Skeleton } from "glx-uikit";
 import { communityFarms } from "config/constants";
 import { Farm } from "state/types";
-import { provider as ProviderType } from "web3-core";
 import useI18n from "hooks/useI18n";
 import ExpandableSectionButton from "components/ExpandableSectionButton";
-import CoreButton from "components/CoreButton";
 import CoreFillButton from "components/CoreFillButton";
 import { QuoteToken } from "config/constants/types";
 import { BASE_ADD_LIQUIDITY_URL } from "config";
 import getLiquidityUrlPathParts from "utils/getLiquidityUrlPathParts";
-import { useFarmFromSymbol, useFarmUser } from "state/hooks";
+import { useFarmUser } from "state/hooks";
 import { getBalanceNumber } from "utils/formatBalance";
 import DetailsSection from "./DetailsSection";
 import CardHeading from "./CardHeading";
 import CardActionsContainer from "./CardActionsContainer";
-import ApyButton from "./ApyButton";
 
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber;
@@ -106,7 +103,6 @@ interface FarmCardProps {
   cakePrice?: BigNumber;
   bnbPrice?: BigNumber;
   ethPrice?: BigNumber;
-  provider?: ProviderType;
   account?: string;
   className?: string;
 }

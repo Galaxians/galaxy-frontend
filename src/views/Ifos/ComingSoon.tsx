@@ -5,9 +5,10 @@ import { Button, Text } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import Page from "components/layout/Page";
 import Container from "components/layout/Container";
+import { BASE_EXCHANGE_URL } from "config";
+
 import Hero from "./components/Hero";
 import Title from "./components/Title";
-import { BASE_EXCHANGE_URL } from "config";
 
 const Content = styled(Container)`
   display: grid;

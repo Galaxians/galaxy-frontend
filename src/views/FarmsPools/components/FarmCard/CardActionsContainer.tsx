@@ -1,7 +1,6 @@
 import React, { useState, useCallback } from "react";
 import BigNumber from "bignumber.js";
 import styled from "styled-components";
-import { provider as ProviderType } from "web3-core";
 import { getAddress } from "utils/addressHelpers";
 import { getBep20Contract } from "utils/contractHelpers";
 import { Button, Flex, Text } from "glx-uikit";
@@ -33,7 +32,6 @@ export interface FarmWithStakedValue extends Farm {
 
 interface FarmCardActionsProps {
   farm: FarmWithStakedValue;
-  provider?: ProviderType;
   account?: string;
   addLiquidityUrl?: string;
 }
