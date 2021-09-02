@@ -38,17 +38,16 @@ export const {
 } = achievementSlice.actions;
 
 // Thunks
-export const fetchAchievements = (account: string) => async (
-  dispatch: Dispatch
-) => {
-  try {
-    const achievements = await getAchievements(account);
-    dispatch(setAchievements(achievements));
-  } catch (error) {
-    console.error(error);
-    const title = "Error fetching achievements";
-    dispatch(push({ id: kebabCase(title), type: toastTypes.DANGER, title }));
-  }
-};
+export const fetchAchievements =
+  (account: string) => async (dispatch: Dispatch) => {
+    try {
+      const achievements = await getAchievements(account);
+      dispatch(setAchievements(achievements));
+    } catch (error) {
+      console.error(error);
+      const title = "Error fetching achievements";
+      dispatch(push({ id: kebabCase(title), type: toastTypes.DANGER, title }));
+    }
+  };
 
 export default achievementSlice.reducer;

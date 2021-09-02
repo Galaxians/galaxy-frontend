@@ -9,13 +9,13 @@ import { Pool } from "state/types";
 const ArrowRight = styled(ChevronRightIcon)`
   fill: #ff1fff;
   width: 40px;
-`
+`;
 const StyledFarmStakingCard = styled(Card)`
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  border: 1px solid #61319F;
+  border: 1px solid #61319f;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -48,19 +48,19 @@ const EarnAssetCard = () => {
 
   return (
     <StyledFarmStakingCard>
-        <Flex style={{width: "100%"}} >
-          <Text fontWeight="300" fontSize="30px" color="contrast" >
-            Earning
-          </Text>
-          <CardMidContent bold >{assets}</CardMidContent>
-          
-          <Text fontWeight="300" fontSize="30px" color="contrast" >
-            in Pools
-          </Text>
-        </Flex>
-        <NavLink exact activeClassName="active" to="/pools" id="pool-cta">
-          <ArrowRight />
-        </NavLink>
+      <Flex style={{ width: "100%" }}>
+        <Text fontWeight="300" fontSize="30px" color="contrast">
+          Earning
+        </Text>
+        <CardMidContent bold>{assets}</CardMidContent>
+
+        <Text fontWeight="300" fontSize="30px" color="contrast">
+          in Pools
+        </Text>
+      </Flex>
+      <NavLink exact activeClassName="active" to="/pools" id="pool-cta">
+        <ArrowRight />
+      </NavLink>
     </StyledFarmStakingCard>
   );
 };

@@ -44,14 +44,14 @@ const CellInner = styled.div`
   ${({ theme }) => theme.mediaQueries.xl} {
     padding-right: 32px;
   }
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     padding: 12px 0px;
   }
 `;
 
 const StyledTr = styled.tr`
   cursor: pointer;
-  background: #0B001E 0% 0% no-repeat padding-box;
+  background: #0b001e 0% 0% no-repeat padding-box;
 `;
 
 const EarnedMobileCell = styled.td`
@@ -80,68 +80,71 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
 
   const { isXl } = useMatchBreakpoints();
   let small = false;
-  if(window.innerWidth < 384) small = true;
-  const [isXs, setXs]  = useState(small);
-  window.addEventListener('resize', function() {
-    if(window.innerWidth < 384)
-      setXs(true);
-    else setXs(false);
-  }, true);
-  
+  if (window.innerWidth < 384) small = true;
+  const [isXs, setXs] = useState(small);
+  window.addEventListener(
+    "resize",
+    function () {
+      if (window.innerWidth < 384) setXs(true);
+      else setXs(false);
+    },
+    true
+  );
+
   const isMobile = !isXl;
   const tableSchema = isMobile ? MobileColumnSchema : DesktopColumnSchema;
   const columnNames = tableSchema.map((column) => column.name);
 
   const handleRenderRow = () => {
     // if (!isXs) {
-      return (
-        <StyledTr onClick={toggleActionPanel}>
-          {Object.keys(props).map((key) => {
-            const columnIndex = columnNames.indexOf(key);
-            if (columnIndex === -1) {
-              return null;
-            }
+    return (
+      <StyledTr onClick={toggleActionPanel}>
+        {Object.keys(props).map((key) => {
+          const columnIndex = columnNames.indexOf(key);
+          if (columnIndex === -1) {
+            return null;
+          }
 
-            switch (key) {
-              case "details":
-                return (
-                  <td className="farm-table" key={key}>
-                    <CellInner>
-                      <CellLayout>
-                        <Details actionPanelToggled={actionPanelToggled} />
-                      </CellLayout>
-                    </CellInner>
-                  </td>
-                );
-              case "apr":
-                return (
-                  <td className="farm-table" key={key}>
-                    <CellInner>
-                      <CellLayout label={TranslateString(736, "APR")}>
-                        <Apr {...props.apr} hideButton={isMobile} />
-                      </CellLayout>
-                    </CellInner>
-                  </td>
-                );
-              default:
-                return (
-                  <td className="farm-table" key={key}>
-                    <CellInner>
-                      <CellLayout
-                        label={TranslateString(
-                          tableSchema[columnIndex].translationId,
-                          tableSchema[columnIndex].label
-                        )}
-                      >
-                        {React.createElement(cells[key], props[key])}
-                      </CellLayout>
-                    </CellInner>
-                  </td>
-                );
-            }
-          })}
-        </StyledTr>
-      );
+          switch (key) {
+            case "details":
+              return (
+                <td className="farm-table" key={key}>
+                  <CellInner>
+                    <CellLayout>
+                      <Details actionPanelToggled={actionPanelToggled} />
+                    </CellLayout>
+                  </CellInner>
+                </td>
+              );
+            case "apr":
+              return (
+                <td className="farm-table" key={key}>
+                  <CellInner>
+                    <CellLayout label={TranslateString(736, "APR")}>
+                      <Apr {...props.apr} hideButton={isMobile} />
+                    </CellLayout>
+                  </CellInner>
+                </td>
+              );
+            default:
+              return (
+                <td className="farm-table" key={key}>
+                  <CellInner>
+                    <CellLayout
+                      label={TranslateString(
+                        tableSchema[columnIndex].translationId,
+                        tableSchema[columnIndex].label
+                      )}
+                    >
+                      {React.createElement(cells[key], props[key])}
+                    </CellLayout>
+                  </CellInner>
+                </td>
+              );
+          }
+        })}
+      </StyledTr>
+    );
     // }
 
     // return (
@@ -169,7 +172,7 @@ const Row: React.FunctionComponent<RowProps> = (props) => {
     //             </AprMobileCell>
     //           </tr>
     //         </td>
-            
+
     //       </tr>
     //     </td>
     //     <td className="farm-table">

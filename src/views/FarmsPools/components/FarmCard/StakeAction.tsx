@@ -9,7 +9,7 @@ import {
   AddIcon,
   MinusIcon,
   useModal,
-  Text
+  Text,
 } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import useStake from "hooks/useStake";
@@ -66,7 +66,9 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
   const renderStakingButtons = () => {
     return rawStakedBalance === 0 ? (
       <Button onClick={onPresentDeposit} className="btn rounded">
-        <Text fontSize="14px" fontWeight="900">{TranslateString(999, "Stake LP")}</Text>
+        <Text fontSize="14px" fontWeight="900">
+          {TranslateString(999, "Stake LP")}
+        </Text>
       </Button>
     ) : (
       <IconButtonWrapper>

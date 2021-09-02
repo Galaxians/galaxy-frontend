@@ -20,7 +20,12 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
 
   return (
     <Flex justifyContent="space-between" alignItems="center">
-      <Heading style={{fontSize: 30, fontWeight: 800}} className="text-white" lineHeight="1" margin="0px">
+      <Heading
+        style={{ fontSize: 30, fontWeight: 800 }}
+        className="text-white"
+        lineHeight="1"
+        margin="0px"
+      >
         {displayBalance}
       </Heading>
     </Flex>

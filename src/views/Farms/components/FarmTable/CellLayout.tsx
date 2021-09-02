@@ -9,8 +9,8 @@ const Label = styled.div`
   color: ${({ theme }) => theme.colors.primary};
   text-align: left;
   margin-right: 12px;
-  font-size: 15px; 
-  font-weight: 300; 
+  font-size: 15px;
+  font-weight: 300;
   margin-bottom: 15px;
   @media (max-width: 500px) {
     font-size: 12px;
@@ -22,14 +22,12 @@ const ResHelpIcon = styled(HelpIcon)`
   @media (max-width: 500px) {
     display: none;
   }
-`
-
+`;
 
 const ContentContainer = styled.div`
   min-height: 24px;
   display: flex;
   align-items: center;
-  
 `;
 // margin-top: 16px;
 
@@ -41,10 +39,13 @@ const CellLayout: React.FC<CellLayoutProps> = ({ label = "", children }) => {
   const TranslateString = useI18n();
   const getContents = (labelName) => {
     switch (labelName) {
-      case "APR": 
+      case "APR":
         return "APR";
       case "Liquidity":
-        return TranslateString(999, "The total value of the funds in this farm’s liquidity pool");
+        return TranslateString(
+          999,
+          "The total value of the funds in this farm’s liquidity pool"
+        );
       case "Multiplier":
         return (
           <div>
@@ -60,23 +61,24 @@ const CellLayout: React.FC<CellLayoutProps> = ({ label = "", children }) => {
             )}
           </div>
         );
-      default: return "";
+      default:
+        return "";
     }
-  }
+  };
   const contents = getContents(label);
 
-  
   return (
-    <div style={{paddingRight: 8}}>
-      {label && 
-      <div className="d-flex flex-row">
-        <Label>{label}</Label>
-        {label !== "Earned" && <Tooltip
-          content={contents}
-        >
-          <ResHelpIcon width="16px" height="16px" color="primary" />
-        </Tooltip>}
-      </div>}
+    <div style={{ paddingRight: 8 }}>
+      {label && (
+        <div className="d-flex flex-row">
+          <Label>{label}</Label>
+          {label !== "Earned" && (
+            <Tooltip content={contents}>
+              <ResHelpIcon width="16px" height="16px" color="primary" />
+            </Tooltip>
+          )}
+        </div>
+      )}
       <ContentContainer>{children}</ContentContainer>
     </div>
   );

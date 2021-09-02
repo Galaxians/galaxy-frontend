@@ -19,19 +19,18 @@ const HarvestAction: React.FC<FarmCardActionsProps> = ({ earnings, pid }) => {
   const displayBalance = rawEarningsBalance.toLocaleString();
 
   return (
-
-      <Button
-        className="btn rounded"
-        style={{width: "45%", fontSize: 14, fontWeight: 900}}
-        disabled={rawEarningsBalance === 0 || pendingTx}
-        onClick={async () => {
-          setPendingTx(true);
-          await onReward();
-          setPendingTx(false);
-        }}
-      >
-        {TranslateString(562, "Harvest")}
-      </Button>
+    <Button
+      className="btn rounded"
+      style={{ width: "45%", fontSize: 14, fontWeight: 900 }}
+      disabled={rawEarningsBalance === 0 || pendingTx}
+      onClick={async () => {
+        setPendingTx(true);
+        await onReward();
+        setPendingTx(false);
+      }}
+    >
+      {TranslateString(562, "Harvest")}
+    </Button>
   );
 };
 

@@ -33,7 +33,7 @@ const DropDownListContainer = styled.div`
   overflow: hidden;
   // background: ${({ theme }) => theme.colors.input};
   background-color: #1e0038;
-  border: 0.5px solid #FF1FFF;
+  border: 0.5px solid #ff1fff;
   border-radius: 10px;
   z-index: ${({ theme }) => theme.zIndices.dropdown};
   transition: transform 0.15s, opacity 0.15s;
@@ -77,7 +77,7 @@ const DropDownContainer = styled.div<{
         border-radius: 10px 10px 0 0;
         width: 100%;
         height: 45px;
-        border: 0.5px solid #FF1FFF;
+        border: 0.5px solid #ff1fff;
         border-bottom-width: 0px;
       }
 
@@ -86,7 +86,7 @@ const DropDownContainer = styled.div<{
         width: 100%;
         transform: scaleY(1);
         opacity: 1;
-        border: 0.5px solid #FF1FFF;
+        border: 0.5px solid #ff1fff;
         border-top-width: 0;
         border-radius: 0 0 10px 10px;
         box-shadow: ${({ theme }) => theme.tooltip.boxShadow};
@@ -125,7 +125,7 @@ const ToogleText = styled(Text)`
   @media screen and (max-width: 465px) {
     font-size: 12px;
   }
-`
+`;
 
 export interface SelectProps {
   options: OptionProps[];

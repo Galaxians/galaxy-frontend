@@ -1,5 +1,10 @@
 import React, { useEffect, useCallback, useState } from "react";
-import { Route, useRouteMatch, useLocation, useHistory } from "react-router-dom";
+import {
+  Route,
+  useRouteMatch,
+  useLocation,
+  useHistory,
+} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import BigNumber from "bignumber.js";
 import { useWeb3React } from "@web3-react/core";
@@ -37,11 +42,11 @@ const ControlContainer = styled.div`
   justify-content: space-around;
   flex-direction: row;
   color: #ffffff;
-  box-shadow: 0px 3px 29px #FF1FFF24;
-  border: 1px solid #FF1FFF;
+  box-shadow: 0px 3px 29px #ff1fff24;
+  border: 1px solid #ff1fff;
   border-radius: 9px;
   padding: 28px 18px;
-  background: #0B001E 0% 0% no-repeat padding-box;
+  background: #0b001e 0% 0% no-repeat padding-box;
   @media screen and (max-width: 420px) {
     // flex-direction: row;
     gap: 24px;
@@ -54,7 +59,7 @@ const ToogleText = styled(Text)`
   @media screen and (max-width: 420px) {
     font-size: 12px;
   }
-`
+`;
 
 const ToggleWrapper = styled.div`
   display: flex;
@@ -62,7 +67,7 @@ const ToggleWrapper = styled.div`
   ${Text} {
     margin-left: 8px;
   }
-`
+`;
 
 const ToggleWrapperCustom = styled.div`
   display: flex;
@@ -70,18 +75,18 @@ const ToggleWrapperCustom = styled.div`
   ${Text} {
     margin-left: 8px;
   }
-  >div:last-of-type {
+  > div:last-of-type {
     display: none;
     @media screen and (max-width: 420px) {
       display: block !important;
     }
   }
-  >div:first-of-type {
+  > div:first-of-type {
     @media screen and (max-width: 420px) {
       display: none;
     }
   }
-`
+`;
 
 const LabelWrapper = styled.div`
   > ${Text} {
@@ -132,7 +137,7 @@ const Header = styled.div`
   color: #ffffff !important;
   padding-left: 16px;
   padding-right: 16px;
-  text-align: center; 
+  text-align: center;
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-left: 24px;
     padding-right: 24px;
@@ -147,15 +152,15 @@ const Wrapper = styled.div`
     margin-top: 25px;
     padding: 0px 30px;
   }
-`
+`;
 
 const CustomToggle = styled(Toggle)`
   color: white;
-  background-color: #483F5B;
+  background-color: #483f5b;
   > div {
-    background-color: #FFFFFF;
+    background-color: #ffffff;
   }
-`
+`;
 
 const Farms: React.FC = () => {
   const { path } = useRouteMatch();
@@ -184,10 +189,9 @@ const Farms: React.FC = () => {
   const history = useHistory();
   const [finishedOnly, setFinishedOnly] = useState(false);
   useEffect(() => {
-    if(!finishedOnly)
-      history.push("/pools");
-    else history.push("/pools/history")
-  }, [finishedOnly, history])
+    if (!finishedOnly) history.push("/pools");
+    else history.push("/pools/history");
+  }, [finishedOnly, history]);
   const activeFarms = farmsLP.filter(
     (farm) => farm.multiplier !== "0X" && farm.isTokenOnly
   );
@@ -409,9 +413,7 @@ const Farms: React.FC = () => {
         sortable: column.sortable,
       }));
 
-      return (
-        <Table data={rowData} columns={columns} />
-      );
+      return <Table data={rowData} columns={columns} />;
     }
     return (
       <div>
@@ -457,37 +459,44 @@ const Farms: React.FC = () => {
 
   return (
     <>
-      
       <Page>
-	      <Wrapper>
-          <div className="row mb-3 rounded" style={{ marginTop: 150, margin: "auto" }}>
+        <Wrapper>
+          <div
+            className="row mb-3 rounded"
+            style={{ marginTop: 150, margin: "auto" }}
+          >
             <ControlContainer className="mb-1">
-                <ToggleWrapper>
-                  <CustomToggle
-                    checked={stackedOnly}
-                    onChange={() => setStackedOnly(!stackedOnly)}
-                    scale="sm"
-                  />
-                  <ToogleText> {TranslateString(1116, "Staked only")}</ToogleText>
-                </ToggleWrapper>
-                <ToggleWrapperCustom>
-                  <ToogleText marginRight="10px"> {TranslateString(1116, "Finished only")}</ToogleText>
-                  <Toggle
-                    color="green"
-                    width="400px"
-                    checked={finishedOnly}
-                    onChange={() => setFinishedOnly(!finishedOnly)}
-                    scale="sm"
-                  />
-                  <ToogleText> {TranslateString(1116, "Show finished")}</ToogleText>
-                </ToggleWrapperCustom>
-                {/* <FarmTabButtons /> */}
-            
+              <ToggleWrapper>
+                <CustomToggle
+                  checked={stackedOnly}
+                  onChange={() => setStackedOnly(!stackedOnly)}
+                  scale="sm"
+                />
+                <ToogleText> {TranslateString(1116, "Staked only")}</ToogleText>
+              </ToggleWrapper>
+              <ToggleWrapperCustom>
+                <ToogleText marginRight="10px">
+                  {" "}
+                  {TranslateString(1116, "Finished only")}
+                </ToogleText>
+                <Toggle
+                  color="green"
+                  width="400px"
+                  checked={finishedOnly}
+                  onChange={() => setFinishedOnly(!finishedOnly)}
+                  scale="sm"
+                />
+                <ToogleText>
+                  {" "}
+                  {TranslateString(1116, "Show finished")}
+                </ToogleText>
+              </ToggleWrapperCustom>
+              {/* <FarmTabButtons /> */}
             </ControlContainer>
           </div>
           {renderContent()}
 
-            {/* <StyledImage
+          {/* <StyledImage
               src="/images/3dpan.png"
               alt="Galaxia illustration"
               width={120}

@@ -1,5 +1,10 @@
 import React, { useEffect, useCallback, useState } from "react";
-import { Route, useRouteMatch, useLocation, useHistory } from "react-router-dom";
+import {
+  Route,
+  useRouteMatch,
+  useLocation,
+  useHistory,
+} from "react-router-dom";
 import { useDispatch } from "react-redux";
 import BigNumber from "bignumber.js";
 import { useWeb3React } from "@web3-react/core";
@@ -38,12 +43,12 @@ const ControlContainer = styled.div`
   justify-content: space-between;
   flex-direction: row;
   color: #ffffff;
-  box-shadow: 0px 3px 29px #FF1FFF24;
-  border: 1px solid #FF1FFF;
+  box-shadow: 0px 3px 29px #ff1fff24;
+  border: 1px solid #ff1fff;
   border-radius: 9px;
   padding: 28px 18px;
   padding-left: 58px;
-  background: #0B001E 0% 0% no-repeat padding-box;
+  background: #0b001e 0% 0% no-repeat padding-box;
   @media only screen and (max-width: 1200px) {
     flex-direction: column;
     padding: 16px 32px;
@@ -63,7 +68,6 @@ const ToggleWrapper = styled.div`
   ${Text} {
     margin-left: 8px;
   }
-  
 `;
 
 const ToogleText = styled(Text)`
@@ -75,12 +79,12 @@ const ToogleText = styled(Text)`
   @media screen and (max-width: 465px) {
     font-size: 12px;
   }
-`
+`;
 
 const LabelWrapper = styled.div`
   > ${Text} {
     font-size: 14px;
-    @media(max-width: 500px) {
+    @media (max-width: 500px) {
       font-size: 10px;
     }
   }
@@ -147,16 +151,15 @@ const Wrapper = styled.div`
   max-width: 1054px;
   margin: auto;
   margin-top: 100px;
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     margin-top: 0px;
   }
-`
-
+`;
 
 const Farms: React.FC = () => {
   const { path } = useRouteMatch();
-  const {pathname} = useLocation();
-  
+  const { pathname } = useLocation();
+
   const TranslateString = useI18n();
   const farmsLP = useFarms();
   const cakePrice = usePriceCakeBusd();
@@ -180,10 +183,9 @@ const Farms: React.FC = () => {
   const history = useHistory();
   const [finishedOnly, setFinishedOnly] = useState(false);
   useEffect(() => {
-    if(!finishedOnly)
-      history.push("/farms");
-    else history.push("/farms/history")
-  }, [finishedOnly, history])
+    if (!finishedOnly) history.push("/farms");
+    else history.push("/farms/history");
+  }, [finishedOnly, history]);
   const activeFarms = farmsLP.filter(
     (farm) => farm.multiplier !== "0X" && !farm.isTokenOnly
   );
@@ -465,21 +467,27 @@ const Farms: React.FC = () => {
     <>
       <Page>
         <Wrapper>
-          <div className="row mb-3 rounded" style={{  marginTop: 150, margin: "auto"}}>
+          <div
+            className="row mb-3 rounded"
+            style={{ marginTop: 150, margin: "auto" }}
+          >
             <ControlContainer>
-              <ViewControls style={{ margin: "auto", marginLeft: "0px"}}>
+              <ViewControls style={{ margin: "auto", marginLeft: "0px" }}>
                 <ToggleView
                   viewMode={viewMode}
                   onToggle={(mode: ViewMode) => setViewMode(mode)}
                 />
                 <ToggleWrapper>
                   <Toggle
-                    style={{ background: "#ffffff", }}
+                    style={{ background: "#ffffff" }}
                     checked={stackedOnly}
                     onChange={() => setStackedOnly(!stackedOnly)}
                     scale="sm"
                   />
-                  <ToogleText> {TranslateString(1116, "Staked only")}</ToogleText>
+                  <ToogleText>
+                    {" "}
+                    {TranslateString(1116, "Staked only")}
+                  </ToogleText>
                 </ToggleWrapper>
                 <ToggleWrapper>
                   <Toggle
@@ -488,13 +496,18 @@ const Farms: React.FC = () => {
                     onChange={() => setFinishedOnly(!finishedOnly)}
                     scale="sm"
                   />
-                  <ToogleText> {TranslateString(1116, "Finished only")}</ToogleText>
+                  <ToogleText>
+                    {" "}
+                    {TranslateString(1116, "Finished only")}
+                  </ToogleText>
                 </ToggleWrapper>
                 {/* <FarmTabButtons /> */}
               </ViewControls>
               <FilterContainer>
-                <LabelWrapper style={{width: "25%"}}>
-                  <Text className="text-white" fontWeight="100" >SORT BY</Text>
+                <LabelWrapper style={{ width: "25%" }}>
+                  <Text className="text-white" fontWeight="100">
+                    SORT BY
+                  </Text>
                   <Select
                     options={[
                       {
@@ -522,7 +535,9 @@ const Farms: React.FC = () => {
                   />
                 </LabelWrapper>
                 <LabelWrapper>
-                  <Text className="text-white" fontWeight="100" >SEARCH</Text>
+                  <Text className="text-white" fontWeight="100">
+                    SEARCH
+                  </Text>
                   <SearchInput onChange={handleChangeQuery} value={query} />
                 </LabelWrapper>
               </FilterContainer>
