@@ -53,12 +53,17 @@ const DepositModal: React.FC<DepositModalProps> = ({
         addLiquidityUrl={addLiquidityUrl}
         inputTitle={TranslateString(1070, "Stake")}
       />
-      <ModalActions >
-        <Button variant="secondary" onClick={onDismiss} width="100%" className="mt-4 mb-2">
+      <ModalActions>
+        <Button
+          variant="secondary"
+          onClick={onDismiss}
+          width="100%"
+          className="mt-4 mb-2"
+        >
           {TranslateString(462, "Cancel")}
         </Button>
         <Button
-         className="mt-4 mb-2"
+          className="mt-4 mb-2"
           width="100%"
           disabled={pendingTx || fullBalance === "0" || val === "0"}
           onClick={async () => {

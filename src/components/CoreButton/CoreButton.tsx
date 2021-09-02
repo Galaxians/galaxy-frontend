@@ -19,15 +19,9 @@ const Wrapper = styled.div`
   }
 `;
 
-const CoreButton: React.FC<CoreButtonProps> = ({
-  onClick,
-}) => {
+const CoreButton: React.FC<CoreButtonProps> = ({ onClick }) => {
   return (
-    <Wrapper
-      aria-label="coreButton"
-      role="button"
-      onClick={() => onClick()}
-    >
+    <Wrapper aria-label="coreButton" role="button" onClick={() => onClick()}>
       <CheckmarkCircleIcon width="24px" height="24px" />
       <Text color="contrast" fontSize="14px" fontWeight="100" className="px-2">
         Core

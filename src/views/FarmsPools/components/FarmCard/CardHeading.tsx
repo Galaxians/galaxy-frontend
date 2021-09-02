@@ -12,8 +12,8 @@ export interface ExpandableSectionProps {
 }
 
 const Wrapper = styled(Flex)`
-  margin-bottom:12px;
-  @media(max-width: 500px) {
+  margin-bottom: 12px;
+  @media (max-width: 500px) {
     margin-bottom: 0px;
   }
   svg {
@@ -33,23 +33,31 @@ const CardHeading: React.FC<ExpandableSectionProps> = ({
   tokenSymbol,
 }) => {
   return (
-    <Wrapper justifyContent="space-between" alignItems="center" marginX="24px" >
+    <Wrapper justifyContent="space-between" alignItems="center" marginX="24px">
       <Flex flexDirection="column" alignItems="flex-start">
-        <Heading mb="4px" style={{fontSize: 27, fontWeight: 800, color: "#ffffff", marginBottom: "16px" }}>
+        <Heading
+          mb="4px"
+          style={{
+            fontSize: 27,
+            fontWeight: 800,
+            color: "#ffffff",
+            marginBottom: "16px",
+          }}
+        >
           {lpLabel}
         </Heading>
         <Flex justifyContent="center">
           {/* {isCommunityFarm ? <CommunityTag /> : <CoreTag />}
           <MultiplierTag variant="secondary">{multiplier}</MultiplierTag> */}
         </Flex>
-        <div style={{width:'200px'}}>
-        <Image
-          src={`/images/farms/${farmImage}.png`}
-          alt={tokenSymbol}
-          width={140}
-          height={70}
-        />
-          </div>
+        <div style={{ width: "200px" }}>
+          <Image
+            src={`/images/farms/${farmImage}.png`}
+            alt={tokenSymbol}
+            width={140}
+            height={70}
+          />
+        </div>
       </Flex>
     </Wrapper>
   );

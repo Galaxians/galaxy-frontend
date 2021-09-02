@@ -9,7 +9,18 @@ const HarvestButton = (props) => {
   const { onPresentConnectModal } = useWalletModal(login, logout);
 
   return (
-    <Button style={{font: 'normal normal normal 14px/18px Mosk', color: '#FFE4F2', fontWeight: '800', background: 'rgb(52, 52, 52)'}} disabled className="rounded" onClick={onPresentConnectModal} {...props}>
+    <Button
+      style={{
+        font: "normal normal normal 14px/18px Mosk",
+        color: "#FFE4F2",
+        fontWeight: "800",
+        background: "rgb(52, 52, 52)",
+      }}
+      disabled
+      className="rounded"
+      onClick={onPresentConnectModal}
+      {...props}
+    >
       {TranslateString(292, "Harvest")}
     </Button>
   );

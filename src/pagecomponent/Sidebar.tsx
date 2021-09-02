@@ -15,11 +15,11 @@ export const SidebarContainer = styled.aside<{ isOpen: any }>`
   left: 0;
   transition: 1s ease-in-out;
   * {
-    font-family: 'Mosk';
+    font-family: "Mosk";
   }
-  opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
-  left: ${({ isOpen }) => (isOpen ? '0%' : '-100%')};
-  @media(min-width: 990px) {
+  opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
+  left: ${({ isOpen }) => (isOpen ? "0%" : "-100%")};
+  @media (min-width: 990px) {
     display: none;
   }
   overflow: auto;
@@ -45,7 +45,7 @@ const BtnDiv = styled.div`
   > span {
     opacity: 0.9;
     z-index: 1;
-    >a:hover {
+    > a:hover {
       color: white;
     }
   }
@@ -101,49 +101,87 @@ const BackDiv = styled.div`
   height: 100%;
   background: transparent;
   z-index: 997;
-`
+`;
 
 const MenuLogo = styled.div`
-  >img {
+  > img {
     margin-top: 50px;
     margin-left: 25px;
   }
-`
+`;
 
-const Btn = ({ text}) => {
+const Btn = ({ text }) => {
   return (
     <BtnDiv>
-      <span><a href={text.toLowerCase()}>{text}</a></span>
+      <span>
+        <a href={text.toLowerCase()}>{text}</a>
+      </span>
       <div />
     </BtnDiv>
   );
 };
 
 export default function Sidebar({ isOpen, toggle }) {
-    return (
-        <>
-        { isOpen ? <BackDiv onClick={isOpen ? toggle : null}/> : null }
-        <SidebarContainer isOpen={isOpen}>
-            <MenuLogo onClick={toggle}>
-              <img src="./assets/img/menu.png" alt="menu"/>
-            </MenuLogo>
-            <div style={{ display: 'flex', alignItems: 'center', marginTop: '70px', flexDirection: 'column', height: '550px' }}>
-                <img src="./assets/img/Icon-galaxyswap.png" alt="icon" style={{ width: '30px', marginBottom: '20px' }} />
-                <Btn text="EXCHANGE"/>
-                <Btn text="FARMS"/>
-                <Btn text="POOLS"/>
-                <Btn text="LAUNCHPAD"/>
-            </div>
+  return (
+    <>
+      {isOpen ? <BackDiv onClick={isOpen ? toggle : null} /> : null}
+      <SidebarContainer isOpen={isOpen}>
+        <MenuLogo onClick={toggle}>
+          <img src="./assets/img/menu.png" alt="menu" />
+        </MenuLogo>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            marginTop: "70px",
+            flexDirection: "column",
+            height: "550px",
+          }}
+        >
+          <img
+            src="./assets/img/Icon-galaxyswap.png"
+            alt="icon"
+            style={{ width: "30px", marginBottom: "20px" }}
+          />
+          <Btn text="EXCHANGE" />
+          <Btn text="FARMS" />
+          <Btn text="POOLS" />
+          <Btn text="LAUNCHPAD" />
+        </div>
 
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '100px', marginBottom: '50px'}}>
-                <BtnImg>
-                    <img src="./assets/img/Kal-with-tongue-out.png" alt="tongue" />
-                    <span>Need Help?</span>
-                </BtnImg>
-                <div style={{ width: '80%', height: '0px', border: '1px solid #FF1FFF' }} />
-                <div style={{ marginTop: '25px', display: 'flex', alignItems: 'center', fontSize: '20px'}}><img src="./assets/img/Galaxia-token-color-250px.png" alt="galaxy" style={{ width: '25px', marginRight: '10px' }} />$ 0,063</div>
-            </div>
-        </SidebarContainer >
-        </>
-    )
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginTop: "100px",
+            marginBottom: "50px",
+          }}
+        >
+          <BtnImg>
+            <img src="./assets/img/Kal-with-tongue-out.png" alt="tongue" />
+            <span>Need Help?</span>
+          </BtnImg>
+          <div
+            style={{ width: "80%", height: "0px", border: "1px solid #FF1FFF" }}
+          />
+          <div
+            style={{
+              marginTop: "25px",
+              display: "flex",
+              alignItems: "center",
+              fontSize: "20px",
+            }}
+          >
+            <img
+              src="./assets/img/Galaxia-token-color-250px.png"
+              alt="galaxy"
+              style={{ width: "25px", marginRight: "10px" }}
+            />
+            $ 0,063
+          </div>
+        </div>
+      </SidebarContainer>
+    </>
+  );
 }

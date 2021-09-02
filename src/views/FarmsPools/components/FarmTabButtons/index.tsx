@@ -12,10 +12,22 @@ const FarmTabButtons = () => {
     <Wrapper>
       <ButtonMenu activeIndex={isExact ? 0 : 1} scale="sm" variant="primary">
         <ButtonMenuItem as={Link} to={`${url}`}>
-          <Text fontSize="12px" color={isExact ? "white" : "primary"} style={{fontSize: 20, fontWeight: 500}} >{TranslateString(1198, "Live")}</Text>
+          <Text
+            fontSize="12px"
+            color={isExact ? "white" : "primary"}
+            style={{ fontSize: 20, fontWeight: 500 }}
+          >
+            {TranslateString(1198, "Live")}
+          </Text>
         </ButtonMenuItem>
         <ButtonMenuItem as={Link} to={`${url}/history`}>
-          <Text fontSize="12px" color={!isExact ? "white" : "primary"} style={{fontSize: 20, fontWeight: 500}} >{TranslateString(388, "Finished")}</Text>
+          <Text
+            fontSize="12px"
+            color={!isExact ? "white" : "primary"}
+            style={{ fontSize: 20, fontWeight: 500 }}
+          >
+            {TranslateString(388, "Finished")}
+          </Text>
         </ButtonMenuItem>
         {/* <ToggleWrapper> 
                 <Toggle
