@@ -64,14 +64,8 @@ const Indicator = styled(Flex)`
 
 const UserName: React.FC = () => {
   const [isAcknowledged, setIsAcknoledged] = useState(false);
-  const {
-    teamId,
-    tokenId,
-    userName,
-    actions,
-    minimumCakeRequired,
-    allowance,
-  } = useProfileCreation();
+  const { teamId, tokenId, userName, actions, minimumCakeRequired, allowance } =
+    useProfileCreation();
   const TranslateString = useI18n();
   const { account, library } = useWeb3React();
   const { toastError } = useToast();
@@ -85,7 +79,7 @@ const UserName: React.FC = () => {
   const hasMinimumCakeRequired = useHasCakeBalance(minimumCakeToRegister);
   const [onPresentConfirmProfileCreation] = useModal(
     <ConfirmProfileCreationModal
-      userName={userName}
+      // userName={userName}
       tokenId={tokenId}
       account={account}
       teamId={teamId}
@@ -146,7 +140,7 @@ const UserName: React.FC = () => {
         const data = await response.json();
         toastError(data?.error?.message);
       }
-    } catch (error) {
+    } catch (error: any) {
       toastError(error?.message ? error.message : JSON.stringify(error));
     } finally {
       setIsLoading(false);

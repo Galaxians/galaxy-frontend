@@ -17,23 +17,26 @@ const StyledInput = styled(Input)`
     width: 100%;
   }
   color: white;
-  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
     opacity: 1; /* Firefox */
   }
-  
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
     color: white;
   }
-  
-  ::-ms-input-placeholder { /* Microsoft Edge */
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
     color: white;
   }
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     font-size: 16px;
     height: 30px;
   }
-  @media(max-width: 465px) {
+  @media (max-width: 465px) {
     font-size: 12px;
   }
 `;

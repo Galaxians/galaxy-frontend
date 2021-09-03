@@ -19,9 +19,9 @@ const IconImage = styled(Image)`
     width: 80px;
     height: 40px;
   }
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     width: 60px;
-    height: 35px
+    height: 35px;
   }
 `;
 
@@ -38,7 +38,7 @@ const Container = styled.div`
 const TitleText = styled(Text)`
   font-weight: 500;
   font-size: 22px;
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     font-size: 12px;
   }
 `;

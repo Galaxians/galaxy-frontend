@@ -36,7 +36,7 @@ const StyledCardAccent = styled.div`
   background-color: #0b001e;
 
   background-size: 300% 300%;
- 
+
   border-radius: 32px;
   filter: blur(6px);
   position: absolute;
@@ -65,7 +65,7 @@ const FCard = styled.div`
   align-self: baseline;
   background: ${(props) => props.theme.card.background};
   // background: #0B001E 0% 0% no-repeat padding-box;
-  border: 1px solid #FF1FFF;
+  border: 1px solid #ff1fff;
   border-radius: 11px;
   box-shadow: 0px 2px 12px -8px rgba(25, 19, 38, 0.1),
     0px 1px 1px rgba(25, 19, 38, 0.05);
@@ -91,10 +91,10 @@ const ExpandingWrapper = styled.div<{ expanded: boolean }>`
 
 const FlexStaked = styled(Flex)`
   margin-top: 36px;
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     margin-top: 12px;
   }
-`
+`;
 
 interface FarmCardProps {
   farm: FarmWithStakedValue;
@@ -102,7 +102,6 @@ interface FarmCardProps {
   cakePrice?: BigNumber;
   bnbPrice?: BigNumber;
   ethPrice?: BigNumber;
-  provider?: ProviderType;
   account?: string;
   className?: string;
 }
@@ -124,7 +123,6 @@ const FarmCard: React.FC<FarmCardProps> = ({
   // We assume the token name is coin pair + lp e.g. CAKE-BNB LP, LINK-BNB LP,
   // NAR-CAKE LP. The images should be cake-bnb.svg, link-bnb.svg, nar-cake.svg
   const farmImage = farm.lpSymbol.split(" ")[0].toLocaleLowerCase();
-  console.log(cakePrice.toNumber());
   const totalValue: BigNumber = useMemo(() => {
     if (!farm.lpTotalInQuoteToken) {
       return null;
@@ -176,7 +174,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`;
 
   return (
-    <div className={className} style={{maxWidth: '345px', minWidth: '345px'}}>
+    <div className={className} style={{ maxWidth: "345px", minWidth: "345px" }}>
       <FCard>
         {farm.tokenSymbol === "GLX" && <StyledCardAccent />}
         <CardHeading
@@ -229,7 +227,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
           <Text className="small text-white">{earnLabel}</Text>
         </Flex>
 
-        <Divider style={{backgroundColor: "#ff1fff", opacity: 0.48}} />
+        <Divider style={{ backgroundColor: "#ff1fff", opacity: 0.48 }} />
         <ExpandableSectionButton
           onClick={() => setShowExpandableSection(!showExpandableSection)}
           expanded={showExpandableSection}
@@ -247,7 +245,6 @@ const FarmCard: React.FC<FarmCardProps> = ({
         </ExpandingWrapper>
       </FCard>
     </div>
-    
   );
 };
 

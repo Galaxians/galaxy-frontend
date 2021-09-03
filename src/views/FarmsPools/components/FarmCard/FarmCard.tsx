@@ -1,23 +1,20 @@
-import React, { useMemo, useState } from "react"
-import BigNumber from "bignumber.js"
-import styled, { keyframes } from "styled-components"
-import { Flex, Text, Skeleton, Button, CheckmarkCircleIcon } from "glx-uikit"
-import { communityFarms } from "config/constants"
-import { Farm } from "state/types"
-import { provider as ProviderType } from "web3-core"
-import useI18n from "hooks/useI18n"
-import ExpandableSectionButton from "components/ExpandableSectionButton"
-import CoreButton from "components/CoreButton"
-import CoreFillButton from "components/CoreFillButton"
-import { QuoteToken } from "config/constants/types"
-import { BASE_ADD_LIQUIDITY_URL } from "config"
-import getLiquidityUrlPathParts from "utils/getLiquidityUrlPathParts"
-import { useFarmFromSymbol, useFarmUser } from "state/hooks"
-import { getBalanceNumber } from "utils/formatBalance"
-import DetailsSection from "./DetailsSection"
-import CardHeading from "./CardHeading"
-import CardActionsContainer from "./CardActionsContainer"
-import ApyButton from "./ApyButton"
+import React, { useMemo, useState } from "react";
+import BigNumber from "bignumber.js";
+import styled, { keyframes } from "styled-components";
+import { Flex, Text, Skeleton } from "glx-uikit";
+import { communityFarms } from "config/constants";
+import { Farm } from "state/types";
+import useI18n from "hooks/useI18n";
+import ExpandableSectionButton from "components/ExpandableSectionButton";
+import CoreFillButton from "components/CoreFillButton";
+import { QuoteToken } from "config/constants/types";
+import { BASE_ADD_LIQUIDITY_URL } from "config";
+import getLiquidityUrlPathParts from "utils/getLiquidityUrlPathParts";
+import { useFarmUser } from "state/hooks";
+import { getBalanceNumber } from "utils/formatBalance";
+import DetailsSection from "./DetailsSection";
+import CardHeading from "./CardHeading";
+import CardActionsContainer from "./CardActionsContainer";
 
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber;
@@ -68,8 +65,8 @@ const StyledCardAccent = styled.div`
 const FCard = styled.div`
   align-self: baseline;
   background: ${(props) => props.theme.card.background};
-  background: #0B001E 0% 0% no-repeat padding-box;
-  border: 1px solid #FF1FFF;
+  background: #0b001e 0% 0% no-repeat padding-box;
+  border: 1px solid #ff1fff;
   border-radius: 11px;
   box-shadow: 0px 2px 12px -8px rgba(25, 19, 38, 0.1),
     0px 1px 1px rgba(25, 19, 38, 0.05);
@@ -95,10 +92,10 @@ const ExpandingWrapper = styled.div<{ expanded: boolean }>`
 
 const FlexStaked = styled(Flex)`
   margin-top: 36px;
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     margin-top: 12px;
   }
-`
+`;
 
 interface FarmCardProps {
   farm: FarmWithStakedValue;
@@ -106,7 +103,6 @@ interface FarmCardProps {
   cakePrice?: BigNumber;
   bnbPrice?: BigNumber;
   ethPrice?: BigNumber;
-  provider?: ProviderType;
   account?: string;
   className?: string;
 }
@@ -181,7 +177,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`;
 
   return (
-    <div className={className} style={{maxWidth: '345px', minWidth: '300px'}}>
+    <div className={className} style={{ maxWidth: "345px", minWidth: "300px" }}>
       <FCard>
         {farm.tokenSymbol === "GLX" && <StyledCardAccent />}
         <CardHeading
@@ -232,21 +228,22 @@ const FarmCard: React.FC<FarmCardProps> = ({
           <Text fontSize="14px" fontWeight="500" className="small pink-color">
             {TranslateString(318, "Your Stake")}:
           </Text>
-          <Text fontSize="14px" fontWeight="500" className="small text-white">{displayStake}</Text>
+          <Text fontSize="14px" fontWeight="500" className="small text-white">
+            {displayStake}
+          </Text>
         </Flex>
-        <Divider style={{backgroundColor: "#ff1fff", opacity: 0.48}} />
+        <Divider style={{ backgroundColor: "#ff1fff", opacity: 0.48 }} />
         <div className="d-flex flex-row justify-content-between px-4">
           <CoreFillButton
-            // onClick = {() => {console.log("")}}
+          // onClick = {() => {console.log("")}}
           />
           <ExpandableSectionButton
             onClick={() => setShowExpandableSection(!showExpandableSection)}
             expanded={showExpandableSection}
           />
         </div>
-        
+
         <ExpandingWrapper expanded={showExpandableSection}>
-          
           <DetailsSection
             removed={removed}
             maticExplorerAddress={

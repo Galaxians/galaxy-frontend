@@ -23,14 +23,14 @@ const Action = styled.div`
 
 const BtnDiv = styled.div`
   display: flex;
-`
+`;
 
 const FlexStaked = styled(Flex)`
   margin-bottm: 36px;
-  @media(max-width: 500px) {
+  @media (max-width: 500px) {
     margin-bottm: 0px;
   }
-`
+`;
 
 export interface FarmWithStakedValue extends Farm {
   apy?: BigNumber;
@@ -38,7 +38,6 @@ export interface FarmWithStakedValue extends Farm {
 
 interface FarmCardActionsProps {
   farm: FarmWithStakedValue;
-  provider?: ProviderType;
   account?: string;
   addLiquidityUrl?: string;
 }
@@ -93,7 +92,15 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
         onClick={handleApprove}
         className="btn rounded"
       >
-        <Text color ="#FFE4F2" fontSize="14px" fontWeight="400" letterSpacing="0px" lineHeight="18px">{TranslateString(758, "Approve Contract")}</Text>
+        <Text
+          color="#FFE4F2"
+          fontSize="14px"
+          fontWeight="400"
+          letterSpacing="0px"
+          lineHeight="18px"
+        >
+          {TranslateString(758, "Approve Contract")}
+        </Text>
       </Button>
     );
   };
@@ -102,8 +109,9 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
     <Action>
       <HarvestAction earnings={earnings} pid={pid} />
       <Flex>
-        <Text className="pink-color"          
-          textTransform="uppercase"          
+        <Text
+          className="pink-color"
+          textTransform="uppercase"
           fontSize="14px"
           fontWeight="300"
           pr="3px"
@@ -116,10 +124,9 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
           {TranslateString(1072, "Earned")}
         </Text>
       </Flex>
-      
+
       <FlexStaked>
         <Text
-          
           textTransform="uppercase"
           color="secondary"
           fontSize="12px"
@@ -133,22 +140,27 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       </FlexStaked>
       {!account ? (
         <BtnDiv>
-          
-              <Button className="btn rounded"
-              style={{font: 'normal normal normal 14px/18px Mosk', color: '#FFE4F2', fontWeight: 800, marginTop: '8px'}} 
-              disabled={rawEarningsBalance === 0 || pendingTx}
-              padding="5px 40px"
-              height="auto"
-              width="auto"
-              onClick={async () => {
-                setPendingTx(true);
-                await onReward();
-                setPendingTx(false);
-              }}
-            >
-              {TranslateString(562, "Harvest")}
-            </Button>
-            <UnlockButton mt="8px" ml="8px"/>
+          <Button
+            className="btn rounded"
+            style={{
+              font: "normal normal normal 14px/18px Mosk",
+              color: "#FFE4F2",
+              fontWeight: 800,
+              marginTop: "8px",
+            }}
+            disabled={rawEarningsBalance === 0 || pendingTx}
+            padding="5px 40px"
+            height="auto"
+            width="auto"
+            onClick={async () => {
+              setPendingTx(true);
+              await onReward();
+              setPendingTx(false);
+            }}
+          >
+            {TranslateString(562, "Harvest")}
+          </Button>
+          <UnlockButton mt="8px" ml="8px" />
         </BtnDiv>
       ) : (
         renderApprovalOrStakeButton()

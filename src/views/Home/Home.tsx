@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Text, ChevronRightIcon } from "glx-uikit";
 import Page from "components/layout/Page";
-import { Route, useRouteMatch, useLocation, useHistory } from "react-router-dom";
+import {
+  Route,
+  useRouteMatch,
+  useLocation,
+  useHistory,
+} from "react-router-dom";
 
 enum ViewMode {
   "TABLE" = "TABLE",
@@ -20,7 +25,7 @@ const HomePageContent = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 150px;
-
+  justify-content: center;
   @media screen and (max-width: 950px) {
     flex-direction: column;
     margin-top: 40px;
@@ -235,16 +240,15 @@ const StartBtnDiv = styled(BtnDiv)`
   font-weight: 800;
 `;
 
-
 const AnimationIcon = styled.div`
   align-self: center;
-  >svg {
-    fill: #FF1FFF;
+  > svg {
+    fill: #ff1fff;
     zoom: 2.5;
     @media (max-width: 1368px) {
       zoom: 2;
     }
-  
+
     @media (max-width: 587px) {
       zoom: 1.5;
     }
@@ -259,7 +263,7 @@ const AnimationIcon = styled.div`
       from {
         transform: translate(0px, 0px);
       }
-    
+
       to {
         transform: translate(20px, 0px);
       }
@@ -301,11 +305,10 @@ const LargeText = styled(Text)`
 `;
 
 const Home: React.FC = () => {
-
   const history = useHistory();
   const handleApprove = () => {
     history.push("/farms", { viewparam: ViewMode.TABLE });
-  }
+  };
 
   return (
     <HomePage>
@@ -318,7 +321,7 @@ const Home: React.FC = () => {
           </div>
         </LeftSection>
         <RightSection>
-          <Card 
+          <Card
             style={{ justifyContent: "space-between" }}
             onClick={handleApprove}
           >
@@ -330,7 +333,7 @@ const Home: React.FC = () => {
               <RightSectionLongDivText>in Farms</RightSectionLongDivText>
             </div>
             <AnimationIcon>
-              <ChevronRightIcon/>
+              <ChevronRightIcon />
             </AnimationIcon>
           </Card>
           <RightMiddleBox>
@@ -341,19 +344,25 @@ const Home: React.FC = () => {
                   <RightMiddleDetailLabel>
                     Total GLX Supply
                   </RightMiddleDetailLabel>
-                  <RightMiddleDetailText style={{ paddingLeft: "15px"}} >100,000,000</RightMiddleDetailText>
+                  <RightMiddleDetailText style={{ paddingLeft: "15px" }}>
+                    100,000,000
+                  </RightMiddleDetailText>
                 </div>
                 <div style={{ display: "flex" }}>
                   <RightMiddleDetailLabel>
                     Total GLX Burned
                   </RightMiddleDetailLabel>
-                  <RightMiddleDetailText style={{ paddingLeft: "15px"}}>0</RightMiddleDetailText>
+                  <RightMiddleDetailText style={{ paddingLeft: "15px" }}>
+                    0
+                  </RightMiddleDetailText>
                 </div>
                 <div style={{ display: "flex" }}>
                   <RightMiddleDetailLabel>
                     Total GLX/ Block
                   </RightMiddleDetailLabel>
-                  <RightMiddleDetailText style={{ paddingLeft: "15px"}}>25</RightMiddleDetailText>
+                  <RightMiddleDetailText style={{ paddingLeft: "15px" }}>
+                    25
+                  </RightMiddleDetailText>
                 </div>
               </RightMiddleCardLeft>
             </div>
@@ -382,7 +391,7 @@ const Home: React.FC = () => {
               <RightSectionLongDivText>in pools</RightSectionLongDivText>
             </div>
             <AnimationIcon>
-              <ChevronRightIcon/>
+              <ChevronRightIcon />
             </AnimationIcon>
           </Card>
         </RightSection>

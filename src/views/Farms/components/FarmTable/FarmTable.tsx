@@ -35,7 +35,7 @@ const StyledTable = styled.table`
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  color:#ffffff;
+  color: #ffffff;
   border-spacing: 0 16px;
   @media (max-width: 500px) {
     border-spacing: 0 4px;
@@ -84,7 +84,7 @@ const FarmTable: React.FC<ITableProps> = (props) => {
     <Container>
       <TableContainer>
         <TableWrapper ref={tableWrapperEl}>
-          <StyledTable >
+          <StyledTable>
             <TableBody className="text-white">
               {rows.map((row) => {
                 return <Row {...row.original} key={`table-row-${row.id}`} />;

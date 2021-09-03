@@ -19,7 +19,7 @@ interface CellLayoutProps {
 
 const CellLayout: React.FC<CellLayoutProps> = ({ label = "", children }) => {
   return (
-    <div style={{paddingRight: 8}}>
+    <div style={{ paddingRight: 8 }}>
       {label && <Label>{label}</Label>}
       <ContentContainer>{children}</ContentContainer>
     </div>

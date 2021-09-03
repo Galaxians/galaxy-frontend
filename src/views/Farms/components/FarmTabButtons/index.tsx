@@ -11,10 +11,18 @@ const FarmTabButtons = () => {
   return (
     <Wrapper>
       <ButtonMenu activeIndex={isExact ? 0 : 1} scale="sm" variant="primary">
-        <ButtonMenuItem as={Link} to={`${url}`} style={{fontSize: 20, fontWeight: 500}} >
+        <ButtonMenuItem
+          as={Link}
+          to={`${url}`}
+          style={{ fontSize: 20, fontWeight: 500 }}
+        >
           {TranslateString(1198, "Live")}
         </ButtonMenuItem>
-        <ButtonMenuItem as={Link} to={`${url}/history`}  style={{fontSize: 20, fontWeight: 500}}>
+        <ButtonMenuItem
+          as={Link}
+          to={`${url}/history`}
+          style={{ fontSize: 20, fontWeight: 500 }}
+        >
           {TranslateString(388, "Finished")}
         </ButtonMenuItem>
       </ButtonMenu>
@@ -32,5 +40,4 @@ const Wrapper = styled.div`
     padding-left: 6px;
     padding-right: 6px;
   }
-
 `;

@@ -18,15 +18,15 @@ import { BLOCKS_PER_YEAR, CAKE_PER_BLOCK, CAKE_POOL_PID } from "config";
 const ArrowRight = styled(ChevronRightIcon)`
   fill: #ff1fff;
   width: 40px;
-`
+`;
 const StyledFarmStakingCard = styled(Card)`
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   display: flex;
   align-items: center;
-  border: 1px solid #61319F;
+  border: 1px solid #61319f;
   border-radius: 8px;
   padding: 31px 47px;
   ${({ theme }) => theme.mediaQueries.lg} {
@@ -116,8 +116,7 @@ const EarnAPYCard = () => {
   return (
     <NavLink exact activeClassName="active" to="/farms" id="farm-apy-cta">
       <StyledFarmStakingCard>
-      
-        <Flex style={{width: "100%"}} >
+        <Flex style={{ width: "100%" }}>
           <Text fontWeight="300" fontSize="30px" color="contrast">
             Earn up to
           </Text>
@@ -125,14 +124,18 @@ const EarnAPYCard = () => {
             {getHighestAPY() ? (
               `${getHighestAPY()}% ${TranslateString(736, "APR")}`
             ) : (
-              <Skeleton animation="pulse" variant="rect" height="44px" width="80px" />
+              <Skeleton
+                animation="pulse"
+                variant="rect"
+                height="44px"
+                width="80px"
+              />
             )}
           </CardMidContent>
-        
-          <Text fontWeight="300" fontSize="30px" color="contrast" >
+
+          <Text fontWeight="300" fontSize="30px" color="contrast">
             in Farms
           </Text>
-          
         </Flex>
         <ArrowRight />
       </StyledFarmStakingCard>
