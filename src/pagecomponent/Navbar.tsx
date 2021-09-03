@@ -169,7 +169,7 @@ export default function Navbar({ toggle }) {
             </button>
             <a className="navbar-brand" href={window.origin}>
               <img
-                src="./assets/img/galaxyswap-logo-color-800px.png"
+                src="./assets/img/Galaxyswap-logo-color-1600px.png"
                 alt="Galaxy Swap"
                 style={{ width: "180px", marginLeft: "30px" }}
               />

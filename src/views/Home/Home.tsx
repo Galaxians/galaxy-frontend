@@ -25,7 +25,7 @@ const HomePageContent = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 150px;
-
+  justify-content: center;
   @media screen and (max-width: 950px) {
     flex-direction: column;
     margin-top: 40px;
