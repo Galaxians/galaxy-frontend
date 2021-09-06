@@ -60,7 +60,6 @@ const defaultProps: ModalInputProps = {
   symbol: "",
   onSelectMax: () => {},
   onChange: (e: React.FormEvent<HTMLInputElement>) => {},
-  placeholder: "",
   value: "",
   addLiquidityUrl: "",
   inputTitle: "",
