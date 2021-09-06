@@ -331,7 +331,7 @@ export default function Navbar({ toggle }) {
                       : {}
                   }
                 >
-                  <span>LANCHPAD</span>
+                  <span>LAUNCHPAD</span>
                   {current !== "/launchpad" && (
                     <div
                       style={{
