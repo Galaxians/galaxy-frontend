@@ -7,11 +7,6 @@ interface PreviewProps {
   isOwned?: boolean;
 }
 
-const defaultProps: PreviewProps = {
-  nft: null,
-  isOwned: false,
-}
-
 const Container = styled.div`
   background-color: ${({ theme }) => theme.colors.borderColor};
   position: relative;
@@ -36,7 +31,7 @@ const StyledVideo = styled.video`
   width: 100%;
 `;
 
-const Preview: React.FC<PreviewProps> = ({ nft, isOwned = false }) => {
+const Preview: React.FC<PreviewProps> = ({ nft = null, isOwned = false }) => {
   const { images, name, video } = nft;
   const previewImageSrc = `/images/nfts/${images.lg}`;
 
@@ -77,6 +72,5 @@ const Preview: React.FC<PreviewProps> = ({ nft, isOwned = false }) => {
     </Container>
   );
 };
-Preview.defaultProps = defaultProps;
 
 export default Preview;

@@ -16,13 +16,6 @@ interface TransferNftModalProps {
   onDismiss?: () => void;
 }
 
-const defaultProps: TransferNftModalProps = {
-  nft: null,
-  tokenIds: [],
-  onSuccess: () => undefined,
-  onDismiss: () => undefined,
-}
-
 const Value = styled(Text)`
   font-weight: 600;
 `;
@@ -45,10 +38,10 @@ const Label = styled.label`
 `;
 
 const TransferNftModal: React.FC<TransferNftModalProps> = ({
-  nft,
-  tokenIds,
-  onSuccess,
-  onDismiss,
+  nft = null,
+  tokenIds = [],
+  onSuccess = () => null,
+  onDismiss = () => null,
 }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [value, setValue] = useState("");
@@ -133,5 +126,5 @@ const TransferNftModal: React.FC<TransferNftModalProps> = ({
     </Modal>
   );
 };
-TransferNftModal.defaultProps = defaultProps;
+
 export default TransferNftModal;
