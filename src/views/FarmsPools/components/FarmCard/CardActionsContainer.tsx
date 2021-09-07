@@ -3,7 +3,7 @@ import BigNumber from "bignumber.js";
 import styled from "styled-components";
 import { getAddress } from "utils/addressHelpers";
 import { getBep20Contract } from "utils/contractHelpers";
-import { Button, Flex, Text } from "glx-uikit";
+import { Flex, Text } from "glx-uikit";
 import { Farm } from "state/types";
 import { useFarmFromSymbol, useFarmUser } from "state/hooks";
 import useI18n from "hooks/useI18n";
@@ -13,11 +13,10 @@ import UnlockButton from "components/UnlockButton";
 import HarvestButton from "components/HarvestButton";
 import { getBalanceNumber } from "utils/formatBalance";
 import StakeAction from "./StakeAction";
-import HarvestAction from "./HarvestAction";
+import ActionButton from "./ActionButton";
 
 const Action = styled.div`
-  padding-top: 16px;
-  // margin: 0px 24px;
+  margin: 26px 26px 0;
 `;
 
 const FlexStaked = styled(Flex)`
@@ -74,25 +73,13 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
         addLiquidityUrl={addLiquidityUrl}
       />
     ) : (
-      <Button
-        ml="8px"
-        padding="7px 45px"
-        height="auto"
-        width="auto"
+      <ActionButton
         disabled={requestedApproval}
         onClick={handleApprove}
-        className="btn rounded"
+        className="btn"
       >
-        <Text
-          color="#FFE4F2"
-          fontSize="14px"
-          fontWeight="800"
-          letterSpacing="0px"
-          lineHeight="18px"
-        >
-          {TranslateString(758, `Approve ${lpName}`)}
-        </Text>
-      </Button>
+        {TranslateString(758, `Approve ${lpName}`)}
+      </ActionButton>
     );
   };
 
@@ -100,20 +87,15 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
   const displayBalance = rawEarningsBalance.toFixed(4).toLocaleString();
   return (
     <Action>
-      <Flex justifyContent="space-between" mb="3" alignItems="flex-end">
-        <FlexStaked
-          flexDirection="column"
-          justifyItems="self-start"
-          marginLeft="24px"
-        >
+      <Flex justifyContent="space-between" mb="36px" alignItems="flex-end">
+        <FlexStaked flexDirection="column" justifyItems="self-start">
           <Text
             fontSize="30px"
             fontWeight="800"
             textAlign="left"
-            mb="2"
+            mb="1"
             className="text-white"
-            lineHeight="1"
-            margin="0px"
+            lineHeight="37px"
           >
             {displayBalance}
           </Text>
@@ -134,34 +116,16 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
             </Text>
           </Flex>
         </FlexStaked>
-
-        {/* <Flex>
-          <Text
-            textTransform="uppercase"
-            color="secondary"
-            fontSize="14px"
-            fontWeight="300"
-            pr="3px"
-          >
-            {lpName}
-          </Text>
-          <Text fontSize="14px" fontWeight="300" textTransform="uppercase" color="textSubtle">
-            {TranslateString(1074, "Staked")}
-          </Text>
-        </Flex> */}
       </Flex>
 
-      <Flex justifyContent="center">
-        {/* <HarvestAction earnings={earnings} pid={pid} /> */}
-        {!account ? (
-          <>
-            <HarvestButton padding="10px 60px" width="30%" marginRight="10px" />
-            <UnlockButton padding="10px 60px" width="30%" marginLeft="10px" />
-          </>
-        ) : (
-          renderApprovalOrStakeButton()
-        )}
-      </Flex>
+      {!account ? (
+        <Flex justifyContent="center">
+          <HarvestButton padding="10px 60px" width="30%" marginRight="10px" />
+          <UnlockButton padding="10px 60px" width="30%" marginLeft="10px" />
+        </Flex>
+      ) : (
+        renderApprovalOrStakeButton()
+      )}
     </Action>
   );
 };

@@ -38,7 +38,7 @@ const Label = styled.label`
 `;
 
 const TransferNftModal: React.FC<TransferNftModalProps> = ({
-  nft = null,
+  nft,
   tokenIds = [],
   onSuccess = () => null,
   onDismiss = () => null,

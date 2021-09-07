@@ -4,7 +4,6 @@ import styled, { keyframes } from "styled-components";
 import { Flex, Text, Skeleton } from "glx-uikit";
 import { communityFarms } from "config/constants";
 import { Farm } from "state/types";
-import { provider as ProviderType } from "web3-core";
 import useI18n from "hooks/useI18n";
 import ExpandableSectionButton from "components/ExpandableSectionButton";
 import { QuoteToken } from "config/constants/types";
@@ -20,18 +19,6 @@ export interface FarmWithStakedValue extends Farm {
   liquidity?: BigNumber;
 }
 
-const RainbowLight = keyframes`
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-`;
-
 const StyledCardAccent = styled.div`
   background-color: #0b001e;
 
@@ -46,21 +33,7 @@ const StyledCardAccent = styled.div`
   left: -2px;
   z-index: -1;
 `;
-// background: linear-gradient(
-//   45deg,
-//   rgba(255, 0, 0, 1) 0%,
-//   rgba(255, 154, 0, 1) 10%,
-//   rgba(208, 222, 33, 1) 20%,
-//   rgba(79, 220, 74, 1) 30%,
-//   rgba(63, 218, 216, 1) 40%,
-//   rgba(47, 201, 226, 1) 50%,
-//   rgba(28, 127, 238, 1) 60%,
-//   rgba(95, 21, 242, 1) 70%,
-//   rgba(186, 12, 248, 1) 80%,
-//   rgba(251, 7, 217, 1) 90%,
-//   rgba(255, 0, 0, 1) 100%
-// );
-// animation: ${RainbowLight} 2s linear infinite;
+
 const FCard = styled.div`
   align-self: baseline;
   background: ${(props) => props.theme.card.background};
@@ -72,7 +45,7 @@ const FCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 24px 0px;
+  padding: 26px 0px;
   position: relative;
   text-align: center;
 `;
@@ -174,7 +147,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`;
 
   return (
-    <div className={className} style={{ maxWidth: "345px", minWidth: "345px" }}>
+    <div className={className} style={{ maxWidth: 345, minWidth: 300 }}>
       <FCard>
         {farm.tokenSymbol === "GLX" && <StyledCardAccent />}
         <CardHeading
@@ -191,41 +164,47 @@ const FarmCard: React.FC<FarmCardProps> = ({
           addLiquidityUrl={addLiquidityUrl}
         />
 
-        {!removed && (
-          <FlexStaked
-            justifyContent="space-between"
-            alignItems="center"
-            className="mx-4"
-          >
-            <Text fontSize="14px" fontWeight="500" className="small pink-color">
-              {TranslateString(736, "APR")}:
+        <div style={{ margin: "0 26px" }}>
+          {!removed && (
+            <FlexStaked justifyContent="space-between" alignItems="center">
+              <Text
+                fontSize="14px"
+                fontWeight="500"
+                className="small pink-color"
+              >
+                {TranslateString(736, "APR")}:
+              </Text>
+              <Text
+                style={{ display: "flex", alignItems: "center" }}
+                fontSize="14px"
+                fontWeight="500"
+                className="small text-white"
+              >
+                {farm.apy ? (
+                  <>
+                    <ApyButton
+                      lpLabel={lpLabel}
+                      addLiquidityUrl={addLiquidityUrl}
+                      cakePrice={cakePrice}
+                      apy={farm.apy}
+                    />
+                    {farmAPY}%
+                  </>
+                ) : (
+                  <Skeleton height={24} width={80} />
+                )}
+              </Text>
+            </FlexStaked>
+          )}
+          <Flex justifyContent="space-between">
+            <Text fontSize="14px" fontWeight="500" className="pink-color">
+              {TranslateString(318, "Earn")}:
             </Text>
-            <Text
-              style={{ display: "flex", alignItems: "center" }}
-              className="small text-white"
-            >
-              {farm.apy ? (
-                <>
-                  <ApyButton
-                    lpLabel={lpLabel}
-                    addLiquidityUrl={addLiquidityUrl}
-                    cakePrice={cakePrice}
-                    apy={farm.apy}
-                  />
-                  {farmAPY}%
-                </>
-              ) : (
-                <Skeleton height={24} width={80} />
-              )}
+            <Text fontSize="14px" fontWeight="500" className="text-white">
+              {earnLabel}
             </Text>
-          </FlexStaked>
-        )}
-        <Flex className="mx-4" justifyContent="space-between">
-          <Text fontSize="14px" fontWeight="500" className="small pink-color">
-            {TranslateString(318, "Earn")}:
-          </Text>
-          <Text className="small text-white">{earnLabel}</Text>
-        </Flex>
+          </Flex>
+        </div>
 
         <Divider style={{ backgroundColor: "#ff1fff", opacity: 0.48 }} />
         <ExpandableSectionButton
