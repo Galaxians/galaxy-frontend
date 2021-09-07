@@ -25,8 +25,11 @@ export const StyledLink = styled(Link)`
     font-family: "Mosk";
   }
   > span {
-    font-size: 15px;
-    font-family: monospace;
+    font-size: 16px;
+    //font-family: monospace;
+    font-family: 'Kanit',sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     z-index: 1;
   }
   > div {
@@ -331,7 +334,7 @@ export default function Navbar({ toggle }) {
                       : {}
                   }
                 >
-                  <span>LANCHPAD</span>
+                  <span>LAUNCHPAD</span>
                   {current !== "/launchpad" && (
                     <div
                       style={{

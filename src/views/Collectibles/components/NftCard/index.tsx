@@ -27,6 +27,13 @@ interface NftCardProps {
   onSuccess: () => void;
 }
 
+const defaultProps: NftCardProps = {
+  nft: null,
+  canClaim: false,
+  tokenIds: [],
+  onSuccess: () => {},
+}
+
 const Header = styled(InfoRow)`
   min-height: 28px;
 `;
@@ -124,5 +131,5 @@ const NftCard: React.FC<NftCardProps> = ({
     </Card>
   );
 };
-
+NftCard.defaultProps = defaultProps;
 export default NftCard;

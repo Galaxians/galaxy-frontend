@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const SidebarContainer = styled.aside<{ isOpen: any }>`
@@ -110,11 +110,18 @@ const MenuLogo = styled.div`
   }
 `;
 
-const Btn = ({ text }) => {
+const Btn = ({ text, toggle }) => {
   return (
     <BtnDiv>
       <span>
-        <a href={text.toLowerCase()}>{text}</a>
+        {/* <a href={text.toLowerCase()}>{text}</a> */}
+        <Link
+          to={`/${text.toLowerCase()}`}
+          onClick={toggle}
+          rel="noreferrer"
+        >
+          {text}
+        </Link>
       </span>
       <div />
     </BtnDiv>
@@ -143,10 +150,10 @@ export default function Sidebar({ isOpen, toggle }) {
             alt="icon"
             style={{ width: "30px", marginBottom: "20px" }}
           />
-          <Btn text="EXCHANGE" />
-          <Btn text="FARMS" />
-          <Btn text="POOLS" />
-          <Btn text="LAUNCHPAD" />
+          <Btn text="EXCHANGE" toggle={toggle} />
+          <Btn text="FARMS" toggle={toggle} />
+          <Btn text="POOLS" toggle={toggle} />
+          <Btn text="LAUNCHPAD" toggle={toggle} />
         </div>
 
         <div
