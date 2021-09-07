@@ -17,8 +17,8 @@ const defaultProps: TokenInputProps  = {
   symbol: "",
   availableSymbol: "",
   value: "",
-  onSelectMax: () => {},
-  onChange: (evt: React.FormEvent<HTMLInputElement>) => {},
+  onSelectMax: () => undefined,
+  onChange: (evt: React.FormEvent<HTMLInputElement>) => undefined,
 }
 
 const TicketInput: React.FC<TokenInputProps> = ({

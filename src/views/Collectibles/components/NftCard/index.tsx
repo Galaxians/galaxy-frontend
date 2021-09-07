@@ -31,7 +31,7 @@ const defaultProps: NftCardProps = {
   nft: null,
   canClaim: false,
   tokenIds: [],
-  onSuccess: () => {},
+  onSuccess: () => undefined,
 }
 
 const Header = styled(InfoRow)`
