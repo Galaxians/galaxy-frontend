@@ -9,6 +9,8 @@
     "build-win": "set CI=false&&react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "lint:js": "eslint --ext \".tsx\" --ignore-path .gitignore . --fix",
+    "lint-win": "npm run lint:js",
     "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
     "format:check": "prettier --check --loglevel error 'src/**/*.{js,jsx,ts,tsx}'",
     "format:write": "prettier --write 'src/**/*.{js,jsx,ts,tsx}'",

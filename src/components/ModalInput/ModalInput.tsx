@@ -58,8 +58,8 @@ const StyledErrorMessage = styled(Text)`
 const defaultProps: ModalInputProps = {
   max: "",
   symbol: "",
-  onSelectMax: () => {},
-  onChange: (e: React.FormEvent<HTMLInputElement>) => {},
+  onSelectMax: () => undefined ,
+  onChange: (e: React.FormEvent<HTMLInputElement>) => undefined ,
   value: "",
   addLiquidityUrl: "",
   inputTitle: "",

@@ -19,8 +19,8 @@ interface TransferNftModalProps {
 const defaultProps: TransferNftModalProps = {
   nft: null,
   tokenIds: [],
-  onSuccess: () => {},
-  onDismiss: () => {},
+  onSuccess: () => undefined,
+  onDismiss: () => undefined,
 }
 
 const Value = styled(Text)`

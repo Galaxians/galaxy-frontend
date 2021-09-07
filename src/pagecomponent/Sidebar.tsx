@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -114,7 +115,6 @@ const Btn = ({ text, toggle }) => {
   return (
     <BtnDiv>
       <span>
-        {/* <a href={text.toLowerCase()}>{text}</a> */}
         <Link
           to={`/${text.toLowerCase()}`}
           onClick={toggle}
@@ -123,7 +123,6 @@ const Btn = ({ text, toggle }) => {
           {text}
         </Link>
       </span>
-      <div />
     </BtnDiv>
   );
 };
