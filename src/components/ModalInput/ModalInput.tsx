@@ -55,24 +55,14 @@ const StyledErrorMessage = styled(Text)`
   }
 `;
 
-const defaultProps: ModalInputProps = {
-  max: "",
-  symbol: "",
-  onSelectMax: () => undefined ,
-  onChange: (e: React.FormEvent<HTMLInputElement>) => undefined ,
-  value: "",
-  addLiquidityUrl: "",
-  inputTitle: "",
-}
-
 const ModalInput: React.FC<ModalInputProps> = ({
-  max,
-  symbol,
-  onChange,
-  onSelectMax,
-  value,
-  addLiquidityUrl,
-  inputTitle,
+  max = "",
+  symbol = "",
+  onSelectMax = () => null ,
+  onChange = (e: React.FormEvent<HTMLInputElement>) => null ,
+  value =  "",
+  addLiquidityUrl = "",
+  inputTitle = "",
 }) => {
   const TranslateString = useI18n();
   const isBalanceZero = max === "0" || !max;
@@ -114,5 +104,4 @@ const ModalInput: React.FC<ModalInputProps> = ({
     </div>
   );
 };
-ModalInput.defaultProps = defaultProps;
 export default ModalInput;

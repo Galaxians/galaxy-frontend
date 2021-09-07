@@ -12,22 +12,13 @@ interface TokenInputProps extends InputProps {
   onChange: (evt: React.FormEvent<HTMLInputElement>) => void;
 }
 
-const defaultProps: TokenInputProps  = {
-  max: "",
-  symbol: "",
-  availableSymbol: "",
-  value: "",
-  onSelectMax: () => undefined,
-  onChange: (evt: React.FormEvent<HTMLInputElement>) => undefined,
-}
-
 const TicketInput: React.FC<TokenInputProps> = ({
-  max,
-  symbol,
-  availableSymbol,
-  onChange,
-  onSelectMax,
-  value,
+  max = "",
+  symbol = "",
+  availableSymbol = "",
+  value = "",
+  onSelectMax = () => null,
+  onChange = (evt: React.FormEvent<HTMLInputElement>) => null,
 }) => {
   const TranslateString = useI18n();
 
@@ -81,5 +72,4 @@ const StyledTokenSymbol = styled.span`
   font-weight: 700;
 `;
 
-TicketInput.defaultProps = defaultProps;
 export default TicketInput;
