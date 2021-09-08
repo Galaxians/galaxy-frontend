@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -115,11 +115,7 @@ const Btn = ({ text, toggle }) => {
   return (
     <BtnDiv>
       <span>
-        <Link
-          to={`/${text.toLowerCase()}`}
-          onClick={toggle}
-          rel="noreferrer"
-        >
+        <Link to={`/${text.toLowerCase()}`} onClick={toggle} rel="noreferrer">
           {text}
         </Link>
       </span>

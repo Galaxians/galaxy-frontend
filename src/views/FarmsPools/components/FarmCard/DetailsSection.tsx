@@ -13,7 +13,7 @@ export interface ExpandableSectionProps {
 
 const Wrapper = styled.div`
   margin-top: 24px;
-  padding: 0 24px;
+  padding: 0 26px;
 `;
 
 const StyledLinkExternal = styled(LinkExternal)`
@@ -31,6 +31,11 @@ const StyledLinkExternal = styled(LinkExternal)`
   }
 `;
 
+const CustomText = styled(Text)`
+  font-size: 14px;
+  font-weight: 500;
+`;
+
 const DetailsSection: React.FC<ExpandableSectionProps> = ({
   maticExplorerAddress,
   removed,
@@ -43,18 +48,18 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
   return (
     <Wrapper>
       <Flex justifyContent="space-between">
-        <Text>{TranslateString(316, "Stake")}:</Text>
+        <CustomText>{TranslateString(316, "Stake")}:</CustomText>
         <StyledLinkExternal href={addLiquidityUrl}>
-          {lpLabel}
+          <CustomText>{lpLabel}</CustomText>
         </StyledLinkExternal>
       </Flex>
       {!removed && (
-        <Flex justifyContent="space-between">
-          <Text>{TranslateString(23, "Total Liquidity")}:</Text>
-          <Text>{totalValueFormated}</Text>
+        <Flex className="mt-2" justifyContent="space-between">
+          <CustomText>{TranslateString(23, "Total Liquidity")}:</CustomText>
+          <CustomText>{totalValueFormated}</CustomText>
         </Flex>
       )}
-      <Flex justifyContent="flex-start">
+      <Flex style={{ marginTop: 18 }} justifyContent="flex-start">
         <Link external href={maticExplorerAddress} bold={false}>
           {TranslateString(356, "View on BSCExplorer")}
         </Link>

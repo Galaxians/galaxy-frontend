@@ -27,7 +27,7 @@ export const StyledLink = styled(Link)`
   > span {
     font-size: 16px;
     //font-family: monospace;
-    font-family: 'Kanit',sans-serif;
+    font-family: "Kanit", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     z-index: 1;

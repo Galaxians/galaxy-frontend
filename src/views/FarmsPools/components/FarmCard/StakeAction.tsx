@@ -2,14 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import BigNumber from "bignumber.js";
 import {
-  Button,
-  Flex,
-  Heading,
   IconButton,
   AddIcon,
   MinusIcon,
   useModal,
-  Text,
+  Heading,
+  Flex,
 } from "glx-uikit";
 import useI18n from "hooks/useI18n";
 import useStake from "hooks/useStake";
@@ -17,6 +15,7 @@ import useUnstake from "hooks/useUnstake";
 import { getBalanceNumber } from "utils/formatBalance";
 import DepositModal from "../DepositModal";
 import WithdrawModal from "../WithdrawModal";
+import ActionButton from "./ActionButton";
 
 interface FarmCardActionsProps {
   stakedBalance?: BigNumber;
@@ -65,11 +64,9 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
 
   const renderStakingButtons = () => {
     return rawStakedBalance === 0 ? (
-      <Button onClick={onPresentDeposit} className="btn rounded">
-        <Text fontSize="14px" fontWeight="900">
-          {TranslateString(999, "Stake LP")}
-        </Text>
-      </Button>
+      <ActionButton onClick={onPresentDeposit} className="btn">
+        {TranslateString(999, "Stake LP")}
+      </ActionButton>
     ) : (
       <IconButtonWrapper>
         <IconButton variant="tertiary" onClick={onPresentWithdraw} mr="6px">

@@ -13,12 +13,12 @@ interface TokenInputProps extends InputProps {
 }
 
 const TicketInput: React.FC<TokenInputProps> = ({
-  max = "",
+  max,
   symbol = "",
   availableSymbol = "",
-  value = "",
+  onChange = () => null,
   onSelectMax = () => null,
-  onChange = (evt: React.FormEvent<HTMLInputElement>) => null,
+  value = "",
 }) => {
   const TranslateString = useI18n();
 

@@ -58,9 +58,9 @@ const StyledErrorMessage = styled(Text)`
 const ModalInput: React.FC<ModalInputProps> = ({
   max = "",
   symbol = "",
-  onSelectMax = () => null ,
-  onChange = (e: React.FormEvent<HTMLInputElement>) => null ,
-  value =  "",
+  onChange = () => null,
+  onSelectMax = () => null,
+  value = "",
   addLiquidityUrl = "",
   inputTitle = "",
 }) => {
@@ -104,4 +104,5 @@ const ModalInput: React.FC<ModalInputProps> = ({
     </div>
   );
 };
+
 export default ModalInput;

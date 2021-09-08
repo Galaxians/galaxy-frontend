@@ -16,6 +16,7 @@ import useUnstake from "hooks/useUnstake";
 import { getBalanceNumber } from "utils/formatBalance";
 import DepositModal from "../DepositModal";
 import WithdrawModal from "../WithdrawModal";
+import ActionButton from "./ActionButton";
 
 interface FarmCardActionsProps {
   stakedBalance?: BigNumber;
@@ -64,9 +65,9 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
 
   const renderStakingButtons = () => {
     return rawStakedBalance === 0 ? (
-      <Button onClick={onPresentDeposit} className="btn rounded mt-5 mb-4">
+      <ActionButton onClick={onPresentDeposit} className="btn">
         {TranslateString(999, "Stake LP")}
-      </Button>
+      </ActionButton>
     ) : (
       <IconButtonWrapper className="mt-5 mb-4">
         <IconButton variant="tertiary" onClick={onPresentWithdraw} mr="6px">

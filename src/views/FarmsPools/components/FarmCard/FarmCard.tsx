@@ -73,7 +73,7 @@ const FCard = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 24px 0px;
+  padding: 26px 0px;
   position: relative;
   text-align: center;
 `;
@@ -177,7 +177,7 @@ const FarmCard: React.FC<FarmCardProps> = ({
   const addLiquidityUrl = `${BASE_ADD_LIQUIDITY_URL}/${liquidityUrlPathParts}`;
 
   return (
-    <div className={className} style={{ maxWidth: "345px", minWidth: "300px" }}>
+    <div className={className} style={{ maxWidth: 345, minWidth: 300 }}>
       <FCard>
         {farm.tokenSymbol === "GLX" && <StyledCardAccent />}
         <CardHeading
@@ -193,47 +193,41 @@ const FarmCard: React.FC<FarmCardProps> = ({
           account={account}
           addLiquidityUrl={addLiquidityUrl}
         />
-        {!removed && (
-          <FlexStaked
-            justifyContent="space-between"
-            alignItems="center"
-            className="mx-4"
-          >
+
+        <div style={{ margin: "0 26px" }}>
+          {!removed && (
+            <FlexStaked justifyContent="space-between" alignItems="center">
+              <Text
+                fontSize="14px"
+                fontWeight="500"
+                className="small pink-color"
+              >
+                {TranslateString(736, "APR")}:
+              </Text>
+              <Text
+                fontSize="14px"
+                fontWeight="500"
+                style={{ display: "flex", alignItems: "center" }}
+                className="small text-white"
+              >
+                {farm.apy ? `${farmAPY}%` : <Skeleton height={24} width={80} />}
+              </Text>
+            </FlexStaked>
+          )}
+          <Flex className="mt-2" justifyContent="space-between">
             <Text fontSize="14px" fontWeight="500" className="small pink-color">
-              {TranslateString(736, "APR")}:
+              {TranslateString(318, "Your Stake")}:
             </Text>
-            <Text
-              fontSize="14px"
-              fontWeight="500"
-              style={{ display: "flex", alignItems: "center" }}
-              className="small text-white"
-            >
-              {farm.apy ? (
-                <>
-                  {/* <ApyButton
-                    lpLabel={lpLabel}
-                    addLiquidityUrl={addLiquidityUrl}
-                    cakePrice={cakePrice}
-                    apy={farm.apy}
-                  /> */}
-                  {farmAPY}%
-                </>
-              ) : (
-                <Skeleton height={24} width={80} />
-              )}
+            <Text fontSize="14px" fontWeight="500" className="small text-white">
+              {displayStake}
             </Text>
-          </FlexStaked>
-        )}
-        <Flex className="mx-4 mt-2" justifyContent="space-between">
-          <Text fontSize="14px" fontWeight="500" className="small pink-color">
-            {TranslateString(318, "Your Stake")}:
-          </Text>
-          <Text fontSize="14px" fontWeight="500" className="small text-white">
-            {displayStake}
-          </Text>
-        </Flex>
+          </Flex>
+        </div>
         <Divider style={{ backgroundColor: "#ff1fff", opacity: 0.48 }} />
-        <div className="d-flex flex-row justify-content-between px-4">
+        <div
+          className="d-flex flex-row justify-content-between"
+          style={{ margin: "0 24px" }}
+        >
           <CoreFillButton
           // onClick = {() => {console.log("")}}
           />

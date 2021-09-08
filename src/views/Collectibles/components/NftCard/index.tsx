@@ -49,7 +49,7 @@ const InfoBlock = styled.div`
 `;
 
 const NftCard: React.FC<NftCardProps> = ({
-  nft = null,
+  nft,
   onSuccess = () => null,
   canClaim = false,
   tokenIds = [],
@@ -124,4 +124,5 @@ const NftCard: React.FC<NftCardProps> = ({
     </Card>
   );
 };
+
 export default NftCard;
