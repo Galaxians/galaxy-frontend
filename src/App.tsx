@@ -3,27 +3,23 @@ import { Router, Route, Switch } from "react-router-dom";
 import { ResetCSS } from "glx-uikit";
 import BigNumber from "bignumber.js";
 import styled from "styled-components";
-import useEagerConnect from "hooks/useEagerConnect";
+import useEagerConnect from "./hooks/useEagerConnect";
 
 // @ts-ignore
-import Leftnav from "pagecomponent/Leftnav";
-// @ts-ignore
-import Footer from "pagecomponent/Footer";
+import Footer from "./pagecomponent/Footer";
 
 import {
   useFetchPriceList,
   useFetchProfile,
   useFetchPublicData,
-} from "state/hooks";
+} from "./state/hooks";
 import Navbar from "./pagecomponent/Navbar";
 import useGetDocumentTitlePrice from "./hooks/useGetDocumentTitlePrice";
 import GlobalStyle from "./style/Global";
-import Menu from "./components/Menu";
 import SuspenseWithChunkError from "./components/SuspenseWithChunkError";
 import ToastListener from "./components/ToastListener";
 import PageLoader from "./components/PageLoader";
 import EasterEgg from "./components/EasterEgg";
-import Pools from "./views/Pools";
 import GlobalCheckBullHiccupClaimStatus from "./views/Collectibles/components/GlobalCheckBullHiccupClaimStatus";
 import history from "./routerHistory";
 import Sidebar from "./pagecomponent/Sidebar";
@@ -33,14 +29,22 @@ import Sidebar from "./pagecomponent/Sidebar";
 const Home = lazy(() => import("./views/Home"));
 const Farms = lazy(() => import("./views/Farms"));
 const FarmsPools = lazy(() => import("./views/FarmsPools"));
-const Lottery = lazy(() => import("./views/Lottery"));
 const Ifos = lazy(() => import("./views/Ifos"));
 const NotFound = lazy(() => import("./views/NotFound"));
-const Collectibles = lazy(() => import("./views/Collectibles"));
-const Teams = lazy(() => import("./views/Teams"));
-const Team = lazy(() => import("./views/Teams/Team"));
-const Profile = lazy(() => import("./views/Profile"));
 const LaunchPad = lazy(() => import("./views/LaunchPad"));
+const Swap = lazy(() => import("./views/Swap"));
+const Pool = lazy(() => import("./views/Pool"));
+const AddLiquidity = lazy(() => import("./views/AddLiquidity"));
+const RedirectOldAddLiquidityPathStructure = lazy(
+  () => import("./views/AddLiquidity/RedirectOldAddLiquidityPathStructure")
+);
+const RedirectionDuplicateTokenIds = lazy(
+  () => import("./views/AddLiquidity/RedirectionDuplicateTokenIds")
+);
+const RemoveLiquidity = lazy(() => import("./views/RemoveLiquidity"));
+const RedirectOldRemoveLiquidityPathStructure = lazy(
+  () => import("./views/RemoveLiquidity/redirects")
+);
 
 const Wrapper = styled.div`
   margin-top: 20px;
@@ -99,6 +103,27 @@ const App: React.FC = () => {
             </Route>
             <Route path="/launchpad">
               <LaunchPad />
+            </Route>
+            <Route path="/exchange">
+              <Swap />
+            </Route>
+            <Route path="/pool">
+              <Pool />
+            </Route>
+            <Route exact path="/add">
+              <AddLiquidity />
+            </Route>
+            <Route exact path="/add/:currencyIdA">
+              <RedirectOldAddLiquidityPathStructure />
+            </Route>
+            <Route exact path="/add/:currencyIdA/:currencyIdB">
+              <RedirectionDuplicateTokenIds />
+            </Route>
+            <Route exact strict path="/remove/:currencyIdA/:currencyIdB">
+              <RemoveLiquidity />
+            </Route>
+            <Route exact strict path="/remove/:tokens">
+              <RedirectOldRemoveLiquidityPathStructure />
             </Route>
             <Route component={NotFound} />
           </Switch>
