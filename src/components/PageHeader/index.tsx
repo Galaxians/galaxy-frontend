@@ -1,14 +1,22 @@
-import React, { ReactNode } from 'react'
-import styled from 'styled-components'
-import { Heading, IconButton, Text, Flex, useModal, CogIcon, Svg } from 'glx-uikit'
-import useI18n from 'hooks/useI18n'
-import SettingsModal from './SettingsModal'
-import RecentTransactionsModal from './RecentTransactionsModal'
+import React, { ReactNode } from "react";
+import styled from "styled-components";
+import {
+  Heading,
+  IconButton,
+  Text,
+  Flex,
+  useModal,
+  CogIcon,
+  Svg,
+} from "glx-uikit";
+import useI18n from "hooks/useI18n";
+import SettingsModal from "./SettingsModal";
+import RecentTransactionsModal from "./RecentTransactionsModal";
 
 interface PageHeaderProps {
-  title: ReactNode
-  description?: ReactNode
-  children?: ReactNode
+  title: ReactNode;
+  description?: ReactNode;
+  children?: ReactNode;
 }
 
 const HistoryIcon = () => (
@@ -18,21 +26,25 @@ const HistoryIcon = () => (
       fill="currentColor"
     />
   </Svg>
-)
+);
 
 const StyledPageHeader = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.borderColor};
   padding: 24px;
-`
+`;
 
 const Details = styled.div`
   flex: 1;
-`
+`;
 
 const PageHeader = ({ title, description, children }: PageHeaderProps) => {
-  const TranslateString = useI18n()
-  const [onPresentSettings] = useModal(<SettingsModal translateString={TranslateString} />)
-  const [onPresentRecentTransactions] = useModal(<RecentTransactionsModal translateString={TranslateString} />)
+  const TranslateString = useI18n();
+  const [onPresentSettings] = useModal(
+    <SettingsModal translateString={TranslateString} />
+  );
+  const [onPresentRecentTransactions] = useModal(
+    <RecentTransactionsModal translateString={TranslateString} />
+  );
 
   return (
     <StyledPageHeader>
@@ -45,20 +57,24 @@ const PageHeader = ({ title, description, children }: PageHeaderProps) => {
             </Text>
           )}
         </Details>
-        <IconButton variant="text" onClick={onPresentSettings} title={TranslateString(1200, 'Settings')}>
+        <IconButton
+          variant="text"
+          onClick={onPresentSettings}
+          title={TranslateString(1200, "Settings")}
+        >
           <CogIcon width="24px" color="currentColor" />
         </IconButton>
         <IconButton
           variant="text"
           onClick={onPresentRecentTransactions}
-          title={TranslateString(1202, 'Recent transactions')}
+          title={TranslateString(1202, "Recent transactions")}
         >
           <HistoryIcon />
         </IconButton>
       </Flex>
       {children && <Text mt="16px">{children}</Text>}
     </StyledPageHeader>
-  )
-}
+  );
+};
 
-export default PageHeader
+export default PageHeader;
