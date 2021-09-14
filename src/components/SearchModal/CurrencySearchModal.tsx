@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { Currency } from "@pancakeswap-libs/sdk";
 import React, { useCallback, useEffect, useState } from "react";
 import useLast from "../../hooks/useLast";

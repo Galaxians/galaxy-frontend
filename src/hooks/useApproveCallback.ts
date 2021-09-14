@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { MaxUint256 } from "@ethersproject/constants";
 import { TransactionResponse } from "@ethersproject/providers";
 import {
