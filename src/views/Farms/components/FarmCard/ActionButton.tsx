@@ -3,7 +3,7 @@ import { Button } from "glx-uikit";
 
 export default styled(Button)`
   border-radius: 8px;
-  height: unset;
+  height: fit-content;
   font-weight: 900;
   font-size: 14px;
   padding: 8px 39px;

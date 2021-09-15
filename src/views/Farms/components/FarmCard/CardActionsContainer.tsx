@@ -77,69 +77,60 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
         addLiquidityUrl={addLiquidityUrl}
       />
     ) : (
-      <ActionButton
-        disabled={requestedApproval}
-        onClick={handleApprove}
-        className="btn"
-      >
-        {TranslateString(758, "Approve Contract")}
-      </ActionButton>
+      <Flex alignItems="center" justifyContent="center" style={{height: "60px"}} className="mt-5">
+          <ActionButton
+            style={{width: '80%'}}
+            disabled={requestedApproval}
+            onClick={handleApprove}
+            className="btn"
+          >
+            {TranslateString(758, "Approve Contract")}
+          </ActionButton>
+      </Flex>
     );
   };
 
   return (
     <Action>
-      <HarvestAction earnings={earnings} pid={pid} />
-      <Flex>
-        <Text
-          className="pink-color"
-          textTransform="uppercase"
-          fontSize="14px"
-          fontWeight="300"
-          pr="3px"
+      <Flex justifyContent="space-between" alignItems="center">
+        <div>
+          <HarvestAction earnings={earnings} pid={pid} />
+          <Flex>
+            <Text
+              className="pink-color"
+              textTransform="uppercase"
+              fontSize="14px"
+              fontWeight="300"
+              pr="3px"
+            >
+              {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
+              {/* GLAXIA */}
+              {lpName}
+            </Text>
+            <Text className="pink-color" fontWeight="300" fontSize="14px">
+              {TranslateString(1072, "Earned")}
+            </Text>
+          </Flex>
+        </div>
+        {isApproved && <ActionButton
+          disabled={rawEarningsBalance === 0 || pendingTx}
+          height="fit-content"
+          onClick={async () => {
+            setPendingTx(true);
+            try {
+              await onReward();
+            } finally {
+              setPendingTx(false);
+            }
+          }}
+          className="btn"
         >
-          {/* TODO: Is there a way to get a dynamic value here from useFarmFromSymbol? */}
-          {/* GLAXIA */}
-          {lpName}
-        </Text>
-        <Text className="pink-color" fontWeight="300" fontSize="14px">
-          {TranslateString(1072, "Earned")}
-        </Text>
-      </Flex>
-
-      <Flex style={{ marginBottom: 36 }}>
-        <Text
-          textTransform="uppercase"
-          color="secondary"
-          fontSize="14px"
-          fontWeight="300"
-          pr="3px"
-        >
-          {lpName}
-        </Text>
-        <Text color="textSubtle" fontWeight="300" fontSize="14px">
-          {TranslateString(1074, "Staked")}
-        </Text>
+          {TranslateString(562, "Harvest")}
+        </ActionButton>}
       </Flex>
 
       {!account ? (
-        <BtnDiv>
-          <Button
-            className="btn"
-            disabled={rawEarningsBalance === 0 || pendingTx}
-            padding="5px 40px"
-            height="auto"
-            width="auto"
-            onClick={async () => {
-              setPendingTx(true);
-              await onReward();
-              setPendingTx(false);
-            }}
-          >
-            {TranslateString(562, "Harvest")}
-          </Button>
           <UnlockButton mt="8px" ml="8px" />
-        </BtnDiv>
       ) : (
         renderApprovalOrStakeButton()
       )}

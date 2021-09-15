@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BigNumber from "bignumber.js";
 import {
   Button,
+  Text,
   Flex,
   Heading,
   IconButton,
@@ -62,31 +63,52 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
       tokenName={tokenName}
     />
   );
-
-  const renderStakingButtons = () => {
-    return rawStakedBalance === 0 ? (
-      <ActionButton onClick={onPresentDeposit} className="btn">
-        {TranslateString(999, "Stake LP")}
-      </ActionButton>
-    ) : (
-      <IconButtonWrapper className="mt-5 mb-4">
-        <IconButton variant="tertiary" onClick={onPresentWithdraw} mr="6px">
-          <MinusIcon color="primary" width="14px" />
-        </IconButton>
-        <IconButton variant="tertiary" onClick={onPresentDeposit}>
-          <AddIcon color="primary" width="14px" />
-        </IconButton>
-      </IconButtonWrapper>
-    );
-  };
-
   return (
-    <Flex justifyContent="space-between" alignItems="center">
-      <Heading color={rawStakedBalance === 0 ? "textDisabled" : "text"}>
-        {displayBalance}
-      </Heading>
-      {renderStakingButtons()}
-    </Flex>
+    <div className="mt-5">
+      {rawStakedBalance !== 0 ?
+        <Flex height="60px" justifyContent="space-between" alignItems="center">
+          {<div>
+            <Heading textAlign="left" color={rawStakedBalance === 0 ? "textDisabled" : "text"}>
+              {displayBalance}
+            </Heading>
+            <Flex>
+              <Text
+                textTransform="uppercase"
+                color="secondary"
+                fontSize="14px"
+                fontWeight="300"
+                pr="3px"
+              >
+                {tokenName}
+              </Text>
+              <Text color="textSubtle" fontWeight="300" fontSize="14px">
+                {TranslateString(1074, "Staked")}
+              </Text>
+            </Flex>
+          </div>}
+          {rawStakedBalance === 0 ? (
+            <ActionButton style={{width: '80%'}} onClick={onPresentDeposit} className="btn">
+              {TranslateString(999, "Stake LP")}
+            </ActionButton>
+          ) : (
+            <IconButtonWrapper>
+              <IconButton variant="tertiary" onClick={onPresentWithdraw} mr="6px">
+                <MinusIcon color="primary" width="14px" />
+              </IconButton>
+              <IconButton variant="tertiary" onClick={onPresentDeposit}>
+                <AddIcon color="primary" width="14px" />
+              </IconButton>
+            </IconButtonWrapper>
+          )}
+        </Flex>
+        : 
+        <Flex alignItems="center" justifyContent="center" style={{height: "60px"}}>
+          <ActionButton style={{width: '80%'}} onClick={onPresentDeposit} className="btn">
+            {TranslateString(999, "Stake LP")}
+          </ActionButton>
+        </Flex>
+      }
+    </div>
   );
 };
 
