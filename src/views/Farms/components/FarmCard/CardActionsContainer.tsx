@@ -77,15 +77,20 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
         addLiquidityUrl={addLiquidityUrl}
       />
     ) : (
-      <Flex alignItems="center" justifyContent="center" style={{height: "60px"}} className="mt-5">
-          <ActionButton
-            style={{width: '80%'}}
-            disabled={requestedApproval}
-            onClick={handleApprove}
-            className="btn"
-          >
-            {TranslateString(758, "Approve Contract")}
-          </ActionButton>
+      <Flex
+        alignItems="center"
+        justifyContent="center"
+        style={{ height: "60px" }}
+        className="mt-5"
+      >
+        <ActionButton
+          style={{ width: "80%" }}
+          disabled={requestedApproval}
+          onClick={handleApprove}
+          className="btn"
+        >
+          {TranslateString(758, "Approve Contract")}
+        </ActionButton>
       </Flex>
     );
   };
@@ -112,25 +117,27 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
             </Text>
           </Flex>
         </div>
-        {isApproved && <ActionButton
-          disabled={rawEarningsBalance === 0 || pendingTx}
-          height="fit-content"
-          onClick={async () => {
-            setPendingTx(true);
-            try {
-              await onReward();
-            } finally {
-              setPendingTx(false);
-            }
-          }}
-          className="btn"
-        >
-          {TranslateString(562, "Harvest")}
-        </ActionButton>}
+        {isApproved && (
+          <ActionButton
+            disabled={rawEarningsBalance === 0 || pendingTx}
+            height="fit-content"
+            onClick={async () => {
+              setPendingTx(true);
+              try {
+                await onReward();
+              } finally {
+                setPendingTx(false);
+              }
+            }}
+            className="btn"
+          >
+            {TranslateString(562, "Harvest")}
+          </ActionButton>
+        )}
       </Flex>
 
       {!account ? (
-          <UnlockButton mt="8px" ml="8px" />
+        <UnlockButton mt="8px" ml="8px" />
       ) : (
         renderApprovalOrStakeButton()
       )}

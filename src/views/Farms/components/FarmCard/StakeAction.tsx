@@ -65,10 +65,13 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
   );
   return (
     <div className="mt-5">
-      {rawStakedBalance !== 0 ?
+      {rawStakedBalance !== 0 ? (
         <Flex height="60px" justifyContent="space-between" alignItems="center">
-          {<div>
-            <Heading textAlign="left" color={rawStakedBalance === 0 ? "textDisabled" : "text"}>
+          <div>
+            <Heading
+              textAlign="left"
+              color={rawStakedBalance === 0 ? "textDisabled" : "text"}
+            >
               {displayBalance}
             </Heading>
             <Flex>
@@ -85,14 +88,22 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
                 {TranslateString(1074, "Staked")}
               </Text>
             </Flex>
-          </div>}
+          </div>
           {rawStakedBalance === 0 ? (
-            <ActionButton style={{width: '80%'}} onClick={onPresentDeposit} className="btn">
+            <ActionButton
+              style={{ width: "80%" }}
+              onClick={onPresentDeposit}
+              className="btn"
+            >
               {TranslateString(999, "Stake LP")}
             </ActionButton>
           ) : (
             <IconButtonWrapper>
-              <IconButton variant="tertiary" onClick={onPresentWithdraw} mr="6px">
+              <IconButton
+                variant="tertiary"
+                onClick={onPresentWithdraw}
+                mr="6px"
+              >
                 <MinusIcon color="primary" width="14px" />
               </IconButton>
               <IconButton variant="tertiary" onClick={onPresentDeposit}>
@@ -101,13 +112,21 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
             </IconButtonWrapper>
           )}
         </Flex>
-        : 
-        <Flex alignItems="center" justifyContent="center" style={{height: "60px"}}>
-          <ActionButton style={{width: '80%'}} onClick={onPresentDeposit} className="btn">
+      ) : (
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+          style={{ height: "60px" }}
+        >
+          <ActionButton
+            style={{ width: "80%" }}
+            onClick={onPresentDeposit}
+            className="btn"
+          >
             {TranslateString(999, "Stake LP")}
           </ActionButton>
         </Flex>
-      }
+      )}
     </div>
   );
 };
