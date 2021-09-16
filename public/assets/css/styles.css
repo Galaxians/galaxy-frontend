@@ -590,6 +590,10 @@ td.farm-table:last-child {
   border-bottom-right-radius: 10px;
 }
 
+td.farm-table-details {
+  background: #440C8B;
+}
+
 @media (max-width: 1150px) {
   .navbar-brand {
     display: none;

@@ -73,14 +73,14 @@ const StyledLink = styled.a`
 /**
  * Outbound link that handles firing google analytics events
  */
-export function ExternalLink({
+export const ExternalLink = ({
   target = "_blank",
   href,
   rel = "noopener noreferrer",
   ...rest
 }: Omit<HTMLProps<HTMLAnchorElement>, "as" | "ref" | "onClick"> & {
   href: string;
-}) {
+}) => {
   const handleClick = useCallback(
     (event: React.MouseEvent<HTMLAnchorElement>) => {
       if (!(target === "_blank" || event.ctrlKey || event.metaKey)) {

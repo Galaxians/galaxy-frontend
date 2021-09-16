@@ -24,9 +24,9 @@ export const ActionContainer = styled.div`
 `;
 
 export const ActionTitles = styled.div`
-  font-weight: 600;
-  font-size: 12px;
+  font: normal normal normal 15px/17px Mosk;
   margin-bottom: 8px;
+  color: #FF1FFF;
 `;
 
 export const Title = styled.span`
@@ -43,7 +43,7 @@ export const ActionContent = styled.div`
   align-items: center;
 `;
 export const Earned = styled.div`
-  font-weight: 600;
+  font-weight: 400;
   font-size: 20px;
   color: ${({ theme }) => theme.colors.text};
 `;

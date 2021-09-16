@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import useI18n from "hooks/useI18n";
-import { LinkExternal, Text } from "glx-uikit";
+import { LinkExternal, Text, Link } from "glx-uikit";
 import { FarmWithStakedValue } from "views/Farms/components/FarmCard/FarmCard";
 import getLiquidityUrlPathParts from "utils/getLiquidityUrlPathParts";
 import { communityFarms } from "config/constants";
-import { CommunityTag, CoreTag, DualTag } from "components/Tags";
+import { CommunityTag, CoreTagFarm, DualTag } from "components/Tags";
 import { BASE_EXCHANGE_URL } from "config";
 
 import HarvestAction from "./HarvestAction";
@@ -21,8 +21,8 @@ export interface ActionPanelProps {
   details: FarmWithStakedValue;
 }
 
+//background: ${({ theme }) => theme.colors.background};
 const Container = styled.div`
-  background: ${({ theme }) => theme.colors.background};
   display: flex;
   width: 100%;
   flex-direction: column-reverse;
@@ -34,8 +34,10 @@ const Container = styled.div`
   }
 `;
 
-const StyledLinkExternal = styled(LinkExternal)`
-  font-weight: 400;
+const StyledLinkExternal = styled(Link)`
+  color: white;
+  font: normal normal medium 16px/19px Mosk;
+  line-height: 1;
 `;
 
 const StakeContainer = styled.div`
@@ -108,7 +110,6 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   liquidity,
 }) => {
   const farm = details;
-
   const TranslateString = useI18n();
   const {
     quoteTokenAdresses,
@@ -146,7 +147,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
           {TranslateString(999, "See Pair Info")}
         </StyledLinkExternal>
         <TagsContainer>
-          {isCommunityFarm ? <CommunityTag /> : <CoreTag />}
+          {isCommunityFarm ? <CommunityTag /> : <CoreTagFarm />}
           {dual ? <DualTag /> : null}
         </TagsContainer>
       </InfoContainer>
