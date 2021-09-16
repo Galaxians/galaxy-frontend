@@ -74,6 +74,7 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
       />
     ) : (
       <ActionButton
+        style={{ width: "80%" }}
         disabled={requestedApproval}
         onClick={handleApprove}
         className="btn"
