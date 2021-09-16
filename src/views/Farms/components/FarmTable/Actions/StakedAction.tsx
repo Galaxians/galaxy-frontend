@@ -1,8 +1,6 @@
 import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 import { Button, useModal, IconButton, AddIcon, MinusIcon } from "glx-uikit";
-import ConnectButton from "./ConnectButton";
-import ActionButton from "./ActionButton";
 import { useWeb3React } from "@web3-react/core";
 import { useFarmUser } from "state/hooks";
 import { FarmWithStakedValue } from "views/Farms/components/FarmCard/FarmCard";
@@ -15,6 +13,8 @@ import { getBalanceNumber } from "utils/formatBalance";
 import useStake from "hooks/useStake";
 import useUnstake from "hooks/useUnstake";
 import useWeb3 from "hooks/useWeb3";
+import ActionButton from "./ActionButton";
+import ConnectButton from "./ConnectButton";
 
 import DepositModal from "../../DepositModal";
 import WithdrawModal from "../../WithdrawModal";

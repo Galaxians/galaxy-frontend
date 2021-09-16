@@ -21,7 +21,7 @@ export interface ActionPanelProps {
   details: FarmWithStakedValue;
 }
 
-//background: ${({ theme }) => theme.colors.background};
+// background: ${({ theme }) => theme.colors.background};
 const Container = styled.div`
   display: flex;
   width: 100%;
