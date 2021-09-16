@@ -30,13 +30,4 @@ export const getTranslation = (
   return fallback;
 };
 
-export const TranslateString = (translationId: number, fallback: string) => {
-  const { translations } = useContext(TranslationsContext);
-  if (translations[0] === "error") {
-    return fallback;
-  }
-  if (translations.length > 0) {
-    return getTranslation(translations, translationId, fallback);
-  }
-  return null;
-};
+export default getTranslation;

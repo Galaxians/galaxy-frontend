@@ -172,14 +172,14 @@ export default function Navbar({ toggle }) {
             </button>
             <a className="navbar-brand" href={window.origin}>
               <img
-                src="./assets/img/Galaxyswap-logo-color-1600px.png"
+                src="/assets/img/Galaxyswap-logo-color-1600px.png"
                 alt="Galaxy Swap"
                 style={{ width: "180px", marginLeft: "30px" }}
               />
             </a>
             <a className="navbar-icon" href={window.origin}>
               <img
-                src="./assets/img/Icon-galaxyswap-192x192.png"
+                src="/assets/img/Icon-galaxyswap-192x192.png"
                 alt="Galaxy Swap"
                 style={{ marginLeft: "5px", width: "50px", minWidth: "50px" }}
               />
@@ -226,7 +226,7 @@ export default function Navbar({ toggle }) {
               </div>
             </span>
             <img
-              src="./assets/img/alien-kal-avatar.png"
+              src="/assets/img/alien-kal-avatar.png"
               alt="profile"
               style={{
                 marginLeft: "11px",
@@ -390,7 +390,7 @@ export default function Navbar({ toggle }) {
               </div>
             </span>
             <img
-              src="./assets/img/alien-kal-avatar.png"
+              src="/assets/img/alien-kal-avatar.png"
               alt="profile"
               style={{ marginLeft: "11px", width: "40px" }}
             />

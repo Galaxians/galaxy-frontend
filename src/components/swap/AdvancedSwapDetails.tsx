@@ -33,7 +33,7 @@ function TradeSummary({
 
   return (
     <Card>
-      <CardBody style={{ width: "80%", margin: "auto" }}>
+      <CardBody style={{ width: "80%", margin: "auto", padding: 7 }}>
         <RowBetween>
           <RowFixed>
             <Text fontSize="14px">

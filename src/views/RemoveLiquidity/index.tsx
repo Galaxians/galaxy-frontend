@@ -70,6 +70,7 @@ import {
   useUserSlippageTolerance,
 } from "../../state/user/hooks";
 import getLibrary from "../../utils/getLibrary";
+import { SwapWrapper } from "../SwapWrapper";
 
 const OutlineCard = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.borderColor};
@@ -573,7 +574,7 @@ export default function RemoveLiquidity() {
     );
 
   return (
-    <>
+    <SwapWrapper>
       <div className="h1 text-white mt-5"> Remove Liquidity</div>
 
       <AppBody>
@@ -873,6 +874,6 @@ export default function RemoveLiquidity() {
           <MinimalPositionCard showUnwrapped={oneCurrencyIsWETH} pair={pair} />
         </AutoColumn>
       ) : null}
-    </>
+    </SwapWrapper>
   );
 }

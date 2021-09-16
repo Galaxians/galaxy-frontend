@@ -34,6 +34,7 @@ const NotFound = lazy(() => import("./views/NotFound"));
 const LaunchPad = lazy(() => import("./views/LaunchPad"));
 const Swap = lazy(() => import("./views/Swap"));
 const Pool = lazy(() => import("./views/Pool"));
+const PoolFinder = lazy(() => import("./views/PoolFinder"));
 const AddLiquidity = lazy(() => import("./views/AddLiquidity"));
 const RedirectOldAddLiquidityPathStructure = lazy(
   () => import("./views/AddLiquidity/RedirectOldAddLiquidityPathStructure")
@@ -124,6 +125,9 @@ const App: React.FC = () => {
             </Route>
             <Route exact strict path="/remove/:tokens">
               <RedirectOldRemoveLiquidityPathStructure />
+            </Route>
+            <Route exact strict path="/find">
+              <PoolFinder />
             </Route>
             <Route component={NotFound} />
           </Switch>

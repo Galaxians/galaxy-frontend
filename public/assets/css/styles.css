@@ -29,6 +29,7 @@ body {
   background-position-x: right;
   background-position-y: -120px;
   padding: 0;
+  position: relative;
 }
 @media (min-width: 950px) {
   .ghost {

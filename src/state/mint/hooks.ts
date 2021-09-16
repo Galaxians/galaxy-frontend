@@ -14,7 +14,6 @@ import { PairState, usePair } from "../../data/Reserves";
 import { useTotalSupply } from "../../data/TotalSupply";
 
 import { useActiveWeb3React } from "../../hooks";
-import { TranslateString } from "../../utils/translateTextHelpers";
 import {
   wrappedCurrency,
   wrappedCurrencyAmount,
@@ -196,11 +195,11 @@ export function useDerivedMintInfo(
   }
 
   if (pairState === PairState.INVALID) {
-    error = error ?? TranslateString(136, "Invalid pair");
+    error = error ?? "Invalid pair";
   }
 
   if (!parsedAmounts[Field.CURRENCY_A] || !parsedAmounts[Field.CURRENCY_B]) {
-    error = error ?? TranslateString(84, "Enter an amount");
+    error = error ?? "Enter an amount";
   }
 
   const {

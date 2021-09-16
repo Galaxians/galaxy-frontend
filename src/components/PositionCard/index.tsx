@@ -79,7 +79,7 @@ export function MinimalPositionCard({
     <>
       {userPoolBalance && (
         <UIKitCard>
-          <CardBody>
+          <CardBody style={{ padding: 7 }}>
             <AutoColumn gap="12px">
               <FixedHeightRow>
                 <RowFixed>
