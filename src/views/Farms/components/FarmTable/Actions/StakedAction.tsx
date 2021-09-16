@@ -1,7 +1,8 @@
 import React, { useState, useCallback } from "react";
 import styled from "styled-components";
 import { Button, useModal, IconButton, AddIcon, MinusIcon } from "glx-uikit";
-import UnlockButton from "components/UnlockButton";
+import ConnectButton from "./ConnectButton";
+import ActionButton from "./ActionButton";
 import { useWeb3React } from "@web3-react/core";
 import { useFarmUser } from "state/hooks";
 import { FarmWithStakedValue } from "views/Farms/components/FarmCard/FarmCard";
@@ -26,6 +27,9 @@ import {
   Subtle,
 } from "./styles";
 
+const CustomActionContainer = styled(ActionContainer)`
+  border: 0px;
+`
 const IconButtonWrapper = styled.div`
   display: flex;
 `;
@@ -90,21 +94,21 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({
 
   if (!account) {
     return (
-      <ActionContainer>
-        <ActionTitles>
-          <Subtle>{TranslateString(999, "START FARMING")}</Subtle>
+      <CustomActionContainer>
+        <ActionTitles style={{ color: "#ffffff" }}>
+          {TranslateString(999, "Start farming")}
         </ActionTitles>
         <ActionContent>
-          <UnlockButton width="100%" />
+          <ConnectButton style={{ width: "80%"}}/>
         </ActionContent>
-      </ActionContainer>
+      </CustomActionContainer>
     );
   }
 
   if (isApproved) {
     if (rawStakedBalance) {
       return (
-        <ActionContainer>
+        <CustomActionContainer>
           <ActionTitles>
             <Title>{lpSymbol} </Title>
             <Subtle>{TranslateString(999, "STAKED")}</Subtle>
@@ -126,7 +130,7 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({
               </IconButton>
             </IconButtonWrapper>
           </ActionContent>
-        </ActionContainer>
+        </CustomActionContainer>
       );
     }
 
@@ -146,21 +150,21 @@ const Staked: React.FunctionComponent<FarmWithStakedValue> = ({
   }
 
   return (
-    <ActionContainer>
-      <ActionTitles>
-        <Subtle>{TranslateString(999, "ENABLE FARM")}</Subtle>
+    <CustomActionContainer>
+      <ActionTitles style={{ color: "#ffffff" }}>
+        {TranslateString(999, "Eable Farm")}
       </ActionTitles>
       <ActionContent>
-        <Button
-          width="100%"
+        <ActionButton
+          width="80%"
           disabled={requestedApproval}
           onClick={handleApprove}
           variant="secondary"
         >
           {TranslateString(999, "Enable")}
-        </Button>
+        </ActionButton>
       </ActionContent>
-    </ActionContainer>
+    </CustomActionContainer>
   );
 };
 
