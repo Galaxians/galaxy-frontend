@@ -5,10 +5,10 @@ import styled from "styled-components";
 export const SidebarContainer = styled.div<{ isOpen: any }>`
   position: absolute;
   z-index: 998;
-  top: 0;
+  top: 92px;
   left: 0px;
   width: 250px;
-  height: 100vh;
+  height: calc(100% - 92px);
   cursor: pointer;
   background: rgb(52, 0, 72);
   padding: 5px;
@@ -117,7 +117,7 @@ export default function LeftSidebar({ isOpen, toggle }) {
       >
         <div style={{ color: "white", fontSize: "22px", display: "flex" }}>
           <img
-            src="./assets/img/Galaxia-token-color-250px.png"
+            src="/assets/img/Galaxia-token-color-250px.png"
             alt="Galaxy Swap"
             style={{ width: "24px" }}
           />
@@ -134,7 +134,7 @@ export default function LeftSidebar({ isOpen, toggle }) {
           }}
         >
           <img
-            src="./assets/img/bscscan-icon.svg"
+            src="/assets/img/bscscan-icon.svg"
             alt="bscscan"
             style={{ width: "24px" }}
           />
@@ -148,7 +148,7 @@ export default function LeftSidebar({ isOpen, toggle }) {
           }}
         >
           <img
-            src="./assets/img/bscscan-icon.svg"
+            src="/assets/img/bscscan-icon.svg"
             alt="bscscan"
             style={{ width: "24px" }}
           />
@@ -162,7 +162,7 @@ export default function LeftSidebar({ isOpen, toggle }) {
           }}
         >
           <img
-            src="./assets/img/bscscan-icon.svg"
+            src="/assets/img/bscscan-icon.svg"
             alt="bscscan"
             style={{ width: "24px" }}
           />
@@ -184,7 +184,7 @@ export default function LeftSidebar({ isOpen, toggle }) {
         role="button"
         tabIndex={0}
       >
-        <img src="./assets/img/left.png" alt="left" style={{ width: "28px" }} />
+        <img src="/assets/img/left.png" alt="left" style={{ width: "28px" }} />
       </div>
     </SidebarContainer>
   );

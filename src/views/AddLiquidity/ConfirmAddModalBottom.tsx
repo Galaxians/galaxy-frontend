@@ -6,7 +6,6 @@ import {
 } from "@pancakeswap-libs/sdk";
 import React from "react";
 import { Button, Text } from "glx-uikit";
-import { TranslateString } from "utils/translateTextHelpers";
 import { RowBetween, RowFixed } from "../../components/Row";
 import CurrencyLogo from "../../components/CurrencyLogo";
 import { Field } from "../../state/mint/actions";
@@ -70,9 +69,7 @@ export function ConfirmAddModalBottom({
         </Text>
       </RowBetween>
       <Button mt="20px" onClick={onAdd}>
-        {noLiquidity
-          ? TranslateString(250, "Create Pool & Supply")
-          : TranslateString(252, "Confirm Supply")}
+        {noLiquidity ? "Create Pool & Supply" : "Confirm Supply"}
       </Button>
     </>
   );
