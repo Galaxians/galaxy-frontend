@@ -20,9 +20,9 @@ const Action = styled.div`
 `;
 
 const FlexStaked = styled(Flex)`
-  margin-bottm: 36px;
+  margin-bottom: 36px;
   @media (max-width: 500px) {
-    margin-bottm: 0px;
+    margin-bottom: 12px;
   }
 `;
 export interface FarmWithStakedValue extends Farm {
@@ -88,8 +88,8 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
   const displayBalance = rawEarningsBalance.toFixed(4).toLocaleString();
   return (
     <Action>
-      <Flex justifyContent="space-between" mb="36px" alignItems="flex-end">
-        <FlexStaked flexDirection="column" justifyItems="self-start">
+      <FlexStaked justifyContent="space-between" alignItems="flex-end">
+        <Flex flexDirection="column" justifyItems="self-start">
           <Text
             fontSize="30px"
             fontWeight="800"
@@ -116,8 +116,8 @@ const CardActions: React.FC<FarmCardActionsProps> = ({
               {TranslateString(1072, "earned")}
             </Text>
           </Flex>
-        </FlexStaked>
-      </Flex>
+        </Flex>
+      </FlexStaked>
 
       {!account ? (
         <Flex justifyContent="center">
